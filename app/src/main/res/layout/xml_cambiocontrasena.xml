@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+	
+    <TextView
+		android:layout_width="wrap_content"
+    	android:layout_height="wrap_content"
+    	android:layout_margin="20px"
+    	android:layout_gravity="center_horizontal"
+    	android:text="Cambiar Login y Contraseña internos"
+    	android:textColor="@color/white"
+    	android:textSize="@dimen/talla_texto_titulo"/>
+    
+    <TableLayout 
+        android:layout_width="wrap_content"
+    	android:layout_height="wrap_content"
+    	android:layout_gravity="center_horizontal"
+    	android:gravity="center_vertical">
+    	
+    	<TableRow 
+    		android:layout_width="match_parent"
+    		android:layout_height="match_parent">
+    	
+    		<TextView 
+    			android:layout_width="300px"
+		    	android:layout_height="wrap_content"
+		    	android:layout_margin="5px"
+		    	android:gravity="center_horizontal"
+		    	android:text="Nuevo login:"
+		    	android:textColor="@color/white"
+		    	android:textSize="@dimen/talla_texto_medioGrande"/>
+    	
+    		 <EditText android:id="@+id/CAMBIO_LOGIN"
+		    	android:layout_width="350px"
+		    	android:layout_height="wrap_content"
+		    	android:layout_margin="5px"
+		    	android:gravity="center"
+		    	android:singleLine="true"
+		    	android:textSize="@dimen/talla_texto_grande"/>
+    	
+    	</TableRow>
+    	
+        <TableRow 
+    		android:layout_width="match_parent"
+    		android:layout_height="match_parent">
+    	
+    		<TextView 
+    			android:layout_width="300px"
+		    	android:layout_height="wrap_content"
+		    	android:layout_margin="5px"
+		    	android:gravity="center_horizontal"
+		    	android:text="Nueva contraseña:"
+		    	android:textColor="@color/white"
+		    	android:textSize="@dimen/talla_texto_medioGrande"/>
+    	
+    		 <EditText android:id="@+id/CAMBIO_pass1"
+		    	android:layout_width="350px"
+		    	android:layout_height="wrap_content"
+		    	android:layout_margin="5px"
+		    	android:gravity="center"
+		    	android:singleLine="true"
+		    	android:inputType="textPassword"
+		    	android:text=""
+		    	android:textSize="@dimen/talla_texto_grande"/>
+    	
+    	</TableRow>
+    	
+        <TableRow 
+    		android:layout_width="match_parent"
+    		android:layout_height="match_parent">
+    	
+    		<TextView 
+    			android:layout_width="300px"
+		    	android:layout_height="wrap_content"
+		    	android:layout_margin="5px"
+		    	android:gravity="center_horizontal"
+		    	android:text="Confirmar contraseña:"
+		    	android:textColor="@color/white"
+		    	android:textSize="@dimen/talla_texto_medioGrande"/>
+    	
+    		 <EditText android:id="@+id/CAMBIO_pass2"
+		    	android:layout_width="350px"
+		    	android:layout_height="wrap_content"
+		    	android:layout_margin="5px"
+		    	android:gravity="center"
+		    	android:inputType="textPassword"
+		    	android:singleLine="true"
+		    	android:text=""
+		    	android:textSize="@dimen/talla_texto_grande"/>
+    	
+    	</TableRow>
+    	
+            
+        <TableRow 
+    		android:layout_width="match_parent"
+    		android:layout_height="match_parent">
+    	
+    		<Button android:id="@+id/CAMBIO_boton_cancelar"
+    			android:layout_width="100px"
+		    	android:layout_height="wrap_content"
+		    	android:layout_margin="10px"
+		    	android:text="Cancelar"
+		    	android:textSize="@dimen/talla_texto_medioGrande"/>
+    	
+    		 <Button android:id="@+id/CAMBIO_boton_validar"
+		    	android:layout_width="100px"
+		    	android:layout_height="wrap_content"
+		    	android:layout_margin="10px"
+		    	android:text="Validar"
+		    	android:textSize="@dimen/talla_texto_medioGrande"/>
+    	
+    	</TableRow>
+    </TableLayout>
+
+</LinearLayout>

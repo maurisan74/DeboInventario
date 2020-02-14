@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:id="@+id/DIALOG_main1"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:orientation="vertical"
+	android:padding="5px" >
+
+	<LinearLayout
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:gravity="center_vertical"
+		android:orientation="horizontal"
+		android:padding="10px" >
+
+		<ImageView
+			android:id="@+id/DIALOG_imagen"
+			android:layout_width="100px"
+			android:layout_height="100px"
+			android:layout_marginRight="10px"
+			android:padding="10px"
+			android:scaleType="fitCenter" />
+
+		<LinearLayout
+			android:layout_width="300px"
+			android:layout_height="wrap_content"
+			android:gravity="center_horizontal"
+			android:orientation="vertical" >
+
+			<TextView
+				android:id="@+id/DIALOG_texto"
+				android:layout_width="match_parent"
+				android:layout_height="fill_parent"
+				android:textColor="@color/white"
+				android:textSize="@dimen/talla_texto_medio" />
+		</LinearLayout>
+	</LinearLayout>
+
+	<CheckBox
+		android:id="@+id/DIaLOG_chkbox"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_gravity="center_horizontal"
+		android:checked="false"
+		android:text="Luego borrar los datos"
+		android:textSize="20px" />
+
+	<LinearLayout
+		android:id="@+id/DIALOG_main"
+		android:layout_width="wrap_content"
+		android:layout_height="match_parent"
+		android:layout_gravity="center_horizontal"
+		android:orientation="horizontal"
+		android:padding="5px" >
+
+		<Button
+			android:id="@+id/DIALOG_boton_wifi"
+			android:layout_width="150px"
+			android:layout_height="50px"
+			android:layout_marginRight="30px"
+			android:text="RED WIFI"
+			android:textSize="@dimen/talla_texto_medioGrande" />
+
+		<Button
+			android:id="@+id/DIALOG_boton_usb"
+			android:layout_width="150px"
+			android:layout_height="50px"
+			android:layout_marginLeft="30px"
+			android:layout_marginRight="30px"
+			android:text="Dispositivo"
+			android:textSize="@dimen/talla_texto_medioGrande" />
+
+		<Button
+			android:id="@+id/DIALOG_boton_cancelar"
+			android:layout_width="150px"
+			android:layout_height="50px"
+			android:layout_marginLeft="30px"
+			android:text="Cancelar"
+			android:textSize="@dimen/talla_texto_medioGrande" />
+	</LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:id="@+id/USB_root"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:background="@color/white"
+	android:gravity="center_horizontal"
+	android:orientation="vertical" >
+
+	<TextView
+		android:id="@+id/USB_titulo"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginBottom="25px"
+		android:layout_marginTop="4px"
+		android:text="Detalles del Articulo"
+		android:textColor="@color/anaranjado_verde"
+		android:textSize="@dimen/titulo" />
+
+	<!-- BOTONES DE VALIDACIÓN / CANCELACIÓN -->
+
+	<ScrollView
+		android:layout_width="wrap_content"
+		android:layout_height="320px" >
+
+		<TableLayout
+			android:id="@+id/USB_tabla"
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginRight="40px"
+			android:layout_marginTop="5px" >
+
+			<TableRow
+				android:layout_width="fill_parent"
+				android:layout_height="wrap_content"
+				android:gravity="center_horizontal" >
+
+				<TextView
+					android:layout_width="40px"
+					android:layout_height="wrap_content"
+					android:gravity="center"
+					android:text=" "
+					android:textSize="20px" />
+
+				<TextView
+					android:layout_width="150px"
+					android:layout_height="wrap_content"
+					android:gravity="center"
+					android:text="Inventario nº:"
+					android:textSize="20px" />
+
+				<TextView
+					android:layout_width="200px"
+					android:layout_height="wrap_content"
+					android:gravity="center"
+					android:text="Descripción:"
+					android:textSize="20px" />
+
+				<TextView
+					android:layout_width="120px"
+					android:layout_height="wrap_content"
+					android:gravity="center"
+					android:text="Fecha:"
+					android:textSize="20px" />
+
+				<TextView
+					android:layout_width="100px"
+					android:layout_height="wrap_content"
+					android:gravity="center"
+					android:text="Cantidad:"
+					android:textSize="20px" />
+			</TableRow>
+		</TableLayout>
+	</ScrollView>
+
+	<TableLayout
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="5px" >
+
+		<TableRow
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			android:gravity="center_horizontal" >
+
+			<Button
+				android:id="@+id/USB_boton_precedente"
+				android:layout_marginRight="40px"
+				android:text="Volver"
+				android:visibility="visible"
+				android:width="150px" />
+
+			<Button
+				android:id="@+id/USB_boton_refrescar"
+				android:layout_marginRight="40px"
+				android:text="Refrescar lista"
+				android:visibility="visible"
+				android:width="150px" />
+
+			<Button
+				android:id="@+id/USB_boton_siguiente"
+				android:text="Seguir"
+				android:visibility="invisible"
+				android:width="150px" />
+		</TableRow>
+	</TableLayout>
+
+	<TextView
+		android:id="@+id/aaaa"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:gravity="center"
+		android:text=""
+		android:textColor="@color/black"
+		android:textSize="10px" />
+
+</LinearLayout>

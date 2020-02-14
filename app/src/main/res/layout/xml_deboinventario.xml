@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/fondo_recepcion_inventario" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:orientation="vertical" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:text="@string/titulo_debo_inventario"
+            android:textColor="@color/black"
+            tools:ignore="SpUsage"
+            android:textSize="25dp" />
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical|center_horizontal">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:layout_gravity="center_horizontal">
+
+                <!-- PRIMER BOTON - izquierda -->
+
+                <LinearLayout
+                    android:layout_width="200dp"
+                    android:layout_height="200dp"
+                    android:layout_margin="40dp"
+                    android:gravity="center"
+                    android:orientation="vertical" >
+
+                    <Button
+                        android:id="@+id/DI_boton_izq"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dim_boton_grande"
+                        android:layout_margin="10dp"
+                        android:text="@string/palabra_inventarios"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/boton_grande" />
+
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="@string/continuar_inventarios_en_curso"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/boton_grande" />
+                </LinearLayout>
+
+                <!-- SEGUNDO BOTON - centro -->
+
+                <LinearLayout
+                    android:layout_width="200dp"
+                    android:layout_height="200dp"
+                    android:layout_margin="40dp"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:visibility="gone" >
+
+                    <Button
+                        android:id="@+id/DI_boton_cen"
+                        android:layout_width="@dimen/dim_boton_grande"
+                        android:layout_height="@dimen/dim_boton_grande"
+                        android:layout_margin="10dp"
+                        android:text="@string/empezar"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/boton_grande" />
+
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="Comenzar Nuevo Inventario"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/boton_grande"
+                        tools:ignore="HardcodedText" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:layout_gravity="center_horizontal">
+
+                <LinearLayout
+                    android:layout_width="200dp"
+                    android:layout_height="200dp"
+                    android:layout_margin="40dp"
+                    android:gravity="center"
+                    android:orientation="vertical" >
+
+                    <Button
+                        android:id="@+id/boton_compras"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dim_boton_grande"
+                        android:layout_margin="10dp"
+                        android:text="@string/mensaje_boton_acceso_compras"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/boton_grande" />
+
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="@string/acceder_para_cargar_las_compras"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/boton_grande" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="200dp"
+                    android:layout_height="200dp"
+                    android:layout_margin="40dp"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:visibility="gone" >
+
+                    <Button
+                        android:id="@+id/button2"
+                        android:layout_width="@dimen/dim_boton_grande"
+                        android:layout_height="@dimen/dim_boton_grande"
+                        android:layout_margin="10dp"
+                        android:text="@string/empezar"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/boton_grande" />
+
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="@string/comenzar_nuevo_inventario"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/boton_grande" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/DI_version"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:text="@string/palabra_version"
+        android:textColor="@color/black"
+        android:textSize="12sp"
+        tools:ignore="RelativeOverlap" />
+
+    <TextView
+        android:id="@+id/DI_idtablet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:text="@string/palabra_id_terminal"
+        android:textColor="@color/black"
+        android:textSize="12sp" />
+
+    <ImageView
+        android:id="@+id/DI_imagen_debo"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:adjustViewBounds="true"
+        android:scaleType="fitCenter"
+        android:visibility="visible"
+        android:contentDescription=""
+        tools:ignore="ContentDescription">
+    </ImageView>
+
+    <ImageView
+        android:id="@+id/DI_imagen_salir"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_margin="10dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/boton_salir"
+        android:visibility="visible"
+        tools:ignore="ContentDescription">
+    </ImageView>
+
+    <ImageView
+        android:id="@+id/DI_imagen_config"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignParentTop="true"
+        android:layout_margin="10dp"
+        android:layout_toLeftOf="@+id/DI_imagen_salir"
+        android:src="@drawable/boton_config"
+        tools:ignore="ContentDescription">
+    </ImageView>
+
+    <ImageView
+        android:id="@+id/DI_imagen_update"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignParentTop="true"
+        android:layout_margin="6dp"
+        android:layout_toLeftOf="@+id/DI_imagen_config"
+        android:src="@drawable/boton_update"
+        tools:ignore="ContentDescription">
+    </ImageView>
+
+</RelativeLayout>

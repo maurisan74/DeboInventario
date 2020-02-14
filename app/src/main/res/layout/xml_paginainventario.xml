@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/PI_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/fondo_pagina_inventario" >
+
+    <ImageView
+        android:id="@+id/PI_boton_lectora"
+        android:layout_width="45px"
+        android:layout_height="37px"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginRight="140px"
+        android:scaleType="centerInside"
+        android:src="@drawable/lectora_mas_1" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true"
+        android:gravity="center_horizontal"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/PI_tit_pagina"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="4px"
+            android:text="Inventario nºXXX"
+            android:textColor="@color/anaranjado_verde"
+            android:textSize="17sp" />
+
+        <requestFocus />
+
+        <!-- ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; -->
+        <!-- ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; -->
+        <!-- ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; -->
+        <!-- ##################################### -->
+        <!-- ####        TABLA CENTRAL        #### -->
+        <!-- ##################################### -->
+
+
+        <!-- ####@@@@ ENCABEZADOS @@@@#### -->
+
+        <TableLayout
+            android:id="@+id/PI_tabla_central"
+            android:layout_width="740px"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginRight="18px"
+            android:background="@color/black"
+            android:layout_marginTop="30px">
+
+            <TableRow
+                android:layout_width="730px"
+                android:layout_height="wrap_content"
+                android:layout_margin="4px" >
+
+                <TextView
+                    android:id="@+id/PI_encabezado_codigo"
+                    android:layout_width="95px"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="3px"
+                    android:background="@color/verde_claro"
+                    android:gravity="center"
+                    android:text="Código"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/grande" />
+
+                <TextView
+                    android:id="@+id/PI_encabezado_descripcion"
+                    android:layout_width="340px"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="3px"
+                    android:background="@color/verde_claro"
+                    android:gravity="center"
+                    android:text="Articulo"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/grande" />
+
+                <TextView
+                    android:id="@+id/PI_encabezado_precio"
+                    android:layout_width="90px"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="3px"
+                    android:background="@color/verde_claro"
+                    android:gravity="center"
+                    android:text="Precio"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/grande" />
+
+
+                <TextView
+                    android:id="@+id/PI_encabezado_cantidad"
+                    android:layout_width="100px"
+                    android:layout_height="wrap_content"
+                    android:background="@color/verde_claro"
+                    android:gravity="center"
+                    android:text="Cantidad"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/grande"
+                    android:layout_marginRight="3px"/>
+
+                <TextView
+                    android:id="@+id/PI_encabezado_existencia"
+                    android:layout_width="93px"
+                    android:layout_height="wrap_content"
+                    android:background="@color/verde_claro"
+                    android:gravity="center"
+                    android:text="Existencia"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/grande" />
+            </TableRow>
+        </TableLayout>
+        <!-- ####@@@@ _____FIN ENCABEZADOS____ @@@@#### -->
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <!-- ####@@@@ ARTICULOS @@@@#### -->
+
+            <TableLayout
+                android:id="@+id/PI_tabla_articulos"
+                android:layout_width="740px"
+                android:layout_height="wrap_content" >
+            </TableLayout>
+
+            <RelativeLayout
+                android:id="@+id/PI_layout_lateral"
+                android:layout_width="30px"
+                android:layout_height="300px"
+                android:layout_marginLeft="5px"
+                android:gravity="center_vertical" >
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingBottom="18px"
+                    android:paddingTop="15px"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/linea_asensor" />
+
+                <LinearLayout
+                    android:id="@+id/PI_layout_asensor"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical" >
+
+                    <TextView
+                        android:id="@+id/PI_asensor_text"
+                        android:layout_width="10px"
+                        android:layout_height="wrap_content"
+                        android:lines="0"
+                        android:text="aaaaaa"
+                        android:textSize="1px" />
+
+                    <ImageView
+                        android:id="@+id/PI_asensor"
+                        android:layout_width="30px"
+                        android:layout_height="30px"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/asensor" />
+                </LinearLayout>
+            </RelativeLayout>
+        </LinearLayout>
+    </LinearLayout>
+    <!-- ####@@@@ ____FIN ARTICULOS____ @@@@#### -->
+
+    <ProgressBar
+        android:id="@+id/PI_loadingbar"
+        android:layout_width="120px"
+        android:layout_height="120px"
+        android:layout_centerInParent="true"
+        android:background="@color/black"
+        android:visibility="visible" />
+
+    <ImageView
+        android:id="@+id/PI_encab_codigo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="50px"
+        android:layout_marginTop="16px"
+        android:src="@drawable/filtro"
+        android:visibility="invisible" />
+
+    <ImageView
+        android:id="@+id/PI_encab_precio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="555px"
+        android:layout_marginTop="16px"
+        android:src="@drawable/filtro"
+        android:visibility="invisible" />
+
+    <ImageView
+        android:id="@+id/PI_encab_cantidad"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="690px"
+        android:layout_marginTop="16px"
+        android:src="@drawable/filtro"
+        android:visibility="invisible" />
+
+    <ImageView
+        android:id="@+id/PI_boton_up"
+        android:layout_width="40px"
+        android:layout_height="40px"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="5px"
+        android:layout_marginTop="25px"
+        android:src="@drawable/boton_up" />
+
+    <ImageView
+        android:id="@+id/PI_boton_down"
+        android:layout_width="40px"
+        android:layout_height="40px"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="5px"
+        android:layout_marginTop="370px"
+        android:src="@drawable/boton_down" />
+
+    <Button
+        android:id="@+id/PI_boton_salir"
+        android:layout_width="wrap_content"
+        android:layout_height="40px"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="10px"
+        android:layout_marginTop="1px"
+        android:focusable="false"
+        android:text="Salir" />
+
+    <ImageView
+        android:id="@+id/PI_boton_busqueda"
+        android:layout_width="35px"
+        android:layout_height="35px"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="150px"
+        android:layout_marginTop="1px"
+        android:src="@drawable/zoom" />
+
+    <ImageView
+        android:id="@+id/Ic_Lectora"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_marginLeft="50px"
+        android:layout_alignBottom="@+id/PI_boton_salir"
+        android:layout_alignLeft="@+id/PI_boton_busqueda"
+        android:src="@drawable/ic_lectora" />
+
+</RelativeLayout>

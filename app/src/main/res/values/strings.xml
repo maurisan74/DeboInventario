@@ -1,9 +1,65 @@
 <resources>
-    <string name="app_name">DeboInventario</string>
+    <string name="hello">Hello World!</string>
+    <string name="app_name">Debo Inventario</string>
+    <string name="subtit_nombre"><b>
+			<u>Nombre: </u>
+		</b></string>
+    <string name="subtit_sector"><b>
+			<u>Sector: </u>
+		</b></string>
+    <string name="subtit_codigo"><b>
+			<u>Código: </u>
+		</b></string>
+    <string name="subtit_codigobarras"><b>
+			<u>Código de barras: </u>
+		</b></string>
+    <string name="subtit_precio"><b>
+			<u>Precio de venta: </u>
+		</b></string>
+    <string name="subtit_costo"><b>
+			<u>Precio de costo: </u>
+		</b></string>
+    <string name="subtit_cantidad"><b>
+			<u>Cantidades en stock: </u>
+		</b></string>
 
-    <string name="full_screem">Bienvenido a Debo Inventario</string>
+    <string name="subtit_exisventa"><b>
+			<u>Existencia en stock: </u>
+		</b></string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-
+    <string name="CarpetaMaestros">Carpeta de Maestros:</string>
+    <string name="CarpetaLogEventos">Carpeta Log de Eventos</string>
+    <string name="CarpetaLogDatos">Carpeta Log de Datos</string>
+    <string name="recomendacion">Se recomienda que las excepciones estén activas</string>
+    <string name="Label_productos_no_contados">Los productos no contabilizados: en Inv. Dinámicos</string>
+    <string name="stock_noTomado">Sólo se ajustan los productos incluidos en el conteo</string>
+    <string name="stock_cero">Ajusta productos no incluidos en el conteo con stock en cero</string>
+    <string name="acceder_para_cargar_las_compras">Acceder para cargar las compras</string>
+    <string name="comenzar_nuevo_inventario">Comenzar Nuevo Inventario</string>
+    <string name="continuar_inventarios_en_curso">Continuar Inventarios En Curso</string>
+    <string name="empezar">Empezar</string>
+    <string name="mensaje_boton_acceso_compras">Compras</string>
+    <string name="titulo_debo_inventario">Debo Inventario</string>
+    <string name="palabra_inventarios">Inventarios</string>
+    <string name="palabra_id_terminal">id terminal</string>
+    <string name="palabra_version">version</string>
+    <string name="texto_titulo_residente"><i><u>RESIDENTE: </u></i></string>
+    <string name="texto_titulo_medidor"><i><u>MEDIDOR: </u></i></string>
+    <string name="texto_titulo_medicion_anterior"><i><u>MEDICION ANTERIOR: </u></i></string>
+    <string name="texto_titulo_medicion_actual"><i><u>MEDICION ACTUAL: </u></i></string>
+    <string name="texto_titulo_sanccion"><i><u>SANCIÓN: </u></i></string>
+    <string name="texto_marca"><i><u>Marca: </u></i></string>
+    <string name="texto_modelo"><i><u>Modelo: </u></i></string>
+    <string name="texto_fecha"><i><u>Fecha: </u></i></string>
+    <string name="texto_valor"><i><u>Valor: </u></i></string>
+    <string name="texto_promedio"><i><u>Promedio anual: </u></i></string>
+    <string name="texto_nombre"><i><u>Nombre: </u></i></string>
+    <string name="texto_operador"><i><u>Operador: </u></i></string>
+    <string name="texto_inspector"><i><u>Inspector: </u></i></string>
+    <string name="texto_confirmacionmedicion"><i><u>Confirmación de la medición</u></i></string>
+    <string name="flash">flash</string>
+    <string name="sdcard">mae Tablet</string>
+    <string name="carpeta_logtablet">Carpeta de Log Tablet</string>
+    <string name="carpeta_logDatos">Carpeta de Log Datos</string>
+    <string name="Manual_de_Usuario">Manual de Usuario</string>
 </resources>

@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/fondo_recepcion_inventario" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true"
+        android:gravity="center_horizontal"
+        android:orientation="vertical" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5px"
+            android:text="Estado de los INVENTARIOS"
+            android:textColor="@color/black"
+            android:textSize="@dimen/titulo" />
+
+        <LinearLayout
+            android:layout_width="710px"
+            android:layout_height="300px"
+            android:background="@color/black"
+            android:gravity="center_horizontal"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingBottom="5px"
+                android:paddingTop="5px" >
+
+                <TextView
+                    android:layout_width="150px"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Inventario:"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/talla_texto_medioGrande" />
+
+                <TextView
+                    android:layout_width="100px"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Nombre:"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/talla_texto_medioGrande" />
+
+                <TextView
+                    android:layout_width="100px"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Inicio:"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/talla_texto_medioGrande" />
+
+                <TextView
+                    android:layout_width="250px"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Progresión:"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/talla_texto_medioGrande" />
+
+                <TextView
+                    android:layout_width="100px"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Estado:"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/talla_texto_medioGrande" />
+            </LinearLayout>
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
+                <TableLayout
+                    android:id="@+id/IMB_tabla"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent" >
+
+                    <!--
+					<TableRow 
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_margin="5px">
+						
+					</TableRow>
+                    -->
+
+                </TableLayout>
+            </ScrollView>
+        </LinearLayout>
+
+        <!--
+		<Button android:id="@+id/IMB_boton_exportar"
+			android:layout_width="300px"
+			android:layout_height="50px"
+			android:layout_marginTop="10px"
+			android:text="EXPORTAR LOS INVENTARIOS"
+			android:textSize="@dimen/grande" />
+        -->
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10px"
+            android:gravity="center_vertical"
+            android:orientation="horizontal" >
+
+            <!-- <Button -->
+            <!-- android:id="@+id/IMB_boton_inv_dinamico" -->
+            <!-- android:layout_width="150px" -->
+            <!-- android:layout_height="50px" -->
+            <!-- android:layout_alignParentRight="true" -->
+            <!-- android:layout_marginRight="60px" -->
+            <!-- android:text="Inv. dinámico" -->
+            <!-- android:textSize="@dimen/talla_texto_medio" /> -->
+
+            <Button
+                android:id="@+id/Exportar_BD"
+                android:layout_width="150px"
+                android:layout_height="50px"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="30px"
+                android:text="Exportar BD"
+                android:textSize="15px" />
+
+            <Button
+                android:id="@+id/Importar_BD"
+                android:layout_width="150px"
+                android:layout_height="50px"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="30px"
+                android:text="Importar BD"
+                android:textSize="15px" />
+
+            <Button
+                android:id="@+id/IMB_boton_importar"
+                android:layout_width="150px"
+                android:layout_height="50px"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="30px"
+                android:text="Importar"
+                android:textSize="@dimen/talla_texto_medio" />
+
+            <Button
+                android:id="@+id/IMB_boton_exportar"
+                android:layout_width="150px"
+                android:layout_height="50px"
+                android:enabled="false"
+                android:text="Exportar"
+                android:textSize="@dimen/talla_texto_medio" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/IMB_boton_salir"
+        android:layout_width="30px"
+        android:layout_height="30px"
+        android:layout_alignParentRight="true"
+        android:layout_margin="5px"
+        android:src="@drawable/boton_salir" />
+
+</RelativeLayout>

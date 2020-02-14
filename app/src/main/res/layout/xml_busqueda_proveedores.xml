@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/fondo_recepcion_inventario" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:weightSum="1">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5px"
+            android:text="DEBO COMPRAS"
+            android:textColor="@color/black"
+            android:textSize="@dimen/titulo" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5px"
+            android:text="Resultado de busqueda proveedores"
+            android:textColor="@color/black"
+            android:textSize="@dimen/titulo" />
+
+        <ListView
+            android:layout_width="475dp"
+            android:layout_height="200dp"
+            android:id="@+id/ListProveedores"
+            android:layout_gravity="center_horizontal"
+            android:fastScrollAlwaysVisible="false"
+            android:layout_weight="0.41"
+            android:background="#000000"
+            android:clickable="false" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cancelar"
+            android:id="@+id/ID_CANCELAR_PROVE"
+            android:layout_gravity="center_horizontal" />
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/CMB_boton_salir"
+        android:layout_width="30px"
+        android:layout_height="30px"
+        android:layout_alignParentRight="true"
+        android:layout_margin="5px"
+        android:src="@drawable/boton_salir" />
+
+</RelativeLayout>

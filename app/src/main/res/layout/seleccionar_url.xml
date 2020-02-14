@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Agregue un nombre de local y su url de webservice" />
+
+    <TableLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left"
+        android:layout_margin="20px" >
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:gravity="left"
+                android:text="Nombre Local"
+                android:textColor="@color/white"
+                android:textSize="@dimen/talla_texto_subtitulo" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+            <EditText
+                android:id="@+id/nombre_local"
+                android:layout_width="400dp"
+                android:layout_margin="5dp"
+                android:inputType="text"
+                android:singleLine="true"
+                android:textSize="@dimen/talla_texto_grande" >
+
+                <requestFocus />
+            </EditText>
+            <Button
+                android:id="@+id/actualizar_local"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:text="Actualizar"
+                android:textSize="15dp" 
+                android:visibility="gone"/>
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:gravity="left"
+                android:text="Url de webservice"
+                android:textColor="@color/white"
+                android:textSize="@dimen/talla_texto_subtitulo" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+            <EditText
+                android:id="@+id/urlWebservice"
+                android:layout_width="400dp"
+                android:layout_margin="5dp"
+                android:inputType="textUri"
+                android:singleLine="true"
+                android:text="http://192.168.../webservice/deboinventario/webservice.php"
+                android:textSize="@dimen/talla_texto_grande" >
+            </EditText>
+
+            <Button
+                android:id="@+id/guardar_local"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:text="Agregar"
+                android:textSize="15dp" />
+        </TableRow>
+    </TableLayout>
+
+    <Spinner
+        android:id="@+id/spinnerPreferencias"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/cerrar"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Atras" />
+
+</LinearLayout>

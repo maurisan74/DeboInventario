@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/fondo_pagina_inventario" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true">
+
+        <TextView
+            android:id="@+id/DART_titulo_pagina"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="25px"
+            android:layout_marginTop="4px"
+            android:text="Detalles del Articulo"
+            android:textColor="@color/anaranjado_verde"
+            android:textSize="@dimen/titulo" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal" >
+
+            <TableLayout
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent" >
+
+                <!-- Linea NOMBRE del articulo -->
+
+                <TableRow
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical" >
+
+                    <TextView
+                        android:layout_width="150px"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="4px"
+                        android:text="@string/subtit_nombre"
+                        android:textSize="@dimen/medio" />
+
+                    <TextView
+                        android:id="@+id/DART_art_nombre"
+                        android:layout_width="400px"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10px"
+                        android:text=" "
+                        android:textSize="@dimen/medioGrande" />
+                </TableRow>
+
+                <!-- Linea SECTOR del articulo -->
+
+                <TableRow
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical" >
+
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="4px"
+                        android:text="@string/subtit_sector"
+                        android:textSize="@dimen/medio" />
+
+                    <TextView
+                        android:id="@+id/DART_art_sector"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10px"
+                        android:text=" "
+                        android:textSize="@dimen/medioGrande" />
+                </TableRow>
+
+                <!-- Linea CODIGO del articulo -->
+
+                <TableRow
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical" >
+
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="4px"
+                        android:text="@string/subtit_codigo"
+                        android:textSize="@dimen/medio" />
+
+                    <TextView
+                        android:id="@+id/DART_art_codigo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10px"
+                        android:text=" "
+                        android:textSize="@dimen/medioGrande" />
+                </TableRow>
+
+                <!-- Linea CODIGO DE BARRA del articulo -->
+
+                <TableRow
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical" >
+
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="4px"
+                        android:text="@string/subtit_codigobarras"
+                        android:textSize="@dimen/medio" />
+
+                    <TextView
+                        android:id="@+id/DART_art_codbar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10px"
+                        android:text=" "
+                        android:textSize="@dimen/medioGrande" />
+                </TableRow>
+
+                <!-- Linea PRECIO VENTA del articulo -->
+
+                <TableRow
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical" >
+
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="4px"
+                        android:text="@string/subtit_precio"
+                        android:textSize="@dimen/medio" />
+
+                    <TextView
+                        android:id="@+id/DART_art_precio"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10px"
+                        android:text=" "
+                        android:textSize="@dimen/medioGrande" />
+                </TableRow>
+
+                <!-- Linea PRECIO DE COSTO del articulo -->
+
+                <TableRow
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical" >
+
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="4px"
+                        android:text="@string/subtit_costo"
+                        android:textSize="@dimen/medio" />
+
+                    <TextView
+                        android:id="@+id/DART_art_costo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10px"
+                        android:text=" "
+                        android:textSize="@dimen/medioGrande" />
+                </TableRow>
+
+                <!-- Linea CANTIDADES del articulo -->
+
+                <TableRow
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical" >
+
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="4px"
+                        android:text="@string/subtit_cantidad"
+                        android:textSize="@dimen/medio" />
+
+                    <TextView
+                        android:id="@+id/DART_art_cantidad"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10px"
+                        android:text=" "
+                        android:textSize="@dimen/medioGrande" />
+                </TableRow>
+
+                    <!-- Linea EXISTENCIA del articulo -->
+
+                <TableRow
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical" >
+
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="4px"
+                        android:text="@string/subtit_exisventa"
+                        android:textSize="@dimen/medio" />
+
+                    <TextView
+                        android:id="@+id/DART_art_exisventa"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10px"
+                        android:text=" "
+                        android:textSize="@dimen/medioGrande" />
+                </TableRow>
+                
+                
+                <!-- Linea EXISTENCIA del articulo -->
+                
+                
+                <!-- <TableRow -->
+                <!-- android:layout_width="wrap_content" -->
+                <!-- android:layout_height="25px" -->
+                <!-- android:gravity="center_vertical" > -->
+                <!-- </TableRow> -->
+
+
+                <!-- <TableRow -->
+                <!-- android:layout_width="wrap_content" -->
+                <!-- android:layout_height="wrap_content" -->
+                <!-- android:gravity="center_vertical" > -->
+
+
+                <!-- <Button -->
+                <!-- android:id="@+id/DART_eliminar" -->
+                <!-- android:layout_width="wrap_content" -->
+                <!-- android:layout_height="wrap_content" -->
+                <!-- android:text="Eliminar Artículo del Inventario" /> -->
+                <!-- </TableRow> -->
+
+            </TableLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/DART_boton_salir"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginRight="60px"
+        android:layout_marginTop="15px"
+        android:text="Volver" />
+
+</RelativeLayout>

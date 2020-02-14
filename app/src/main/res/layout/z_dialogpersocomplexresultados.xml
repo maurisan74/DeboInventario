@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white" >
+
+        <LinearLayout
+            android:id="@+id/Z_DIALOG_tabla_resultados"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+
+            <!-- Aqui figurarán las respuestas de la búsqueda -->
+
+        </LinearLayout>
+    </ScrollView>
+
+    <Button
+        android:id="@+id/Z_DIALOG_boton_cancelar"
+        android:layout_width="80px"
+        android:layout_height="40px"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="5px"
+        android:text="Cancelar"
+        android:textColor="@color/black"
+        android:textSize="@dimen/talla_texto_chico" />
+
+    <EditText
+        android:id="@+id/Z_DIALOG_editext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone" />
+
+</RelativeLayout>

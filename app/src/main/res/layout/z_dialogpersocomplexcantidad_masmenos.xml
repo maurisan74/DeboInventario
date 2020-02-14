@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <LinearLayout 
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        >
+    
+	    <LinearLayout 
+	        android:layout_height="wrap_content"
+	        android:layout_width="wrap_content"
+	        android:gravity="center_vertical"
+	        android:orientation="horizontal"
+	        >
+	    
+	        <ImageView android:id="@+id/Z_DIALOG_imagen" 
+	            android:layout_height="80px"
+	            android:layout_width="80px"
+	            android:padding="8px"
+	            android:src="@drawable/dialog_alertar"
+	            android:scaleType="fitXY"
+	            />
+	    
+		    <LinearLayout 
+		        android:layout_height="wrap_content"
+		        android:layout_width="wrap_content"
+		        android:gravity="center_horizontal"
+		        android:orientation="vertical"
+		        >
+		        
+		        <TextView
+			        android:layout_height="wrap_content"
+			        android:layout_width="300px"
+			        android:text="El artículo seleccionado ya fue inventariado con la cantidad siguiente:"
+			        android:textSize="@dimen/talla_texto_medio"
+			        android:gravity="center"
+			        />
+		        
+		        <TextView android:id="@+id/Z_DIALOG_articulo_cantidad"
+			        android:layout_height="wrap_content"
+			        android:layout_width="match_parent"
+			        android:text="13"
+			        android:inputType="number"
+			        android:textSize="@dimen/talla_texto_grande"
+			        android:gravity="center"
+			        />
+		        
+		    </LinearLayout>
+	    </LinearLayout>
+	    
+	    
+	    <LinearLayout 
+	        android:layout_height="wrap_content"
+	        android:layout_width="wrap_content"
+	        android:gravity="center_horizontal"
+	        android:orientation="vertical"
+	        > 
+	          
+		    <LinearLayout 
+		        android:layout_height="wrap_content"
+		        android:layout_width="wrap_content"
+		        android:gravity="center_vertical"
+		        android:orientation="horizontal"
+		        >
+		        
+		        <RelativeLayout android:id="@+id/Z_DIALOG_fondo_boton_menos" 
+		            android:layout_height="wrap_content"
+		            android:layout_width="wrap_content"
+		            android:layout_marginRight="20px"
+		            >
+		            <ImageView android:id="@+id/Z_DIALOG_boton_menos" 
+			            android:layout_height="wrap_content"
+			            android:layout_width="120px"
+			            android:src="@drawable/boton_menos"
+			            android:scaleType="centerInside"
+			            />
+		            
+		            <TextView 
+		                android:layout_height="wrap_content"
+		                android:layout_width="wrap_content"
+		                android:paddingTop="5px"
+		                android:paddingLeft="5px"
+		                android:layout_centerInParent="true"
+		                android:text="Restar"
+		                android:textColor="@color/black"
+		                android:textSize="@dimen/talla_texto_medio"
+		                />
+	            </RelativeLayout>
+	            
+		        <RelativeLayout android:id="@+id/Z_DIALOG_fondo_boton_modificar" 
+		            android:layout_height="wrap_content"
+		            android:layout_width="wrap_content"
+		            android:layout_marginRight="20px"
+		            >
+		            <ImageView android:id="@+id/Z_DIALOG_boton_modificar" 
+			            android:layout_height="wrap_content"
+			            android:layout_width="120px"
+			            android:src="@drawable/boton_equal"
+			            android:scaleType="centerInside"
+			            />
+		            
+		             <TextView 
+		                android:layout_height="wrap_content"
+		                android:layout_width="wrap_content"
+		                android:paddingTop="5px"
+		                android:layout_centerInParent="true"
+		                android:text="Modificar"
+		                android:textColor="@color/black"
+		                android:textSize="@dimen/talla_texto_medio"
+		                />
+		        </RelativeLayout>
+		        
+		        <RelativeLayout android:id="@+id/Z_DIALOG_fondo_boton_mas" 
+		            android:layout_height="wrap_content"
+		            android:layout_width="wrap_content"
+		            >
+			        <ImageView android:id="@+id/Z_DIALOG_boton_mas" 
+			            android:layout_height="wrap_content"
+			            android:layout_width="120px"
+			            android:src="@drawable/boton_mas"
+			            android:scaleType="centerInside"
+			            />
+			        
+			         <TextView 
+		                android:layout_height="wrap_content"
+		                android:layout_width="wrap_content"
+		                android:paddingTop="5px"
+		                android:layout_centerInParent="true"
+		                android:text="Sumar"
+		                android:textColor="@color/black"
+		                android:textSize="@dimen/talla_texto_medio"
+		                />
+			    </RelativeLayout>
+		        
+		    </LinearLayout>
+		    
+		        
+		    <Button android:id="@+id/Z_DIALOG_boton_cancelar" 
+		            android:layout_height="38px"
+		            android:layout_width="wrap_content"
+		            android:layout_marginTop="20px"
+		            android:text="Cancelar"
+		            android:textSize="@dimen/talla_texto_medioChico"
+		            /> 
+	    </LinearLayout>
+	</LinearLayout>
+</RelativeLayout>

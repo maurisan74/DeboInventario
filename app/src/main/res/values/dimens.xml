@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+
+	<dimen name="boton_grande">20sp</dimen>
+	<dimen name="titulo_no">25dp</dimen>
+	<dimen name="dim_boton_grande">120dp</dimen>
+	<dimen name="dim_boton_masgrande">150dp</dimen>
+	<dimen name="grande">18dp</dimen>
+	<dimen name="medioGrande">16dp</dimen>
+	<dimen name="medio">14dp</dimen>
+
+	<dimen name="titulo">25dp</dimen>
+	<dimen name="pruebaPreferencias">14dp</dimen>
+	<dimen name="ancho_columna_derecha">300dp</dimen>
+	<dimen name="ancho_columna_izquierda">500dp</dimen>
+	<dimen name="talla_texto_grande">19dp</dimen>
+	<dimen name="talla_texto_medio">14dp</dimen>
+	<dimen name="talla_texto_chico">10dp</dimen>
+	<dimen name="talla_texto_medioGrande">14dp</dimen>
+	<dimen name="talla_texto_GrandeGrande">20dp</dimen>
+	<dimen name="talla_texto_titulo">30dp</dimen>
+	<dimen name="talla_texto_sub">26dp</dimen>
+	<dimen name="talla_texto_subtitulo">22dp</dimen>
+	<dimen name="boton_ancho">60dp</dimen>
+	<dimen name="boton_alto">60dp</dimen>
+	<dimen name="boton_margen">5dp</dimen>
+	<dimen name="tabla_subancho_izq">100dp</dimen>
+	<dimen name="tabla_subancho_dcho">400dp</dimen>
+	<dimen name="margen_izq">20dp</dimen>
+	<dimen name="margen_tablas">5dp</dimen>
+	<dimen name="padding_tabla">8dp</dimen>
+	<dimen name="talla_texto_boton">30dp</dimen>
+	<dimen name="height_menu_sancion_residente">160dp</dimen>
+	<dimen name="height_menu_sancion_sancion">100dp</dimen>
+	<dimen name="height_menu_sancion_foto">175dp</dimen>
+	<dimen name="height_menu_sancion_observacion">150dp</dimen>
+	<dimen name="margen_tablas_2">2dp</dimen>
+	<dimen name="talla_texto_medioChico">12dp</dimen>
+
+</resources>

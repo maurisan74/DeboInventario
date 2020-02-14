@@ -1,0 +1,510 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center_horizontal"
+    android:orientation="vertical" >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="5px"
+        android:text="Preferencias"
+        android:textColor="@color/white"
+        android:textSize="@dimen/talla_texto_titulo" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="470px"
+        android:layout_weight="0.44" >
+
+        <TableLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:layout_margin="20px" >
+
+            <TableRow
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_margin="5px"
+                    android:layout_weight="1"
+                    android:gravity="left"
+                    android:text="URL WebService:"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/pruebaPreferencias" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+
+                <EditText
+                    android:id="@+id/PREF_URL_webservice"
+                    android:layout_width="100dp"
+                    android:layout_margin="5px"
+                    android:singleLine="true"
+                    android:text="URL"
+                    android:textSize="@dimen/talla_texto_grande" >
+
+                    <requestFocus />
+                </EditText>
+
+                <Button
+                    android:id="@+id/PREF_checkUrl"
+                    android:layout_width="120px"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Check URL"
+                    android:textSize="@dimen/talla_texto_GrandeGrande"
+                    android:layout_marginTop="8px" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+
+                <Button
+                    android:id="@+id/PREF_agregarUrl"
+                    android:layout_width="200px"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Agregar Url"
+                    android:textSize="@dimen/talla_texto_GrandeGrande" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+
+                <Spinner
+                    android:id="@+id/spinner1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="gone" >
+
+                <TextView
+                    android:layout_width="300px"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5px"
+                    android:gravity="left"
+                    android:text="SSID del Wifi Preferido:"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/talla_texto_subtitulo" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone" >
+
+                <EditText
+                    android:id="@+id/PREF_wifi_preferido"
+                    android:layout_width="350px"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5px"
+                    android:singleLine="true"
+                    android:text="SSID wifi"
+                    android:textSize="@dimen/talla_texto_grande" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
+                <TextView
+                    android:layout_width="300px"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5px"
+                    android:gravity="left"
+                    android:text="Número de ID de tablet:"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/talla_texto_subtitulo" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+
+                <EditText
+                    android:id="@+id/PREF_id_tablet"
+                    android:layout_width="350px"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5px"
+                    android:inputType="number"
+                    android:singleLine="true"
+                    android:text="Num ID"
+                    android:textSize="@dimen/talla_texto_grande" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
+                <TextView
+                    android:layout_width="300px"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5px"
+                    android:gravity="left"
+                    android:text="Carpeta Dispositivo IMPORT:"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/talla_texto_subtitulo" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+
+                <EditText
+                    android:id="@+id/PREF_usb_import"
+                    android:layout_width="350px"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5px"
+                    android:singleLine="true"
+                    android:text=" Dispositivo import"
+                    android:textSize="@dimen/talla_texto_grande" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
+                <TextView
+                    android:layout_width="300px"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5px"
+                    android:gravity="left"
+                    android:text="Carpeta Dispositivo EXPORT:"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/talla_texto_subtitulo" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+
+                <EditText
+                    android:id="@+id/PREF_usb_export"
+                    android:layout_width="350px"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5px"
+                    android:singleLine="true"
+                    android:text="Dispositivo export"
+                    android:textSize="@dimen/talla_texto_grande" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
+                <TextView
+                    android:layout_width="300px"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5px"
+                    android:gravity="left"
+                    android:text="@string/CarpetaMaestros"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/talla_texto_subtitulo" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+
+                <EditText
+                    android:id="@+id/Carpeta_Maestros"
+                    android:layout_width="350px"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5px"
+                    android:singleLine="true"
+                    android:text="@string/CarpetaMaestros"
+                    android:textSize="@dimen/talla_texto_grande" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
+                <TextView
+                    android:layout_width="300px"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5px"
+                    android:gravity="left"
+                    android:text="@string/CarpetaLogEventos"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/talla_texto_subtitulo" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+
+                <EditText
+                    android:id="@+id/Carpeta_LogEventos"
+                    android:layout_width="350px"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5px"
+                    android:singleLine="true"
+                    android:text="@string/CarpetaLogEventos"
+                    android:textSize="@dimen/talla_texto_grande" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
+                <TextView
+                    android:layout_width="300px"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5px"
+                    android:gravity="left"
+                    android:text="@string/CarpetaLogDatos"
+                    android:textColor="@color/white" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+
+                <EditText
+                    android:id="@+id/Carpeta_LogDatos"
+                    android:layout_width="350px"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5px"
+                    android:singleLine="true"
+                    android:text="@string/CarpetaLogDatos"
+                    android:textSize="@dimen/talla_texto_grande" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5px"
+                    android:gravity="center"
+                    android:text="CONFIGURACIÓN DE LOG"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/talla_texto_sub" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
+                <CheckBox
+                    android:id="@+id/checkBoxEventos"
+                    android:text="Habilitar log de Eventos" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
+                <CheckBox
+                    android:id="@+id/checkBoxProcesos"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Habilitar Log de Procesos" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
+                <CheckBox
+                    android:id="@+id/checkBoxMensajes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Habilitar Log de Mensajes" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
+                <CheckBox
+                    android:id="@+id/checkBoxExcepciones"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Habilitar Log de Excepciones:" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="wrap_content"
+                android:layout_height="50px" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="48px"
+                    android:layout_margin="5px"
+                    android:gravity="left"
+                    android:text="@string/recomendacion"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/talla_texto_medioGrande" />
+            </TableRow>
+
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_margin="5px"
+                android:gravity="left"
+                android:text="INVENTARIO (Recuerde finalizar con un inventario antes de trabajar con el otro)"
+                android:textColor="@color/white"
+                android:textSize="@dimen/talla_texto_sub" />
+
+            <TableRow
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+
+                <RadioGroup
+                    android:id="@+id/grupoVD"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:paddingLeft="30px" >
+
+                    <RadioButton
+                        android:id="@+id/CheckInventariosVentas"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Inventarios por venta" />
+
+                    <RadioButton
+                        android:id="@+id/CheckInventariosDepositos"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Inventarios por deposito" />
+                </RadioGroup>
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/tableRow2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+
+                <CheckBox
+                    android:id="@+id/CheckHabcamScanner"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:checked="false"
+                    android:text="Habilitar cámara para escanear" />
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/tableRow3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+
+                <CheckBox
+                    android:id="@+id/CheckLecturaEntrada"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:checked="false"
+                    android:text="Lectura por entrada" />
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/tableRow5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+
+                <TextView
+                    android:id="@+id/TxtLectura_x_entrada"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="@string/Label_productos_no_contados" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+
+                <RadioGroup
+                    android:id="@+id/gruporb"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:paddingLeft="30px" >
+
+                    <RadioButton
+                        android:id="@+id/radio1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/stock_noTomado" />
+
+                    <RadioButton
+                        android:id="@+id/radio2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/stock_cero" />
+                </RadioGroup>
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
+                <CheckBox
+                    android:id="@+id/checkBoxToma"
+                    android:text="Mostrar stock en el sistema al momento de la descarga del maestro" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
+                <CheckBox
+                    android:id="@+id/checkBoxBalanza"
+                    android:text="Habilitar lectura codigo de barra balanza" />
+            </TableRow>
+
+
+
+            <LinearLayout android:layout_height="20dp" >
+            </LinearLayout>
+        </TableLayout>
+    </ScrollView>
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.19"
+        android:gravity="center_horizontal" >
+
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center" >
+
+            <Button
+                android:id="@+id/PREF_boton_cancelar"
+                android:layout_width="200px"
+                android:layout_height="wrap_content"
+                android:layout_margin="5px"
+                android:gravity="center"
+                android:text="Cancelar"
+                android:textSize="@dimen/talla_texto_medioGrande" />
+
+            <Button
+                android:id="@+id/PREF_boton_guardar"
+                android:layout_width="200px"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="50px"
+                android:gravity="center"
+                android:text="Guardar cambios"
+                android:textSize="@dimen/talla_texto_medioGrande" />
+        </TableRow>
+    </TableLayout>
+
+</LinearLayout>

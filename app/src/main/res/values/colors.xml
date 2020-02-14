@@ -3,6 +3,28 @@
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
-
-    <color name="black_overlay">#D81B60</color>
+    <color name="black">#000000</color>
+    <color name="white">#FFFFFF</color>
+    <color name="gris">#D0D0D0</color>
+    <color name="anaranjado_verde">#FA9601</color>
+    <color name="verde_claro">#DDDFC4</color>
+    <color name="verde_oscuro">#4A6428</color>
+    <color name="verde_oscuro_mas">#384B1F</color>
+    <color name="white_oscuro">#BFBFBF</color>
+    <color name="fondo_wifi">#40000000</color>
+    <color name="green">#B5E61D</color>
+    <color name="red">#FF4F4F</color>
+    <color name="marron_crema">#E1A976</color>
+    <color name="orange">#FFFFC800</color>
+    <color name="anaranjado_oscuro">#AA6400</color>
+    <color name="orange_oscuro">#E58D03</color>
+    <color name="transparente">#00FFFFFF</color>
+    <color name="amarillo_oscuro">#FF9C00</color>
+    <color name="amarillo_oscuro_mas">#FFCD06</color>
+    <color name="amarillo">#FBFBAF</color>
+    <color name="violeta">#EF21EF</color>
+    <color name="violeta_claro">#F57EEA</color>
+    <color name="violeta_oscuro">#870A87</color>
+    <color name="azul">#3C70D0</color>
+    <color name="cian">#AEE1EE</color>
 </resources>

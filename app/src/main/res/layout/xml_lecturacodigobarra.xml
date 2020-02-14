@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:gravity="center_horizontal"
+    android:orientation="vertical" >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="5px"
+        android:text="Leer un código de barras"
+        android:textColor="@color/black"
+        android:textSize="@dimen/titulo" />
+
+    <EditText
+        android:id="@+id/LCB_textbox_codigo"
+        android:layout_width="400px"
+        android:layout_height="50px"
+        android:layout_marginTop="45px"
+        android:background="@color/gris"
+        android:gravity="center"
+        android:inputType="number"
+        android:singleLine="true"
+        android:textColor="@color/black"
+        android:textSize="@dimen/titulo" >
+    </EditText>
+
+    <LinearLayout
+        android:id="@+id/LCB_ll"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
+
+        <Button
+            android:id="@+id/LCB_botonValidar"
+            android:layout_width="150px"
+            android:layout_height="50px"
+            android:layout_marginRight="40px"
+            android:text="Validar"
+            android:textSize="20px" />
+
+        <Button
+            android:id="@+id/LCB_botonCancelar"
+            android:layout_width="150px"
+            android:layout_height="50px"
+            android:layout_marginLeft="40px"
+            android:text="Cancelar"
+            android:textSize="20px" />
+    </LinearLayout>
+
+</LinearLayout>

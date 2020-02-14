@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableRow xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_margin="20px"
+    android:gravity="center_vertical" >
+
+    <Button
+        android:id="@+id/LPB2_boton"
+        android:layout_width="150px"
+        android:layout_height="50px"
+        android:layout_gravity="center"
+        android:textColor="@color/black"
+        android:textSize="@dimen/talla_texto_medio"
+        android:width="150px" />
+
+    <TextView
+        android:id="@+id/LPB2_nombre"
+        android:layout_width="100px"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Nombre:"
+        android:textColor="@color/white"
+        android:textSize="@dimen/talla_texto_medioChico" />
+
+    <TextView
+        android:id="@+id/LPB2_inicio"
+        android:layout_width="100px"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Inicio:"
+        android:textColor="@color/white"
+        android:textSize="@dimen/talla_texto_medioChico" />
+
+    <RelativeLayout
+        android:layout_width="114dp"
+        android:layout_height="fill_parent"
+        android:gravity="center_vertical" >
+
+        <ProgressBar
+            android:id="@+id/LPB2_progressbar"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="250px"
+            android:layout_height="40px"
+            android:layout_gravity="center"
+            android:layout_margin="4px"
+            android:indeterminate="false"
+            android:max="100"
+            android:padding="4px"
+            android:progress="0" />
+
+        <TextView
+            android:id="@+id/LPB2_texto_progressbar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:textColor="@color/black"
+            android:textSize="18px" />
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/LPB2_estado"
+        android:layout_width="100px"
+        android:layout_height="35px"
+        android:gravity="center"
+        android:scaleType="centerInside" />
+
+    <Button
+        android:layout_width="185px"
+        android:layout_height="50px"
+        android:text="Elegir Proveedor"
+
+        android:id="@+id/id_proveedor_buscar"
+        android:textSize="@dimen/talla_texto_medio" />
+
+</TableRow>
