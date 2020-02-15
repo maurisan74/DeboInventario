@@ -7,6 +7,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.ActivityInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -153,7 +154,7 @@ public class DeboInventario extends Activity implements DialogPersoSimple, Wifi 
 		System.out.println("DEBOOOOOOOOOOOOOOOOOOOOOO ACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
 		System.out.println(R.layout.xml_deboinventario);
 		setContentView(R.layout.xml_deboinventario);
-
+		setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
 		PreferenciasInventario.cargarPreferencias(ctxt);
 
 		/**
@@ -202,11 +203,7 @@ public class DeboInventario extends Activity implements DialogPersoSimple, Wifi 
 		};
 
 		dialogConfigurarHora = new DialogPersoComplexSiNo(ctxt,
-				"Verificacion de horario",
-				"Por favor VERIFIQUE que la HORA de la tablet este sincronizada con la del"
-						+ " BackOffice para el correcto "
-						+ "funcionamiento del sistema.\n"
-						+ "Desea configurarla en este momento?",
+				"Verificacion de horario", "Por favor VERIFIQUE que la HORA de la tablet este sincronizada con la del BackOffice para el correcto funcionamiento del sistema. Desea configurarla en este momento?",
 				DialogPerso.VALIDAR, listenerPositivoHora, listenerNegativoHora);
 		dialogConfigurarHora.show();
 
@@ -219,7 +216,7 @@ public class DeboInventario extends Activity implements DialogPersoSimple, Wifi 
 		// 2 Control de preexistencia de los archivos necesarios:
 		// CARPETA DE LAS FOTOS: //
 		File carpeta_de_fotos = new File(ParametrosInventario.URL_CARPETA_FOTOS);
-		if (carpeta_de_fotos.exists() == false) {
+		if (!carpeta_de_fotos.exists()) {
 			carpeta_de_fotos.mkdir();
 		}
 
@@ -228,6 +225,7 @@ public class DeboInventario extends Activity implements DialogPersoSimple, Wifi 
 		try {
 			
 			File Flash_deboInventario = new File(ParametrosInventario.CARPETA_DEBOINVENTARIO);
+			assert ParametrosInventario.CARPETA_ATABLET != null;
 			File Flash_deboInventario_aTablet = new File(ParametrosInventario.CARPETA_ATABLET);
 			File Flash_deboInventario_desdeTablet = new File(ParametrosInventario.CARPETA_DESDETABLET);
 			File Flash_deboInventario_maeTablet = new File(ParametrosInventario.CARPETA_MAETABLET);
@@ -239,14 +237,14 @@ public class DeboInventario extends Activity implements DialogPersoSimple, Wifi 
 			File url_carpeta_usb_export = new File(ParametrosInventario.URL_CARPETA_USB_EXPORT);
 			
 			
-			if(carpetaInternaImportacion.exists() == false){
+			if(!carpetaInternaImportacion.exists()){
 				carpetaInternaImportacion.mkdir();
 			}
 			
-			if(Flash_deboInventario.exists() == false)
+			if(!Flash_deboInventario.exists())
 		    Flash_deboInventario.mkdir();
 			
-			if(Flash_deboInventario_aTablet.exists() == false)
+			if(!Flash_deboInventario_aTablet.exists())
 				Flash_deboInventario_aTablet.mkdir();
 			
 			if(Flash_deboInventario_desdeTablet.exists() == false)
