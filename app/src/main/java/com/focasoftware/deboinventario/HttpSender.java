@@ -1,10 +1,7 @@
 package com.focasoftware.deboinventario;
-
 import android.os.Environment;
 import android.os.SystemClock;
 import android.util.Log;
-
-import androidx.annotation.NonNull;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -27,9 +24,9 @@ import java.util.ArrayList;
 /**
  * Clase para manejar conexiones Http con un webservice o servidor web,
  * utilizada para enviar informaci�n a los webServices
- * 
+ *
  * @author GuillermoR
- * 
+ *
  */
 public class HttpSender {
 
@@ -42,8 +39,7 @@ public class HttpSender {
 	 */
 	private String url_destinacion;
 
-	@NonNull
-    String sdcard = Environment.getExternalStorageDirectory().toString();
+	String sdcard = Environment.getExternalStorageDirectory().toString();
 
 	/**
 	 * Constructr que provee el codigo de software a ejeuctar en el URL destino
@@ -53,7 +49,7 @@ public class HttpSender {
 	 * 2� Setea la URL de destino
 	 * <p>
 	 * 3� Se valida la url
-	 * 
+	 *
 	 * @param codigo_software
 	 * @throws ExceptionHttpExchange
 	 */
@@ -87,12 +83,12 @@ public class HttpSender {
 	 * 7� Obtenemos el XML en formato String
 	 * <p>
 	 * 8� Verificamos la correcta ejecuci�n
-	 * 
+	 *
 	 * @param url_archivo_que_mandar
 	 * @param numero_funcion
 	 * @return
 	 */
-	public boolean send_xml(@NonNull String url_archivo_que_mandar, String numero_funcion) {
+	public boolean send_xml(String url_archivo_que_mandar, String numero_funcion) {
 		System.out.println("::: HTTPSEnder sector 1");
 		try {
 			// 1� Creamos el archivo
@@ -150,27 +146,25 @@ public class HttpSender {
 	/**
 	 * Funcion que manda un archivo xml pasado por parametro a una url
 	 * almacenada en la variable de clase
-	 * 
+	 *
 	 * @param url_archivo_que_mandar
 	 * @return
 	 * @throws IOException
 	 * @throws ClientProtocolException
 	 */
-	public boolean send_xml(@NonNull String url_archivo_que_mandar) {
-		
+	public boolean send_xml(String url_archivo_que_mandar) {
+
 		try {
 
 			File file = new File(url_archivo_que_mandar);
-			
+
 			HttpClient client = new DefaultHttpClient();
 			String postURL = url_destinacion;
-			
+
 			HttpPost post = new HttpPost(postURL);
 			System.out.println("::: HTTPSEnder sector 2");
-			System.out.println("::: HTTPSEnder sector 2 post "+ post);
 			FileBody bin = new FileBody(file);
-			
-			System.out.println("::: HTTPSEnder sector 2 bin "+bin);
+
 			MultipartEntity reqEntity = new MultipartEntity();
 			reqEntity.addPart(Parametros.codigo_soft, new StringBody(cod_soft));
 			reqEntity.addPart(Parametros.codigo_fonc, new StringBody(
@@ -183,6 +177,8 @@ public class HttpSender {
 			HttpEntity resEntity = response.getEntity();
 			String xmlString = EntityUtils.toString(resEntity);
 
+			System.out.println("::: HttpSender 184 xmlstring " + xmlString);
+
 			if (xmlString.contains("EXITO") == false) {
 				return false;
 			} else {
@@ -192,7 +188,58 @@ public class HttpSender {
 		} catch (Exception e) {
 			System.out.println("::: HTTPSEnder catch");
 			e.printStackTrace();
-			
+
+			return false;
+		}
+
+	}
+
+	/**
+	 * Funcion que manda un archivo xml pasado por parametro a una url
+	 * almacenada en la variable de clase
+	 *
+	 * @param url_archivo_que_mandar
+	 * @return
+	 * @throws IOException
+	 * @throws ClientProtocolException
+	 */
+	public boolean send_compra_xml(String url_archivo_que_mandar) {
+
+		try {
+
+			File file = new File(url_archivo_que_mandar);
+
+			HttpClient client = new DefaultHttpClient();
+			String postURL = url_destinacion;
+
+			HttpPost post = new HttpPost(postURL);
+			System.out.println("::: HTTPSEnder Compras export 217");
+			FileBody bin = new FileBody(file);
+
+			MultipartEntity reqEntity = new MultipartEntity();
+			reqEntity.addPart(Parametros.codigo_soft, new StringBody(cod_soft));
+			reqEntity.addPart(Parametros.codigo_fonc, new StringBody(
+					Parametros.CODIGO_FONC_EXPORT_COMPRAS));
+			reqEntity.addPart(Parametros.codigo_tab, new StringBody(
+					Parametros.PREF_NUMERO_DE_TERMINAL));
+			reqEntity.addPart(Parametros.codigo_post, bin);
+			post.setEntity(reqEntity);
+			HttpResponse response = client.execute(post);
+			HttpEntity resEntity = response.getEntity();
+			String xmlString = EntityUtils.toString(resEntity);
+
+			System.out.println("::: HttpSender 232 Compras xmlstring " + xmlString);
+
+			if (xmlString.contains("EXITO") == false) {
+				return false;
+			} else {
+				return true;
+			}
+
+		} catch (Exception e) {
+			System.out.println("::: HTTPSEnder catch");
+			e.printStackTrace();
+
 			return false;
 		}
 
@@ -201,16 +248,16 @@ public class HttpSender {
 	/**
 	 * Funcion que envia un archivo txt pasado como parametro a una url
 	 * almacenada
-	 * 
+	 *
 	 * @param url_archivo_que_mandar
 	 * @return
 	 */
-	public boolean send_txt(@NonNull String url_archivo_que_mandar) {
+	public boolean send_txt(String url_archivo_que_mandar) {
 		System.out.println("::: HTTPSEnder sector 3");
 		try {
 
 			File file = new File(url_archivo_que_mandar);
-			
+
 			HttpClient client = new DefaultHttpClient();
 			String postURL = url_destinacion;
 			HttpPost post = new HttpPost(postURL);
@@ -246,7 +293,7 @@ public class HttpSender {
 			return true;
 
 		} catch (Exception e) {
-			
+
 			e.printStackTrace();
 			return false;
 		}
@@ -255,11 +302,11 @@ public class HttpSender {
 	/**
 	 * Funcion para enviar una foto a la URL almacenada en la variable de clase
 	 * correspondiente
-	 * 
+	 *
 	 * @param url_foto_que_mandar
 	 * @return
 	 */
-	public boolean send_foto(@NonNull String url_foto_que_mandar) {
+	public boolean send_foto(String url_foto_que_mandar) {
 
 		try {
 			File file = new File(url_foto_que_mandar);
@@ -312,7 +359,7 @@ public class HttpSender {
 	/**
 	 * Envia informaci�n del estado de liberacion de cierto invenatrio pasado
 	 * como parametro
-	 * 
+	 *
 	 * @param numero_inventario
 	 * @param estado_liberatorio
 	 * @return
@@ -369,11 +416,11 @@ public class HttpSender {
 	/**
 	 * Envia informacion de estado de liberacion de varios inventario pasados en
 	 * forma de lista de enteros
-	 * 
+	 *
 	 * @param listaIds
 	 * @return
 	 */
-	public boolean send_liberacion(@NonNull ArrayList<Integer> listaIds) {
+	public boolean send_liberacion(ArrayList<Integer> listaIds) {
 		try {
 			HttpClient client = new DefaultHttpClient();
 			String postURL = url_destinacion;
@@ -428,11 +475,11 @@ public class HttpSender {
 
 	/**
 	 * Funcion generica de envio de archivos? o manda fotos tambien?
-	 * 
+	 *
 	 * @param url_file
 	 * @return
 	 */
-	public boolean send_file(@NonNull String url_file) {
+	public boolean send_file(String url_file) {
 
 		try {
 			File file = new File(url_file);
@@ -482,7 +529,7 @@ public class HttpSender {
 		}
 	}
 
-	public void copyFile(@NonNull File sourceFile, @NonNull File destFile) throws IOException {
+	public void copyFile(File sourceFile, File destFile) throws IOException {
 		try {
 			if (!sourceFile.exists()) {
 				return;

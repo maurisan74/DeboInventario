@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/fondo_recepcion_inventario" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true"
+        android:gravity="center_horizontal"
+        android:orientation="vertical" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5px"
+            android:text="DEBO COMPRAS"
+            android:textColor="@color/black"
+            android:textSize="@dimen/titulo" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="300px"
+            android:background="@color/black"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="Ingrese Razon Social Proveedor"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+
+            <EditText
+                android:id="@+id/editTextProv"
+                android:layout_width="225px"
+                android:layout_height="wrap_content" />
+
+            <Button
+                android:id="@+id/ID_BUSCAR_PROV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:onClick="buscarProveedor"
+                android:text="Buscar" />
+
+        </LinearLayout>
+
+        <!--
+        <Button android:id="@+id/IMB_boton_exportar"
+            android:layout_width="300px"
+            android:layout_height="50px"
+            android:layout_marginTop="10px"
+            android:text="EXPORTAR LOS INVENTARIOS"
+            android:textSize="@dimen/grande" />
+        -->
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10px"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:weightSum="1">
+
+            <!-- <Button -->
+            <!-- android:id="@+id/IMB_boton_inv_dinamico" -->
+            <!-- android:layout_width="150px" -->
+            <!-- android:layout_height="50px" -->
+            <!-- android:layout_alignParentRight="true" -->
+            <!-- android:layout_marginRight="60px" -->
+            <!-- android:text="Inv. dinámico" -->
+            <!-- android:textSize="@dimen/talla_texto_medio" /> -->
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/CMB_boton_salir"
+        android:layout_width="30px"
+        android:layout_height="30px"
+        android:layout_alignParentRight="true"
+        android:layout_margin="5px"
+        android:src="@drawable/boton_salir" />
+
+</RelativeLayout>

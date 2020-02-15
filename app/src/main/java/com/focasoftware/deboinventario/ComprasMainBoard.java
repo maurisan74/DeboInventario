@@ -1785,8 +1785,7 @@ public class ComprasMainBoard extends Activity implements DialogPersoSimple,
 				}
 				try {
 					// 2 se realiza la exportacin de los datos en las BD
-					result = bdd
-							.exportarTodasBaseDatosSQLiteCompras(listaInventariosCerrados);
+					result = bdd.exportarTodasBaseDatosSQLiteCompras(listaInventariosCerrados);
 				} catch (ExceptionHttpExchange e2) {
 
 					log.log("[-- 1961 --]" + e2.toString(), 4);

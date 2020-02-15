@@ -516,7 +516,7 @@ public class PaginaCompras  extends Activity implements
 				/* Cuarta casilla: CANTIDAD del ARTICULO */
                 System.out.println("////////////GET CANTIDAD///////////" + a.getCantidad());
                 System.out.println("////////////GET SUBTOTAL///////////" + a.getSubtotal());
-                if (a.getSubtotal() >= 0) {
+                if (Float.parseFloat(a.getSubtotal()) >= 0) {
                     casilla_subtotal.setText(String.valueOf(a.getSubtotal()));
                 } else {
                     casilla_subtotal.setText("0");
@@ -862,7 +862,7 @@ public class PaginaCompras  extends Activity implements
                     casilla_exisventa.setText(String.valueOf(a.getExis_deposito()));
                 }
 
-                if (a.getSubtotal() >= 0) {
+                if (Double.parseDouble(a.getSubtotal()) >= 0) {
                     casilla_subtotal.setText(String.valueOf(a.getSubtotal()));
                 } else {
                     casilla_subtotal.setText("0");

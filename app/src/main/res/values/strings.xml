@@ -1,31 +1,15 @@
 <resources>
     <string name="hello">Hello World!</string>
     <string name="app_name">Debo Inventario</string>
-    <string name="subtit_nombre"><b>
-			<u>Nombre: </u>
-		</b></string>
-    <string name="subtit_sector"><b>
-			<u>Sector: </u>
-		</b></string>
-    <string name="subtit_codigo"><b>
-			<u>Código: </u>
-		</b></string>
-    <string name="subtit_codigobarras"><b>
-			<u>Código de barras: </u>
-		</b></string>
-    <string name="subtit_precio"><b>
-			<u>Precio de venta: </u>
-		</b></string>
-    <string name="subtit_costo"><b>
-			<u>Precio de costo: </u>
-		</b></string>
-    <string name="subtit_cantidad"><b>
-			<u>Cantidades en stock: </u>
-		</b></string>
+    <string name="subtit_nombre">Nombre:</string>
+    <string name="subtit_sector">Sector:</string>
+    <string name="subtit_codigo">Código:</string>
+    <string name="subtit_codigobarras">Código de barras:</string>
+    <string name="subtit_precio">Precio de venta:</string>
+    <string name="subtit_costo">Precio de costo:</string>
+    <string name="subtit_cantidad">Cantidades en stock:</string>
 
-    <string name="subtit_exisventa"><b>
-			<u>Existencia en stock: </u>
-		</b></string>
+    <string name="subtit_exisventa">Existencia en stock:</string>
 
     <string name="CarpetaMaestros">Carpeta de Maestros:</string>
     <string name="CarpetaLogEventos">Carpeta Log de Eventos</string>

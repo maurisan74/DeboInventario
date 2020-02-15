@@ -2081,8 +2081,8 @@ System.out.println("::: HttpReader 534 xmlString " + xmlString);
 				System.out.println("::: HttpReader 1939 nombre " + nombre);
 				String valor = listaHijos.item(j).getTextContent();
 				System.out.println("::: HttpReader 1941 valor " + valor);
-
-				hashtmapUnProveedor.put(ParametrosInventario.CONVERSOR_BALIZAS.xml2bddProv(nombre,ParametrosInventario.tabla_proveedores), valor);
+				// SE COMENTA LA SIGUIENTE LINEA POR QUE NO SE ENCUENTRA EL METODO xml2bddProv
+				//hashtmapUnProveedor.put(ParametrosInventario.CONVERSOR_BALIZAS.xml2bddProv(nombre,ParametrosInventario.tabla_proveedores), valor);
 			}
 			// 5 Agregamos esos datos a la matriz mayor
 			matrizTodosProveedores.put(hashtmapUnProveedor.get(ParametrosInventario.bal_bdd_proveedores_codigo) + i,hashtmapUnProveedor);

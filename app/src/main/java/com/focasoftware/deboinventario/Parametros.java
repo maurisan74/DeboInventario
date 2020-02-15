@@ -12,9 +12,9 @@ import java.util.Date;
  * Clase que contiene una gran variedad de parametros comunes para todas las
  * aplicaciones que se utilizan para controlar el funcionamiento del sistema
  * correspondiente
- * 
+ *
  * @author GuillermoR
- * 
+ *
  */
 public class Parametros {
 
@@ -49,8 +49,8 @@ public class Parametros {
     public static String MAC_BLUETOOH = "";
 
 	public static boolean PREF_STOCK = true;
-	
-	
+
+
 	public final static String sdcard = Environment
 			.getExternalStorageDirectory().toString();
 	public final static String softDeboSancion = "/DeboSancion";
@@ -89,9 +89,9 @@ public class Parametros {
 	public final static String habilitar_scanner_camara = "habilitar_scanner_camara";
 	public final static String preferencia_lectura_entrada = "preferencia_lectura_entrada";
 	public final static String preferencia_productos_no_contabilizados = "preferencia_productos_no_contabilizados";
-	
+
 	public final static String preferencia_inventario_venta = "preferencia_inventario_venta";
-	
+
 	public final static String preferencias_stockToma = "stockToma";
 
 	public final static int ARCHIVO_TAMANO_MIN = 50; // en bytes
@@ -143,12 +143,14 @@ public class Parametros {
 	public final static String CODIGO_FONC_RECOVERY = "99";
 
 	public final static int FONCION_CONTROLAR_ADMIN = 21;
+	public final static String bal_xml_configuracion_root = "SETTING";
 
 	public final static String CODIGO_SOFT_DEBOAGUA = "1";
 	public final static String CODIGO_SOFT_DEBOSANCION = "2";
 	public final static String CODIGO_SOFT_DEBOINVENTARIO = "3";
 	public final static String CODIGO_SOFT_DEBORECOVERY = "0";
 	public final static String CODIGO_SOFT_DEBOCOMPRA = "5";
+	public final static String CODIGO_FONC_CONFIGURACIONES = "18";
 
 	public final static String CODIGO_SOFT_DEBOPISCINA = "11";
 	// public final static String CODIGO_SOFT_DEBO??? = "X";
@@ -219,7 +221,7 @@ public class Parametros {
 	public final static String bal_xml_articulo_existencia_deposito = "ED";
 
 	public final static String bal_xml_articulo_codigo_barra_completo = "CBC";
-	
+
 	public final static String bal_xml_articulo_balanza = "UV";
 	public final static String bal_xml_articulo_decimales = "DE";
 	/* Canastos: */
@@ -235,15 +237,16 @@ public class Parametros {
 	public final static String bal_xml_canasto_proveedor = "PRO";
 	public final static String bal_xml_canasto_operador = "O";
 	public final static String bal_xml_canasto_forma_pago = "PAG";
+	public final static String bal_xml_proveedores_root = "PROVEEDOR";
 
 	/* Compras: */
 	public final static String bal_xml_compra_root = "CMP";
 
 	public final static String bal_xml_compra_codigo_barra = "CB";
-	
+
 	/*se crea para generar un nuevo campo de codigo de barra completo*/
 
-	
+
 	public final static String bal_xml_compra_descripcion = "D";
 	public final static String bal_xml_compra_canasto = "C";
 	public final static String bal_xml_compra_operador = "O";
@@ -282,6 +285,19 @@ public class Parametros {
 	public final static String bal_xml_inventario_fechaFin = "FF";
 	public final static String bal_xml_inventario_cantidad = "C";
 	public final static String bal_xml_inventario_lugar = "L";
+	public final static String bal_xml_inventario_prodcont = "PC";
+	public final static String bal_usb_inventario_prodcont = "PC";
+	public final static String bal_xml_compra_proveedores_root = "COMPRA_PROVEEDORES";
+	public final static String bal_usb_proveedores_root = "PROVEEDOR";
+	public final static String bal_usb_proveedores_codigo = "COD";
+	public final static String bal_usb_proveedores_descripcion = "DESC";
+	public final static String bal_xml_proveedores_codigo = "COD";
+	public final static String bal_xml_proveedores_descripcion = "DESC";
+	public final static String bal_usb_compra_proveedores_root = "COMPRA_PROVEEDORES";
+	public final static String bal_usb_compra_proveedores_codigo = "COD_PROV";
+	public final static String bal_usb_compra_proveedores_inv = "INV";
+	public final static String bal_xml_compra_proveedores_codigo = "COD_PROV";
+	public final static String bal_xml_compra_proveedores_inv = "INV";
 
 	/* Operadores: */
 	public final static String bal_xml_operador_root = "OPE";
@@ -302,7 +318,7 @@ public class Parametros {
 	/* Referencias: */
 	public final static String bal_xml_referencia_root = "REF";
 	public final static String bal_xml_referencias_cantidad_total = "CNT_VALIDOS";
-	
+
 	/*
 	*****public final static String bal_xml_referencias_exisventa = "REF_ExiVen";
 	public final static String bal_xml_referencias_exisdeposito = "REF_ExiDep";
@@ -345,12 +361,12 @@ public class Parametros {
 
 	public final static String bal_usb_articulo_sector = "S";
 	public final static String bal_usb_articulo_codigo = "C";
-	
+
 	/*Trae los valores de los decimales y del pesaje*/
 	public final static String bal_usb_articulo_balanza = "UV";
 	public final static String bal_usb_articulo_decimales = "DE";
 	public final static String bal_usb_articulo_codigo_barra_completo = "CBC";
-	
+
 	public final static String bal_usb_articulo_codigo_barra = "CB";
 	public final static String bal_usb_articulo_inventario = "I";
 	public final static String bal_usb_articulo_descripcion = "D";
@@ -463,4 +479,11 @@ public class Parametros {
 	public final static String bal_usb_revisacion_medico = "M";
 	public final static String bal_usb_revisacion_operador = "OP";
 	public final static String bal_usb_revisacion_observacion = "OB";
+	public final static String CODIGO_FONC_EXPORT_COMPRAS = "17";
+	public final static String bal_xml_articulo_subtotal = "ST";
+	public final static String bal_usb_articulo_subtotal = "ST"; // se agrega subtotal
+	public final static String bal_xml_articulo_depsn = "DEPSN";
+	public final static String bal_usb_articulo_depsn = "DEPSN";
+	public final static String preferencias_balanza = "balanza";
+	public static boolean PREF_BAL = true;
 }

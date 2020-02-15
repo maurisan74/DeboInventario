@@ -61,10 +61,7 @@ public class BaseDatos extends SQLiteOpenHelper {
 	private int ProductosNoContabilizados;
 	
 	private int condR =0;
-	
-	/*Variable para cuando esta activada la balanza*/
-	@NonNull
-    private String codcompleto = "";
+
 	@NonNull
     private String pesoObtenido = "";
 	
@@ -79,9 +76,9 @@ public class BaseDatos extends SQLiteOpenHelper {
 			+ ParametrosInventario.bal_bdd_articulo_balanza + " INTEGER" + ", "
 			+ ParametrosInventario.bal_bdd_articulo_decimales + " INTEGER" + ", "
 			+ ParametrosInventario.bal_bdd_articulo_codigo_barra
-			+ " VARCHAR(150)  NULL " + ", "
+			+ " VARCHAR(150)  DEFAULT '' " + ", "
 			+ ParametrosInventario.bal_bdd_articulo_codigo_barra_completo
-			+ " VARCHAR(150)  NULL " + ", "
+			+ " VARCHAR(150)  DEFAULT ''  " + ", "
 			+ ParametrosInventario.bal_bdd_articulo_inventario + " INTEGER"
 			+ ", " + ParametrosInventario.bal_bdd_articulo_descripcion
 			+ " VARCHAR(50)" + ", "
@@ -117,7 +114,7 @@ public class BaseDatos extends SQLiteOpenHelper {
 			+ tabla_proveedores_nombre + " ("
 			+ ParametrosInventario.bal_bdd_proveedores_codigo + " INTEGER" + ", "
 			+ ParametrosInventario.bal_bdd_proveedores_descripcion
-			+ " VARCHAR(150)  NULL " +   ", " + "PRIMARY KEY ("
+			+ " VARCHAR(150) NOT NULL " +   ", " + "PRIMARY KEY ("
 			+ ParametrosInventario.bal_bdd_proveedores_codigo + ")" + " )";
 
 	/**
@@ -184,9 +181,9 @@ public class BaseDatos extends SQLiteOpenHelper {
 			+ ParametrosInventario.bal_bdd_local_idLocal
 			+ "] INTEGER  NOT NULL PRIMARY KEY AUTOINCREMENT," + "["
 			+ ParametrosInventario.bal_bdd_local_nombre
-			+ "] VARCHAR(25)  NULL," + "["
+			+ "] VARCHAR(25) DEFAULT '' ," + "["
 			+ ParametrosInventario.bal_bdd_local_descripcion
-			+ "] VARCHAR(512)  NULL" + ")";
+			+ "] VARCHAR(512)  DEFAULT '' " + ")";
 
 	// *****************************
 	// *****************************
@@ -2305,7 +2302,7 @@ System.out.println("::: BaseDatos 1575 cantidadColumnasInv " + cantidadColumnasI
 		}
 	}
 
-	public boolean exportarTodasBaseDatosSQLiteCompras(
+	public Boolean exportarTodasBaseDatosSQLiteCompras(
             @NonNull ArrayList<Integer> listaInventariosSeleccionados)
 			throws ExceptionBDD, ExceptionHttpExchange {
 		System.out.println("::: BaseDatos 2263 exportarBDSQLiteCompras");
@@ -2427,18 +2424,18 @@ System.out.println("::: BaseDatos 1575 cantidadColumnasInv " + cantidadColumnasI
 			}
 			dtb.close();
 			// Verificar
-//			if (hayAlMenosUno) {
-//				documento.appendChild(titulo);
-//				// 5 Guardamos el DOM como archivo XML
-//				HttpWriter.transformerXml(documento,
-//						ParametrosInventario.URL_COPIA_XML_EXPORT);
-//				// 6 Mandamos el archivo en POST hacia el servidor:
-//				HttpSender httpSender = new HttpSender(
-//						Parametros.CODIGO_SOFT_DEBOINVENTARIO);
-//				return httpSender.send_compra_xml(ParametrosInventario.URL_COPIA_XML_EXPORT);
-//			} else {
-//				return false;
-//			}
+			if (hayAlMenosUno) {
+				documento.appendChild(titulo);
+				// 5 Guardamos el DOM como archivo XML
+				HttpWriter.transformerXml(documento,
+						ParametrosInventario.URL_COPIA_XML_EXPORT);
+				// 6 Mandamos el archivo en POST hacia el servidor:
+				HttpSender httpSender = new HttpSender(
+						Parametros.CODIGO_SOFT_DEBOINVENTARIO);
+				return httpSender.send_compra_xml(ParametrosInventario.URL_COPIA_XML_EXPORT);
+			} else {
+				return false;
+			}
 
 		} catch (Exception e) {
 			GestorLogEventos log = new GestorLogEventos();
@@ -4654,7 +4651,7 @@ System.out.println("::: BaseDatos articulo.getCodigo() " + articulo.getCodigo())
 	 */
 	@Nullable
     public Articulo selectArticuloConCodigos(int articulo_sector,
-                                             int articulo_cod, int articulo_inv) throws ExceptionBDD {
+											  int articulo_cod, int articulo_inv) throws ExceptionBDD {
 		System.out.println("::: BaseDatos 3010 selectArticuloConCodigos");
 		try {
 			// Salida:
@@ -4893,7 +4890,7 @@ System.out.println("::: BaseDatos articulo.getCodigo() " + articulo.getCodigo())
 		// 2 Busqueda en la base:
 		String[] args = new String[] { codigo_barra };
 // Cursor c = dtb.query(tabla_referencias_nombre,// null,// ParametrosInventario.bal_bdd_referencia_codigo_barra// + "%%", args, null, null, null);
-		codcompleto = codigo_barra;
+		/*Variable para cuando esta activada la balanza*/
 		Cursor c;
 		boolean condicionBalanza = ParametrosInventario.balanza;
 		String consulta = "";
@@ -4914,7 +4911,7 @@ System.out.println("::: BaseDatos articulo.getCodigo() " + articulo.getCodigo())
 					case 20:
 						System.out.println("::: BaseDatos 3040 selectReferenciaConCodigoBarra 2");
 						valor = sCodigo;
-						dtb.execSQL("UPDATE REFERENCIAS SET REF_CBC='"+codcompleto+"' WHERE REF_CB='"+valor+"'");
+						dtb.execSQL("UPDATE REFERENCIAS SET REF_CBC='"+ codigo_barra +"' WHERE REF_CB='"+valor+"'");
 						consulta = "select * from " + tabla_referencias_nombre + " where "
 								+ ParametrosInventario.bal_bdd_referencia_codigo_barra + " = '" + valor + "'";
 						c = dtb.rawQuery(consulta, null);
@@ -4968,7 +4965,7 @@ System.out.println("::: BaseDatos articulo.getCodigo() " + articulo.getCodigo())
 					default:
 						System.out.println("::: BaseDatos 3040 selectReferenciaConCodigoBarra 5");
 						valor = codigo_barra;
-						dtb.execSQL("UPDATE REFERENCIAS SET REF_CBC='"+codcompleto+"' WHERE REF_CB='"+valor+"'");
+						dtb.execSQL("UPDATE REFERENCIAS SET REF_CBC='"+ codigo_barra +"' WHERE REF_CB='"+valor+"'");
 						consulta = "select * from " + tabla_referencias_nombre
 								+ " where "
 								+ ParametrosInventario.bal_bdd_referencia_codigo_barra + " = '"

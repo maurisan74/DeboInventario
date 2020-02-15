@@ -2378,15 +2378,14 @@ public class PaginaInventario extends Activity implements DialogPersoSimple {
 	 * A partir de un indice de un elemento de la tabla_articulos_completa
 	 * VISIBLE, devuelve su posicion relativa con respecto a los solos elementos
 	 * VISIBLES de la tabla (EN BASE 0!). <br/>
-	 * <br/>
 	 * Nota: esta funcin puede actualizar el numero_articulos_visibles si
 	 * pedido en parametro <br/>
 	 * <br/>
 	 * Cuidado: la tabla debe tener como minimo 1 elemento visible: el
 	 * parametro.
 	 * 
-	 * @param indice_tabla_completa
-	 */
+	 * //@param indice_tabla_completa
+	 **/
 	private int getPosicionRelativa(int indice_elemento, boolean actualizarFull) {
 		int resultado = 0;
 
