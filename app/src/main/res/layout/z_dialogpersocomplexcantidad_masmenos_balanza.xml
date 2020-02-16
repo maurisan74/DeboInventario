@@ -18,9 +18,9 @@
 	        >
 	    
 	        <ImageView android:id="@+id/Z_DIALOG_imagen" 
-	            android:layout_height="80px"
-	            android:layout_width="80px"
-	            android:padding="8px"
+	            android:layout_height="80dp"
+	            android:layout_width="80dp"
+	            android:padding="8dp"
 	            android:src="@drawable/dialog_alertar"
 	            android:scaleType="fitXY"
 	            />
@@ -34,13 +34,13 @@
 		        
 		        <TextView
 			        android:layout_height="wrap_content"
-			        android:layout_width="300px"
+			        android:layout_width="300dp"
 			        android:text="El artículo seleccionado ya fue inventariado con la cantidad siguiente:"
 			        android:textSize="@dimen/talla_texto_medio"
 			        android:gravity="center"
 			        />
 		        
-		        <TextView android:id="@+id/Z_DIALOG_articulo_cantidad"
+		        <EditText android:id="@+id/Z_DIALOG_articulo_cantidad"
 			        android:layout_height="wrap_content"
 			        android:layout_width="match_parent"
 			        android:text="13"
@@ -70,11 +70,11 @@
 		        <RelativeLayout android:id="@+id/Z_DIALOG_fondo_boton_menos" 
 		            android:layout_height="wrap_content"
 		            android:layout_width="wrap_content"
-		            android:layout_marginRight="20px"
+		            android:layout_marginEnd="20dp"
 		            >
 		            <ImageView android:id="@+id/Z_DIALOG_boton_menos" 
 			            android:layout_height="wrap_content"
-			            android:layout_width="120px"
+			            android:layout_width="120dp"
 			            android:src="@drawable/boton_menos"
 			            android:scaleType="centerInside"
 			            />
@@ -82,8 +82,8 @@
 		            <TextView 
 		                android:layout_height="wrap_content"
 		                android:layout_width="wrap_content"
-		                android:paddingTop="5px"
-		                android:paddingLeft="5px"
+		                android:paddingTop="5dp"
+		                android:paddingStart="5dp"
 		                android:layout_centerInParent="true"
 		                android:text="Restar"
 		                android:textColor="@color/black"
@@ -94,11 +94,11 @@
 		        <RelativeLayout android:id="@+id/Z_DIALOG_fondo_boton_modificar" 
 		            android:layout_height="wrap_content"
 		            android:layout_width="wrap_content"
-		            android:layout_marginRight="20px"
+		            android:layout_marginEnd="20dp"
 		            >
 		            <ImageView android:id="@+id/Z_DIALOG_boton_modificar" 
 			            android:layout_height="wrap_content"
-			            android:layout_width="120px"
+			            android:layout_width="120dp"
 			            android:src="@drawable/boton_equal"
 			            android:scaleType="centerInside"
 			            />
@@ -106,7 +106,7 @@
 		             <TextView 
 		                android:layout_height="wrap_content"
 		                android:layout_width="wrap_content"
-		                android:paddingTop="5px"
+		                android:paddingTop="5dp"
 		                android:layout_centerInParent="true"
 		                android:text="Modificar"
 		                android:textColor="@color/black"
@@ -120,7 +120,7 @@
 		            >
 			        <ImageView android:id="@+id/Z_DIALOG_boton_mas" 
 			            android:layout_height="wrap_content"
-			            android:layout_width="120px"
+			            android:layout_width="120dp"
 			            android:src="@drawable/boton_mas"
 			            android:scaleType="centerInside"
 			            />
@@ -128,7 +128,7 @@
 			         <TextView 
 		                android:layout_height="wrap_content"
 		                android:layout_width="wrap_content"
-		                android:paddingTop="5px"
+		                android:paddingTop="5dp"
 		                android:layout_centerInParent="true"
 		                android:text="Sumar"
 		                android:textColor="@color/black"
@@ -140,9 +140,9 @@
 		    
 		        
 		    <Button android:id="@+id/Z_DIALOG_boton_cancelar" 
-		            android:layout_height="38px"
+		            android:layout_height="38dp"
 		            android:layout_width="wrap_content"
-		            android:layout_marginTop="20px"
+		            android:layout_marginTop="20dp"
 		            android:text="Cancelar"
 		            android:textSize="@dimen/talla_texto_medioChico"
 		            /> 

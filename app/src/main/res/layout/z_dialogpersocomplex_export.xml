@@ -5,25 +5,26 @@
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
 	android:orientation="vertical"
-	android:padding="5px" >
+	android:padding="5dp" >
 
 	<LinearLayout
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
 		android:gravity="center_vertical"
 		android:orientation="horizontal"
-		android:padding="10px" >
+		android:padding="10dp" >
 
 		<ImageView
 			android:id="@+id/DIALOG_imagen"
-			android:layout_width="100px"
-			android:layout_height="100px"
-			android:layout_marginRight="10px"
-			android:padding="10px"
-			android:scaleType="fitCenter" />
+			android:layout_width="100dp"
+			android:layout_height="100dp"
+			android:layout_marginEnd="10dp"
+			android:padding="10dp"
+			android:scaleType="fitCenter"
+			android:contentDescription="@string/contentDescription" />
 
 		<LinearLayout
-			android:layout_width="300px"
+			android:layout_width="300dp"
 			android:layout_height="wrap_content"
 			android:gravity="center_horizontal"
 			android:orientation="vertical" >
@@ -44,7 +45,7 @@
 		android:layout_gravity="center_horizontal"
 		android:checked="false"
 		android:text="Luego borrar los datos"
-		android:textSize="20px" />
+		android:textSize="20sp" />
 
 	<LinearLayout
 		android:id="@+id/DIALOG_main"
@@ -52,30 +53,30 @@
 		android:layout_height="match_parent"
 		android:layout_gravity="center_horizontal"
 		android:orientation="horizontal"
-		android:padding="5px" >
+		android:padding="5dp" >
 
 		<Button
 			android:id="@+id/DIALOG_boton_wifi"
-			android:layout_width="150px"
-			android:layout_height="50px"
-			android:layout_marginRight="30px"
+			android:layout_width="150dp"
+			android:layout_height="50dp"
+			android:layout_marginEnd="30dp"
 			android:text="RED WIFI"
 			android:textSize="@dimen/talla_texto_medioGrande" />
 
 		<Button
 			android:id="@+id/DIALOG_boton_usb"
-			android:layout_width="150px"
-			android:layout_height="50px"
-			android:layout_marginLeft="30px"
-			android:layout_marginRight="30px"
+			android:layout_width="150dp"
+			android:layout_height="50dp"
+			android:layout_marginLeft="30dp"
+			android:layout_marginRight="30dp"
 			android:text="Dispositivo"
 			android:textSize="@dimen/talla_texto_medioGrande" />
 
 		<Button
 			android:id="@+id/DIALOG_boton_cancelar"
-			android:layout_width="150px"
-			android:layout_height="50px"
-			android:layout_marginLeft="30px"
+			android:layout_width="150dp"
+			android:layout_height="50dp"
+			android:layout_marginStart="30dp"
 			android:text="Cancelar"
 			android:textSize="@dimen/talla_texto_medioGrande" />
 	</LinearLayout>

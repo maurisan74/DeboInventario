@@ -5,26 +5,27 @@
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
 	android:gravity="center_horizontal"
-	android:padding="5px"
+	android:padding="5dp"
 	android:background="@color/black" >
 
     <LinearLayout
     	android:orientation="horizontal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="10px"
+        android:padding="10dp"
         android:gravity="center_vertical">
     
 	    <ImageView android:id="@+id/DIALOG_imagen"
 	        android:src="@drawable/icono_text_default"
-	    	android:layout_width="100px"
-	        android:layout_height="100px"
-	        android:padding="10px"
+	    	android:layout_width="100dp"
+	        android:layout_height="100dp"
+	        android:padding="10dp"
 	        android:scaleType="fitCenter"
-	        android:layout_marginRight="10px" />
+	        android:layout_marginEnd="10dp"
+			android:contentDescription="@string/contentDescription" />
 	    
 	    <LinearLayout 
-	        android:layout_width="300px"
+	        android:layout_width="300dp"
 	        android:layout_height="wrap_content"
 	        android:orientation="vertical"
 	        android:gravity="center_horizontal" >
@@ -36,7 +37,8 @@
 	            android:textSize="@dimen/talla_texto_medio" />
 	        
 	        <EditText android:id="@+id/DIALOG_edittext"
-	            android:layout_width="300px"
+	            android:layout_width="300dp"
+				android:inputType="text"
 	            android:layout_height="wrap_content"
 	            android:singleLine="true" />
 	        
@@ -48,20 +50,20 @@
    	   android:orientation="horizontal"
    	   android:layout_width="wrap_content"
        android:layout_height="match_parent"
-       android:padding="5px"
+       android:padding="5dp"
        android:layout_gravity="center_horizontal">
 	    
        <Button android:id="@+id/DIALOG_boton_ok"
-           android:layout_width="100px"
-           android:layout_height="50px"
-           android:layout_marginRight="30px"
+           android:layout_width="100dp"
+           android:layout_height="50dp"
+           android:layout_marginEnd="30dp"
            android:text="OK"
            android:textSize="@dimen/talla_texto_medioGrande"/>
        
        <Button android:id="@+id/DIALOG_boton_cancel"
-           android:layout_width="100px"
-           android:layout_height="50px"
-           android:layout_marginLeft="30px"
+           android:layout_width="100dp"
+           android:layout_height="50dp"
+           android:layout_marginStart="30dp"
            android:text="Cancelar"
            android:textSize="@dimen/talla_texto_medioGrande"/>
        

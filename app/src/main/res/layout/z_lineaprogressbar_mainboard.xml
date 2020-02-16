@@ -2,21 +2,21 @@
 <TableRow xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:layout_margin="20px"
+    android:layout_margin="20dp"
     android:gravity="center_vertical" >
 
     <Button
         android:id="@+id/LPB2_boton"
-        android:layout_width="150px"
-        android:layout_height="50px"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
         android:layout_gravity="center"
         android:textColor="@color/black"
         android:textSize="@dimen/talla_texto_medio"
-        android:width="150px" />
+        android:width="150dp" />
 
     <TextView
         android:id="@+id/LPB2_nombre"
-        android:layout_width="100px"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:text="Nombre:"
@@ -25,7 +25,7 @@
 
     <TextView
         android:id="@+id/LPB2_inicio"
-        android:layout_width="100px"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:text="Inicio:"
@@ -33,7 +33,7 @@
         android:textSize="@dimen/talla_texto_medioChico" />
 
     <RelativeLayout
-        android:layout_width="250px"
+        android:layout_width="250dp"
         android:layout_height="fill_parent"
         android:gravity="center_vertical" >
 
@@ -41,12 +41,12 @@
             android:id="@+id/LPB2_progressbar"
             style="?android:attr/progressBarStyleHorizontal"
             android:layout_width="fill_parent"
-            android:layout_height="40px"
+            android:layout_height="40dp"
             android:layout_gravity="center"
-            android:layout_margin="4px"
+            android:layout_margin="4dp"
             android:indeterminate="false"
             android:max="100"
-            android:padding="4px"
+            android:padding="4dp"
             android:progress="0" />
 
         <TextView
@@ -55,14 +55,15 @@
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:textColor="@color/black"
-            android:textSize="18px" />
+            android:textSize="18sp" />
     </RelativeLayout>
 
     <ImageView
         android:id="@+id/LPB2_estado"
-        android:layout_width="100px"
-        android:layout_height="35px"
+        android:layout_width="100dp"
+        android:layout_height="35dp"
         android:gravity="center"
-        android:scaleType="centerInside" />
+        android:scaleType="centerInside"
+        android:contentDescription="@string/contentDescription" />
 
 </TableRow>

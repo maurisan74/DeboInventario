@@ -11,7 +11,7 @@
 	<dimen name="medio">14sp</dimen>
 
 	<dimen name="titulo">25sp</dimen>
-	<dimen name="pruebaPreferencias">14dp</dimen>
+	<dimen name="pruebaPreferencias">14sp</dimen>
 	<dimen name="ancho_columna_derecha">300dp</dimen>
 	<dimen name="ancho_columna_izquierda">500dp</dimen>
 	<dimen name="talla_texto_grande">19sp</dimen>

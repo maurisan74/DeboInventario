@@ -11,8 +11,8 @@
 		android:id="@+id/USB_titulo"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
-		android:layout_marginBottom="25px"
-		android:layout_marginTop="4px"
+		android:layout_marginBottom="25dp"
+		android:layout_marginTop="4dp"
 		android:text="Detalles del Articulo"
 		android:textColor="@color/anaranjado_verde"
 		android:textSize="@dimen/titulo" />
@@ -21,14 +21,14 @@
 
 	<ScrollView
 		android:layout_width="wrap_content"
-		android:layout_height="320px" >
+		android:layout_height="320dp" >
 
 		<TableLayout
 			android:id="@+id/USB_tabla"
 			android:layout_width="fill_parent"
 			android:layout_height="wrap_content"
-			android:layout_marginRight="40px"
-			android:layout_marginTop="5px" >
+			android:layout_marginEnd="40dp"
+			android:layout_marginTop="5dp" >
 
 			<TableRow
 				android:layout_width="fill_parent"
@@ -36,39 +36,39 @@
 				android:gravity="center_horizontal" >
 
 				<TextView
-					android:layout_width="40px"
+					android:layout_width="40dp"
 					android:layout_height="wrap_content"
 					android:gravity="center"
 					android:text=" "
-					android:textSize="20px" />
+					android:textSize="20sp" />
 
 				<TextView
-					android:layout_width="150px"
+					android:layout_width="150dp"
 					android:layout_height="wrap_content"
 					android:gravity="center"
 					android:text="Inventario nº:"
-					android:textSize="20px" />
+					android:textSize="20sp" />
 
 				<TextView
-					android:layout_width="200px"
+					android:layout_width="200dp"
 					android:layout_height="wrap_content"
 					android:gravity="center"
 					android:text="Descripción:"
-					android:textSize="20px" />
+					android:textSize="20sp" />
 
 				<TextView
-					android:layout_width="120px"
+					android:layout_width="120dp"
 					android:layout_height="wrap_content"
 					android:gravity="center"
 					android:text="Fecha:"
-					android:textSize="20px" />
+					android:textSize="20sp" />
 
 				<TextView
-					android:layout_width="100px"
+					android:layout_width="100dp"
 					android:layout_height="wrap_content"
 					android:gravity="center"
 					android:text="Cantidad:"
-					android:textSize="20px" />
+					android:textSize="20sp" />
 			</TableRow>
 		</TableLayout>
 	</ScrollView>
@@ -76,7 +76,7 @@
 	<TableLayout
 		android:layout_width="fill_parent"
 		android:layout_height="wrap_content"
-		android:layout_marginTop="5px" >
+		android:layout_marginTop="5dp" >
 
 		<TableRow
 			android:layout_width="fill_parent"
@@ -85,23 +85,23 @@
 
 			<Button
 				android:id="@+id/USB_boton_precedente"
-				android:layout_marginRight="40px"
+				android:layout_marginEnd="40dp"
 				android:text="Volver"
 				android:visibility="visible"
-				android:width="150px" />
+				android:width="150dp" />
 
 			<Button
 				android:id="@+id/USB_boton_refrescar"
-				android:layout_marginRight="40px"
+				android:layout_marginEnd="40dp"
 				android:text="Refrescar lista"
 				android:visibility="visible"
-				android:width="150px" />
+				android:width="150dp" />
 
 			<Button
 				android:id="@+id/USB_boton_siguiente"
 				android:text="Seguir"
 				android:visibility="invisible"
-				android:width="150px" />
+				android:width="150dp" />
 		</TableRow>
 	</TableLayout>
 
@@ -112,6 +112,6 @@
 		android:gravity="center"
 		android:text=""
 		android:textColor="@color/black"
-		android:textSize="10px" />
+		android:textSize="12sp" />
 
 </LinearLayout>

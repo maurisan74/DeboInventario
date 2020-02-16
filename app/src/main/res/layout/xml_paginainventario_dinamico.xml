@@ -17,7 +17,6 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
             android:gravity="top"
             android:orientation="horizontal" >
 
@@ -26,18 +25,6 @@
             <!-- android:layout_height="match_parent" -->
             <!-- android:gravity="left" -->
             <!-- android:orientation="horizontal" > -->
-
-            <Button
-                android:id="@+id/PID_boton_salir"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentTop="true"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:layout_marginTop="1dp"
-                android:focusable="false"
-                android:text="Salir" />
 
             <ImageView
                 android:id="@+id/PID_boton_busqueda"
@@ -362,6 +349,15 @@
             <!-- android:orientation="horizontal" > -->
             <!-- </LinearLayout> -->
 
+            <Button
+                android:id="@+id/PID_boton_salir"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="300dp"
+                android:layout_marginTop="1dp"
+                android:layout_marginEnd="10dp"
+                android:focusable="false"
+                android:text="Salir" />
         </LinearLayout>
     </LinearLayout>
 
@@ -377,7 +373,7 @@
         android:id="@+id/PID_encab_codigo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="50dp"
+        android:layout_marginStart="50dp"
         android:layout_marginTop="16dp"
         android:src="@drawable/filtro"
         android:visibility="invisible" />
@@ -386,7 +382,7 @@
         android:id="@+id/PID_encab_precio"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="555dp"
+        android:layout_marginStart="555dp"
         android:layout_marginTop="16dp"
         android:src="@drawable/filtro"
         android:visibility="invisible" />
@@ -395,7 +391,7 @@
         android:id="@+id/PID_encab_cantidad"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="690dp"
+        android:layout_marginStart="690dp"
         android:layout_marginTop="16dp"
         android:src="@drawable/filtro"
         android:visibility="invisible" />
@@ -404,8 +400,8 @@
         android:id="@+id/PID_boton_up"
         android:layout_width="40dp"
         android:layout_height="40dp"
-        android:layout_alignParentRight="true"
-        android:layout_marginRight="5dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="5dp"
         android:layout_marginTop="25dp"
         android:src="@drawable/boton_up" />
 
@@ -413,8 +409,8 @@
         android:id="@+id/PID_boton_down"
         android:layout_width="40dp"
         android:layout_height="40dp"
-        android:layout_alignParentRight="true"
-        android:layout_marginRight="5dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="5dp"
         android:layout_marginTop="370dp"
         android:src="@drawable/boton_down" />
 

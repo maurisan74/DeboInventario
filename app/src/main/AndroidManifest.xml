@@ -26,6 +26,32 @@
         </activity>
         <activity android:name=".SeleccionInventarios" >
         </activity>
+        <activity android:name=".BusquedaProveedores" >
+        </activity>
+        <activity android:name=".CambioContrasena" >
+        </activity>
+        <activity android:name=".ComprasMainBoard" >
+        </activity>
+        <activity android:name=".DetallesArticulo" >
+        </activity>
+        <activity android:name=".DetallesArticuloDinamico" >
+        </activity>
+        <activity android:name=".LecturaCodigoBarra" >
+        </activity>
+        <activity android:name=".PaginaCompras" >
+        </activity>
+        <activity android:name=".PaginaInventario" >
+        </activity>
+        <activity android:name=".PaginaInventarioDinamico" >
+        </activity>
+        <activity android:name=".SeleccionarUrl" >
+        </activity>
+        <activity android:name=".TomarFoto" >
+        </activity>
+        <activity android:name=".UsbProvider" >
+        </activity>
+        <activity android:name=".WiFiControlador" >
+        </activity>
         <activity android:name=".DeboInventario">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

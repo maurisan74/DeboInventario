@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="600px"
+    android:layout_width="600dp"
     android:layout_height="wrap_content"
     android:gravity="center_horizontal"
     android:orientation="vertical" >
 
     <LinearLayout
         android:layout_width="fill_parent"
-        android:layout_height="150px"
+        android:layout_height="150dp"
         android:gravity="center_horizontal"
         android:orientation="vertical" >
 
@@ -18,9 +18,9 @@
             android:orientation="horizontal" >
 
             <ImageView
-                android:layout_width="50px"
-                android:layout_height="50px"
-                android:layout_margin="10px"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_margin="10dp"
                 android:scaleType="fitXY"
                 android:src="@drawable/zoom" />
 
@@ -42,16 +42,17 @@
 
             <EditText
                 android:id="@+id/Z_DIALOG_editext"
-                android:layout_width="500px"
+                android:layout_width="500dp"
                 android:layout_height="wrap_content"
                 android:hint="Articulo..."
+                android:inputType="text"
                 android:lines="1" />
 
             <ImageView
                 android:id="@+id/Z_DIALOG_boton_buscar_prov"
-                android:layout_width="50px"
-                android:layout_height="50px"
-                android:layout_marginLeft="15px"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="15dp"
                 android:scaleType="fitXY"
                 android:src="@drawable/boton_buscar_up"
                 />
@@ -60,10 +61,8 @@
 
     <Button
         android:id="@+id/Z_DIALOG_boton_cancelar"
-        android:layout_width="90px"
-        android:layout_height="40px"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentTop="true"
+        android:layout_width="90dp"
+        android:layout_height="40dp"
         android:text="Cancelar"
         android:textSize="@dimen/talla_texto_chico" />
 

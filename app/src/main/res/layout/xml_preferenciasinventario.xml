@@ -22,7 +22,7 @@
         <TableLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="left"
+            android:layout_gravity="end"
             android:layout_margin="20dp" >
 
             <TableRow
@@ -33,7 +33,7 @@
                     android:layout_width="100dp"
                     android:layout_margin="5dp"
                     android:layout_weight="1"
-                    android:gravity="left"
+                    android:gravity="end"
                     android:text="URL WebService:"
                     android:textColor="@color/white"
                     android:textSize="@dimen/pruebaPreferencias" />
@@ -96,7 +96,7 @@
                     android:layout_width="300dp"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
-                    android:gravity="left"
+                    android:gravity="end"
                     android:text="SSID del Wifi Preferido:"
                     android:textColor="@color/white"
                     android:textSize="@dimen/talla_texto_subtitulo" />
@@ -125,7 +125,7 @@
                     android:layout_width="300dp"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
-                    android:gravity="left"
+                    android:gravity="end"
                     android:text="Número de ID de tablet:"
                     android:textColor="@color/white"
                     android:textSize="@dimen/talla_texto_subtitulo" />
@@ -154,7 +154,7 @@
                     android:layout_width="300dp"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
-                    android:gravity="left"
+                    android:gravity="end"
                     android:text="Carpeta Dispositivo IMPORT:"
                     android:textColor="@color/white"
                     android:textSize="@dimen/talla_texto_subtitulo" />
@@ -182,7 +182,7 @@
                     android:layout_width="300dp"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
-                    android:gravity="left"
+                    android:gravity="end"
                     android:text="Carpeta Dispositivo EXPORT:"
                     android:textColor="@color/white"
                     android:textSize="@dimen/talla_texto_subtitulo" />
@@ -210,7 +210,7 @@
                     android:layout_width="300dp"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
-                    android:gravity="left"
+                    android:gravity="end"
                     android:text="@string/CarpetaMaestros"
                     android:textColor="@color/white"
                     android:textSize="@dimen/talla_texto_subtitulo" />
@@ -238,7 +238,7 @@
                     android:layout_width="300dp"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
-                    android:gravity="left"
+                    android:gravity="end"
                     android:text="@string/CarpetaLogEventos"
                     android:textColor="@color/white"
                     android:textSize="@dimen/talla_texto_subtitulo" />
@@ -266,7 +266,7 @@
                     android:layout_width="300dp"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
-                    android:gravity="left"
+                    android:gravity="end"
                     android:text="@string/CarpetaLogDatos"
                     android:textColor="@color/white" />
             </TableRow>
@@ -349,7 +349,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="48dp"
                     android:layout_margin="5dp"
-                    android:gravity="left"
+                    android:gravity="end"
                     android:text="@string/recomendacion"
                     android:textColor="@color/white"
                     android:textSize="@dimen/talla_texto_medioGrande" />
@@ -358,7 +358,7 @@
             <TextView
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
-                android:gravity="left"
+                android:gravity="end"
                 android:text="INVENTARIO (Recuerde finalizar con un inventario antes de trabajar con el otro)"
                 android:textColor="@color/white"
                 android:textSize="@dimen/talla_texto_sub" />
@@ -435,7 +435,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="vertical"
-                    android:paddingLeft="30dp" >
+                    android:paddingEnd="30dp" >
 
                     <RadioButton
                         android:id="@+id/radio1"
@@ -500,7 +500,7 @@
                 android:id="@+id/PREF_boton_guardar"
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="50dp"
+                android:layout_marginEnd="50dp"
                 android:gravity="center"
                 android:text="Guardar cambios"
                 android:textSize="@dimen/talla_texto_medioGrande" />

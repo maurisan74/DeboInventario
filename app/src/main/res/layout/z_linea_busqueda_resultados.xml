@@ -3,7 +3,7 @@
     android:id="@+id/textViewLine"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginBottom="10px"
+    android:layout_marginBottom="10dp"
     android:background="@color/verde_oscuro"
     android:gravity="center_horizontal"
     android:orientation="horizontal" >
@@ -12,10 +12,10 @@
         android:id="@+id/textViewResultado"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="left"
+        android:gravity="start"
         android:text="Large Text"
         android:textColor="@color/white"
-        android:textSize="30px" />
+        android:textSize="30sp" />
 
     <TextView
         android:id="@+id/textViewSector"

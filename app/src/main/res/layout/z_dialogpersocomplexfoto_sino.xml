@@ -2,10 +2,10 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	android:id="@+id/DIALOG_layout"
 	android:orientation="vertical"
-	android:layout_width="400px"
+	android:layout_width="400dp"
 	android:layout_height="wrap_content"
-	android:paddingLeft="2px"
-	android:paddingRight="2px" >
+	android:paddingLeft="2dp"
+	android:paddingRight="2dp" >
 	
     <TextView android:id="@+id/DIALOG_texto"
 		android:layout_width="match_parent"
@@ -15,30 +15,31 @@
 		android:layout_gravity="center_horizontal" />
     
 	<ImageView android:id="@+id/DIALOG_imagen"
-		android:layout_width="200px"
-		android:layout_height="150px"
-		android:layout_margin="10px"
+		android:layout_width="200dp"
+		android:layout_height="150dp"
+		android:layout_margin="10dp"
 		android:scaleType="centerInside"
-		android:layout_gravity="center_horizontal" />	
+		android:layout_gravity="center_horizontal"
+		android:contentDescription="@string/contentDescription" />
 		
 	<LinearLayout android:id="@+id/DIALOG_boton_box"
    	   android:orientation="horizontal"
    	   android:layout_width="wrap_content"
        android:layout_height="match_parent"
-       android:padding="5px"
+       android:padding="5dp"
        android:layout_gravity="center_horizontal">
 	    
        <Button android:id="@+id/DIALOG_boton_validar"
-           android:layout_width="150px"
-           android:layout_height="40px"
-           android:layout_marginRight="30px"
+           android:layout_width="150dp"
+           android:layout_height="40dp"
+           android:layout_marginEnd="30dp"
            android:text="Aceptar foto"
            android:textSize="@dimen/talla_texto_medio"/>
        
        <Button android:id="@+id/DIALOG_boton_cancelar"
-           android:layout_width="150px"
-           android:layout_height="40px"
-           android:layout_marginLeft="30px"
+           android:layout_width="150dp"
+           android:layout_height="40dp"
+           android:layout_marginStart="30dp"
            android:text="Volver a tomar"
            android:textSize="@dimen/talla_texto_medio"/>
        

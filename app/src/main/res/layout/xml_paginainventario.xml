@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/PI_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -14,12 +15,13 @@
         android:scaleType="centerInside"
         android:src="@drawable/lectora_mas_1" />
 
+    <!-- ####@@@@ ____FIN ARTICULOS____ @@@@#### -->
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_centerInParent="true"
         android:gravity="center_horizontal"
-        android:orientation="vertical" >
+        android:orientation="vertical">
 
         <TextView
             android:id="@+id/PI_tit_pagina"
@@ -47,14 +49,14 @@
             android:layout_width="740dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
+            android:layout_marginTop="30dp"
             android:layout_marginEnd="18dp"
-            android:background="@color/black"
-            android:layout_marginTop="30dp">
+            android:background="@color/black">
 
             <TableRow
                 android:layout_width="730dp"
                 android:layout_height="wrap_content"
-                android:layout_margin="4dp" >
+                android:layout_margin="4dp">
 
                 <TextView
                     android:id="@+id/PI_encabezado_codigo"
@@ -94,12 +96,12 @@
                     android:id="@+id/PI_encabezado_cantidad"
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginEnd="3dp"
                     android:background="@color/verde_claro"
                     android:gravity="center"
                     android:text="Cantidad"
                     android:textColor="@color/black"
-                    android:textSize="@dimen/grande"
-                    android:layout_marginEnd="3dp"/>
+                    android:textSize="@dimen/grande" />
 
                 <TextView
                     android:id="@+id/PI_encabezado_existencia"
@@ -117,28 +119,27 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal" >
+            android:orientation="horizontal">
 
             <!-- ####@@@@ ARTICULOS @@@@#### -->
 
             <TableLayout
                 android:id="@+id/PI_tabla_articulos"
                 android:layout_width="740dp"
-                android:layout_height="wrap_content" >
-            </TableLayout>
+                android:layout_height="wrap_content"></TableLayout>
 
             <RelativeLayout
                 android:id="@+id/PI_layout_lateral"
                 android:layout_width="30dp"
                 android:layout_height="300dp"
                 android:layout_marginStart="5dp"
-                android:gravity="center_vertical" >
+                android:gravity="center_vertical">
 
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:paddingBottom="18dp"
                     android:paddingTop="15dp"
+                    android:paddingBottom="18dp"
                     android:scaleType="fitXY"
                     android:src="@drawable/linea_asensor" />
 
@@ -146,7 +147,7 @@
                     android:id="@+id/PI_layout_asensor"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:orientation="vertical" >
+                    android:orientation="vertical">
 
                     <TextView
                         android:id="@+id/PI_asensor_text"
@@ -179,11 +180,18 @@
             android:id="@+id/PI_boton_up"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:layout_marginTop="25dp"
+            android:layout_marginTop="0dp"
             android:layout_marginEnd="5dp"
             android:src="@drawable/boton_up" />
+
+        <ImageView
+            android:id="@+id/PI_boton_down"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginBottom="760dp"
+            android:src="@drawable/boton_down" />
     </LinearLayout>
-    <!-- ####@@@@ ____FIN ARTICULOS____ @@@@#### -->
 
     <ProgressBar
         android:id="@+id/PI_loadingbar"
@@ -221,19 +229,11 @@
         android:visibility="invisible" />
 
     <ImageView
-        android:id="@+id/PI_boton_down"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_marginEnd="5dp"
-        android:layout_marginTop="370dp"
-        android:src="@drawable/boton_down" />
-
-    <ImageView
         android:id="@+id/PI_boton_busqueda"
         android:layout_width="35dp"
         android:layout_height="35dp"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="150dp"
+        android:layout_marginEnd="150dp"
         android:layout_marginTop="1dp"
         android:src="@drawable/zoom" />
 
@@ -242,7 +242,6 @@
         android:layout_width="25dp"
         android:layout_height="25dp"
         android:layout_marginStart="50dp"
-        android:layout_alignBottom="@+id/PI_boton_salir"
         android:layout_alignStart="@+id/PI_boton_busqueda"
         android:src="@drawable/ic_lectora" />
 

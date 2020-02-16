@@ -14,12 +14,18 @@
 
         <!-- Pimera linea de encabezado -->
 
+        <!-- ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; -->
+        <!-- ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; -->
+        <!-- ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; -->
+        <!-- ##################################### -->
+        <!-- ####        TABLA CENTRAL        #### -->
+        <!-- ##################################### -->
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
             android:gravity="top"
-            android:orientation="horizontal" >
+            android:orientation="horizontal">
 
             <!-- <LinearLayout -->
             <!-- android:layout_width="wrap_content" -->
@@ -27,25 +33,13 @@
             <!-- android:gravity="left" -->
             <!-- android:orientation="horizontal" > -->
 
-            <Button
-                android:id="@+id/PID_boton_salir"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentTop="true"
-                android:layout_marginLeft="10px"
-                android:layout_marginRight="10px"
-                android:layout_marginTop="1px"
-                android:focusable="false"
-                android:text="Salir" />
-
             <ImageView
                 android:id="@+id/PID_boton_busqueda"
-                android:layout_width="35px"
-                android:layout_height="35px"
-                android:layout_marginLeft="10px"
-                android:layout_marginRight="10px"
-                android:layout_marginTop="1px"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="1dp"
+                android:layout_marginRight="10dp"
                 android:src="@drawable/zoom" />
             <!-- </LinearLayout> -->
 
@@ -58,24 +52,24 @@
 
             <ImageView
                 android:id="@+id/PID_boton_lectora"
-                android:layout_width="45px"
-                android:layout_height="37px"
-                android:layout_marginLeft="40px"
+                android:layout_width="45dp"
+                android:layout_height="37dp"
+                android:layout_marginStart="40dp"
                 android:src="@drawable/lectora_mas_1" />
 
             <ImageView
                 android:id="@+id/Ic_Lectora_Din"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="50px"
+                android:layout_marginStart="50dp"
                 android:src="@drawable/ic_lectora" />
 
             <EditText
                 android:id="@+id/TextcodigoBarras"
-                android:layout_width="150px"
-                android:layout_height="40px"
-                android:layout_marginLeft="25px"
-                android:layout_marginTop="15px"
+                android:layout_width="150dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="15dp"
                 android:ems="10"
                 android:inputType="numberSigned" />
 
@@ -84,8 +78,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginLeft="100px"
-                android:layout_marginRight="80px"
+                android:layout_marginStart="100dp"
+                android:layout_marginEnd="80dp"
                 android:text="Inventarios Dinámicos"
                 android:textColor="@color/anaranjado_verde"
                 android:textSize="@dimen/titulo" />
@@ -96,8 +90,8 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_gravity="right"
-                android:orientation="vertical" >
+                android:layout_gravity="end"
+                android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/PID_textViewFechaInicio"
@@ -125,29 +119,26 @@
             </LinearLayout>
         </LinearLayout>
 
-        <!-- ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; -->
-        <!-- ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; -->
-        <!-- ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; -->
-        <!-- ##################################### -->
-        <!-- ####        TABLA CENTRAL        #### -->
-        <!-- ##################################### -->
+        <!-- ####@@@@ ____FIN ARTICULOS____ @@@@#### -->
+
+
+        <!-- PIE DE PAGINA -->
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:orientation="horizontal" >
+            android:orientation="horizontal">
 
             <LinearLayout
-                android:layout_width="100px"
+                android:layout_width="100dp"
                 android:layout_height="match_parent"
-                android:orientation="vertical" >
+                android:orientation="vertical">
 
                 <RadioGroup
                     android:id="@+id/PID_radioGroupLugarInv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center" >
+                    android:layout_gravity="center">
 
                     <RadioButton
                         android:id="@+id/PID_radioVenta"
@@ -169,28 +160,28 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical" >
+                android:orientation="vertical">
 
                 <!-- ####@@@@ ENCABEZADOS @@@@#### -->
 
                 <TableLayout
                     android:id="@+id/PID_tabla_central"
-                    android:layout_width="740px"
+                    android:layout_width="740dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:background="@color/black" >
+                    android:background="@color/black">
 
                     <TableRow
-                        android:layout_width="730px"
+                        android:layout_width="730dp"
                         android:layout_height="wrap_content"
-                        android:layout_margin="4px" >
+                        android:layout_margin="4dp">
 
                         <TextView
                             android:id="@+id/PID_encabezado_codigo"
-                            android:layout_width="95px"
+                            android:layout_width="95dp"
                             android:layout_height="wrap_content"
-                            android:layout_marginRight="3px"
-                            android:layout_marginLeft="1px"
+                            android:layout_marginStart="1dp"
+                            android:layout_marginEnd="3dp"
                             android:background="@color/verde_claro"
                             android:gravity="center"
                             android:text="Código"
@@ -199,9 +190,9 @@
 
                         <TextView
                             android:id="@+id/PID_encabezado_descripcion"
-                            android:layout_width="340px"
+                            android:layout_width="340dp"
                             android:layout_height="wrap_content"
-                            android:layout_marginRight="3px"
+                            android:layout_marginEnd="3dp"
                             android:background="@color/verde_claro"
                             android:gravity="center"
                             android:text="Articulo"
@@ -210,57 +201,56 @@
 
                         <TextView
                             android:id="@+id/PID_encabezado_precio"
-                            android:layout_width="90px"
+                            android:layout_width="90dp"
                             android:layout_height="wrap_content"
-                            android:layout_marginRight="3px"
+                            android:layout_marginEnd="3dp"
                             android:background="@color/verde_claro"
                             android:gravity="center"
                             android:text="Precio"
                             android:textColor="@color/black"
                             android:textSize="@dimen/grande" />
-                  
-                  <!--	Esto estaba
-                  
+
+                        <!--	Esto estaba
+
                       <TextView
                             android:id="@+id/PID_encabezado_cantidad_a_la_toma"
-                            android:layout_width="100px"
+                            android:layout_width="100dp"
                             android:layout_height="wrap_content"
-                            android:layout_marginRight="3px"
+                            android:layout_marginRight="3dp"
                             android:background="@color/verde_claro"
                             android:gravity="center_horizontal"
                             android:text="A la Toma"
                             android:textColor="@color/black"
                             android:textSize="@dimen/grande" />
  					-->
-                  
- 					
- 					                        <TextView
+
+
+                        <TextView
                             android:id="@+id/PID_encabezado_cantidad"
-                            android:layout_width="100px"
+                            android:layout_width="100dp"
                             android:layout_height="wrap_content"
+                            android:layout_marginEnd="3dp"
                             android:background="@color/verde_claro"
                             android:gravity="center_horizontal"
                             android:text="Cantidad"
                             android:textColor="@color/black"
-                            android:textSize="@dimen/grande" 
-                            android:layout_marginRight="3px"/>
- 					                        
- 					                        
- 					                        
- 					<!--    Esto se agrega   	-->       
-                    
- 					<TextView
+                            android:textSize="@dimen/grande" />
+
+
+                        <!--    Esto se agrega   	-->
+
+                        <TextView
                             android:id="@+id/PID_encabezado_existente"
-                            android:layout_width="93px"
+                            android:layout_width="93dp"
                             android:layout_height="wrap_content"
-                         
+
                             android:background="@color/verde_claro"
                             android:gravity="center_horizontal"
                             android:text="Existente"
                             android:textColor="@color/black"
                             android:textSize="@dimen/grande" />
- 					
- 					
+
+
                     </TableRow>
                 </TableLayout>
                 <!-- ####@@@@ _____FIN ENCABEZADOS____ @@@@#### -->
@@ -268,28 +258,27 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="344dp"
-                    android:orientation="horizontal" >
+                    android:orientation="horizontal">
 
                     <!-- ####@@@@ ARTICULOS @@@@#### -->
 
                     <TableLayout
                         android:id="@+id/PID_tabla_articulos"
-                        android:layout_width="740px"
-                        android:layout_height="wrap_content" >
-                    </TableLayout>
+                        android:layout_width="740dp"
+                        android:layout_height="wrap_content"></TableLayout>
 
                     <RelativeLayout
                         android:id="@+id/PID_layout_lateral"
-                        android:layout_width="30px"
-                        android:layout_height="300px"
-                        android:layout_marginLeft="100px"
-                        android:gravity="center_vertical" >
+                        android:layout_width="30dp"
+                        android:layout_height="300dp"
+                        android:layout_marginStart="100dp"
+                        android:gravity="center_vertical">
 
                         <ImageView
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:paddingBottom="18px"
-                            android:paddingTop="15px"
+                            android:paddingTop="15dp"
+                            android:paddingBottom="18dp"
                             android:scaleType="fitXY"
                             android:src="@drawable/linea_asensor" />
 
@@ -297,20 +286,20 @@
                             android:id="@+id/PID_layout_asensor"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:orientation="vertical" >
+                            android:orientation="vertical">
 
                             <TextView
                                 android:id="@+id/PID_asensor_text"
-                                android:layout_width="10px"
+                                android:layout_width="10dp"
                                 android:layout_height="wrap_content"
                                 android:lines="0"
                                 android:text="aaaaaa"
-                                android:textSize="1px" />
+                                android:textSize="12sp" />
 
                             <ImageView
                                 android:id="@+id/PID_asensor"
-                                android:layout_width="30px"
-                                android:layout_height="30px"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
                                 android:scaleType="fitXY"
                                 android:src="@drawable/asensor" />
                         </LinearLayout>
@@ -318,10 +307,6 @@
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>
-        <!-- ####@@@@ ____FIN ARTICULOS____ @@@@#### -->
-
-
-        <!-- PIE DE PAGINA -->
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -343,13 +328,22 @@
             <!-- android:orientation="horizontal" > -->
             <!-- </LinearLayout> -->
 
+            <Button
+                android:id="@+id/PID_boton_salir"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="420dp"
+                android:layout_marginTop="1dp"
+                android:layout_marginEnd="10dp"
+                android:focusable="false"
+                android:text="Salir" />
         </LinearLayout>
     </LinearLayout>
 
     <ProgressBar
         android:id="@+id/PID_loadingbar"
-        android:layout_width="120px"
-        android:layout_height="120px"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
         android:layout_centerInParent="true"
         android:background="@color/black"
         android:visibility="visible" />
@@ -358,8 +352,8 @@
         android:id="@+id/PID_encab_codigo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="50px"
-        android:layout_marginTop="16px"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="16dp"
         android:src="@drawable/filtro"
         android:visibility="invisible" />
 
@@ -367,8 +361,8 @@
         android:id="@+id/PID_encab_precio"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="555px"
-        android:layout_marginTop="16px"
+        android:layout_marginStart="555dp"
+        android:layout_marginTop="16dp"
         android:src="@drawable/filtro"
         android:visibility="invisible" />
 
@@ -376,27 +370,27 @@
         android:id="@+id/PID_encab_cantidad"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="690px"
-        android:layout_marginTop="16px"
+        android:layout_marginStart="690dp"
+        android:layout_marginTop="16dp"
         android:src="@drawable/filtro"
         android:visibility="invisible" />
 
     <ImageView
         android:id="@+id/PID_boton_up"
-        android:layout_width="40px"
-        android:layout_height="40px"
-        android:layout_alignParentRight="true"
-        android:layout_marginRight="5px"
-        android:layout_marginTop="25px"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="5dp"
+        android:layout_marginTop="25dp"
         android:src="@drawable/boton_up" />
 
     <ImageView
         android:id="@+id/PID_boton_down"
-        android:layout_width="40px"
-        android:layout_height="40px"
-        android:layout_alignParentRight="true"
-        android:layout_marginRight="5px"
-        android:layout_marginTop="370px"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="5dp"
+        android:layout_marginTop="370dp"
         android:src="@drawable/boton_down" />
 
 </RelativeLayout>

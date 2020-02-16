@@ -10,6 +10,7 @@
     <string name="subtit_cantidad">Cantidades en stock:</string>
 
     <string name="subtit_exisventa">Existencia en stock:</string>
+    <string name="contentDescription">Imagen</string>
 
     <string name="CarpetaMaestros">Carpeta de Maestros:</string>
     <string name="CarpetaLogEventos">Carpeta Log de Eventos</string>

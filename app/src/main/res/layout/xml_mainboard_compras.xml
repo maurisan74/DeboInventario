@@ -143,8 +143,7 @@
                 android:id="@+id/ADD_boton_nuevo_invc"
                 android:layout_width="150dp"
                 android:layout_height="50dp"
-                android:layout_alignParentRight="true"
-                android:layout_marginRight="30dp"
+                android:layout_marginStart="30dp"
                 android:text="Inv. Comp."
                 android:textSize="@dimen/talla_texto_medio" />
 
@@ -152,19 +151,17 @@
                 android:id="@+id/Exportar_BD"
                 android:layout_width="150dp"
                 android:layout_height="50dp"
-                android:layout_alignParentRight="true"
-                android:layout_marginRight="30dp"
+                android:layout_marginStart="30dp"
                 android:text="Exportar BD"
-                android:textSize="15dp" />
+                android:textSize="15sp" />
 
             <Button
                 android:id="@+id/Importar_BD"
                 android:layout_width="150dp"
                 android:layout_height="50dp"
-                android:layout_alignParentRight="true"
-                android:layout_marginRight="30dp"
+                android:layout_marginEnd="30dp"
                 android:text="Importar BD"
-                android:textSize="15dp" />
+                android:textSize="15sp" />
 
             <Button
                 android:id="@+id/IMB_boton_exportar"
@@ -180,7 +177,7 @@
         android:id="@+id/IMB_boton_salir"
         android:layout_width="30dp"
         android:layout_height="30dp"
-        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
         android:layout_margin="5dp"
         android:src="@drawable/boton_salir" />
 
