@@ -6,11 +6,11 @@
 	<dimen name="titulo_no">25dp</dimen>
 	<dimen name="dim_boton_grande">120dp</dimen>
 	<dimen name="dim_boton_masgrande">150dp</dimen>
-	<dimen name="grande">18dp</dimen>
-	<dimen name="medioGrande">16dp</dimen>
-	<dimen name="medio">14dp</dimen>
+	<dimen name="grande">18sp</dimen>
+	<dimen name="medioGrande">16sp</dimen>
+	<dimen name="medio">14sp</dimen>
 
-	<dimen name="titulo">25dp</dimen>
+	<dimen name="titulo">25sp</dimen>
 	<dimen name="pruebaPreferencias">14dp</dimen>
 	<dimen name="ancho_columna_derecha">300dp</dimen>
 	<dimen name="ancho_columna_izquierda">500dp</dimen>

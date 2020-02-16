@@ -15,14 +15,14 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="5px"
+            android:layout_margin="5dp"
             android:text="DEBO COMPRAS"
             android:textColor="@color/black"
             android:textSize="@dimen/titulo" />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="5px"
+            android:layout_margin="5dp"
             android:text="Resultado de busqueda proveedores"
             android:textColor="@color/black"
             android:textSize="@dimen/titulo" />
@@ -47,10 +47,10 @@
 
     <ImageView
         android:id="@+id/CMB_boton_salir"
-        android:layout_width="30px"
-        android:layout_height="30px"
-        android:layout_alignParentRight="true"
-        android:layout_margin="5px"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_alignParentEnd="true"
+        android:layout_margin="5dp"
         android:src="@drawable/boton_salir" />
 
 </RelativeLayout>

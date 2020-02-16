@@ -2,6 +2,7 @@ package com.focasoftware.deboinventario;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
@@ -41,6 +42,7 @@ public class SeleccionarUrl extends Activity {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.seleccionar_url);
+		setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
 
 		// CREACION DE LA TABLA LOCAL
 		BaseDatos data = new BaseDatos(this);

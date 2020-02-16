@@ -11,6 +11,7 @@ import android.content.DialogInterface.OnCancelListener;
 import android.content.DialogInterface.OnDismissListener;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.ActivityInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.SystemClock;
@@ -283,6 +284,8 @@ public class PaginaInventario extends Activity implements DialogPersoSimple {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.xml_paginainventario);
+		setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+
 		log.setUbicacion(ParametrosInventario.CARPETA_LOGTABLET);
 		log.tipo_0 = Parametros.PREF_LOG_EVENTOS;
 		log.tipo_2 = Parametros.PREF_LOG_PROCESOS;

@@ -119,7 +119,7 @@ public class DialogPersoComplexActualizacionWifiUsb extends Dialog {
 				chkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
 					
 					public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-						if (isChecked == true) {
+						if (isChecked) {
 							lista.add(tablaBDD);
 						} else {
 							lista.remove((String) tablaBDD);

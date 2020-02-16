@@ -157,7 +157,7 @@ public class DeboInventario extends Activity implements DialogPersoSimple, Wifi 
 		setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
 		PreferenciasInventario.cargarPreferencias(ctxt);
 
-		/**
+		/*
 		 * Se crea y se instancia la clase de log
 		 */
 
@@ -247,25 +247,25 @@ public class DeboInventario extends Activity implements DialogPersoSimple, Wifi 
 			if(!Flash_deboInventario_aTablet.exists())
 				Flash_deboInventario_aTablet.mkdir();
 			
-			if(Flash_deboInventario_desdeTablet.exists() == false)
+			if(!Flash_deboInventario_desdeTablet.exists())
 				Flash_deboInventario_desdeTablet.mkdir();
 			
-			if(Flash_deboInventario_maeTablet.exists() == false)
+			if(!Flash_deboInventario_maeTablet.exists())
 				Flash_deboInventario_maeTablet.mkdir();
 			
-			if(Flash_deboInventario_logTablet.exists() == false)
+			if(!Flash_deboInventario_logTablet.exists())
 				Flash_deboInventario_logTablet.mkdir();
 			
-			if(Flash_deboInventario_logDatos.exists() == false)
+			if(!Flash_deboInventario_logDatos.exists())
 				Flash_deboInventario_logDatos.mkdir();
 			
-			if(url_carpeta_usb.exists() == false)
+			if(!url_carpeta_usb.exists())
 				url_carpeta_usb.mkdir();
 			
-			if(url_carpeta_usb_import.exists() == false)
+			if(!url_carpeta_usb_import.exists())
 				url_carpeta_usb_import.mkdir();
 			
-			if(url_carpeta_usb_export.exists() == false)
+			if(!url_carpeta_usb_export.exists())
 				url_carpeta_usb_export.mkdir();
 			
 						
@@ -281,7 +281,7 @@ public class DeboInventario extends Activity implements DialogPersoSimple, Wifi 
 		// }
 
 		// 3 Otro control horario en caso que la fecha sea muy incoherente
-		if (ControlHora.control_horario() == false) {
+		if (!ControlHora.control_horario()) {
 			showSimpleDialogOK("PROBLEMA DE HORARIO", ControlHora.mensaje())
 					.show();
 
@@ -831,8 +831,7 @@ public class DeboInventario extends Activity implements DialogPersoSimple, Wifi 
 			// --------------------------------------------------
 			// Recuperamos todos los articulos, y los cargamos:
 			// --------------------------------------------------
-			if (lista_actualizaciones_programadas
-					.contains(ParametrosInventario.tabla_referencias) == true) {
+			if (lista_actualizaciones_programadas.contains(ParametrosInventario.tabla_referencias)) {
 				// 1 Borramos los datos de las referencias
 				try {
 					BDD.borrarDatosBDD(ParametrosInventario.tabla_referencias,
@@ -864,7 +863,7 @@ public class DeboInventario extends Activity implements DialogPersoSimple, Wifi 
 					SharedPreferences setting = PreferenceManager.getDefaultSharedPreferences(ctxt);
 					SharedPreferences.Editor edit = setting.edit();
 					edit.putBoolean(ParametrosInventario.tablet_mostrar_existencia, mostrarExistencia);
-					edit.commit();
+					edit.apply();
 					cantidad_referencias = HttpReader.readCantidadReferencias();
 //					cantidad_proveedores = HttpReader.readCantidadProveedores();
 					Log.v("yo", "Cantidad referencias = "
@@ -931,7 +930,7 @@ public class DeboInventario extends Activity implements DialogPersoSimple, Wifi 
 					lista_sub_prov_hashmap.add(subHashmapProveedores);
 					popupSubir((10 + ((50 - 10) * indice / cantidad_referencias)));
 
-				} while (stop == false);
+				} while (!stop);
 
 				try {
 					// En un primer tiempo se parsea el hashmap en un arraylist:

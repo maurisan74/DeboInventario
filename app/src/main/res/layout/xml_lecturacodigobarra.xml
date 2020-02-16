@@ -9,16 +9,16 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="5px"
+        android:layout_margin="5dp"
         android:text="Leer un código de barras"
         android:textColor="@color/black"
         android:textSize="@dimen/titulo" />
 
     <EditText
         android:id="@+id/LCB_textbox_codigo"
-        android:layout_width="400px"
-        android:layout_height="50px"
-        android:layout_marginTop="45px"
+        android:layout_width="400dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="45dp"
         android:background="@color/gris"
         android:gravity="center"
         android:inputType="number"
@@ -34,19 +34,19 @@
 
         <Button
             android:id="@+id/LCB_botonValidar"
-            android:layout_width="150px"
-            android:layout_height="50px"
-            android:layout_marginRight="40px"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:layout_marginEnd="40dp"
             android:text="Validar"
-            android:textSize="20px" />
+            android:textSize="20sp" />
 
         <Button
             android:id="@+id/LCB_botonCancelar"
-            android:layout_width="150px"
-            android:layout_height="50px"
-            android:layout_marginLeft="40px"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="40dp"
             android:text="Cancelar"
-            android:textSize="20px" />
+            android:textSize="20sp" />
     </LinearLayout>
 
 </LinearLayout>

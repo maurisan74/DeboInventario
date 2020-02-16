@@ -3,6 +3,7 @@ package com.focasoftware.deboinventario;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.wifi.WifiConfiguration;
@@ -120,7 +121,7 @@ public class WiFiControlador extends Activity {
 		super.onCreate(savedInstanceState);
 		this.requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.xml_wificontrolador);
-		
+		setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
 		//1� Obtenemos el intent padre
 		intentPadre = getIntent();
 		
@@ -165,7 +166,7 @@ public class WiFiControlador extends Activity {
 				}
 			}
 			
-			if (conectado == true) {
+			if (conectado) {
 				setResult(RESULT_OK, intentPadre);
 				finish();
 			} else {

@@ -4,25 +4,25 @@
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
 	android:orientation="vertical"
-	android:padding="5px" >
+	android:padding="5dp" >
 
 	<LinearLayout
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
 		android:gravity="center_vertical"
 		android:orientation="horizontal"
-		android:padding="10px" >
+		android:padding="10dp" >
 
 		<ImageView
 			android:id="@+id/DIALOG_imagen"
-			android:layout_width="80px"
-			android:layout_height="80px"
-			android:layout_marginRight="10px"
-			android:padding="10px"
+			android:layout_width="80dp"
+			android:layout_height="80dp"
+			android:layout_marginStart="10dp"
+			android:padding="10dp"
 			android:scaleType="fitCenter" />
 
 		<LinearLayout
-			android:layout_width="300px"
+			android:layout_width="300dp"
 			android:layout_height="wrap_content"
 			android:gravity="center_horizontal"
 			android:orientation="vertical" >
@@ -48,19 +48,19 @@
 		android:layout_height="match_parent"
 		android:layout_gravity="center_horizontal"
 		android:orientation="horizontal"
-		android:padding="5px" >
+		android:padding="5dp" >
 
 		<Button
 			android:id="@+id/DIALOG_boton_validar_wifi"
 			android:layout_width="wrap_content"
-			android:layout_height="50px"
+			android:layout_height="50dp"
 			android:text="Por WiFi"
 			android:textSize="@dimen/talla_texto_medioGrande" />
 
 		<Button
 			android:id="@+id/DIALOG_boton_validar_usb"
 			android:layout_width="wrap_content"
-			android:layout_height="50px"
+			android:layout_height="50dp"
 			android:text="Por USB"
 			android:visibility="gone"
 			android:textSize="@dimen/talla_texto_medioGrande" />
@@ -68,7 +68,7 @@
 		<Button
 			android:id="@+id/DIALOG_boton_flash"
 			android:layout_width="wrap_content"
-			android:layout_height="50px"
+			android:layout_height="50dp"
 			android:text="@string/flash"
 			android:visibility="gone"
 			android:textSize="@dimen/talla_texto_medioGrande" />
@@ -76,14 +76,14 @@
 		<Button
 			android:id="@+id/DIALOG_boton_sdcard"
 			android:layout_width="wrap_content"
-			android:layout_height="50px"
+			android:layout_height="50dp"
 			android:text="@string/sdcard"
 			android:textSize="@dimen/talla_texto_medioGrande" />
 
 		<Button
 			android:id="@+id/DIALOG_boton_cancelar"
 			android:layout_width="wrap_content"
-			android:layout_height="50px"
+			android:layout_height="50dp"
 			android:text="Cancelar"
 			android:textSize="@dimen/talla_texto_medioGrande" />
 	</LinearLayout>

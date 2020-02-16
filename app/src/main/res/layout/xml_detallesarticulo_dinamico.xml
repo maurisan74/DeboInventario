@@ -10,14 +10,14 @@
         android:gravity="center_horizontal"
         android:orientation="vertical"
         android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true">
+        android:layout_alignParentStart="true">
 
         <TextView
             android:id="@+id/DART_titulo_pagina"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="25px"
-            android:layout_marginTop="4px"
+            android:layout_marginBottom="25dp"
+            android:layout_marginTop="4dp"
             android:text="Detalles del Articulo"
             android:textColor="@color/anaranjado_verde"
             android:textSize="@dimen/titulo" />
@@ -40,17 +40,17 @@
                     android:gravity="center_vertical" >
 
                     <TextView
-                        android:layout_width="150px"
+                        android:layout_width="150dp"
                         android:layout_height="wrap_content"
-                        android:layout_margin="4px"
+                        android:layout_margin="4dp"
                         android:text="@string/subtit_nombre"
                         android:textSize="@dimen/medio" />
 
                     <TextView
                         android:id="@+id/DART_art_nombre"
-                        android:layout_width="400px"
+                        android:layout_width="400dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="10px"
+                        android:layout_marginStart="10dp"
                         android:text=" "
                         android:textSize="@dimen/medioGrande" />
                 </TableRow>
@@ -65,7 +65,7 @@
                     <TextView
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
-                        android:layout_margin="4px"
+                        android:layout_margin="4dp"
                         android:text="@string/subtit_sector"
                         android:textSize="@dimen/medio" />
 
@@ -73,7 +73,7 @@
                         android:id="@+id/DART_art_sector"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="10px"
+                        android:layout_marginStart="10dp"
                         android:text=" "
                         android:textSize="@dimen/medioGrande" />
                 </TableRow>
@@ -88,7 +88,7 @@
                     <TextView
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
-                        android:layout_margin="4px"
+                        android:layout_margin="4dp"
                         android:text="@string/subtit_codigo"
                         android:textSize="@dimen/medio" />
 
@@ -96,7 +96,7 @@
                         android:id="@+id/DART_art_codigo"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="10px"
+                        android:layout_marginStart="10dp"
                         android:text=" "
                         android:textSize="@dimen/medioGrande" />
                 </TableRow>
@@ -111,7 +111,7 @@
                     <TextView
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
-                        android:layout_margin="4px"
+                        android:layout_margin="4dp"
                         android:text="@string/subtit_codigobarras"
                         android:textSize="@dimen/medio" />
 
@@ -119,7 +119,7 @@
                         android:id="@+id/DART_art_codbar"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="10px"
+                        android:layout_marginStart="10dp"
                         android:text=" "
                         android:textSize="@dimen/medioGrande" />
                 </TableRow>
@@ -134,7 +134,7 @@
                     <TextView
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
-                        android:layout_margin="4px"
+                        android:layout_margin="4dp"
                         android:text="@string/subtit_precio"
                         android:textSize="@dimen/medio" />
 
@@ -142,7 +142,7 @@
                         android:id="@+id/DART_art_precio"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="10px"
+                        android:layout_marginStart="10dp"
                         android:text=" "
                         android:textSize="@dimen/medioGrande" />
                 </TableRow>
@@ -157,7 +157,7 @@
                     <TextView
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
-                        android:layout_margin="4px"
+                        android:layout_margin="4dp"
                         android:text="@string/subtit_costo"
                         android:textSize="@dimen/medio" />
 
@@ -165,7 +165,7 @@
                         android:id="@+id/DART_art_costo"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="10px"
+                        android:layout_marginStart="10dp"
                         android:text=" "
                         android:textSize="@dimen/medioGrande" />
                 </TableRow>
@@ -180,7 +180,7 @@
                     <TextView
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
-                        android:layout_margin="4px"
+                        android:layout_margin="4dp"
                         android:text="@string/subtit_cantidad"
                         android:textSize="@dimen/medio" />
 
@@ -188,7 +188,7 @@
                         android:id="@+id/DART_art_cantidad"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="10px"
+                        android:layout_marginStart="10dp"
                         android:text=" "
                         android:textSize="@dimen/medioGrande" />
                 </TableRow>
@@ -203,7 +203,7 @@
                     <TextView
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
-                        android:layout_margin="4px"
+                        android:layout_margin="4dp"
                         android:text="@string/subtit_exisventa"
                         android:textSize="@dimen/medio" />
 
@@ -211,7 +211,7 @@
                         android:id="@+id/DART_art_exisventa"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="10px"
+                        android:layout_marginStart="10dp"
                         android:text=" "
                         android:textSize="@dimen/medioGrande" />
                 </TableRow>
@@ -222,7 +222,7 @@
                 
                 <!-- <TableRow -->
                 <!-- android:layout_width="wrap_content" -->
-                <!-- android:layout_height="25px" -->
+                <!-- android:layout_height="25dp" -->
                 <!-- android:gravity="center_vertical" > -->
                 <!-- </TableRow> -->
 
@@ -242,16 +242,14 @@
 
             </TableLayout>
         </LinearLayout>
-    </LinearLayout>
 
-    <Button
-        android:id="@+id/DART_boton_salir"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginRight="60px"
-        android:layout_marginTop="15px"
-        android:text="Volver" />
+        <Button
+            android:id="@+id/DART_boton_salir"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="60dp"
+            android:text="Volver" />
+    </LinearLayout>
 
 </RelativeLayout>

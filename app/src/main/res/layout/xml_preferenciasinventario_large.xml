@@ -9,14 +9,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_margin="5px"
+        android:layout_margin="5dp"
         android:text="Preferencias "
         android:textColor="@color/white"
         android:textSize="@dimen/talla_texto_titulo" />
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="320px"
+        android:layout_height="320dp"
         android:layout_weight="0.44" >
 
         <TableLayout

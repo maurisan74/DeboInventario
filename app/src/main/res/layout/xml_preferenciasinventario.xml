@@ -9,21 +9,21 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_margin="5px"
+        android:layout_margin="5dp"
         android:text="Preferencias"
         android:textColor="@color/white"
         android:textSize="@dimen/talla_texto_titulo" />
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="470px"
+        android:layout_height="470dp"
         android:layout_weight="0.44" >
 
         <TableLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="left"
-            android:layout_margin="20px" >
+            android:layout_margin="20dp" >
 
             <TableRow
                 android:layout_width="wrap_content"
@@ -31,7 +31,7 @@
 
                 <TextView
                     android:layout_width="100dp"
-                    android:layout_margin="5px"
+                    android:layout_margin="5dp"
                     android:layout_weight="1"
                     android:gravity="left"
                     android:text="URL WebService:"
@@ -46,7 +46,7 @@
                 <EditText
                     android:id="@+id/PREF_URL_webservice"
                     android:layout_width="100dp"
-                    android:layout_margin="5px"
+                    android:layout_margin="5dp"
                     android:singleLine="true"
                     android:text="URL"
                     android:textSize="@dimen/talla_texto_grande" >
@@ -56,12 +56,12 @@
 
                 <Button
                     android:id="@+id/PREF_checkUrl"
-                    android:layout_width="120px"
+                    android:layout_width="120dp"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:text="Check URL"
                     android:textSize="@dimen/talla_texto_GrandeGrande"
-                    android:layout_marginTop="8px" />
+                    android:layout_marginTop="8dp" />
             </TableRow>
 
             <TableRow
@@ -70,7 +70,7 @@
 
                 <Button
                     android:id="@+id/PREF_agregarUrl"
-                    android:layout_width="200px"
+                    android:layout_width="200dp"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:text="Agregar Url"
@@ -93,9 +93,9 @@
                 android:visibility="gone" >
 
                 <TextView
-                    android:layout_width="300px"
+                    android:layout_width="300dp"
                     android:layout_height="wrap_content"
-                    android:layout_margin="5px"
+                    android:layout_margin="5dp"
                     android:gravity="left"
                     android:text="SSID del Wifi Preferido:"
                     android:textColor="@color/white"
@@ -109,9 +109,9 @@
 
                 <EditText
                     android:id="@+id/PREF_wifi_preferido"
-                    android:layout_width="350px"
+                    android:layout_width="350dp"
                     android:layout_height="wrap_content"
-                    android:layout_margin="5px"
+                    android:layout_margin="5dp"
                     android:singleLine="true"
                     android:text="SSID wifi"
                     android:textSize="@dimen/talla_texto_grande" />
@@ -122,9 +122,9 @@
                 android:layout_height="match_parent" >
 
                 <TextView
-                    android:layout_width="300px"
+                    android:layout_width="300dp"
                     android:layout_height="wrap_content"
-                    android:layout_margin="5px"
+                    android:layout_margin="5dp"
                     android:gravity="left"
                     android:text="Número de ID de tablet:"
                     android:textColor="@color/white"
@@ -137,9 +137,9 @@
 
                 <EditText
                     android:id="@+id/PREF_id_tablet"
-                    android:layout_width="350px"
+                    android:layout_width="350dp"
                     android:layout_height="wrap_content"
-                    android:layout_margin="5px"
+                    android:layout_margin="5dp"
                     android:inputType="number"
                     android:singleLine="true"
                     android:text="Num ID"
@@ -151,9 +151,9 @@
                 android:layout_height="match_parent" >
 
                 <TextView
-                    android:layout_width="300px"
+                    android:layout_width="300dp"
                     android:layout_height="wrap_content"
-                    android:layout_margin="5px"
+                    android:layout_margin="5dp"
                     android:gravity="left"
                     android:text="Carpeta Dispositivo IMPORT:"
                     android:textColor="@color/white"
@@ -166,9 +166,9 @@
 
                 <EditText
                     android:id="@+id/PREF_usb_import"
-                    android:layout_width="350px"
+                    android:layout_width="350dp"
                     android:layout_height="wrap_content"
-                    android:layout_margin="5px"
+                    android:layout_margin="5dp"
                     android:singleLine="true"
                     android:text=" Dispositivo import"
                     android:textSize="@dimen/talla_texto_grande" />
@@ -179,9 +179,9 @@
                 android:layout_height="match_parent" >
 
                 <TextView
-                    android:layout_width="300px"
+                    android:layout_width="300dp"
                     android:layout_height="wrap_content"
-                    android:layout_margin="5px"
+                    android:layout_margin="5dp"
                     android:gravity="left"
                     android:text="Carpeta Dispositivo EXPORT:"
                     android:textColor="@color/white"
@@ -194,9 +194,9 @@
 
                 <EditText
                     android:id="@+id/PREF_usb_export"
-                    android:layout_width="350px"
+                    android:layout_width="350dp"
                     android:layout_height="wrap_content"
-                    android:layout_margin="5px"
+                    android:layout_margin="5dp"
                     android:singleLine="true"
                     android:text="Dispositivo export"
                     android:textSize="@dimen/talla_texto_grande" />
@@ -207,9 +207,9 @@
                 android:layout_height="match_parent" >
 
                 <TextView
-                    android:layout_width="300px"
+                    android:layout_width="300dp"
                     android:layout_height="wrap_content"
-                    android:layout_margin="5px"
+                    android:layout_margin="5dp"
                     android:gravity="left"
                     android:text="@string/CarpetaMaestros"
                     android:textColor="@color/white"
@@ -222,9 +222,9 @@
 
                 <EditText
                     android:id="@+id/Carpeta_Maestros"
-                    android:layout_width="350px"
+                    android:layout_width="350dp"
                     android:layout_height="wrap_content"
-                    android:layout_margin="5px"
+                    android:layout_margin="5dp"
                     android:singleLine="true"
                     android:text="@string/CarpetaMaestros"
                     android:textSize="@dimen/talla_texto_grande" />
@@ -235,9 +235,9 @@
                 android:layout_height="match_parent" >
 
                 <TextView
-                    android:layout_width="300px"
+                    android:layout_width="300dp"
                     android:layout_height="wrap_content"
-                    android:layout_margin="5px"
+                    android:layout_margin="5dp"
                     android:gravity="left"
                     android:text="@string/CarpetaLogEventos"
                     android:textColor="@color/white"
@@ -250,9 +250,9 @@
 
                 <EditText
                     android:id="@+id/Carpeta_LogEventos"
-                    android:layout_width="350px"
+                    android:layout_width="350dp"
                     android:layout_height="wrap_content"
-                    android:layout_margin="5px"
+                    android:layout_margin="5dp"
                     android:singleLine="true"
                     android:text="@string/CarpetaLogEventos"
                     android:textSize="@dimen/talla_texto_grande" />
@@ -263,9 +263,9 @@
                 android:layout_height="match_parent" >
 
                 <TextView
-                    android:layout_width="300px"
+                    android:layout_width="300dp"
                     android:layout_height="wrap_content"
-                    android:layout_margin="5px"
+                    android:layout_margin="5dp"
                     android:gravity="left"
                     android:text="@string/CarpetaLogDatos"
                     android:textColor="@color/white" />
@@ -277,9 +277,9 @@
 
                 <EditText
                     android:id="@+id/Carpeta_LogDatos"
-                    android:layout_width="350px"
+                    android:layout_width="350dp"
                     android:layout_height="wrap_content"
-                    android:layout_margin="5px"
+                    android:layout_margin="5dp"
                     android:singleLine="true"
                     android:text="@string/CarpetaLogDatos"
                     android:textSize="@dimen/talla_texto_grande" />
@@ -292,7 +292,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="5px"
+                    android:layout_margin="5dp"
                     android:gravity="center"
                     android:text="CONFIGURACIÓN DE LOG"
                     android:textColor="@color/white"
@@ -343,12 +343,12 @@
 
             <TableRow
                 android:layout_width="wrap_content"
-                android:layout_height="50px" >
+                android:layout_height="50dp" >
 
                 <TextView
                     android:layout_width="wrap_content"
-                    android:layout_height="48px"
-                    android:layout_margin="5px"
+                    android:layout_height="48dp"
+                    android:layout_margin="5dp"
                     android:gravity="left"
                     android:text="@string/recomendacion"
                     android:textColor="@color/white"
@@ -357,7 +357,7 @@
 
             <TextView
                 android:layout_height="wrap_content"
-                android:layout_margin="5px"
+                android:layout_margin="5dp"
                 android:gravity="left"
                 android:text="INVENTARIO (Recuerde finalizar con un inventario antes de trabajar con el otro)"
                 android:textColor="@color/white"
@@ -372,7 +372,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="vertical"
-                    android:paddingLeft="30px" >
+                    android:paddingLeft="30dp" >
 
                     <RadioButton
                         android:id="@+id/CheckInventariosVentas"
@@ -435,7 +435,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="vertical"
-                    android:paddingLeft="30px" >
+                    android:paddingLeft="30dp" >
 
                     <RadioButton
                         android:id="@+id/radio1"
@@ -489,18 +489,18 @@
 
             <Button
                 android:id="@+id/PREF_boton_cancelar"
-                android:layout_width="200px"
+                android:layout_width="200dp"
                 android:layout_height="wrap_content"
-                android:layout_margin="5px"
+                android:layout_margin="5dp"
                 android:gravity="center"
                 android:text="Cancelar"
                 android:textSize="@dimen/talla_texto_medioGrande" />
 
             <Button
                 android:id="@+id/PREF_boton_guardar"
-                android:layout_width="200px"
+                android:layout_width="200dp"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="50px"
+                android:layout_marginLeft="50dp"
                 android:gravity="center"
                 android:text="Guardar cambios"
                 android:textSize="@dimen/talla_texto_medioGrande" />

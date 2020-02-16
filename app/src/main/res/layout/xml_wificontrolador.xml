@@ -5,7 +5,7 @@
     android:background="@color/white" >
 
     <LinearLayout android:id="@+id/WIFI_linearLayout1"
-        android:layout_width="500px"
+        android:layout_width="500dp"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:orientation="vertical" >
@@ -18,9 +18,9 @@
 
             <ProgressBar android:id="@+id/WIFI_progressBar1"
 		        style="?android:attr/progressBarStyleLarge"
-		        android:layout_marginRight="20px"
-		        android:layout_width="60px"
-		        android:layout_height="60px"
+		        android:layout_marginEnd="20dp"
+		        android:layout_width="60dp"
+		        android:layout_height="60dp"
 		        android:visibility="invisible" />
     
             <LinearLayout
@@ -30,28 +30,28 @@
 	            android:gravity="center" >
 	            
                 <ImageView
-	                android:layout_width="70px"
-	                android:layout_height="70px"
-	                android:layout_margin="10px"
+	                android:layout_width="70dp"
+	                android:layout_height="70dp"
+	                android:layout_margin="10dp"
 	                android:scaleType="centerInside"
 	                android:src="@drawable/wifi2" />
 	            
 	            <TextView
 	                android:layout_width="wrap_content"
 	                android:layout_height="wrap_content"
-	                android:layout_margin="5px"
+	                android:layout_margin="5dp"
 	                android:text="WiFi"
 	                android:textColor="@color/black"
-	                android:textSize="50px" />
+	                android:textSize="50sp" />
 	            
 	        </LinearLayout>
 	        
             <ProgressBar
 		        android:id="@+id/WIFI_progressBar2"
 		        style="?android:attr/progressBarStyleLarge"
-		        android:layout_marginLeft="20px"
-		        android:layout_width="60px"
-		        android:layout_height="60px"
+		        android:layout_marginStart="20dp"
+		        android:layout_width="60dp"
+		        android:layout_height="60dp"
 		        android:visibility="invisible" />
               
         </LinearLayout>
@@ -59,12 +59,12 @@
         <TextView android:id="@+id/WIFI_red_config"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="5px"
+            android:layout_margin="5dp"
             android:layout_gravity="center_horizontal"
             android:gravity="center"
             android:text="Red configurada: "
             android:textColor="@color/black"
-            android:textSize="20px" />
+            android:textSize="20sp" />
 
         <TableLayout
             android:layout_width="wrap_content"
@@ -80,39 +80,39 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="10px"
+                    android:layout_margin="10dp"
                     android:gravity="center"
                     android:text="¿Red visible?"
                     android:textColor="@color/black"
-                    android:textSize="20px" />
+                    android:textSize="20sp" />
 
                 <TextView
                     android:id="@+id/WIFI_visible_si"
-                    android:layout_width="40px"
-                    android:layout_height="40px"
-                    android:layout_margin="10px"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_margin="10dp"
                     android:background="@color/green"
                     android:gravity="center"
                     android:text="Sí"
                     android:textColor="@color/black"
-                    android:textSize="20px" />
+                    android:textSize="20sp" />
 
                 <TextView
                     android:id="@+id/WIFI_visible_no"
-                    android:layout_width="40px"
-                    android:layout_height="40px"
-                    android:layout_margin="10px"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_margin="10dp"
                     android:background="@color/red"
                     android:gravity="center"
                     android:text="No"
                     android:textColor="@color/black"
-                    android:textSize="20px" />
+                    android:textSize="20sp" />
 
                 <Button
                     android:id="@+id/WIFI_boton_visible"
-                    android:layout_width="150px"
+                    android:layout_width="150dp"
                     android:layout_height="wrap_content"
-                    android:layout_margin="10px"
+                    android:layout_margin="10dp"
                     android:text="Buscar red"
                     android:textSize="@dimen/talla_texto_medioGrande" />
                 
@@ -127,39 +127,39 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="10px"
+                    android:layout_margin="10dp"
                     android:gravity="center"
                     android:text="¿Red conectada?"
                     android:textColor="@color/black"
-                    android:textSize="20px" />
+                    android:textSize="20sp" />
 
                 <TextView
                     android:id="@+id/WIFI_conectada_si"
-                    android:layout_width="40px"
-                    android:layout_height="40px"
-                    android:layout_margin="10px"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_margin="10dp"
                     android:background="@color/green"
                     android:gravity="center"
                     android:text="Sí"
                     android:textColor="@color/black"
-                    android:textSize="20px" />
+                    android:textSize="20sp" />
 
                 <TextView
                     android:id="@+id/WIFI_conectada_no"
-                    android:layout_width="40px"
-                    android:layout_height="40px"
-                    android:layout_margin="10px"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_margin="10dp"
                     android:background="@color/red"
                     android:gravity="center"
                     android:text="No"
                     android:textColor="@color/black"
-                    android:textSize="20px" />
+                    android:textSize="20sp" />
 
                 <Button
                     android:id="@+id/WIFI_boton_conectar"
-                    android:layout_width="150px"
+                    android:layout_width="150dp"
                     android:layout_height="wrap_content"
-                    android:layout_margin="10px"
+                    android:layout_margin="10dp"
                     android:text="Conectar red"
                     android:textSize="@dimen/talla_texto_medioGrande" />
             </TableRow>
@@ -167,24 +167,24 @@
         </TableLayout>
         
         <LinearLayout
-            android:layout_width="400px"
+            android:layout_width="400dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:gravity="center" >
             
             <Button
 	            android:id="@+id/WIFI_boton_cancelar"
-	            android:layout_width="100px"
+	            android:layout_width="100dp"
 	            android:layout_height="wrap_content"
-	            android:layout_margin="10px"
+	            android:layout_margin="10dp"
 	            android:text="Cancelar"
 	            android:textSize="@dimen/talla_texto_medioGrande" />
             
             <Button
 	            android:id="@+id/WIFI_boton_validar"
-	            android:layout_width="100px"
+	            android:layout_width="100dp"
 	            android:layout_height="wrap_content"
-	            android:layout_margin="10px"
+	            android:layout_margin="10dp"
 	            android:text="Validar"
 	            android:textSize="@dimen/talla_texto_medioGrande" />
             

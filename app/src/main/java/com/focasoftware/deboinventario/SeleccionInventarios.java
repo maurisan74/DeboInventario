@@ -7,6 +7,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.ActivityInfo;
 import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -111,6 +112,8 @@ public class SeleccionInventarios extends Activity implements DialogPersoSimple 
 		// Creamos la pgina:
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.xml_seleccioninventarios);
+		setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+
 System.out.println("::: SeleccionInventario 99 ");
 		log.setUbicacion(ParametrosInventario.CARPETA_LOGTABLET);
 		log.tipo_0 = Parametros.PREF_LOG_EVENTOS;

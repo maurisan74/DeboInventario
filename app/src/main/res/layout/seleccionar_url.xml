@@ -13,8 +13,8 @@
     <TableLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="left"
-        android:layout_margin="20px" >
+        android:layout_gravity="start"
+        android:layout_margin="20dp" >
 
         <TableRow
             android:layout_width="match_parent"
@@ -24,7 +24,7 @@
                 android:layout_width="match_parent"
                 android:layout_margin="5dp"
                 android:layout_weight="1"
-                android:gravity="left"
+                android:gravity="start"
                 android:text="Nombre Local"
                 android:textColor="@color/white"
                 android:textSize="@dimen/talla_texto_subtitulo" />
@@ -50,7 +50,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
                 android:text="Actualizar"
-                android:textSize="15dp" 
+                android:textSize="15sp"
                 android:visibility="gone"/>
         </TableRow>
 
@@ -62,7 +62,7 @@
                 android:layout_width="match_parent"
                 android:layout_margin="5dp"
                 android:layout_weight="1"
-                android:gravity="left"
+                android:gravity="start"
                 android:text="Url de webservice"
                 android:textColor="@color/white"
                 android:textSize="@dimen/talla_texto_subtitulo" />
@@ -88,7 +88,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
                 android:text="Agregar"
-                android:textSize="15dp" />
+                android:textSize="15sp" />
         </TableRow>
     </TableLayout>
 

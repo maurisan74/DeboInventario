@@ -10,6 +10,7 @@ import android.content.DialogInterface.OnCancelListener;
 import android.content.DialogInterface.OnDismissListener;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.ActivityInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.SystemClock;
@@ -245,6 +246,7 @@ public class PaginaInventarioDinamico extends Activity implements
 
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
 		
 		System.out.println("::: PaginaInventarioDinamico 233 onCreate ");
 		checkBoxT=(CheckBox)findViewById(R.id.checkBoxToma);
