@@ -37,6 +37,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
 
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
@@ -452,7 +453,7 @@ if(condicionb == true){
 		System.out.println("::: entro a refrescar encabezado");
 	}
 
-	/**
+	/*
 	 * Funcion para refrescar el mensaje inferior
 	 * 
 	 * @param codigoMensaje
@@ -1224,47 +1225,37 @@ if(condicionb == true){
 
 		// 1ra CASILLA - CODIGO:
 		if (paridad == 1) {
-			casilla_codigo.setBackgroundColor(getResources().getColor(
-					R.color.verde_oscuro_mas));
+			casilla_codigo.setBackgroundColor(ContextCompat.getColor(ctxt,R.color.verde_oscuro_mas));
 		} else {
-			casilla_codigo.setBackgroundColor(getResources().getColor(
-					R.color.verde_oscuro));
+			casilla_codigo.setBackgroundColor(ContextCompat.getColor(ctxt,R.color.verde_oscuro));
 		}
 
 		// 2da CASILLA - DESCRIPCIN:
 		if (paridad == 1) {
-			casilla_descripcion.setBackgroundColor(getResources().getColor(
-					R.color.verde_oscuro_mas));
+			casilla_descripcion.setBackgroundColor(ContextCompat.getColor(ctxt,R.color.verde_oscuro_mas));
 		} else {
-			casilla_descripcion.setBackgroundColor(getResources().getColor(
-					R.color.verde_oscuro));
+			casilla_descripcion.setBackgroundColor(ContextCompat.getColor(ctxt,R.color.verde_oscuro));
 		}
 
 		// 3ra CASILLA - PRECIO DE VENTA:
 		if (paridad == 1) {
-			casilla_precio.setBackgroundColor(getResources().getColor(
-					R.color.verde_oscuro_mas));
+			casilla_precio.setBackgroundColor(ContextCompat.getColor(ctxt,R.color.verde_oscuro_mas));
 		} else {
-			casilla_precio.setBackgroundColor(getResources().getColor(
-					R.color.verde_oscuro));
+			casilla_precio.setBackgroundColor(ContextCompat.getColor(ctxt,R.color.verde_oscuro));
 		}
 	
 		// 4ta CASILLA - ESTADO INVENTARIO:
 		if (paridad == 1) {
-			casilla_cantidad.setBackgroundColor(getResources().getColor(
-					R.color.verde_oscuro_mas));
+			casilla_cantidad.setBackgroundColor(ContextCompat.getColor(ctxt,R.color.verde_oscuro_mas));
 		} else {
-			casilla_cantidad.setBackgroundColor(getResources().getColor(
-					R.color.verde_oscuro));
+			casilla_cantidad.setBackgroundColor(ContextCompat.getColor(ctxt,R.color.verde_oscuro));
 		}
 		/*Damian 09/05*/
 		// 5ta CASILLA - EXISTENCIA INVENTARIO:
 		if (paridad == 1) {
-			casilla_exisventa.setBackgroundColor(getResources().getColor(
-					R.color.verde_oscuro_mas));
+			casilla_exisventa.setBackgroundColor(ContextCompat.getColor(ctxt,R.color.verde_oscuro_mas));
 		} else {
-			casilla_exisventa.setBackgroundColor(getResources().getColor(
-					R.color.verde_oscuro));
+			casilla_exisventa.setBackgroundColor(ContextCompat.getColor(ctxt,R.color.verde_oscuro));
 		}
 		
 		System.out.println(":::Pagina inventario pinta paridad");
@@ -1387,8 +1378,7 @@ if(condicionb == true){
 			if (Float.parseFloat(String.valueOf(((TextView) (linea
 			.getChildAt(5))).getText())) == indice_articulo) {
 				System.out.println("::: Paso 4");
-				linea.setBackgroundColor(getResources().getColor(
-						R.color.anaranjado_verde));
+				linea.setBackgroundColor(ContextCompat.getColor(ctxt,R.color.anaranjado_verde));
 				final EditText edittext = (EditText) linea.getChildAt(3);
 				// edittext.setFocusable(true);
 				edittext.requestFocus();
@@ -1397,9 +1387,8 @@ if(condicionb == true){
 				// getSystemService(Context.INPUT_METHOD_SERVICE);
 				// mgr.showSoftInput(edittext, InputMethodManager.SHOW_FORCED);
 				//
-				edittext.setBackgroundColor(getResources().getColor(
-						R.color.anaranjado_verde));
-				edittext.setTextColor(getResources().getColor(R.color.white));
+				edittext.setBackgroundColor(ContextCompat.getColor(ctxt,R.color.anaranjado_verde));
+				edittext.setTextColor(ContextCompat.getColor(ctxt,R.color.white));
 				System.out.println("::: Paso 5");
 				try {
 
@@ -1919,8 +1908,7 @@ if(condicionb == true){
 			if (Float.parseFloat(String.valueOf(((TextView) (linea
 					.getChildAt(5))).getText())) == indice_articulo) {
 				System.out.println("::: Paso 4");
-				linea.setBackgroundColor(getResources().getColor(
-						R.color.anaranjado_verde));
+				linea.setBackgroundColor(ContextCompat.getColor(ctxt,R.color.anaranjado_verde));
 				final EditText edittext = (EditText) linea.getChildAt(3);
 				edittext.requestFocus();
 				edittext.setFocusableInTouchMode(true);
@@ -1928,16 +1916,15 @@ if(condicionb == true){
 				// getSystemService(Context.INPUT_METHOD_SERVICE);
 				// mgr.showSoftInput(edittext, InputMethodManager.SHOW_FORCED);
 				//
-				edittext.setBackgroundColor(getResources().getColor(
-						R.color.anaranjado_verde));
-				edittext.setTextColor(getResources().getColor(R.color.white));
+				edittext.setBackgroundColor(ContextCompat.getColor(ctxt,R.color.anaranjado_verde));
+				edittext.setTextColor(ContextCompat.getColor(ctxt,R.color.white));
 				try {
 					boolean condicionBalanza = ParametrosInventario.balanza;
 					if (cb.length() != 13) {
 						condicionBalanza =  false;
 					}
 					float cantidad_actual = 0;
-					if(condicionBalanza == true){
+					if(condicionBalanza){
 						int pesable = Integer.parseInt(cb.substring(0, 2));
 						if(pesable == 20){
 							if(parametroPrimeraSeleccion == 1){
@@ -2793,22 +2780,18 @@ if(condicionb == true){
 			}
 
 			// 2 Cambiamos el color
-			lineaFocused.setBackgroundColor(getResources().getColor(
-					R.color.anaranjado_oscuro));
+			lineaFocused.setBackgroundColor(ContextCompat.getColor(ctxt,R.color.anaranjado_oscuro));
 			/*lineaFocused.setBackgroundColor(getResources().getColor(
 					R.color.verde_claro));*/
 
 			EditText edittext = (EditText) lineaFocused.getChildAt(3);
 			edittext.setFocusable(false);
 			if ((indice_primera_linea % 2) == (numeroLineaFocused % 2)) {
-				edittext.setBackgroundColor(getResources().getColor(
-						R.color.verde_oscuro));
+				edittext.setBackgroundColor(ContextCompat.getColor(ctxt,R.color.verde_oscuro));
 			} else {
-				edittext.setBackgroundColor(getResources().getColor(
-						R.color.verde_oscuro_mas));
+				edittext.setBackgroundColor(ContextCompat.getColor(ctxt,R.color.verde_oscuro_mas));
 			}
-			edittext.setTextColor(getResources().getColor(
-					R.color.anaranjado_verde));
+			edittext.setTextColor(ContextCompat.getColor(ctxt,R.color.anaranjado_verde));
 
 			tabla_articulos.requestFocus();
 
@@ -2821,7 +2804,7 @@ if(condicionb == true){
 			// 3 Modificamos el objeto ARTICULO y su valor en la base de datos
 			// (si
 			// el argumento booleano "grabar_si_no" lo permite):
-			if (grabar_si_no == true) {
+			if (grabar_si_no) {
 				String valorDelEdittext = "";
 				try {
 					valorDelEdittext = String.valueOf(edittext.getText())
@@ -3671,7 +3654,7 @@ if(condicionb == true){
 		}
 	}
 
-	/**
+	/*
 	 * A partir de un indice de un elemento de la tabla_articulos_completa
 	 * VISIBLE, devuelve su posicion relativa con respecto a los solos elementos
 	 * VISIBLES de la tabla (EN BASE 0!). <br/>
@@ -4179,11 +4162,9 @@ void mostrarMensaje(int valorRecibido){
 				ImageView imgV = (ImageView) v;
 
 				if (event.getAction() == MotionEvent.ACTION_DOWN) {
-					imgV.setBackgroundColor(getResources().getColor(
-							R.color.amarillo_oscuro_mas));
+					imgV.setBackgroundColor(ContextCompat.getColor(ctxt,R.color.amarillo_oscuro_mas));
 				} else if (event.getAction() == MotionEvent.ACTION_UP) {
-					imgV.setBackgroundColor(getResources().getColor(
-							android.R.color.transparent));
+					imgV.setBackgroundColor(ContextCompat.getColor(ctxt,R.color.transparente));
 				}
 				return false;
 			}
@@ -4199,13 +4180,13 @@ void mostrarMensaje(int valorRecibido){
 				if (modo_mas_1 == 0) {
 					log.log("[-- 2886 --]" + "modo_mas_1 paso a 1", 2);
 					modo_mas_1 = 1;
-					imageV.setBackgroundColor(getResources().getColor(
-							R.color.anaranjado_oscuro));
+					imageV.setBackgroundColor(ContextCompat.getColor(ctxt,R.color.anaranjado_oscuro));
 				} else {
 
 					log.log("[-- 2892--]" + "modo_mas_1 paso a 0", 4);
 					modo_mas_1 = 0;
-					imageV.setBackgroundColor(android.R.color.transparent);
+					imageV.setBackgroundColor(ContextCompat.getColor(ctxt,R.color.transparente));
+
 				}
 				refrescarMensaje();
 				return true;
@@ -4308,8 +4289,7 @@ void mostrarMensaje(int valorRecibido){
 				bufferLectoraCB = "";
 				System.out.println("::: PaginaInventarioDinamico 3235");
 				if (motionEvent.getAction() == MotionEvent.ACTION_DOWN) {
-					view.setBackgroundColor(getResources().getColor(
-							R.color.anaranjado_verde));
+					view.setBackgroundColor(ContextCompat.getColor(ctxt,R.color.anaranjado_verde));
 					deseleccionarLineaParticular(indice_on_focus);
 				}
 				return false;
@@ -4322,8 +4302,7 @@ void mostrarMensaje(int valorRecibido){
 
 				log.log("[-- 3003 --]"
 						+ "Se presiono para ordenar por codigo, onclic", 0);
-				view.setBackgroundColor(getResources().getColor(
-						R.color.verde_claro));
+				view.setBackgroundColor(ContextCompat.getColor(ctxt,R.color.verde_claro));
 
 				if (columna_ordonante != 0) {
 					Collections.sort(listaArticulosCompleta,
@@ -4345,8 +4324,7 @@ void mostrarMensaje(int valorRecibido){
 						log.log("[-- 3024 --]"
 								+ "Se presiono para filtrar, longClic", 0);
 						showMenuFiltro(ParametrosInventario.filtro_sector);
-						encabezado_codigo.setBackgroundColor(getResources()
-								.getColor(R.color.verde_claro));
+						encabezado_codigo.setBackgroundColor(ContextCompat.getColor(ctxt,R.color.verde_claro));
 						return true;
 					}
 				});
@@ -4360,8 +4338,7 @@ void mostrarMensaje(int valorRecibido){
 						+ "Se presiono para ordenar por descripcion", 0);
 				bufferLectoraCB = "";
 				if (motionEvent.getAction() == MotionEvent.ACTION_DOWN) {
-					view.setBackgroundColor(getResources().getColor(
-							R.color.anaranjado_verde));
+					view.setBackgroundColor(ContextCompat.getColor(ctxt,R.color.anaranjado_verde));
 					deseleccionarLineaParticular(indice_on_focus);
 				}
 				return false;
@@ -4374,8 +4351,7 @@ void mostrarMensaje(int valorRecibido){
 				log.log("[-- 3051 --]"
 						+ "Se presiono para ordenar por descripcion, efectivamente",
 						0);
-				view.setBackgroundColor(getResources().getColor(
-						R.color.verde_claro));
+				view.setBackgroundColor(ContextCompat.getColor(ctxt,R.color.verde_claro));
 
 				if (columna_ordonante != 1) {
 					Collections
@@ -4398,8 +4374,7 @@ void mostrarMensaje(int valorRecibido){
 						+ "Se presiono para ordenar por precio de venta", 0);
 				bufferLectoraCB = "";
 				if (motionEvent.getAction() == MotionEvent.ACTION_DOWN) {
-					view.setBackgroundColor(getResources().getColor(
-							R.color.anaranjado_verde));
+					view.setBackgroundColor(ContextCompat.getColor(ctxt,R.color.anaranjado_verde));
 					deseleccionarLineaParticular(indice_on_focus);
 				}
 				return false;
@@ -4412,8 +4387,7 @@ void mostrarMensaje(int valorRecibido){
 				log.log("[-- 3086 --]"
 						+ "Se presiono para ordenar por precio de venta, onclic",
 						0);
-				view.setBackgroundColor(getResources().getColor(
-						R.color.verde_claro));
+				view.setBackgroundColor(ContextCompat.getColor(ctxt,R.color.verde_claro));
 
 				if (columna_ordonante != 2) {
 					Collections.sort(listaArticulosCompleta,
@@ -4434,9 +4408,7 @@ void mostrarMensaje(int valorRecibido){
 						log.log("[-- 3106 --]"
 								+ "Se abre el menu de filtro, longClic", 0);
 						showMenuFiltro(ParametrosInventario.filtro_precio);
-						encabezado_precio_venta
-								.setBackgroundColor(getResources().getColor(
-										R.color.verde_claro));
+						encabezado_precio_venta.setBackgroundColor(ContextCompat.getColor(ctxt,R.color.verde_claro));
 						return true;
 					}
 				});
@@ -4450,8 +4422,7 @@ void mostrarMensaje(int valorRecibido){
 						+ "Se presiono para ordenar por cantidades", 0);
 				bufferLectoraCB = "";
 				if (motionEvent.getAction() == MotionEvent.ACTION_DOWN) {
-					view.setBackgroundColor(getResources().getColor(
-							R.color.anaranjado_verde));
+					view.setBackgroundColor(ContextCompat.getColor(ctxt,R.color.anaranjado_verde));
 					deseleccionarLineaParticular(indice_on_focus);
 				}
 				return false;
@@ -4461,8 +4432,7 @@ void mostrarMensaje(int valorRecibido){
 		encabezado_cantidad.setOnClickListener(new View.OnClickListener() {
 
 			public void onClick(@NonNull View view) {
-				view.setBackgroundColor(getResources().getColor(
-						R.color.verde_claro));
+				view.setBackgroundColor(ContextCompat.getColor(ctxt,R.color.verde_claro));
 				if (columna_ordonante != 3) {
 					Collections.sort(listaArticulosCompleta,
 							Articulo.ORDEN_CANTIDAD);
@@ -4487,8 +4457,7 @@ void mostrarMensaje(int valorRecibido){
 								0);
 						deseleccionarLineaParticular(indice_on_focus);
 						showMenuFiltro(ParametrosInventario.filtro_inventario);
-						encabezado_cantidad.setBackgroundColor(getResources()
-								.getColor(R.color.verde_claro));
+						encabezado_cantidad.setBackgroundColor(ContextCompat.getColor(ctxt,R.color.verde_claro));
 						return true;
 					}
 				});
@@ -5502,13 +5471,16 @@ void mostrarMensaje(int valorRecibido){
 	}
 
 	public void scanBarcode(View button) {
-
+//
+//		Intent intent = new Intent("com.google.zxing.client.android.SCAN");
+//		intent.setPackage("com.google.zxing.client.android");
+//		intent.putExtra("com.google.zxing.client.android.SCAN.SCAN_MODE","ONE_D_MODE");
+//		startActivityForResult(intent, SCAN_BARCODE);
+		String packageString = "com.focasoftware.deboinventario";
 		Intent intent = new Intent("com.google.zxing.client.android.SCAN");
-		intent.setPackage("com.google.zxing.client.android");
-		intent.putExtra("com.google.zxing.client.android.SCAN.SCAN_MODE",
-				"ONE_D_MODE");
+		intent.setPackage(packageString);
+		intent.putExtra("SCAN_MODE", "SCAN_MODE");
 		startActivityForResult(intent, SCAN_BARCODE);
 	}
-
 } // END OF CLASS
 

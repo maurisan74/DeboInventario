@@ -1,64 +1,277 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.focasoftware.deboinventario">
-<uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
-    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE"/>
-    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-feature android:name="android.hardware.camera" />
+<!--    <uses-permission android:name="android.permission.WRITE_SETTINGS" />-->
     <application
-        android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
-        android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name=".PreferenciasInventario" >
-        </activity>
-        <activity android:name=".Parametros" >
-        </activity>
-        <activity android:name=".ParametrosInventario" >
-        </activity>
-        <activity android:name=".Preferencias" >
-        </activity>
-        <activity android:name=".InventarioMainBoard" >
-        </activity>
-        <activity android:name=".SeleccionInventarios" >
-        </activity>
-        <activity android:name=".BusquedaProveedores" >
-        </activity>
-        <activity android:name=".CambioContrasena" >
-        </activity>
-        <activity android:name=".ComprasMainBoard" >
-        </activity>
-        <activity android:name=".DetallesArticulo" >
-        </activity>
-        <activity android:name=".DetallesArticuloDinamico" >
-        </activity>
-        <activity android:name=".LecturaCodigoBarra" >
-        </activity>
-        <activity android:name=".PaginaCompras" >
-        </activity>
-        <activity android:name=".PaginaInventario" >
-        </activity>
-        <activity android:name=".PaginaInventarioDinamico" >
-        </activity>
-        <activity android:name=".SeleccionarUrl" >
-        </activity>
-        <activity android:name=".TomarFoto" >
-        </activity>
-        <activity android:name=".UsbProvider" >
-        </activity>
-        <activity android:name=".WiFiControlador" >
-        </activity>
-        <activity android:name=".DeboInventario">
-            <intent-filter>
+
+        android:icon="@drawable/icono_inventario_big"
+        android:label="@string/app_name" >
+        <activity
+            android:label="@string/app_name"
+            android:name=".DeboInventario"
+            android:screenOrientation="landscape" >
+            <intent-filter >
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:label="@string/app_name"
+            android:name=".SeleccionInventarios"
+            android:screenOrientation="landscape"
+            android:theme="@android:style/Theme.Black.NoTitleBar" >
+            <intent-filter >
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:label="@string/app_name"
+            android:name=".LecturaCodigoBarra"
+            android:screenOrientation="landscape" >
+            <intent-filter >
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:label="@string/app_name"
+            android:name=".InventarioMainBoard"
+            android:screenOrientation="landscape" >
+            <intent-filter >
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:label="Debo Inventario"
+            android:name=".ComprasMainBoard"
+            android:screenOrientation="landscape" >
+            <intent-filter >
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:label="Debo Inventario"
+            android:name=".BusquedaProveedores"
+            android:screenOrientation="landscape" >
+            <intent-filter >
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:label="Debo Inventario"
+            android:name=".ProveedorBusqueda"
+            android:screenOrientation="landscape" >
+            <intent-filter >
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:label="@string/app_name"
+            android:name=".PaginaInventario"
+            android:screenOrientation="landscape" >
+            <intent-filter >
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:label="@string/app_name"
+            android:name=".PaginaInventarioDinamico"
+            android:screenOrientation="landscape" >
+            <intent-filter >
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:label="@string/app_name"
+            android:name=".PaginaCompras"
+            android:screenOrientation="landscape" >
+            <intent-filter >
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:label="@string/app_name"
+            android:name=".DetallesArticulo"
+            android:screenOrientation="landscape" >
+            <intent-filter >
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:label="@string/app_name"
+            android:name=".DetallesArticuloDinamico"
+            android:screenOrientation="landscape" >
+            <intent-filter >
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+<!--        <activity-->
+<!--            android:label="@string/app_name"-->
+<!--            android:name=".Foto"-->
+<!--            android:screenOrientation="landscape"-->
+<!--            android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen" >-->
+<!--            <intent-filter >-->
+<!--                <action android:name="android.intent.action.VIEW" />-->
+
+<!--                <category android:name="android.intent.category.DEFAULT" />-->
+<!--            </intent-filter>-->
+<!--        </activity>-->
+        <!--	<activity
+                android:label="@string/app_name"
+                android:name=".Test"
+                android:screenOrientation="landscape"
+                android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen" >
+                <intent-filter >
+                    <action android:name="android.intent.action.VIEW" />
+
+                     <category android:name="android.intent.category.DEFAULT" />
+                </intent-filter>
+            </activity>
+            -->
+        <activity
+            android:label="@string/app_name"
+            android:name=".UsbProvider"
+            android:screenOrientation="landscape"
+            android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen" >
+            <intent-filter >
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:label="@string/app_name"
+            android:name=".PreferenciasInventario"
+            android:screenOrientation="landscape"
+            android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen" >
+            <intent-filter >
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:label="@string/app_name"
+            android:name=".TomarFoto"
+            android:screenOrientation="landscape"
+            android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen" >
+            <intent-filter >
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:label="@string/app_name"
+            android:name=".WiFiControlador"
+            android:screenOrientation="landscape"
+            android:theme="@android:style/Theme.Dialog" >
+            <intent-filter >
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+<!--        <activity-->
+<!--            android:label="@string/app_name"-->
+<!--            android:name=".UsbStream"-->
+<!--            android:screenOrientation="landscape"-->
+<!--            android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen" >-->
+<!--            <intent-filter >-->
+<!--                <action android:name="android.intent.action.VIEW" />-->
+
+<!--                <category android:name="android.intent.category.DEFAULT" />-->
+<!--            </intent-filter>-->
+<!--        </activity>-->
+        <activity android:name="SeleccionarUrl" android:screenOrientation="landscape"></activity>
     </application>
+
+
+<!--    <application-->
+<!--        android:icon="@drawable/icono_inventario_big"-->
+<!--        android:label="@string/app_name" >-->
+<!--        android:allowBackup="true"-->
+<!--        android:icon="@mipmap/ic_launcher"-->
+<!--        android:label="@string/app_name"-->
+<!--        android:roundIcon="@mipmap/ic_launcher_round"-->
+<!--        android:supportsRtl="true"-->
+<!--        android:theme="@style/AppTheme">-->
+<!--        <activity android:name=".PreferenciasInventario" >-->
+<!--        </activity>-->
+<!--        <activity android:name=".Parametros" >-->
+<!--        </activity>-->
+<!--        <activity android:name=".ParametrosInventario" >-->
+<!--        </activity>-->
+<!--        <activity android:name=".Preferencias" >-->
+<!--        </activity>-->
+<!--        <activity android:name=".InventarioMainBoard" >-->
+<!--        </activity>-->
+<!--        <activity android:name=".SeleccionInventarios" >-->
+<!--        </activity>-->
+<!--        <activity android:name=".BusquedaProveedores" >-->
+<!--        </activity>-->
+<!--        <activity android:name=".CambioContrasena" >-->
+<!--        </activity>-->
+<!--        <activity android:name=".ComprasMainBoard" >-->
+<!--        </activity>-->
+<!--        <activity android:name=".DetallesArticulo" >-->
+<!--        </activity>-->
+<!--        <activity android:name=".DetallesArticuloDinamico" >-->
+<!--        </activity>-->
+<!--        <activity android:name=".LecturaCodigoBarra" >-->
+<!--        </activity>-->
+<!--        <activity android:name=".PaginaCompras" >-->
+<!--        </activity>-->
+<!--        <activity android:name=".PaginaInventario" >-->
+<!--        </activity>-->
+<!--        <activity android:name=".PaginaInventarioDinamico" >-->
+<!--        </activity>-->
+<!--        <activity android:name=".SeleccionarUrl" >-->
+<!--        </activity>-->
+<!--        <activity android:name=".TomarFoto" >-->
+<!--        </activity>-->
+<!--        <activity android:name=".UsbProvider" >-->
+<!--        </activity>-->
+<!--        <activity android:name=".WiFiControlador" >-->
+<!--        </activity>-->
+<!--        <activity android:name=".DeboInventario"-->
+<!--            android:screenOrientation="landscape" >-->
+<!--            <intent-filter>-->
+<!--                <action android:name="android.intent.action.MAIN" />-->
+
+<!--                <category android:name="android.intent.category.LAUNCHER" />-->
+<!--            </intent-filter>-->
+<!--        </activity>-->
+<!--    </application>-->
 
 </manifest>
