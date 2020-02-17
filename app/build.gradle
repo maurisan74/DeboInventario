@@ -9,7 +9,7 @@ android {
     buildToolsVersion "29.0.3"
     defaultConfig {
         applicationId "com.focasoftware.deboinventario"
-        minSdkVersion 24
+        minSdkVersion 23
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
@@ -53,6 +53,7 @@ dependencies {
     //Toast Mejorado
     implementation 'com.muddzdev:styleabletoast:2.2.2'
     implementation fileTree(dir: 'D:\\Desarrollo\\Movil\\DeboInventario\\librerias', include: ['*.aar', '*.jar'], exclude: [])
+    implementation fileTree(dir: 'D:\\Desarrollo\\Movil\\DeboInventario\\Librerias', include: ['*.aar', '*.jar'], exclude: [])
 
 
 }

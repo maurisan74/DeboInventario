@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.AdapterView;
@@ -147,8 +148,13 @@ public class PreferenciasInventario extends Activity {
 		
 		setContentView(R.layout.xml_preferenciasinventario);
 		setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
-		
-		
+
+		//if (android.os.Build.VERSION.SDK_INT ==23) {
+			StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+			StrictMode.setThreadPolicy(policy);
+		//}
+
+
 		log.setUbicacion(ParametrosInventario.CARPETA_LOGTABLET);
 		log.tipo_0 = Parametros.PREF_LOG_EVENTOS;
 		log.tipo_2 = Parametros.PREF_LOG_PROCESOS;
@@ -393,14 +399,14 @@ public class PreferenciasInventario extends Activity {
 //					}
 //					
 					editor.putBoolean(Parametros.preferencias_inventario_venta,
-							Boolean.valueOf(CheckedInventariosVentas
-									.isChecked()));
+							CheckedInventariosVentas
+									.isChecked());
 					
 					
 					/*este seria el checkbox de stock pero dejo referencia camaras*/
 					editor.putBoolean(
 							Parametros.preferencias_stockToma,
-							Boolean.valueOf(CheckedToma.isChecked()));
+							CheckedToma.isChecked());
 					
 					/* checkbox para habilitar balanza*/
 					editor.putBoolean(

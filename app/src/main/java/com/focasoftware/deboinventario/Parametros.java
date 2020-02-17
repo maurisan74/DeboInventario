@@ -22,7 +22,7 @@ public class Parametros {
 	 * PARAMETROS A CARGAR AL ARRANQUE:
 	 */
 	@Nullable
-    public static String PREF_URL_CONEXION_SERVIDOR = "http://webservice.php";
+    public static String PREF_URL_CONEXION_SERVIDOR = "http://10.231.45.184/webservice_balanza/deboinventario/webservice.php";
 	public static int Pref_id_Local = 0;
 	@Nullable
     public static String PREF_WIFI_PRIVILEGIADO = "FocaSF";
