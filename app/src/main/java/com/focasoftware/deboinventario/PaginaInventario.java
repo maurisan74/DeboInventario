@@ -284,7 +284,6 @@ public class PaginaInventario extends Activity implements DialogPersoSimple {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.xml_paginainventario);
-		setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
 
 		log.setUbicacion(ParametrosInventario.CARPETA_LOGTABLET);
 		log.tipo_0 = Parametros.PREF_LOG_EVENTOS;

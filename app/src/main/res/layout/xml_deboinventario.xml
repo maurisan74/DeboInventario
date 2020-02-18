@@ -12,13 +12,13 @@
         android:orientation="vertical" >
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="195dp"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:text="@string/titulo_debo_inventario"
             android:textColor="@color/black"
-            tools:ignore="SpUsage"
-            android:textSize="25dp" />
+            android:textSize="25dp"
+            tools:ignore="SpUsage" />
 
         <LinearLayout
             android:orientation="horizontal"
@@ -36,11 +36,11 @@
                 <!-- PRIMER BOTON - izquierda -->
 
                 <LinearLayout
-                    android:layout_width="200dp"
+                    android:layout_width="207dp"
                     android:layout_height="200dp"
                     android:layout_margin="40dp"
                     android:gravity="center"
-                    android:orientation="vertical" >
+                    android:orientation="vertical">
 
                     <Button
                         android:id="@+id/DI_boton_izq"
@@ -52,7 +52,7 @@
                         android:textSize="@dimen/boton_grande" />
 
                     <TextView
-                        android:layout_width="fill_parent"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:text="@string/continuar_inventarios_en_curso"
@@ -98,11 +98,11 @@
                 android:layout_gravity="center_horizontal">
 
                 <LinearLayout
-                    android:layout_width="200dp"
+                    android:layout_width="232dp"
                     android:layout_height="200dp"
                     android:layout_margin="40dp"
                     android:gravity="center"
-                    android:orientation="vertical" >
+                    android:orientation="vertical">
 
                     <Button
                         android:id="@+id/boton_compras"
@@ -206,6 +206,7 @@
         android:layout_height="40dp"
         android:layout_alignParentTop="true"
         android:layout_margin="10dp"
+        android:scaleType="fitXY"
         android:layout_toStartOf="@+id/DI_imagen_salir"
         android:src="@drawable/boton_config"
         tools:ignore="ContentDescription">
@@ -213,10 +214,11 @@
 
     <ImageView
         android:id="@+id/DI_imagen_update"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         android:layout_alignParentTop="true"
-        android:layout_margin="6dp"
+        android:layout_margin="10dp"
+        android:scaleType="fitXY"
         android:layout_toStartOf="@+id/DI_imagen_config"
         android:src="@drawable/boton_update"
         tools:ignore="ContentDescription">

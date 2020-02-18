@@ -32,7 +32,6 @@ public class ProveedorBusqueda extends Activity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.xml_busqueda_proveedor);
-		setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
 
 		b= getIntent().getExtras();
 		intentPadre = getIntent();

@@ -7,39 +7,38 @@
 	android:padding="5dp" >
 
 	<LinearLayout
-		android:layout_width="wrap_content"
+		android:layout_width="1251dp"
 		android:layout_height="wrap_content"
 		android:gravity="center_vertical"
 		android:orientation="horizontal"
-		android:padding="10dp" >
+		android:padding="10dp">
 
 		<ImageView
 			android:id="@+id/DIALOG_imagen"
 			android:layout_width="80dp"
 			android:layout_height="80dp"
 			android:layout_marginStart="10dp"
+			android:contentDescription="@string/contentDescription"
 			android:padding="10dp"
-			android:scaleType="fitCenter"
-			android:contentDescription="@string/contentDescription" />
+			android:scaleType="fitCenter" />
 
 		<LinearLayout
 			android:layout_width="300dp"
 			android:layout_height="wrap_content"
 			android:gravity="center_horizontal"
-			android:orientation="vertical" >
+			android:orientation="vertical">
 
 			<TextView
 				android:id="@+id/DIALOG_texto"
 				android:layout_width="match_parent"
-				android:layout_height="fill_parent"
+				android:layout_height="match_parent"
 				android:textColor="@color/white"
 				android:textSize="@dimen/talla_texto_medio" />
 
 			<TableLayout
 				android:id="@+id/DIALOG_zona_box"
 				android:layout_width="wrap_content"
-				android:layout_height="wrap_content" >
-			</TableLayout>
+				android:layout_height="wrap_content"></TableLayout>
 		</LinearLayout>
 	</LinearLayout>
 

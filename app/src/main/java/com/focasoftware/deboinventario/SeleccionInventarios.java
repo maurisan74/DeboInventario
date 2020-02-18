@@ -112,7 +112,6 @@ public class SeleccionInventarios extends Activity implements DialogPersoSimple 
 		// Creamos la pgina:
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.xml_seleccioninventarios);
-		setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
 
 System.out.println("::: SeleccionInventario 99 ");
 		log.setUbicacion(ParametrosInventario.CARPETA_LOGTABLET);

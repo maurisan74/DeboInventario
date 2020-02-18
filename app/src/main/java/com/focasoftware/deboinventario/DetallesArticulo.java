@@ -139,7 +139,6 @@ public class DetallesArticulo extends Activity implements DialogPersoSimple {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.xml_detallesarticulo);
-		setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
 
 		System.out.println("::: Entra en detalles articulo");
 		

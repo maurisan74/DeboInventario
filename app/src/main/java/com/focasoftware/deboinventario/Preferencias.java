@@ -182,7 +182,6 @@ public class Preferencias extends Activity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.xml_preferencias);
-		setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
 
 		// 1� Restaurar las preferencias:
 		settings = PreferenceManager.getDefaultSharedPreferences(ctxt);

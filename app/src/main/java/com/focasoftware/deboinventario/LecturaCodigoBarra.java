@@ -2,6 +2,7 @@ package com.focasoftware.deboinventario;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -42,7 +43,7 @@ public class LecturaCodigoBarra extends Activity {
 	
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        
+
         final GestorLogEventos log = new GestorLogEventos();
         log.setUbicacion(ParametrosInventario.CARPETA_LOGTABLET);
         log.tipo_0 = Parametros.PREF_LOG_EVENTOS;

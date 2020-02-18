@@ -42,8 +42,6 @@ public class SeleccionarUrl extends Activity {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.seleccionar_url);
-		setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
-
 		// CREACION DE LA TABLA LOCAL
 		BaseDatos data = new BaseDatos(this);
 		data.crearTablaLocales();

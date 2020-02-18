@@ -11,6 +11,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.core.content.ContextCompat;
 
 /**
  * Dialogo personalizado que permite modificar la cantidad de un articulo, sumar
@@ -97,7 +98,7 @@ public class DialogPersoComplexCantidadMasMenos extends Dialog {
 						rlvL.setBackgroundColor(ctxt.getResources().getColor(R.color.amarillo));
 					}
 					else if (event.getAction() == KeyEvent.ACTION_UP){
-						rlvL.setBackgroundColor(android.R.color.transparent);
+						rlvL.setBackgroundColor(ContextCompat.getColor(ctxt,android.R.color.transparent));
 					}
 					return false;
 				}
@@ -111,7 +112,7 @@ public class DialogPersoComplexCantidadMasMenos extends Dialog {
 						rlvL.setBackgroundColor(ctxt.getResources().getColor(R.color.amarillo));
 					}
 					else if (event.getAction() == KeyEvent.ACTION_UP){
-						rlvL.setBackgroundColor(android.R.color.transparent);
+						rlvL.setBackgroundColor(ContextCompat.getColor(ctxt,android.R.color.transparent));
 					}
 					return false;
 				}
@@ -125,7 +126,7 @@ public class DialogPersoComplexCantidadMasMenos extends Dialog {
 						rlvL.setBackgroundColor(ctxt.getResources().getColor(R.color.amarillo));
 					}
 					else if (event.getAction() == KeyEvent.ACTION_UP){
-						rlvL.setBackgroundColor(android.R.color.transparent);
+						rlvL.setBackgroundColor(ContextCompat.getColor(ctxt,android.R.color.transparent));
 					}
 					return false;
 				}

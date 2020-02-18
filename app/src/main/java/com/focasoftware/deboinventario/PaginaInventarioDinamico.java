@@ -247,7 +247,6 @@ public class PaginaInventarioDinamico extends Activity implements
 
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
 		
 		System.out.println("::: PaginaInventarioDinamico 233 onCreate ");
 		checkBoxT=(CheckBox)findViewById(R.id.checkBoxToma);

@@ -137,7 +137,6 @@ public class ComprasMainBoard extends Activity implements DialogPersoSimple,
 
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
 
 		setContentView(R.layout.xml_mainboard_compras);
 		// Recuperamos tabla:

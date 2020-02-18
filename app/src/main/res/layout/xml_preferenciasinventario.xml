@@ -3,10 +3,11 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_gravity="center_horizontal"
-    android:orientation="vertical" >
+    android:gravity="start"
+    android:orientation="vertical">
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="305dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_margin="5dp"
@@ -15,25 +16,26 @@
         android:textSize="@dimen/talla_texto_titulo" />
 
     <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="470dp"
-        android:layout_weight="0.44" >
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_weight="1.8">
 
         <TableLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="end"
-            android:layout_margin="20dp" >
+            android:layout_margin="20dp">
 
             <TableRow
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" >
+                android:layout_height="wrap_content"
+                android:gravity="start">
 
                 <TextView
-                    android:layout_width="100dp"
-                    android:layout_margin="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_margin="10dp"
                     android:layout_weight="1"
-                    android:gravity="end"
+                    android:gravity="start|end"
                     android:text="URL WebService:"
                     android:textColor="@color/white"
                     android:textSize="@dimen/pruebaPreferencias" />
@@ -41,7 +43,7 @@
 
             <TableRow
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" >
+                android:layout_height="wrap_content">
 
                 <EditText
                     android:id="@+id/PREF_URL_webservice"
@@ -49,24 +51,24 @@
                     android:layout_margin="5dp"
                     android:singleLine="true"
                     android:text="URL"
-                    android:textSize="@dimen/talla_texto_grande" >
+                    android:textSize="@dimen/talla_texto_grande">
 
                     <requestFocus />
                 </EditText>
 
                 <Button
                     android:id="@+id/PREF_checkUrl"
-                    android:layout_width="120dp"
+                    android:layout_width="179dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
                     android:gravity="center"
                     android:text="Check URL"
-                    android:textSize="@dimen/talla_texto_GrandeGrande"
-                    android:layout_marginTop="8dp" />
+                    android:textSize="@dimen/talla_texto_GrandeGrande" />
             </TableRow>
 
             <TableRow
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" >
+                android:layout_height="wrap_content">
 
                 <Button
                     android:id="@+id/PREF_agregarUrl"
@@ -79,7 +81,7 @@
 
             <TableRow
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" >
+                android:layout_height="wrap_content">
 
                 <Spinner
                     android:id="@+id/spinner1"
@@ -90,7 +92,7 @@
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:visibility="gone" >
+                android:visibility="gone">
 
                 <TextView
                     android:layout_width="300dp"
@@ -105,7 +107,7 @@
             <TableRow
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:visibility="gone" >
+                android:visibility="gone">
 
                 <EditText
                     android:id="@+id/PREF_wifi_preferido"
@@ -119,13 +121,13 @@
 
             <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" >
+                android:layout_height="match_parent">
 
                 <TextView
-                    android:layout_width="300dp"
+                    android:layout_width="899dp"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
-                    android:gravity="end"
+                    android:gravity="center|right|end"
                     android:text="Número de ID de tablet:"
                     android:textColor="@color/white"
                     android:textSize="@dimen/talla_texto_subtitulo" />
@@ -133,11 +135,11 @@
 
             <TableRow
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" >
+                android:layout_height="wrap_content">
 
                 <EditText
                     android:id="@+id/PREF_id_tablet"
-                    android:layout_width="350dp"
+                    android:layout_width="869dp"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
                     android:inputType="number"
@@ -148,7 +150,7 @@
 
             <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" >
+                android:layout_height="match_parent">
 
                 <TextView
                     android:layout_width="300dp"
@@ -162,7 +164,7 @@
 
             <TableRow
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" >
+                android:layout_height="wrap_content">
 
                 <EditText
                     android:id="@+id/PREF_usb_import"
@@ -176,7 +178,7 @@
 
             <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" >
+                android:layout_height="match_parent">
 
                 <TextView
                     android:layout_width="300dp"
@@ -190,7 +192,7 @@
 
             <TableRow
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" >
+                android:layout_height="wrap_content">
 
                 <EditText
                     android:id="@+id/PREF_usb_export"
@@ -204,7 +206,7 @@
 
             <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" >
+                android:layout_height="match_parent">
 
                 <TextView
                     android:layout_width="300dp"
@@ -218,7 +220,7 @@
 
             <TableRow
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" >
+                android:layout_height="wrap_content">
 
                 <EditText
                     android:id="@+id/Carpeta_Maestros"
@@ -232,7 +234,7 @@
 
             <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" >
+                android:layout_height="match_parent">
 
                 <TextView
                     android:layout_width="300dp"
@@ -246,7 +248,7 @@
 
             <TableRow
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" >
+                android:layout_height="wrap_content">
 
                 <EditText
                     android:id="@+id/Carpeta_LogEventos"
@@ -260,7 +262,7 @@
 
             <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" >
+                android:layout_height="match_parent">
 
                 <TextView
                     android:layout_width="300dp"
@@ -273,7 +275,7 @@
 
             <TableRow
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" >
+                android:layout_height="wrap_content">
 
                 <EditText
                     android:id="@+id/Carpeta_LogDatos"
@@ -287,7 +289,7 @@
 
             <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" >
+                android:layout_height="match_parent">
 
                 <TextView
                     android:layout_width="match_parent"
@@ -301,7 +303,7 @@
 
             <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" >
+                android:layout_height="match_parent">
 
                 <CheckBox
                     android:id="@+id/checkBoxEventos"
@@ -310,7 +312,7 @@
 
             <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" >
+                android:layout_height="match_parent">
 
                 <CheckBox
                     android:id="@+id/checkBoxProcesos"
@@ -321,7 +323,7 @@
 
             <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" >
+                android:layout_height="match_parent">
 
                 <CheckBox
                     android:id="@+id/checkBoxMensajes"
@@ -332,7 +334,7 @@
 
             <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" >
+                android:layout_height="match_parent">
 
                 <CheckBox
                     android:id="@+id/checkBoxExcepciones"
@@ -343,7 +345,7 @@
 
             <TableRow
                 android:layout_width="wrap_content"
-                android:layout_height="50dp" >
+                android:layout_height="50dp">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -365,14 +367,14 @@
 
             <TableRow
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" >
+                android:layout_height="wrap_content">
 
                 <RadioGroup
                     android:id="@+id/grupoVD"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="vertical"
-                    android:paddingLeft="30dp" >
+                    android:paddingLeft="30dp">
 
                     <RadioButton
                         android:id="@+id/CheckInventariosVentas"
@@ -391,7 +393,7 @@
             <TableRow
                 android:id="@+id/tableRow2"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" >
+                android:layout_height="wrap_content">
 
                 <CheckBox
                     android:id="@+id/CheckHabcamScanner"
@@ -404,7 +406,7 @@
             <TableRow
                 android:id="@+id/tableRow3"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" >
+                android:layout_height="wrap_content">
 
                 <CheckBox
                     android:id="@+id/CheckLecturaEntrada"
@@ -417,7 +419,7 @@
             <TableRow
                 android:id="@+id/tableRow5"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" >
+                android:layout_height="wrap_content">
 
                 <TextView
                     android:id="@+id/TxtLectura_x_entrada"
@@ -428,14 +430,14 @@
 
             <TableRow
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" >
+                android:layout_height="wrap_content">
 
                 <RadioGroup
                     android:id="@+id/gruporb"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="vertical"
-                    android:paddingEnd="30dp" >
+                    android:paddingEnd="30dp">
 
                     <RadioButton
                         android:id="@+id/radio1"
@@ -453,7 +455,7 @@
 
             <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" >
+                android:layout_height="match_parent">
 
                 <CheckBox
                     android:id="@+id/checkBoxToma"
@@ -462,7 +464,7 @@
 
             <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" >
+                android:layout_height="match_parent">
 
                 <CheckBox
                     android:id="@+id/checkBoxBalanza"
@@ -470,9 +472,7 @@
             </TableRow>
 
 
-
-            <LinearLayout android:layout_height="20dp" >
-            </LinearLayout>
+            <LinearLayout android:layout_height="20dp"></LinearLayout>
         </TableLayout>
     </ScrollView>
 
@@ -480,17 +480,17 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="0.19"
-        android:gravity="center_horizontal" >
+        android:gravity="center_horizontal">
 
         <TableRow
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:gravity="center" >
+            android:gravity="center">
 
             <Button
                 android:id="@+id/PREF_boton_cancelar"
                 android:layout_width="200dp"
-                android:layout_height="wrap_content"
+                android:layout_height="50dp"
                 android:layout_margin="5dp"
                 android:gravity="center"
                 android:text="Cancelar"
@@ -499,7 +499,7 @@
             <Button
                 android:id="@+id/PREF_boton_guardar"
                 android:layout_width="200dp"
-                android:layout_height="wrap_content"
+                android:layout_height="50dp"
                 android:layout_marginEnd="50dp"
                 android:gravity="center"
                 android:text="Guardar cambios"

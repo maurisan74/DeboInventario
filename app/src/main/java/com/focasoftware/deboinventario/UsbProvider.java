@@ -78,7 +78,7 @@ public class UsbProvider extends Activity implements DialogPersoSimple {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.xml_usbstream);
-		setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+
 		log.setUbicacion(ParametrosInventario.CARPETA_LOGTABLET);
 		log.tipo_0 = Parametros.PREF_LOG_EVENTOS;
 		log.tipo_2 = Parametros.PREF_LOG_PROCESOS;

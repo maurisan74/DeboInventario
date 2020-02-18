@@ -107,7 +107,7 @@ public class DialogPersoComplexSiNoOpcs extends Dialog {
 					
 					
 					public void onCheckedChanged(@NonNull CompoundButton buttonView, boolean isChecked) {
-						if(isChecked==true){
+						if(isChecked){
 							opcionSeleccionada=buttonView.getId();
 						}
 						

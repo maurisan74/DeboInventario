@@ -237,7 +237,6 @@ public class InventarioMainBoard extends Activity implements DialogPersoSimple,
 		// Creaci�n p�gina desde el documento XML
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.xml_mainboard);
-		setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
 
 		log.setUbicacion(ParametrosInventario.CARPETA_LOGTABLET);
 		log.tipo_0 = Parametros.PREF_LOG_EVENTOS;

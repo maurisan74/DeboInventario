@@ -154,7 +154,7 @@ public class DeboInventario extends Activity implements DialogPersoSimple, Wifi 
 		System.out.println("DEBOOOOOOOOOOOOOOOOOOOOOO ACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
 		System.out.println(R.layout.xml_deboinventario);
 		setContentView(R.layout.xml_deboinventario);
-		setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+
 		PreferenciasInventario.cargarPreferencias(ctxt);
 
 		/*

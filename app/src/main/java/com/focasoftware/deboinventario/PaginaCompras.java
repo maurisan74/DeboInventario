@@ -197,7 +197,6 @@ public class PaginaCompras  extends Activity implements
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
 
         checkBoxT=(CheckBox)findViewById(R.id.checkBoxToma);
   //    boolean condicionRadio = ParametrosInventario.InventariosVentas;

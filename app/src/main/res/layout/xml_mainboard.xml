@@ -12,7 +12,7 @@
         android:orientation="vertical" >
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="336dp"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:text="Estado de los INVENTARIOS"
@@ -59,7 +59,7 @@
                     android:textSize="@dimen/talla_texto_medioGrande" />
 
                 <TextView
-                    android:layout_width="250dp"
+                    android:layout_width="240dp"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:text="Progresión:"
@@ -158,10 +158,9 @@
 
     <ImageView
         android:id="@+id/IMB_boton_salir"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         android:layout_alignParentEnd="true"
         android:layout_margin="5dp"
         android:src="@drawable/boton_salir" />
-
 </RelativeLayout>

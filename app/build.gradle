@@ -48,7 +48,7 @@ dependencies {
     //retrofit2
     implementation 'com.squareup.retrofit2:retrofit:2.7.1'
     implementation 'com.squareup.retrofit2:converter-gson:2.7.1'
-    implementation 'com.squareup.okhttp3:logging-interceptor:4.3.1'
+    implementation 'com.squareup.okhttp3:logging-interceptor:4.4.0'
 
     //Toast Mejorado
     implementation 'com.muddzdev:styleabletoast:2.2.2'

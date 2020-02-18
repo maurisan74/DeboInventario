@@ -83,7 +83,6 @@ public class TomarFoto extends Activity implements SurfaceHolder.Callback {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
 		
 		// 1� Recuperamos el Activity padre:
 		intentPadre = getIntent();
