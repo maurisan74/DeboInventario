@@ -5342,8 +5342,7 @@ void mostrarMensaje(int valorRecibido){
 					String contents = data.getStringExtra("SCAN_RESULT");
 
 					String format = data.getStringExtra("SCAN_RESULT_FORMAT");
-					log.log("[-- 3539 --]" + "Codgio de Barras: "
-							+ contents.trim() + ", from lectora: " + 1, 3);
+					log.log("[-- 3539 --]" + "Codgio de Barras: " + contents.trim() + ", from lectora: " + 1, 3);
 					processArticuloConCB(contents.trim(), true);
 					deseleccionarLineaParticular(indice_on_focus);
 					refrescarEncabezado(inventario_numero_en_curso);

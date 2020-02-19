@@ -360,42 +360,24 @@ public class InventarioMainBoard extends Activity implements DialogPersoSimple,
 
 					//	inventarios_elegidos = inventarios_a_exportar.get(0);
 					numero_inventarios_cerrados = inventarios_a_exportar.size();
-	if(numero_inventarios_cerrados>=1) {
-		inventarios_elegidos = inventarios_a_exportar.get(0);
-	}
-
-				//	System.out.println("::: InventarioMainBoard 351 numero_inventarios_cerrados " + inventarios_a_exportar);
+					if(numero_inventarios_cerrados>=1) {
+						inventarios_elegidos = inventarios_a_exportar.get(0);
+					}
 					System.out.println("::: InventarioMainBoard 351 numero_inventarios_cerrados " + numero_inventarios_cerrados);
-
-
 				} catch (ExceptionBDD e) {
-
-					log.log("[-- 285 --]" + e.toString(), 4);
-					log.log("[-- 286 --]" + "Error, la exportacion se cancelo",
-							3);
+					log.log("[-- 285 --]" + e.toString(), 4);log.log("[-- 286 --]" + "Error, la exportacion se cancelo", 3);
 					e.printStackTrace();
-					Toast.makeText(ctxt, "Error, la exportacion se cancelo",
-							Toast.LENGTH_LONG).show();
+					Toast.makeText(ctxt, "Error, la exportacion se cancelo", Toast.LENGTH_LONG).show();
 					return false;
 				}
 
 				if (numero_inventarios_cerrados <= 0) {
-					log.log("[-- 297 --]"
-							+ "Ningun inventario cerrado, la exportacion se cancelo",
-							3);
-					Toast.makeText(
-							ctxt,
-							"Ningun inventario cerrado, la exportacion se cancelo",
-							Toast.LENGTH_LONG).show();
+					log.log("[-- 297 --]" + "Ningun inventario cerrado, la exportacion se cancelo", 3);
+					Toast.makeText(ctxt, "Ningun inventario cerrado, la exportacion se cancelo", Toast.LENGTH_LONG).show();
 					return false;
 				}else if(numero_inventarios_cerrados>=2){
-					log.log("[-- 297 --]"
-									+ "Debe seleccionar un solo inventario, la exportacion se cancelo",
-							3);
-					Toast.makeText(
-							ctxt,
-							"No puede realizarse la exportacion, solamente debe haber un inventario cerrado para exportar.",
-							Toast.LENGTH_LONG).show();
+					log.log("[-- 297 --]" + "Debe seleccionar un solo inventario, la exportacion se cancelo", 3);
+					Toast.makeText(ctxt, "No puede realizarse la exportacion, solamente debe haber un inventario cerrado para exportar.", Toast.LENGTH_LONG).show();
 					return false;
 				}
 
@@ -404,16 +386,10 @@ public class InventarioMainBoard extends Activity implements DialogPersoSimple,
 				View.OnClickListener listenerWifi = new View.OnClickListener() {
 
 					public void onClick(View v) {
-
 						log.log("[-- 311 --]" + "Se presiono el boton Wifi ", 0);
 						borrarDespues = dialogoPrincipioExport.isBorrar_luego();
-
 						dialogoPrincipioExport.dismiss();
-
-						Intent intentWifi = new Intent(
-								InventarioMainBoard.this, WiFiControlador.class);
-						startActivityForResult(intentWifi,
-								Parametros.REQUEST_WIFI_EXPORT);
+						Intent intentWifi = new Intent(InventarioMainBoard.this, WiFiControlador.class);startActivityForResult(intentWifi, Parametros.REQUEST_WIFI_EXPORT);
 					}
 				};
 
@@ -2308,7 +2284,7 @@ if(condR == -1){
 	 * @throws ExceptionBDD
 	 */
 	private void controlFin() throws ExceptionBDD {
-		if (estanTerminadosTodosLosInventarios() == true) {
+		if (estanTerminadosTodosLosInventarios()) {
 			botonExportar.setEnabled(true);
 
 			dialogoFin = new AlertDialog.Builder(this);
