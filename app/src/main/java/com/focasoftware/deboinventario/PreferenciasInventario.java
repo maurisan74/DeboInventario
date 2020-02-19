@@ -681,9 +681,7 @@ public class PreferenciasInventario extends Activity {
 					Parametros.preferencias_stockToma,
 					ParametrosInventario.StockToma);
 			
-			ParametrosInventario.balanza = setting.getBoolean(
-					Parametros.preferencias_balanza,
-					ParametrosInventario.balanza);
+			ParametrosInventario.balanza = setting.getBoolean(Parametros.preferencias_balanza, ParametrosInventario.balanza);
 
 			log.log("SERVIDOR: " + Parametros.PREF_URL_CONEXION_SERVIDOR, 3);
 			log.log("WI FI: " + Parametros.PREF_WIFI_PRIVILEGIADO, 3);

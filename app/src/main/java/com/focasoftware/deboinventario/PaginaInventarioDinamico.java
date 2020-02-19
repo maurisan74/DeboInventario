@@ -1791,12 +1791,8 @@ if(condicionb == true){
 						}
 					};
 
-					dialogoMasMenos = new DialogPersoComplexCantidadMasMenos(
-							ctxt, "Articulo ya inventariado",
-							(float) cantidad_producto, listener_sumar, listener_restar,
-							listener_modificar, listener_cancelar);
-					dialogoMasMenos
-							.setOnDismissListener(new OnDismissListener() {
+					dialogoMasMenos = new DialogPersoComplexCantidadMasMenos(ctxt, "Articulo ya inventariado", (float) cantidad_producto, listener_sumar, listener_restar, listener_modificar, listener_cancelar);
+					dialogoMasMenos.setOnDismissListener(new OnDismissListener() {
 
 								public void onDismiss(DialogInterface dialog) {
 
@@ -1817,8 +1813,7 @@ if(condicionb == true){
 									deseleccionarLineaParticular(indice_on_focus);
 								}
 							});
-					dialogoMasMenos
-							.setOnCancelListener(new OnCancelListener() {
+					dialogoMasMenos.setOnCancelListener(new OnCancelListener() {
 
 								public void onCancel(DialogInterface dialog) {
 									deseleccionarLineaParticular(indice_on_focus);
@@ -2837,14 +2832,10 @@ if(condicionb == true){
 						if (listaArticulosCompleta.get(indice_focused)
 								.getFechaInicio().length() == 0) {
 							listaArticulosCompleta.get(indice_focused)
-									.setFechaInicio(
-											new SimpleDateFormat(
-													"yyyy-MM-dd HH:mm:ss")
-													.format(new Date()));
+									.setFechaInicio(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
 						}
-						listaArticulosCompleta.get(indice_focused).setFechaFin(
-								new SimpleDateFormat("yyyy-MM-dd HH:mm:ss")
-										.format(new Date()));
+
+						listaArticulosCompleta.get(indice_focused).setFechaFin(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
 					} catch (Exception e) {
 
 						log.log("[-- 1619 --]" + e.toString(), 4);

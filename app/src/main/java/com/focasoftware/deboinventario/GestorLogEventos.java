@@ -138,8 +138,7 @@ public class GestorLogEventos {
 			// );
 			File archivo = new File(this.Ubicacion + "log.txt");
 			boolean sobreescribir = false;
-			BufferedWriter writer = new BufferedWriter(new FileWriter(archivo,
-					!sobreescribir));
+			BufferedWriter writer = new BufferedWriter(new FileWriter(archivo, !sobreescribir));
 			writer.newLine();
 			writer.append("[" + ObtenerFecha() + "]---[" + tipo + "]-(" + this.Ubicacion + ")-->"
 					+ evento);

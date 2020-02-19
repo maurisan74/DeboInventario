@@ -6302,14 +6302,9 @@ System.out.println("::: BaseDatos 3848 ver q traeeeeee 2" + c.getColumnIndex(Par
 				// articulo.getPrecio_venta());
 				// nuevoRegistro.put(ParametrosInventario.bal_bdd_articulo_precio_costo,
 				// articulo.getPrecio_costo());
-				nuevoRegistro.put(ParametrosInventario.bal_bdd_articulo_foto,
-						articulo.getFoto());
-				nuevoRegistro.put(
-						ParametrosInventario.bal_bdd_articulo_cantidad,
-						articulo.getCantidad());
-				nuevoRegistro.put(
-						ParametrosInventario.bal_bdd_articulo_subtotal,
-						articulo.getSubtotal());
+				nuevoRegistro.put(ParametrosInventario.bal_bdd_articulo_foto, articulo.getFoto());
+				nuevoRegistro.put(ParametrosInventario.bal_bdd_articulo_cantidad, articulo.getCantidad());
+				nuevoRegistro.put(ParametrosInventario.bal_bdd_articulo_subtotal, articulo.getSubtotal());
 
 				// Cuidado, si el nuevo valor es "No Tomado" (cantidad Q = -1),
 				// hay que suprimir la fecha en la BDD:
@@ -6319,28 +6314,20 @@ System.out.println("::: BaseDatos 3848 ver q traeeeeee 2" + c.getColumnIndex(Par
 				// una:
 				String fechaI = articulo.getFechaInicio();
 				if (fechaI.length() == 0) {
-					articulo.setFechaInicio(new SimpleDateFormat(
-							"yyyy-MM-dd HH:mm:ss").format(new Date()));
+					articulo.setFechaInicio(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
 				}
 
 				// Fecha fin: se modifica cada vez:
-				articulo.setFechaFin(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss")
-						.format(new Date()));
+				articulo.setFechaFin(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
 
 				if (articulo.getCantidad() < 0) {
 					// Es no tomado
-					nuevoRegistro.put(
-							ParametrosInventario.bal_bdd_articulo_fechaInicio,
-							"");
-					nuevoRegistro.put(
-							ParametrosInventario.bal_bdd_articulo_fechaFin, "");
+					nuevoRegistro.put(ParametrosInventario.bal_bdd_articulo_fechaInicio, "");
+					nuevoRegistro.put(ParametrosInventario.bal_bdd_articulo_fechaFin, "");
 				} else {
-					nuevoRegistro.put(
-							ParametrosInventario.bal_bdd_articulo_fechaInicio,
-							articulo.getFechaInicio());
-					nuevoRegistro.put(
-							ParametrosInventario.bal_bdd_articulo_fechaFin,
-							articulo.getFechaFin());
+					nuevoRegistro.put(ParametrosInventario.bal_bdd_articulo_fechaInicio, articulo.getFechaFin());
+					//nuevoRegistro.put(ParametrosInventario.bal_bdd_articulo_fechaFin, articulo.getFechaInicio());
+					nuevoRegistro.put(ParametrosInventario.bal_bdd_articulo_fechaFin, articulo.getFechaFin());
 				}
 
 				// 3 Insertamos el registro en la base de datos en modo

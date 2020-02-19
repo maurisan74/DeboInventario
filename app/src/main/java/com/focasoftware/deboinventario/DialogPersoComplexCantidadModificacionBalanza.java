@@ -44,13 +44,12 @@ public  class DialogPersoComplexCantidadModificacionBalanza extends Dialog imple
 	
 	/**
 	 * Constructor completo, setea las UI y carga los handlers
-	 * <p>1� Construcci�n del t�tulo
-	 * <p>2� Cargamos el layout y main layout
-	 * <p>3� Actualizaci�n de los textos
-	 * <p>4� Si estamos en el modo "MODIFICAR",
-	 * 		se habilita la posibilidad de reestablecer el valor a No Tomado
-	 * <p>5� EditTexts y handlers de los mismos
-	 * <p>6� Botones y sus handlers
+	 * Construcci�n del t�tulo
+	 * Cargamos el layout y main layout
+	 * Actualizaci�n de los textos
+	 * Si estamos en el modo "MODIFICAR", se habilita la posibilidad de reestablecer el valor a No Tomado
+	 * EditTexts y handlers de los mismos
+	 * Botones y sus handlers
 	 * 
 	 * @param context
 	 * @param tipo_operacion

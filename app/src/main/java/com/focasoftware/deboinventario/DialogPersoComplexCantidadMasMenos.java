@@ -95,7 +95,7 @@ public class DialogPersoComplexCantidadMasMenos extends Dialog {
 				public boolean onTouch(@NonNull View v, @NonNull MotionEvent event) {
 					RelativeLayout rlvL = (RelativeLayout) v.getParent();
 					if (event.getAction() == KeyEvent.ACTION_DOWN) {
-						rlvL.setBackgroundColor(ctxt.getResources().getColor(R.color.amarillo));
+						rlvL.setBackgroundColor(ContextCompat.getColor(ctxt,R.color.amarillo));
 					}
 					else if (event.getAction() == KeyEvent.ACTION_UP){
 						rlvL.setBackgroundColor(ContextCompat.getColor(ctxt,android.R.color.transparent));
@@ -109,7 +109,7 @@ public class DialogPersoComplexCantidadMasMenos extends Dialog {
 				public boolean onTouch(@NonNull View v, @NonNull MotionEvent event) {
 					RelativeLayout rlvL = (RelativeLayout) v.getParent();
 					if (event.getAction() == KeyEvent.ACTION_DOWN) {
-						rlvL.setBackgroundColor(ctxt.getResources().getColor(R.color.amarillo));
+						rlvL.setBackgroundColor(ContextCompat.getColor(ctxt,R.color.amarillo));
 					}
 					else if (event.getAction() == KeyEvent.ACTION_UP){
 						rlvL.setBackgroundColor(ContextCompat.getColor(ctxt,android.R.color.transparent));
@@ -123,7 +123,7 @@ public class DialogPersoComplexCantidadMasMenos extends Dialog {
 				public boolean onTouch(@NonNull View v, @NonNull MotionEvent event) {
 					RelativeLayout rlvL = (RelativeLayout) v.getParent();
 					if (event.getAction() == KeyEvent.ACTION_DOWN) {
-						rlvL.setBackgroundColor(ctxt.getResources().getColor(R.color.amarillo));
+						rlvL.setBackgroundColor(ContextCompat.getColor(ctxt,R.color.amarillo));
 					}
 					else if (event.getAction() == KeyEvent.ACTION_UP){
 						rlvL.setBackgroundColor(ContextCompat.getColor(ctxt,android.R.color.transparent));
