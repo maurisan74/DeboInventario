@@ -35,7 +35,7 @@
                     android:layout_width="wrap_content"
                     android:layout_margin="10dp"
                     android:layout_weight="1"
-                    android:gravity="start|end"
+                    android:gravity="start"
                     android:text="URL WebService:"
                     android:textColor="@color/white"
                     android:textSize="@dimen/pruebaPreferencias" />
@@ -127,7 +127,7 @@
                     android:layout_width="899dp"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
-                    android:gravity="center|right|end"
+                    android:gravity="start"
                     android:text="Número de ID de tablet:"
                     android:textColor="@color/white"
                     android:textSize="@dimen/talla_texto_subtitulo" />
@@ -156,7 +156,7 @@
                     android:layout_width="300dp"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
-                    android:gravity="end"
+                    android:gravity="start"
                     android:text="Carpeta Dispositivo IMPORT:"
                     android:textColor="@color/white"
                     android:textSize="@dimen/talla_texto_subtitulo" />
@@ -184,7 +184,7 @@
                     android:layout_width="300dp"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
-                    android:gravity="end"
+                    android:gravity="start"
                     android:text="Carpeta Dispositivo EXPORT:"
                     android:textColor="@color/white"
                     android:textSize="@dimen/talla_texto_subtitulo" />
@@ -212,7 +212,7 @@
                     android:layout_width="300dp"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
-                    android:gravity="end"
+                    android:gravity="start"
                     android:text="@string/CarpetaMaestros"
                     android:textColor="@color/white"
                     android:textSize="@dimen/talla_texto_subtitulo" />
@@ -240,7 +240,7 @@
                     android:layout_width="300dp"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
-                    android:gravity="end"
+                    android:gravity="start"
                     android:text="@string/CarpetaLogEventos"
                     android:textColor="@color/white"
                     android:textSize="@dimen/talla_texto_subtitulo" />
@@ -268,7 +268,7 @@
                     android:layout_width="300dp"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
-                    android:gravity="end"
+                    android:gravity="start"
                     android:text="@string/CarpetaLogDatos"
                     android:textColor="@color/white" />
             </TableRow>
@@ -351,7 +351,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="48dp"
                     android:layout_margin="5dp"
-                    android:gravity="end"
+                    android:gravity="start"
                     android:text="@string/recomendacion"
                     android:textColor="@color/white"
                     android:textSize="@dimen/talla_texto_medioGrande" />
@@ -360,7 +360,7 @@
             <TextView
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
-                android:gravity="end"
+                android:gravity="start"
                 android:text="INVENTARIO (Recuerde finalizar con un inventario antes de trabajar con el otro)"
                 android:textColor="@color/white"
                 android:textSize="@dimen/talla_texto_sub" />
@@ -425,6 +425,7 @@
                     android:id="@+id/TxtLectura_x_entrada"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:gravity="start"
                     android:text="@string/Label_productos_no_contados" />
             </TableRow>
 

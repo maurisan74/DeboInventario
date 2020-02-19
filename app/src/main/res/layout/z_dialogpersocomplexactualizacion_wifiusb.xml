@@ -7,7 +7,7 @@
 	android:padding="5dp" >
 
 	<LinearLayout
-		android:layout_width="1251dp"
+		android:layout_width="400dp"
 		android:layout_height="wrap_content"
 		android:gravity="center_vertical"
 		android:orientation="horizontal"
@@ -46,9 +46,9 @@
 		android:id="@+id/DIALOG_main"
 		android:layout_width="wrap_content"
 		android:layout_height="match_parent"
-		android:layout_gravity="center_horizontal"
+		android:layout_gravity="start"
 		android:orientation="horizontal"
-		android:padding="5dp" >
+		android:padding="5dp">
 
 		<Button
 			android:id="@+id/DIALOG_boton_validar_wifi"
@@ -62,16 +62,16 @@
 			android:layout_width="wrap_content"
 			android:layout_height="50dp"
 			android:text="Por USB"
-			android:visibility="gone"
-			android:textSize="@dimen/talla_texto_medioGrande" />
+			android:textSize="@dimen/talla_texto_medioGrande"
+			android:visibility="gone" />
 
 		<Button
 			android:id="@+id/DIALOG_boton_flash"
 			android:layout_width="wrap_content"
 			android:layout_height="50dp"
 			android:text="@string/flash"
-			android:visibility="gone"
-			android:textSize="@dimen/talla_texto_medioGrande" />
+			android:textSize="@dimen/talla_texto_medioGrande"
+			android:visibility="gone" />
 
 		<Button
 			android:id="@+id/DIALOG_boton_sdcard"

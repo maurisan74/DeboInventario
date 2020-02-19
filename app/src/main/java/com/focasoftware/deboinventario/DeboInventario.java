@@ -528,8 +528,7 @@ public class DeboInventario extends Activity implements DialogPersoSimple, Wifi 
 			public void onClick(View v) {
 				contador_reset_BDD = 3;
 
-				Intent intentInventario = new Intent(ctxt,
-						InventarioMainBoard.class);
+				Intent intentInventario = new Intent(ctxt, InventarioMainBoard.class);
 				startActivity(intentInventario);
 				log.log("[-- 475 --]"
 						+ "Pasa a la pantalla de InventarioMainBOard", 0);

@@ -11,7 +11,6 @@ import android.content.DialogInterface.OnCancelListener;
 import android.content.DialogInterface.OnDismissListener;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.pm.ActivityInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.SystemClock;
@@ -38,6 +37,9 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+
+import com.google.zxing.integration.android.IntentIntegrator;
+import com.google.zxing.integration.android.IntentResult;
 
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
@@ -2429,8 +2431,8 @@ public class PaginaInventario extends Activity implements DialogPersoSimple {
 			
 			@Override
 			public void onClick(View v) {
-			
-				scanBarcode(Ic_Lectora);
+				new IntentIntegrator((Activity) ctxt).initiateScan();
+//				scanBarcode(Ic_Lectora);
 			}
 		});
 		// HANDLERS:
@@ -3455,29 +3457,62 @@ if(condicionBalanza==true){
 		}
 	} // end funcion
 
-	public void scanBarcode(View button) {
-		Intent intent = new Intent("com.google.zxing.client.android.SCAN");
-		intent.setPackage("com.google.zxing.client.android");
-		intent.putExtra("com.google.zxing.client.android.SCAN.SCAN_MODE",
-				"ONE_D_MODE");
-		startActivityForResult(intent, SCAN_BARCODE);
-	}
+//	public void scanBarcode(View button) {
+//		Intent intent = new Intent("com.google.zxing.client.android.SCAN");
+//		intent.putExtra("SCAN_MODE", "QR_CODE_MODE");
+//		startActivityForResult(intent, SCAN_BARCODE);
 
-	public void onActivityResult(int requestCode, int resultCode, @NonNull Intent intent) {
-		if (requestCode == SCAN_BARCODE) {
-			if (resultCode == RESULT_OK) {
-				String contents = intent.getStringExtra("SCAN_RESULT");
-				
-				String format = intent.getStringExtra("SCAN_RESULT_FORMAT");
-				
-				processArticuloConCB(contents.trim(), true);
-								// ... Usar o mostrar el cdigo de barras
-			} else if (resultCode == RESULT_CANCELED) {
-				// El escaneo ha fallado. Volver a probar
-				// ...
+
+//		Intent intent = new Intent("com.google.zxing.client.android.SCAN");
+//		intent.setPackage("com.google.zxing.client.android");
+//		intent.putExtra("com.google.zxing.client.android.SCAN.SCAN_MODE",
+//				"ONE_D_MODE");
+//		startActivityForResult(intent, SCAN_BARCODE);
+//	}
+
+
+
+
+
+//	public void onActivityResult(int requestCode, int resultCode,Intent intent) {
+//		if (requestCode == SCAN_BARCODE) {
+//			if (resultCode == RESULT_OK) {
+//				String contents = intent.getStringExtra("SCAN_RESULT");
+//				String format = intent.getStringExtra("SCAN_RESULT_FORMAT");
+//				processArticuloConCB(contents.trim(), true);processArticuloConCB(contents.trim(), true);
+//			} else if (resultCode == RESULT_CANCELED) {
+//				// Handle cancel
+//			}
+//		}
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		IntentResult result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
+		if (result != null) {
+			if (result.getContents() == null) {
+				Toast.makeText(this, "Cancelled", Toast.LENGTH_LONG).show();
+			} else {
+				Toast.makeText(this, "Scanned: " + result.getContents(), Toast.LENGTH_LONG).show();
 			}
+		} else {
+			super.onActivityResult(requestCode, resultCode, data);
 		}
 	}
+
+
+//		if (requestCode == SCAN_BARCODE) {
+//			if (resultCode == RESULT_OK) {
+//				String contents = intent.getStringExtra("SCAN_RESULT");
+//
+//				String format = intent.getStringExtra("SCAN_RESULT_FORMAT");
+//
+//				processArticuloConCB(contents.trim(), true);processArticuloConCB(contents.trim(), true);
+//								// ... Usar o mostrar el cdigo de barras
+//			} else if (resultCode == RESULT_CANCELED) {
+//				// El escaneo ha fallado. Volver a probar
+//				// ...
+//			}
+//		}
+//	}
 
 } // END OF CLASS
 

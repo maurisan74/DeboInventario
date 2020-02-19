@@ -239,10 +239,10 @@
 
     <ImageView
         android:id="@+id/Ic_Lectora"
-        android:layout_width="25dp"
-        android:layout_height="25dp"
-        android:layout_marginStart="50dp"
+        android:layout_width="19dp"
+        android:layout_height="20dp"
         android:layout_alignStart="@+id/PI_boton_busqueda"
+        android:layout_marginStart="56dp"
         android:src="@drawable/ic_lectora" />
 
 </RelativeLayout>

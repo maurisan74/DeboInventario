@@ -19,23 +19,24 @@
             android:text="DEBO COMPRAS"
             android:textColor="@color/black"
             android:textSize="@dimen/titulo" />
+
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="5dp"
+            android:gravity="center"
             android:text="Resultado de busqueda proveedores"
             android:textColor="@color/black"
             android:textSize="@dimen/titulo" />
 
         <ListView
-            android:layout_width="475dp"
-            android:layout_height="0dp"
             android:id="@+id/ListProveedores"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
             android:layout_gravity="center_horizontal"
-            android:fastScrollAlwaysVisible="false"
             android:layout_weight="0.41"
             android:background="#000000"
-            android:clickable="false" />
+            android:clickable="false"
+            android:fastScrollAlwaysVisible="false" />
 
         <Button
             android:layout_width="wrap_content"

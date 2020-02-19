@@ -37,24 +37,14 @@ dependencies {
     testImplementation 'junit:junit:4.13'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    
+    //ESCANER
+    implementation('com.journeyapps:zxing-android-embedded:4.1.0') { transitive = false }
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'com.journeyapps:zxing-android-embedded:4.1.0'
 
-    // Navigation
-    implementation 'androidx.navigation:navigation-fragment-ktx:2.2.1'
-    implementation 'androidx.navigation:navigation-ui-ktx:2.2.1'
 
-    //gson
-    implementation 'com.google.code.gson:gson:2.8.6'
-
-    //retrofit2
-    implementation 'com.squareup.retrofit2:retrofit:2.7.1'
-    implementation 'com.squareup.retrofit2:converter-gson:2.7.1'
-    implementation 'com.squareup.okhttp3:logging-interceptor:4.4.0'
-
-    //Toast Mejorado
-    implementation 'com.muddzdev:styleabletoast:2.2.2'
-    implementation fileTree(dir: 'D:\\Desarrollo\\Movil\\DeboInventario\\librerias', include: ['*.aar', '*.jar'], exclude: [])
-    implementation fileTree(dir: 'D:\\Desarrollo\\Movil\\DeboInventario\\Librerias', include: ['*.aar', '*.jar'], exclude: [])
-
+    implementation fileTree(dir: 'D:\\Paquete\\Librerias', include: ['*.aar', '*.jar'], exclude: [])
 
 }
 android {

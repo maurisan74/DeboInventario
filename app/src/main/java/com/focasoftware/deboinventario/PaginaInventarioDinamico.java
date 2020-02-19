@@ -39,6 +39,9 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
 
+import com.google.zxing.integration.android.IntentIntegrator;
+import com.google.zxing.integration.android.IntentResult;
+
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -3748,7 +3751,8 @@ void mostrarMensaje(int valorRecibido){
 
 			@Override
 			public void onClick(View v) {
-				scanBarcode(Ic_Lectora_Din);
+				new IntentIntegrator((Activity) ctxt).initiateScan();
+				//scanBarcode(Ic_Lectora_Din);
 
 			}
 		});
@@ -4594,36 +4598,28 @@ void mostrarMensaje(int valorRecibido){
 	public boolean onKeyUp(int keyCode, @NonNull KeyEvent event) {
 		System.out.println("::: PaginaInventarioDinamico onkeyuo");
 		if (event.getKeyCode() == KeyEvent.KEYCODE_DPAD_DOWN) {
-			/**
-			 * Si se presion la tecla ABAJO: mover la tabla una unidad para
-			 * abajo
-			 */
+			/* Si se presion la tecla ABAJO: mover la tabla una unidad para abajo*/
 			bufferLectoraCB = "";
 			moverTablaArticulos(1);
 		} else if (event.getKeyCode() == KeyEvent.KEYCODE_DPAD_UP) {
-			/**
-			 * Si se presion la tecla ARRIBA: mover la tabla una unidad para
-			 * arriba
-			 */
+			/*Si se presion la tecla ARRIBA: mover la tabla una unidad para arriba*/
 			bufferLectoraCB = "";
 			moverTablaArticulos(-1);
 		} else if (indice_on_focus < 0) {
 
-			/**
+			/*
 			 * Si ninguna linea tiene el focus procesamos eso y lo metemos en el
 			 * buffer de lectura de CB si es un caracter
 			 */
 			char car = event.getNumber();
-			if (Character.isDigit(car) == true) {
+			if (Character.isDigit(car)) {
 				log.log("key ingresado en el buffer: " + event.getKeyCode()
 						+ " = " + car, 3);
 				System.out.println("Ingreso String > " + String.valueOf(car));
 				bufferLectoraCB += String.valueOf(car);
+
 			} else if (event.getKeyCode() == KeyEvent.KEYCODE_ENTER) {
-				/**
-				 * Se ley un codigo completo de CB, se lo procesa y vacia el
-				 * buffer
-				 */
+				/* Se ley un codigo completo de CB, se lo procesa y vacia el buffer*/
 				log.log("[-- 3539 --]" + "Codigo de Barras: " + bufferLectoraCB
 						+ ", from lectora: " + 0, 3);
 				try {
@@ -4663,12 +4659,10 @@ void mostrarMensaje(int valorRecibido){
 							a_v.setCodigos_barras(lista_cb);
 
 							if (a_v.getFechaInicio().length() == 0) {
-								a_v.setFechaInicio(new SimpleDateFormat(
-										"yyyy-MM-dd HH:mm:ss").format(new Date()));
+								a_v.setFechaInicio(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
 							}
 
-							a_v.setFechaFin(new SimpleDateFormat(
-									"yyyy-MM-dd HH:mm:ss").format(new Date()));
+							a_v.setFechaFin(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
 							a_v.setInventario(inventario_numero_en_curso);
 							if (modo_mas_1 == 1) {
 								a_v.setCantidad(1);
@@ -4750,7 +4744,7 @@ void mostrarMensaje(int valorRecibido){
 		} else if (indice_on_focus >= 0) { // Si una linea tiene foco
 			// bufferLectoraCB = "";
 			char car = event.getNumber();
-			if (Character.isDigit(car) == true) {
+			if (Character.isDigit(car)) {
 				// Toast.makeText(ctxt, String.valueOf(car),
 				// Toast.LENGTH_SHORT).show();
 				if (bufferLectoraCB.length() <= 0) {
@@ -4816,21 +4810,18 @@ void mostrarMensaje(int valorRecibido){
 	 * codigo de barra
 	 * <p>
 	 * 2 Si el articulo no ha sido escaneado todava, entonces agregamos el
-	 * articulo que no est en la tabla
+	 * articulo que no esta en la tabla
 	 * <p>
-	 * &nbsp; &nbsp;2.1 Vemos si el codigo de barras referencia un articulo
+	 * 2.1 Vemos si el codigo de barras referencia un articulo
 	 * conocido en la tabla de los articulos
 	 * <p>
-	 * &nbsp; &nbsp;&nbsp; &nbsp;2.1.1 Agregamos este articulo en el listado de
-	 * los articulos
+	 * 2.1.1 Agregamos este articulo en el listado de los articulos
 	 * <p>
-	 * &nbsp; &nbsp;&nbsp; &nbsp;2.1.2 Agregar este articulo a la base, tabla
-	 * ARTICULOS
+	 * 2.1.2 Agregar este articulo a la base, tabla ARTICULOS
 	 * <p>
-	 * &nbsp; &nbsp;&nbsp; &nbsp;2.1.3 Refrescar el encabezado
+	 * 2.1.3 Refrescar el encabezado
 	 * <p>
-	 * &nbsp; &nbsp;&nbsp; &nbsp;2.1.4 Enfocamos el articulo (es el ltimo dado
-	 * que no lo hemos encontrado ya en la lista)
+	 * 2.1.4 Enfocamos el articulo (es el ltimo dado que no lo hemos encontrado ya en la lista)
 	 * <p>
 	 * &nbsp; &nbsp;2.2 Si el articulo es nuevo / desconocido
 	 * <p>
@@ -4867,15 +4858,14 @@ void mostrarMensaje(int valorRecibido){
 	 * @param from_lectoraCB
 	 * @throws ExceptionBDD
 	 */
-	private void processArticuloConCB(@NonNull final String cb, boolean from_lectoraCB)
-			throws ExceptionBDD {
+	private void processArticuloConCB(@NonNull final String cb, boolean from_lectoraCB) throws ExceptionBDD {
 		System.out.println("::: PaginaInventarioDinamico ArticuloConCB");
 		boolean condicionBalanza = ParametrosInventario.balanza;
 		Articulo artic = null;
 		if (cb.length() != 13) {
 			condicionBalanza = false;
 		}
-		if(condicionBalanza == true){
+		if(condicionBalanza){
 			int sSubCadena = Integer.parseInt(cb.substring(0,2));
 			if(sSubCadena == 20){
 				String buscarBD = cb.substring(2,7);
@@ -4897,7 +4887,7 @@ void mostrarMensaje(int valorRecibido){
 		// ordenamiento corriente:
 		columna_ordonante = -1;
 		int indice_articulo_encontrado = -1;
-		if(condicionBalanza == true){
+		if(condicionBalanza){
 			for (ArrayList<String> tablaCodigosUnArticulo : listaCodigosDeBarrasOrdenados) {
 				int valorCortado1 = Integer.parseInt(cb.substring(0,2));
 				String valorCortado2 = cb.substring(2,7);
@@ -4970,7 +4960,7 @@ void mostrarMensaje(int valorRecibido){
 				if (seguir) {
 					a = new ArticuloVisible(articulo);
 
-					if(ParametrosInventario.InventariosDeposito == true && a.getDepsn()==1){
+					if(ParametrosInventario.InventariosDeposito && a.getDepsn()==1){
 						if (modo_mas_1 == 1) {
 							if(condicionBalanza==true){
 								if(a.getBalanza()==8 && a.getDecimales()==3){
@@ -4997,10 +4987,7 @@ void mostrarMensaje(int valorRecibido){
 					} else {
 						a.setCantidad(-1);
 					}
-					if (a.getFechaInicio().length() == 0) {
-						a.setFechaInicio(new SimpleDateFormat(
-								"yyyy-MM-dd HH:mm:ss").format(new Date()));
-					}
+					if (a.getFechaInicio().length() == 0) { a.setFechaInicio(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date())); }
 					a.setFechaFin(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss")
 							.format(new Date()));
 					a.setInventario(inventario_numero_en_curso);
@@ -5082,11 +5069,8 @@ void mostrarMensaje(int valorRecibido){
 
 					}
 				
-					if (a.getFechaInicio().length() == 0) {
-					
-						a.setFechaInicio(new SimpleDateFormat(
-								"yyyy-MM-dd HH:mm:ss").format(new Date()));
-					}
+					if (a.getFechaInicio().length() == 0) a.setFechaInicio(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
+
 				
 					a.setFechaFin(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss")
 							.format(new Date()));
@@ -5481,5 +5465,19 @@ void mostrarMensaje(int valorRecibido){
 		intent.putExtra("SCAN_MODE", "SCAN_MODE");
 		startActivityForResult(intent, SCAN_BARCODE);
 	}
+
+//	@Override
+//	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+//		IntentResult result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
+//		if (result != null) {
+//			if (result.getContents() == null) {
+//				Toast.makeText(this, "Cancelled", Toast.LENGTH_LONG).show();
+//			} else {
+//				Toast.makeText(this, "Scanned: " + result.getContents(), Toast.LENGTH_LONG).show();
+//			}
+//		} else {
+//			super.onActivityResult(requestCode, resultCode, data);
+//		}
+//	}
 } // END OF CLASS
 

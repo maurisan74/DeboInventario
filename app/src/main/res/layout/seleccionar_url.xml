@@ -6,12 +6,13 @@
 
     <TextView
         android:id="@+id/textView1"
+        android:textSize="@dimen/talla_texto_grande"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Agregue un nombre de local y su url de webservice" />
 
     <TableLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="start"
         android:layout_margin="20dp" >
@@ -36,11 +37,12 @@
 
             <EditText
                 android:id="@+id/nombre_local"
-                android:layout_width="400dp"
+                android:layout_width="match_parent"
                 android:layout_margin="5dp"
+                android:layout_weight="1"
                 android:inputType="text"
                 android:singleLine="true"
-                android:textSize="@dimen/talla_texto_grande" >
+                android:textSize="@dimen/talla_texto_grande">
 
                 <requestFocus />
             </EditText>
@@ -74,13 +76,13 @@
 
             <EditText
                 android:id="@+id/urlWebservice"
-                android:layout_width="400dp"
+                android:layout_width="946dp"
+                android:layout_height="wrap_content"
                 android:layout_margin="5dp"
                 android:inputType="textUri"
                 android:singleLine="true"
                 android:text="http://192.168.../webservice/deboinventario/webservice.php"
-                android:textSize="@dimen/talla_texto_grande" >
-            </EditText>
+                android:textSize="@dimen/talla_texto_grande"></EditText>
 
             <Button
                 android:id="@+id/guardar_local"

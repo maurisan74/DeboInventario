@@ -72,12 +72,13 @@
 		            android:layout_width="wrap_content"
 		            android:layout_marginEnd="20dp"
 		            >
-		            <ImageView android:id="@+id/Z_DIALOG_boton_menos" 
-			            android:layout_height="wrap_content"
-			            android:layout_width="120dp"
-			            android:src="@drawable/boton_menos"
-			            android:scaleType="centerInside"
-			            />
+
+					<ImageView
+						android:id="@+id/Z_DIALOG_boton_menos"
+						android:layout_width="120dp"
+						android:layout_height="wrap_content"
+						android:scaleType="centerInside"
+						android:src="@drawable/boton_menos" />
 		            
 		            <TextView 
 		                android:layout_height="wrap_content"

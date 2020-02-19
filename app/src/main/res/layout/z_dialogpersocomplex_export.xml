@@ -8,31 +8,33 @@
 	android:padding="5dp" >
 
 	<LinearLayout
-		android:layout_width="wrap_content"
+		android:layout_width="642dp"
 		android:layout_height="wrap_content"
 		android:gravity="center_vertical"
 		android:orientation="horizontal"
-		android:padding="10dp" >
+		android:padding="10dp">
 
 		<ImageView
 			android:id="@+id/DIALOG_imagen"
 			android:layout_width="100dp"
 			android:layout_height="100dp"
 			android:layout_marginEnd="10dp"
+			android:contentDescription="@string/contentDescription"
 			android:padding="10dp"
-			android:scaleType="fitCenter"
-			android:contentDescription="@string/contentDescription" />
+			android:scaleType="fitCenter" />
 
 		<LinearLayout
-			android:layout_width="300dp"
+			android:layout_width="443dp"
 			android:layout_height="wrap_content"
-			android:gravity="center_horizontal"
-			android:orientation="vertical" >
+			android:layout_marginStart="40dp"
+			android:gravity="start"
+			android:orientation="vertical">
 
 			<TextView
 				android:id="@+id/DIALOG_texto"
-				android:layout_width="match_parent"
-				android:layout_height="fill_parent"
+				android:layout_width="443dp"
+				android:layout_height="wrap_content"
+				android:gravity="start"
 				android:textColor="@color/white"
 				android:textSize="@dimen/talla_texto_medio" />
 		</LinearLayout>
@@ -42,7 +44,7 @@
 		android:id="@+id/DIaLOG_chkbox"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
-		android:layout_gravity="center_horizontal"
+		android:layout_gravity="start"
 		android:checked="false"
 		android:text="Luego borrar los datos"
 		android:textSize="20sp" />
@@ -51,7 +53,7 @@
 		android:id="@+id/DIALOG_main"
 		android:layout_width="wrap_content"
 		android:layout_height="match_parent"
-		android:layout_gravity="center_horizontal"
+		android:layout_gravity="start"
 		android:orientation="horizontal"
 		android:padding="5dp" >
 

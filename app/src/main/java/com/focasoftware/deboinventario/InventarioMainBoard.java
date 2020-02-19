@@ -326,7 +326,7 @@ public class InventarioMainBoard extends Activity implements DialogPersoSimple,
 		// Apagamos el Wifi:
 		desactivarWifi();
 
-		// 2� REFRESH DE LA PAGINA PRINCIPAL:
+		// 2 REFRESH DE LA PAGINA PRINCIPAL:
 		try {
 			refreshTablaPrincipal();
 		} catch (ExceptionBDD e1) {
@@ -377,7 +377,6 @@ public class InventarioMainBoard extends Activity implements DialogPersoSimple,
 					Toast.makeText(ctxt, "Error, la exportacion se cancelo",
 							Toast.LENGTH_LONG).show();
 					return false;
-
 				}
 
 				if (numero_inventarios_cerrados <= 0) {
@@ -433,7 +432,7 @@ public class InventarioMainBoard extends Activity implements DialogPersoSimple,
 							do {
 								export_usb(dialogoPrincipioExport.isBorrar_luego());
 								contador--;
-							} while (control_buena_exportacion() == false
+							} while (!control_buena_exportacion()
 									&& contador >= 0);
 						} catch (ExceptionBDD e) {
 							showSimpleDialogOK(
@@ -454,7 +453,7 @@ public class InventarioMainBoard extends Activity implements DialogPersoSimple,
 						}
 
 						// Si hubo vencimiento del contador:
-						if ((control_buena_exportacion() == false)
+						if ((!control_buena_exportacion())
 								|| contador < 0) {
 							// Entra aca, por que?
 							showSimpleDialogOK(
@@ -621,12 +620,12 @@ if(radioProductosContabilizados==2){
 	/**
 	 * Podemos regresar desde: Exportacion, importacion, inventario normal o
 	 * dinmico
-	 * <p>
+	 *
 	 * 1 Volvemos de Pagina inventario o Dinmico :refrescamos la tabla y
 	 * controlamos si hay alguno para cerrar
-	 * <p>
+	 *
 	 * 2 Si volvemos de WIFI import todo bien, vamos a seleccionar Inventario
-	 * <p>
+	 *
 	 * 3 Si hubo un error con WIFI import da la opcin de cargar por USB
 	 * <p>
 	 * 4 Si volvemos de WIFI Export todo OK vamos a hacer exportacion por WIFI
@@ -635,8 +634,7 @@ if(radioProductosContabilizados==2){
 	 * USB
 	 */
 
-	public void onActivityResult(int requestCode, int resultCode,
-                                 @Nullable Intent intentRespondido) {
+	public void onActivityResult(int requestCode, int resultCode, @Nullable Intent intentRespondido) {
 		try {
 			super.onActivityResult(requestCode, resultCode, intentRespondido);
 			Bundle bundle = null;
@@ -745,8 +743,7 @@ if(radioProductosContabilizados==2){
 	 * Creamos el thread que va a ejecutar el trabajo pesado (en una nueva clase
 	 * ) No se usa aparentemente en esta activity
 	 */
-	protected class CargarDatosArticulos extends
-			AsyncTask<Context, Integer, String> {
+	protected class CargarDatosArticulos extends AsyncTask<Context, Integer, String> {
 
 		/**
 		 * Tarea a realizar en background
