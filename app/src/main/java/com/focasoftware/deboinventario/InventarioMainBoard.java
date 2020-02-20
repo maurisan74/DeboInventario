@@ -265,24 +265,15 @@ public class InventarioMainBoard extends Activity implements DialogPersoSimple,
 				String mensaje = "Se exporto la base de datos";
 				showSimpleDialogOK(titulo, mensaje).show();
 				try {
-					File sourceFile = new File(
-							ParametrosInventario.URL_CARPETA_DATABASES
-									+ "DB_INVENT");
-					File destFile = new File(
-							ParametrosInventario.CARPETA_LOGDATOS
-									+ "DB_INVENT.sqlite");
+					File sourceFile = new File(ParametrosInventario.URL_CARPETA_DATABASES + "DB_INVENT");
+					File destFile = new File(ParametrosInventario.CARPETA_LOGDATOS + "DB_INVENT.sqlite");
 					copyFile(sourceFile, destFile);
 					Log.e("mensaje, sourceFile", sourceFile.toString());
 					Log.e("mensaje, destFile", destFile.toString());
 				} catch (Exception e) {
 					log.log(e.toString(), 4);
-					showSimpleDialogOK(
-							"EXPORTACION DE BASE DE DATOS",
-							"Se interrumpio, intentelo nuevamente.\n"
-									+ "Si el error persiste, reporte el archivo log a Servicio Tecnico")
-							.show();
+					showSimpleDialogOK("EXPORTACION DE BASE DE DATOS", "Se interrumpio, intentelo nuevamente.\nSi el error persiste, reporte el archivo log a Servicio Tecnico").show();
 				}
-
 				log.log("Exportacion Realizada con exito", 3);
 				return false;
 			}
@@ -355,8 +346,7 @@ public class InventarioMainBoard extends Activity implements DialogPersoSimple,
 				//	numero_inventarios_cerrados = bdd
 				//			.selectInventariosCerradosEnBdd().size();
 
-					inventarios_a_exportar = bdd
-								.selectInventariosCerradosEnBdd();
+					inventarios_a_exportar = bdd.selectInventariosCerradosEnBdd();
 
 					//	inventarios_elegidos = inventarios_a_exportar.get(0);
 					numero_inventarios_cerrados = inventarios_a_exportar.size();
@@ -389,7 +379,8 @@ public class InventarioMainBoard extends Activity implements DialogPersoSimple,
 						log.log("[-- 311 --]" + "Se presiono el boton Wifi ", 0);
 						borrarDespues = dialogoPrincipioExport.isBorrar_luego();
 						dialogoPrincipioExport.dismiss();
-						Intent intentWifi = new Intent(InventarioMainBoard.this, WiFiControlador.class);startActivityForResult(intentWifi, Parametros.REQUEST_WIFI_EXPORT);
+						Intent intentWifi = new Intent(InventarioMainBoard.this, WiFiControlador.class);
+						startActivityForResult(intentWifi, Parametros.REQUEST_WIFI_EXPORT);
 					}
 				};
 
@@ -671,33 +662,24 @@ if(radioProductosContabilizados==2){
 				startActivity(intentInventario);
 				finish();
 
-			} else if (requestCode == Parametros.REQUEST_WIFI_IMPORT
-					&& resultCode != RESULT_OK) {
+			} else if (requestCode == Parametros.REQUEST_WIFI_IMPORT) {
 				// cerrarMenuEspera();
 				// 3 Si hubo un error con WIFI import da la opcin de cargar
 				// por USB
 				desactivarWifi();
-				showSimpleDialogSiNo(
-						"Error de conexion a la red",
-						"La red hasta el servidor no ha podido ser establecida (1).\n\nUsted desea importar sus datos por medio de un Dispositivo (conectelo en aquel caso)?",
-						UsbProvider.class).show();
-			} else if (requestCode == Parametros.REQUEST_WIFI_EXPORT
-					&& resultCode == RESULT_OK) {
+				showSimpleDialogSiNo("Error de conexion a la red", "La red hasta el servidor no ha podido ser establecida (1).\n\nUsted desea importar sus datos por medio de un Dispositivo (conectelo en aquel caso)?", UsbProvider.class).show();
+			} else if (requestCode == Parametros.REQUEST_WIFI_EXPORT && resultCode == RESULT_OK) {
 				// 4 Si volvemos de WIFI Export todo OK vamos a hacer
 				// exportacion por WIFI
 				ExportarDatos unaExportacion = new ExportarDatos();
 				unaExportacion.execute(ctxt);
 
-			} else if (requestCode == Parametros.REQUEST_WIFI_EXPORT
-					&& resultCode != RESULT_OK) {
+			} else if (requestCode == Parametros.REQUEST_WIFI_EXPORT) {
 				// 5 Si volvemos de WIFI export con error damos la opcion de
 				// hacerlo por USB
 				cerrarMenuEspera();
 				desactivarWifi();
-				showSimpleDialogSiNo(
-						"Error de conexion a la red",
-						"La red hasta el servidor no ha podido ser establecida (2).\n\nUsted desea exportar sus datos por medio de un Dispositivo (conectelo en aquel caso)?",
-						null).show();
+				showSimpleDialogSiNo("Error de conexion a la red", "La red hasta el servidor no ha podido ser establecida (2).\n\nUsted desea exportar sus datos por medio de un Dispositivo (conectelo en aquel caso)?", null).show();
 			}
 
 		} catch (Exception e) {
@@ -1341,7 +1323,7 @@ if(radioProductosContabilizados==2){
 		boolean condicionRadio = ParametrosInventario.InventariosVentas;
 		
 		int id_inv_ficticio = 0;
-		if(condicionRadio == true){
+		if(condicionRadio){
 //			// Esta seleccionado ventas, esto debe continuar sin los campos de deposito
 			id_inv_ficticio = -1;
 		}else{
@@ -2518,7 +2500,7 @@ if(condR == -1){
 				int i = 1;
 
 				// 5 Comprobamos que todo paso bien
-				if (result == false) {
+				if (!result) {
 					return new RespuestasExportar(
 							RespuestasExportar.CODIGO_ERROR,
 							"Error Export - Export a la BDD - Verifique la conexion a la red");
@@ -2727,8 +2709,7 @@ if(condR == -1){
 						dialog.dismiss();
 					}
 				});
-		AlertDialog alert = dialogoSimple.create();
-		return alert;
+		return dialogoSimple.create();
 	}
 
 	/**
@@ -2758,7 +2739,7 @@ if(condR == -1){
 								do {
 									export_usb(false);
 									contador--;
-								} while (control_buena_exportacion() == false
+								} while (!control_buena_exportacion()
 										&& contador >= 0);
 							} catch (ExceptionBDD e) {
 
@@ -2818,13 +2799,17 @@ if(condR == -1){
 	 */
 
 	public void activarWifi() {
-		WifiManager wifiManager = (WifiManager) getSystemService(Context.WIFI_SERVICE);
+		WifiManager wifiManager = (WifiManager)getApplicationContext().getSystemService(Context.WIFI_SERVICE);
+//		WifiManager wifiManager = (WifiManager)getSystemService(Context.WIFI_SERVICE);
 		ConnectivityManager wifiConexion = (ConnectivityManager) getSystemService(CONNECTIVITY_SERVICE);
-		NetworkInfo wifiInfo = wifiConexion
-				.getNetworkInfo(ConnectivityManager.TYPE_WIFI);
+		//NetworkInfo wifiInfo = wifiConexion.getNetworkInfo(ConnectivityManager.TYPE_WIFI);
+		assert wifiConexion != null;
+		wifiConexion.getNetworkInfo(ConnectivityManager.TYPE_WIFI);
+		NetworkInfo wifiInfo;
+		//wifiInfo = wifiConexion.getNetworkInfo(ConnectivityManager.TYPE_WIFI);
 		wifiInfo = wifiConexion.getNetworkInfo(ConnectivityManager.TYPE_WIFI);
 
-		if (wifiInfo.isConnected() == false) {
+		if (!wifiInfo.isConnected()) {
 
 			Settings.System.putInt(ctxt.getContentResolver(),
 					Settings.System.AIRPLANE_MODE_ON, 0);

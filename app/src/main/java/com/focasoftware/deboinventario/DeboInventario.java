@@ -341,8 +341,7 @@ public class DeboInventario extends Activity implements DialogPersoSimple, Wifi 
 			public void onClick(View v) {
 				popupStart();
 
-				log.log("[-- 298 --]"
-						+ "Ingresa a la actuzalizacion por maestros", 2);
+				log.log("[-- 298 --]" + "Ingresa a la actuzalizacion por maestros", 2);
 
 				ArrayList<String> lista_opciones = new ArrayList<String>();
 				lista_opciones.add(ParametrosInventario.tabla_referencias);
