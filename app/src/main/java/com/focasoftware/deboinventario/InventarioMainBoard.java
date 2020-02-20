@@ -2333,61 +2333,40 @@ if(condR == -1){
 				String fechaInicioInventario  = "";
 				System.out.println("::: InventariosMainBoard 2367 RespuestasExportar " + inventarios_elegidos);
 				int numero_inventario_elegido = inventarios_elegidos;
-
 				if(inventarios_elegidos==-1 || inventarios_elegidos == -2){
-
-
-
-				try {
-					Inventario inven = bd.selectInventarioConNumero(-1);
-
-				} catch (ExceptionBDD e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-					System.out.println("::: PASO por InventarioM 3 catch");
-				}
-				System.out.println("::: PASO por InventarioM 4");
-				Referencias = bd.getArticulosAll();
-				for (Referencia ref : Referencias) {
 					try {
-						System.out.println("::: PASO por InventarioM 5");
-						Articulo articulo = bd.selectArticuloConCodigos(
-								ref.getSector(), ref.getArticulo(), -1);
-
-						if (articulo == null) {
-							Date fechaHoy = new Date();
-							ArrayList<String> codbar = new ArrayList<String>();
-							ArrayList<String> codbarcompleto = new ArrayList<String>();
-							
-							String fechaYA = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date());
-
-						System.out.println("::: InventarioMain sector 1");
-
-							Articulo art = new Articulo(ref.getSector(),
-									ref.getArticulo(), ref.getBalanza(), ref.getDecimales(), codbar,
-									codbarcompleto , -1,
-									ref.getDescripcion(),
-									ref.getPrecio_venta(),
-									ref.getPrecio_costo(), "", 0,
-									ref.getExis_venta(),
-									ref.getExis_deposito(),
-									ref.getDepsn(),
-									fechaInicioInventario,fechaYA);
-							bd.insertArticuloEnBdd_conFechaFin(art);
-						} else {
-							System.out.println("::: InventarioMainBoard ");
-							Log.e("Referencia con articulo", "No agregar "+ articulo.getDescripcion().toString());
-						}
-
-					} catch (ExceptionBDD e) {
-						Toast.makeText(ctxt,
-								"Error al recorrer las referencias",
-								Toast.LENGTH_LONG).show();
-						result = false;
-
+						Inventario inven = bd.selectInventarioConNumero(-1);
+					} catch (ExceptionBDD e1) {
+					// TODO Auto-generated catch block
+						e1.printStackTrace();
+						System.out.println("::: PASO por InventarioM 3 catch");
 					}
+					System.out.println("::: PASO por InventarioM 4");
+					Referencias = bd.getArticulosAll();
+					for (Referencia ref : Referencias) {
+						try {
+							System.out.println("::: PASO por InventarioM 5");
+							Articulo articulo = bd.selectArticuloConCodigos(
+									ref.getSector(), ref.getArticulo(), -1);
+							if (articulo == null) {
+								Date fechaHoy = new Date();
+								ArrayList<String> codbar = new ArrayList<String>();
+								ArrayList<String> codbarcompleto = new ArrayList<String>();
+								String fechaYA = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date());
+								System.out.println("::: InventarioMain sector 1");
+								Articulo art = new Articulo(ref.getSector(),
+								ref.getArticulo(), ref.getBalanza(), ref.getDecimales(), codbar, codbarcompleto , -1, ref.getDescripcion(), ref.getPrecio_venta(), ref.getPrecio_costo(), "", 0, ref.getExis_venta(), ref.getExis_deposito(), ref.getDepsn(), fechaInicioInventario,fechaYA);
+								bd.insertArticuloEnBdd_conFechaFin(art);
+							} else {
+								System.out.println("::: InventarioMainBoard ");
+								Log.e("Referencia con articulo", "No agregar "+ articulo.getDescripcion().toString());
+							}
 
-				}
+						} catch (ExceptionBDD e) {
+							Toast.makeText(ctxt, "Error al recorrer las referencias", Toast.LENGTH_LONG).show();
+							result = false;
+						}
+					}
 				}else if(inventarios_elegidos >0){
 
 				}
@@ -2402,9 +2381,7 @@ if(condR == -1){
 			System.out.println("::: InventarioM PASO por  6");
 			try {
 				System.out.println("::: InventarioM 7 PASO ");
-				
-				RegistroLog.log(ParametrosInventario.URL_ARCHIVO_LOG,
-						new Date(), "MAIN BOARD", "0", "Export: 0 %");
+				RegistroLog.log(ParametrosInventario.URL_ARCHIVO_LOG, new Date(), "MAIN BOARD", "0", "Export: 0 %");
 			} catch (Exception e) {
 		//		System.out.println("::: PASO por InventarioM 8");
 				log.log("[-- 1943 --]" + e.toString(), 4);
@@ -2412,62 +2389,43 @@ if(condR == -1){
 			}
 
 			try {
-
 				bdd = new BaseDatos(ctxt);
-
-				// 1 Fabricamos la lista de todos los inventarios que estn
-				// cerrados:
+				// 1 Fabricamos la lista de todos los inventarios que estan cerrados:
 				ArrayList<Integer> listaInventariosCerrados = null;
 				try {
-					listaInventariosCerrados = bdd
-							.selectInventariosCerradosEnBdd();
+					listaInventariosCerrados = bdd.selectInventariosCerradosEnBdd();
 				} catch (ExceptionBDD e4) {
 					log.log("[-- 1959 --]" + e4.toString(), 4);
 					e4.printStackTrace();
 				}
 				if (listaInventariosCerrados.size() <= 0) {
-					Toast.makeText(ctxt,
-							"Debe haber por lo menos un inventario cerrado",
-							Toast.LENGTH_LONG).show();
+					Toast.makeText(ctxt, "Debe haber por lo menos un inventario cerrado", Toast.LENGTH_LONG).show();
 					result = false;
 				}
-
 				try {
 					// 2 se realiza la exportacin de los datos en las BD
-
-					result = bdd
-							.exportarTodasBaseDatosSQLite(listaInventariosCerrados);
+					result = bdd.exportarTodasBaseDatosSQLite(listaInventariosCerrados);
 				} catch (ExceptionHttpExchange e2) {
-
 					log.log("[-- 1961 --]" + e2.toString(), 4);
 					e2.printStackTrace();
-					return new RespuestasExportar(
-							RespuestasExportar.CODIGO_ERROR,
-							"Error Export - Export a la BDD - Articulos - "
-									+ e2.toString());
+					return new RespuestasExportar(RespuestasExportar.CODIGO_ERROR, "Error Export - Export a la BDD - Articulos - " + e2.toString());
 				} catch (ExceptionBDD e) {
-
 					log.log("[-- 1969 --]" + e.toString(), 0);
 					e.printStackTrace();
-					return new RespuestasExportar(
-							RespuestasExportar.CODIGO_ERROR,
-							"Error Export - Export a la BDD - Articulos - "
-									+ e.toString());
+					return new RespuestasExportar(RespuestasExportar.CODIGO_ERROR, "Error Export - Export a la BDD - Articulos - " + e.toString());
 				}
 
 				// 3 Exportamos los estados de los inventarios:
 				try {
-					if (result == true) {
-						HttpSender httpSender = new HttpSender(
-								Parametros.CODIGO_SOFT_DEBOINVENTARIO);
+					if (result) {
+						HttpSender httpSender = new HttpSender(Parametros.CODIGO_SOFT_DEBOINVENTARIO);
 						for (int inventario : listaInventariosCerrados) {
 							if (bdd.selectArticulosConNumeroInventario(
 									inventario).size() <= 0) {
 								result &= httpSender.send_liberacion(
 										inventario, 0);
 							} else {
-								result &= httpSender.send_liberacion(
-										inventario, 1);
+								result &= httpSender.send_liberacion(inventario, 1);
 							}
 
 							// 4 A ver si borrar estuvo activado o no,o si es
@@ -2482,9 +2440,7 @@ if(condR == -1){
 					log.log("[-- 2001 --]" + e2.toString(), 4);
 					e2.printStackTrace();
 					return new RespuestasExportar(
-							RespuestasExportar.CODIGO_ERROR,
-							"Error Export - Export a la BDD - Inventarios - "
-									+ e2.toString());
+							RespuestasExportar.CODIGO_ERROR, "Error Export - Export a la BDD - Inventarios - " + e2.toString());
 				} catch (ExceptionBDD e) {
 					log.log("[-- 2022 --]" + e.toString(), 4);
 
@@ -2492,23 +2448,17 @@ if(condR == -1){
 					log.log("[-- 2024 --]" + e3.toString(), 4);
 					e3.printStackTrace();
 					return new RespuestasExportar(
-							RespuestasExportar.CODIGO_ERROR,
-							"Error Export - Export a la BDD - Inventarios - "
-									+ e3.toString());
+							RespuestasExportar.CODIGO_ERROR, "Error Export - Export a la BDD - Inventarios - " + e3.toString());
 				}
-
 				int i = 1;
 
 				// 5 Comprobamos que todo paso bien
 				if (!result) {
-					return new RespuestasExportar(
-							RespuestasExportar.CODIGO_ERROR,
-							"Error Export - Export a la BDD - Verifique la conexion a la red");
+					return new RespuestasExportar(RespuestasExportar.CODIGO_ERROR, "Error Export - Export a la BDD - Verifique la conexion a la red");
 				}
 
 				try {
-					RegistroLog.log(ParametrosInventario.URL_ARCHIVO_LOG,
-							new Date(), "MAIN BOARD", "0", "Export: 20 %");
+					RegistroLog.log(ParametrosInventario.URL_ARCHIVO_LOG, new Date(), "MAIN BOARD", "0", "Export: 20 %");
 				} catch (Exception e) {
 					log.log("[-- 2054 --]" + e.toString(), 4);
 					e.printStackTrace();
@@ -2523,36 +2473,27 @@ if(condR == -1){
 					i = 4;
 					HttpSender senderFotos;
 					try {
-						senderFotos = new HttpSender(
-								Parametros.CODIGO_SOFT_DEBOINVENTARIO);
+						senderFotos = new HttpSender(Parametros.CODIGO_SOFT_DEBOINVENTARIO);
 					} catch (ExceptionHttpExchange e) {
 
 						log.log("[-- 2046 --]" + e.toString(), 4);
 						e.printStackTrace();
-						return new RespuestasExportar(
-								RespuestasExportar.CODIGO_WARNING,
-								"Error Export - Export imagenes - "
-										+ e.toString());
+						return new RespuestasExportar(RespuestasExportar.CODIGO_WARNING, "Error Export - Export imagenes - " + e.toString());
 					}
 
 					for (File unaFoto : carpetaFotos.listFiles()) {
-						result &= senderFotos
-								.send_foto(ParametrosInventario.URL_CARPETA_FOTOS
-										+ unaFoto.getName());
+						result &= senderFotos.send_foto(ParametrosInventario.URL_CARPETA_FOTOS + unaFoto.getName());
 					}
 				}
 				i = 5;
 				// 6.1 Comprobar que todo esta bien
 				if (result == false) {
-					return new RespuestasExportar(
-							RespuestasExportar.CODIGO_WARNING,
-							"Error Export - Export imagenes");
+					return new RespuestasExportar(RespuestasExportar.CODIGO_WARNING, "Error Export - Export imagenes");
 				}
 				i = 6;
 
 				try {
-					RegistroLog.log(ParametrosInventario.URL_ARCHIVO_LOG,
-							new Date(), "MAIN BOARD", "0", "Export: 40 %");
+					RegistroLog.log(ParametrosInventario.URL_ARCHIVO_LOG, new Date(), "MAIN BOARD", "0", "Export: 40 %");
 				} catch (Exception e) {
 					e.printStackTrace();
 
@@ -2562,28 +2503,21 @@ if(condR == -1){
 				// 7 Exportamos los logs:
 				File archivoLOG = new File(ParametrosInventario.URL_ARCHIVO_LOG);
 				i = 7;
-				if (archivoLOG.exists() == true) {
+				if (archivoLOG.exists()) {
 					HttpSender senderLOG;
 					try {
-						senderLOG = new HttpSender(
-								Parametros.CODIGO_SOFT_DEBOINVENTARIO);
-						result = senderLOG
-								.send_txt(ParametrosInventario.URL_ARCHIVO_LOG);
+						senderLOG = new HttpSender(Parametros.CODIGO_SOFT_DEBOINVENTARIO);
+						result = senderLOG.send_txt(ParametrosInventario.URL_ARCHIVO_LOG);
 					} catch (ExceptionHttpExchange e) {
 
 						e.printStackTrace();
-						return new RespuestasExportar(
-								RespuestasExportar.CODIGO_WARNING,
-								"Error Export - Export logs - " + e.toString());
+						return new RespuestasExportar(RespuestasExportar.CODIGO_WARNING, "Error Export - Export logs - " + e.toString());
 					}
-
 					i = 8;
 
 					// 7.1 Comprobar que todo esta bien:
 					if (result == false) {
-						return new RespuestasExportar(
-								RespuestasExportar.CODIGO_WARNING,
-								"Error Export - Export logs");
+						return new RespuestasExportar(RespuestasExportar.CODIGO_WARNING, "Error Export - Export logs");
 					}
 					i = 9;
 					// archivoLOG.delete();
@@ -2591,8 +2525,7 @@ if(condR == -1){
 				}
 
 				try {
-					RegistroLog.log(ParametrosInventario.URL_ARCHIVO_LOG,
-							new Date(), "MAIN BOARD", "0", "Export: 60 %");
+					RegistroLog.log(ParametrosInventario.URL_ARCHIVO_LOG, new Date(), "MAIN BOARD", "0", "Export: 60 %");
 				} catch (Exception e) {
 
 					log.log("[-- 2114 --]" + e.toString(), 4);
@@ -2600,17 +2533,14 @@ if(condR == -1){
 				}
 
 				try {
-					RegistroLog.log(ParametrosInventario.URL_ARCHIVO_LOG,
-							new Date(), "MAIN BOARD", "0", "Export: 90 %");
+					RegistroLog.log(ParametrosInventario.URL_ARCHIVO_LOG, new Date(), "MAIN BOARD", "0", "Export: 90 %");
 				} catch (Exception e) {
 					log.log("[-- 2136 --]" + e.toString(), 4);
 					e.printStackTrace();
 				}
 
 			} catch (Exception e) {
-				return new RespuestasExportar(RespuestasExportar.CODIGO_ERROR,
-						"Error Export - " + " - Error fatal - "
-								+ e.toString());
+				return new RespuestasExportar(RespuestasExportar.CODIGO_ERROR, "Error Export - " + " - Error fatal - " + e.toString());
 			}
 
 			return new RespuestasExportar(RespuestasExportar.CODIGO_OK,
@@ -2634,9 +2564,7 @@ if(condR == -1){
 						"La exportacion se realizo con exito.").show();
 
 				try {
-					RegistroLog.log(ParametrosInventario.URL_ARCHIVO_LOG,
-							new Date(), "MAIN BOARD", "0",
-							"Export: 100 % --- EXITOSO");
+					RegistroLog.log(ParametrosInventario.URL_ARCHIVO_LOG, new Date(), "MAIN BOARD", "0", "Export: 100 % --- EXITOSO");
 				} catch (Exception e) {
 					log.log("[-- 2170 --]" + e.toString(), 4);
 					e.printStackTrace();
@@ -2658,17 +2586,12 @@ if(condR == -1){
 				// finish();
 			} else {
 				if (result.getCodigoError() == RespuestasExportar.CODIGO_ERROR) {
-					showSimpleDialogOK("Exportacion Cancelada",
-							"Explicacion: \n\n" + result.getMensaje()).show();
+					showSimpleDialogOK("Exportacion Cancelada", "Explicacion: \n\n" + result.getMensaje()).show();
 				} else if (result.getCodigoError() == RespuestasExportar.CODIGO_WARNING) {
-					showSimpleDialogOK(
-							"Exportacion Finalizada con Advertencias",
-							"Explicacion: \n\n" + result.getMensaje()).show();
+					showSimpleDialogOK("Exportacion Finalizada con Advertencias", "Explicacion: \n\n" + result.getMensaje()).show();
 				}
 				try {
-					RegistroLog.log(ParametrosInventario.URL_ARCHIVO_LOG,
-							new Date(), "MAIN BOARD", "0", "Export: 100 % --- "
-									+ result);
+					RegistroLog.log(ParametrosInventario.URL_ARCHIVO_LOG, new Date(), "MAIN BOARD", "0", "Export: 100 % --- " + result);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
