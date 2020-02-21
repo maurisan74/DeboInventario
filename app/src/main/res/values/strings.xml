@@ -47,4 +47,5 @@
     <string name="carpeta_logtablet">Carpeta de Log Tablet</string>
     <string name="carpeta_logDatos">Carpeta de Log Datos</string>
     <string name="Manual_de_Usuario">Manual de Usuario</string>
+    <string name="conf">Configuraciones</string>
 </resources>

@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <!--    android:fillViewport="true"-->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="994dp"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/PID_boton_busqueda"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="40dp"
+            android:src="@drawable/zoom"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/PID_boton_lectora"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="40dp"
+            android:src="@drawable/lectora_mas_1"
+            app:layout_constraintLeft_toRightOf="@id/PID_boton_busqueda"
+            app:layout_constraintStart_toEndOf="@+id/PID_boton_busqueda"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/Ic_Lectora_Din"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="32dp"
+            android:src="@drawable/ic_lectora"
+            app:layout_constraintLeft_toRightOf="@id/PID_boton_lectora"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/TextcodigoBarras"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:background="@drawable/edittext_bg"
+            android:ems="10"
+            android:inputType="numberSigned"
+            android:text="1234567890123"
+            app:layout_constraintLeft_toRightOf="@id/Ic_Lectora_Din"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/PID_tit_pagina"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="Inventarios Dinámicos"
+            android:textColor="@color/anaranjado_verde"
+            android:textSize="@dimen/titulo"
+            app:layout_constraintLeft_toRightOf="@id/TextcodigoBarras"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/PID_textViewFechaInicio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:gravity="center_vertical"
+            android:text="Fecha Inicio: dd/MM/yyyy"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            app:layout_constraintLeft_toRightOf="@id/PID_tit_pagina"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/PID_textViewCantArticulos"
+            android:layout_width="143dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="248dp"
+            android:text="Cantidad Articulos: XX"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/PID_textViewFechaInicio" />
+
+        <TextView
+            android:id="@+id/PID_textViewMensajeInforme"
+            android:layout_width="385dp"
+            android:layout_height="30dp"
+            android:layout_margin="5dp"
+            android:text="Esperando Codigo de Barra. NO Activo escaneo por articulo"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/PID_textViewCantArticulos" />
+
+        <LinearLayout
+
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:orientation="vertical"
+            app:layout_constraintTop_toBottomOf="@+id/PID_boton_busqueda">
+
+            <RadioGroup
+                android:id="@+id/PID_radioGroupLugarInv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center">
+
+                <RadioButton
+                    android:id="@+id/PID_radioVenta"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:focusable="false"
+                    android:text="Ventas"
+                    android:visibility="invisible" />
+
+                <TextView
+                    android:id="@+id/seleccion_vta"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Venta"
+                    android:textAppearance="?android:attr/textAppearanceMedium" />
+
+                <TextView
+                    android:id="@+id/seleccion_dep"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Deposito"
+                    android:textAppearance="?android:attr/textAppearanceMedium" />
+
+                <RadioButton
+                    android:id="@+id/PID_radioDepo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:focusable="false"
+                    android:text="Deposito"
+                    android:visibility="invisible" />
+            </RadioGroup>
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.core.widget.NestedScrollView>

@@ -21,7 +21,7 @@
         android:gravity="center"
         android:text="Nombre:"
         android:textColor="@color/white"
-        android:textSize="@dimen/talla_texto_medioChico" />
+        android:textSize="@dimen/talla_texto_GrandeGrande" />
 
     <TextView
         android:id="@+id/LPB2_inicio"
@@ -30,20 +30,19 @@
         android:gravity="center"
         android:text="Inicio:"
         android:textColor="@color/white"
-        android:textSize="@dimen/talla_texto_medioChico" />
+        android:textSize="@dimen/talla_texto_GrandeGrande" />
 
     <RelativeLayout
-        android:layout_width="250dp"
-        android:layout_height="fill_parent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:gravity="center_vertical" >
 
         <ProgressBar
             android:id="@+id/LPB2_progressbar"
-            style="?android:attr/progressBarStyleHorizontal"
-            android:layout_width="fill_parent"
-            android:layout_height="40dp"
-            android:layout_gravity="center"
-            android:layout_margin="4dp"
+            style="@android:style/Widget.ProgressBar.Horizontal"
+            android:layout_width="300dp"
+            android:layout_height="25dp"
+            android:layout_gravity="center_vertical"
             android:indeterminate="false"
             android:max="100"
             android:padding="4dp"
@@ -51,11 +50,12 @@
 
         <TextView
             android:id="@+id/LPB2_texto_progressbar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
+            android:layout_width="300dp"
+            android:layout_height="25dp"
+            android:layout_marginStart="115dp"
+            android:layout_gravity="center_horizontal"
             android:textColor="@color/black"
-            android:textSize="18sp" />
+            android:textSize="20sp" />
     </RelativeLayout>
 
     <ImageView

@@ -1034,29 +1034,18 @@ if(radioProductosContabilizados==2){
 
 				// CREACIN DE LA LINEA:
 				LayoutInflater inflater = (LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE);
-				TableRow nuevaLinea = (TableRow) inflater.inflate(
-						R.layout.z_lineaprogressbar_mainboard, null);
-				nuevaLinea
-						.setId(ParametrosInventario.ID_LINEAS + id_inventario);
+				TableRow nuevaLinea = (TableRow) inflater.inflate(R.layout.z_lineaprogressbar_mainboard, null);nuevaLinea.setId(ParametrosInventario.ID_LINEAS + id_inventario);
 
 				// Elemento 1 = boton:
 				Button b = (Button) nuevaLinea.findViewById(R.id.LPB2_boton);
-				if (id_inventario >= 0) {
-					b.setText("Inventario " + String.valueOf(id_inventario));
-				} else {
-					b.setText("Inv. dinamico "
-							+ String.valueOf(Math.abs(id_inventario)));
-				}
+				b.setText("Inventario " + id_inventario);
 				b.setId(ParametrosInventario.ID_BOTONES + id_inventario);
 				
 				System.out.println("::: InventarioMainboard 1044 Ver id_inventario " + id_inventario);
 
 				// Elemento 2 = texto del NOMBRE:
-				TextView textoNombre = (TextView) nuevaLinea
-						.findViewById(R.id.LPB2_nombre);
-				textoNombre.setText(hashmapUnInventario.get(
-						ParametrosInventario.bal_bdd_inventario_descripcion)
-						.trim());
+				TextView textoNombre = (TextView) nuevaLinea.findViewById(R.id.LPB2_nombre);
+				textoNombre.setText(hashmapUnInventario.get(ParametrosInventario.bal_bdd_inventario_descripcion).trim());
 
 				// Elemento 3 = texto de la FECHA de CREACION:
 				TextView textoFecha = (TextView) nuevaLinea
@@ -1068,21 +1057,14 @@ if(radioProductosContabilizados==2){
 				// Elemento 4 = PROGRESS-BAR:
 				TextView tv_progressbar = (TextView) nuevaLinea
 						.findViewById(R.id.LPB2_texto_progressbar);
-				String texto_estadisticas_progresion = String
-						.valueOf(articulosYaContadosEnInventario)
-						+ " de "
-						+ String.valueOf(cantidadArticulosEnInventario);
+				String texto_estadisticas_progresion = String.valueOf(articulosYaContadosEnInventario) + " de " + String.valueOf(cantidadArticulosEnInventario);
 				tv_progressbar.setText(texto_estadisticas_progresion);
 
 				try {
-					ProgressBar pb = (ProgressBar) nuevaLinea
-							.findViewById(R.id.LPB2_progressbar);
+					ProgressBar pb =  nuevaLinea.findViewById(R.id.LPB2_progressbar);
 					int newValue = 0;
 					if (cantidadArticulosEnInventario != 0) {
-						newValue = (int) Math
-								.floor((double) articulosYaContadosEnInventario
-										/ (double) cantidadArticulosEnInventario
-										* (double) 100);
+						newValue = (int) Math.floor((double) articulosYaContadosEnInventario / (double) cantidadArticulosEnInventario * (double) 100);
 					}
 				
 					pb.setProgress(newValue);
@@ -1093,15 +1075,12 @@ if(radioProductosContabilizados==2){
 				// Elemento 5 = CANDADO:
 				ImageView candado = (ImageView) nuevaLinea
 						.findViewById(R.id.LPB2_estado);
-				if (Integer.parseInt(hashmapUnInventario
-						.get(ParametrosInventario.bal_bdd_inventario_estado)) == 1) {
+				if (Integer.parseInt(hashmapUnInventario.get(ParametrosInventario.bal_bdd_inventario_estado)) == 1) {
 					System.out.println("::: InventarioMainboard 1080 candado");
-					candado.setImageDrawable(getResources().getDrawable(
-							R.drawable.candado_ab));
+					candado.setImageDrawable(getResources().getDrawable(R.drawable.candado_ab));
 				} else {
 					System.out.println("::: InventarioMainboard 1084 candado");
-					candado.setImageDrawable(getResources().getDrawable(
-							R.drawable.candado_cer));
+					candado.setImageDrawable(getResources().getDrawable(R.drawable.candado_cer));
 				}
 
 				// Creacin del handler:
@@ -1112,23 +1091,17 @@ if(radioProductosContabilizados==2){
 						BaseDatos bdd = new BaseDatos(ctxt);
 
 						try {
-							if (bdd.estaAbiertoInventarioConId(v.getId()
-									- ParametrosInventario.ID_BOTONES) == true) {
+							if (bdd.estaAbiertoInventarioConId(v.getId() - ParametrosInventario.ID_BOTONES) == true) {
 								ClicBoton((Button) v);
 							} else {
-								log.log("[-- 1002 --]"
-										+ "Inventario cerrado con candado", 3);
-								Toast.makeText(ctxt,
-										"Inventario cerrado con candado",
-										Toast.LENGTH_LONG).show();
+								log.log("[-- 1002 --]" + "Inventario cerrado con candado", 3);
+								Toast.makeText(ctxt, "Inventario cerrado con candado", Toast.LENGTH_LONG).show();
 							}
 						} catch (ExceptionBDD e) {
 
 							log.log("[-- 1009 --]" + e.toString(), 4);
 							e.printStackTrace();
-							Toast.makeText(ctxt,
-									"Inventario cerrado con candado",
-									Toast.LENGTH_LONG).show();
+							Toast.makeText(ctxt, "Inventario cerrado con candado", Toast.LENGTH_LONG).show();
 						}
 
 					}
@@ -1160,23 +1133,17 @@ if(radioProductosContabilizados==2){
 											bdd.borrarInventarioConArticulos(id_invent_con_boton);
 										} catch (ExceptionBDD e) {
 
-											log.log("[-- 1065 --]"
-													+ e.toString(), 4);
-											e.printStackTrace();
+											log.log("[-- 1065 --]" + e.toString(), 4);e.printStackTrace();
 										}
 
 										try {
 											refreshTablaPrincipal();
 										} catch (ExceptionBDD e) {
 
-											log.log("[-- 1073 --]"
-													+ e.toString(), 4);
-											e.printStackTrace();
+											log.log("[-- 1073 --]" + e.toString(), 4);e.printStackTrace();
 										} catch (Exception e) {
 
-											log.log("[-- 1077 --]"
-													+ e.toString(), 4);
-											e.printStackTrace();
+											log.log("[-- 1077 --]" + e.toString(), 4);e.printStackTrace();
 										}
 
 										dialogoBorrarInventario.dismiss();
@@ -1187,39 +1154,23 @@ if(radioProductosContabilizados==2){
 
 									public void onClick(View v) {
 
-										log.log("[-- --]"
-												+ "Se presiono cancelar", 0);
-										dialogoBorrarInventario.cancel();
+										log.log("[-- --]" + "Se presiono cancelar", 0);dialogoBorrarInventario.cancel();
 									}
 								};
 
-								dialogoBorrarInventario = new DialogPersoComplexSiNo(
-										ctxt,
-										"SUPRIMIR INVENTARIO",
-										"Usted esta a punto de suprimir el inventario n"
-												+ String.valueOf(id_invent_con_boton)
-												+ "\n\n"
-												+ "Esta seguro de querer suprimir este inventario?",
-										DialogPerso.ALERTAR, listenerPositivo,
-										listenerNegativo);
+								dialogoBorrarInventario = new DialogPersoComplexSiNo(ctxt, "SUPRIMIR INVENTARIO", "Usted esta a punto de suprimir el inventario n" + String.valueOf(id_invent_con_boton) + "\n\n" + "Esta seguro de querer suprimir este inventario?", DialogPerso.ALERTAR, listenerPositivo, listenerNegativo);
 								dialogoBorrarInventario.show();
 							} else {
-								Toast.makeText(
-										ctxt,
-										"Supresion imposible: inventario cerrado con candado",
-										Toast.LENGTH_LONG).show();
+								Toast.makeText(ctxt, "Supresion imposible: inventario cerrado con candado", Toast.LENGTH_LONG).show();
 							}
 
 						} catch (ExceptionBDD e) {
 
 							log.log("[-- 1114 --]" + e.toString(), 4);
 							e.printStackTrace();
-							Toast.makeText(ctxt,
-									"Inventario cerrado con candado",
-									Toast.LENGTH_LONG).show();
+							Toast.makeText(ctxt, "Inventario cerrado con candado", Toast.LENGTH_LONG).show();
 
-							log.log("[-- 1120 --]"
-									+ "Inventario cerrado con candado", 3);
+							log.log("[-- 1120 --]" + "Inventario cerrado con candado", 3);
 						}
 
 						return true;
@@ -1235,31 +1186,14 @@ if(radioProductosContabilizados==2){
 
 						try {
 							ImageView iv = (ImageView) v;
-
 							BaseDatos bdd = new BaseDatos(ctxt);
-
-							if (Integer.parseInt(hashmapUnInventario
-									.get(ParametrosInventario.bal_bdd_inventario_estado)) == ParametrosInventario.INVENTARIO_ABIERTO) {
-
-								bdd.updateInventario(
-										Integer.parseInt(hashmapUnInventario
-												.get(ParametrosInventario.bal_bdd_inventario_numero)),
-										ParametrosInventario.INVENTARIO_CERRADO);
-								hashmapUnInventario
-										.put(ParametrosInventario.bal_bdd_inventario_estado,
-												String.valueOf(ParametrosInventario.INVENTARIO_CERRADO));
-								iv.setImageDrawable(getResources().getDrawable(
-										R.drawable.candado_cer));
+							if (Integer.parseInt(hashmapUnInventario.get(ParametrosInventario.bal_bdd_inventario_estado)) == ParametrosInventario.INVENTARIO_ABIERTO) {
+								bdd.updateInventario(Integer.parseInt(hashmapUnInventario.get(ParametrosInventario.bal_bdd_inventario_numero)), ParametrosInventario.INVENTARIO_CERRADO);
+								hashmapUnInventario.put(ParametrosInventario.bal_bdd_inventario_estado, String.valueOf(ParametrosInventario.INVENTARIO_CERRADO));
+								iv.setImageDrawable(getResources().getDrawable(R.drawable.candado_cer));
 							} else {
-								bdd.updateInventario(
-										Integer.parseInt(hashmapUnInventario
-												.get(ParametrosInventario.bal_bdd_inventario_numero)),
-										ParametrosInventario.INVENTARIO_ABIERTO);
-								hashmapUnInventario
-										.put(ParametrosInventario.bal_bdd_inventario_estado,
-												String.valueOf(ParametrosInventario.INVENTARIO_ABIERTO));
-								iv.setImageDrawable(getResources().getDrawable(
-										R.drawable.candado_ab));
+								bdd.updateInventario(Integer.parseInt(hashmapUnInventario.get(ParametrosInventario.bal_bdd_inventario_numero)), ParametrosInventario.INVENTARIO_ABIERTO);
+								hashmapUnInventario.put(ParametrosInventario.bal_bdd_inventario_estado, String.valueOf(ParametrosInventario.INVENTARIO_ABIERTO));iv.setImageDrawable(getResources().getDrawable(R.drawable.candado_ab));
 							}
 						} catch (Exception e) {
 
@@ -1305,10 +1239,8 @@ if(radioProductosContabilizados==2){
 		}
 		System.out.println("::: INVDIN 1300 //////////////////////");
 		
-		hashmapInventarioVenta = matrizInventariosDinamicos
-				.get(ParametrosInventario.ID_INV_DIN_VTA);
-		hashmapInventarioDeposito = matrizInventariosDinamicos
-				.get(ParametrosInventario.ID_INV_DIN_DEP);
+		hashmapInventarioVenta = matrizInventariosDinamicos.get(ParametrosInventario.ID_INV_DIN_VTA);
+		hashmapInventarioDeposito = matrizInventariosDinamicos.get(ParametrosInventario.ID_INV_DIN_DEP);
 
 		// ArrayList<Integer> lista_claves_dinamicos = new ArrayList<Integer>();
 		//

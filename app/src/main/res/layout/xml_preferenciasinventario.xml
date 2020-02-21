@@ -11,20 +11,19 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_margin="5dp"
-        android:text="Preferencias"
+        android:text="@string/conf"
         android:textColor="@color/white"
         android:textSize="@dimen/talla_texto_titulo" />
 
     <ScrollView
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_weight="1.8">
+        android:layout_width="978dp"
+        android:layout_height="447dp">
 
         <TableLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="end"
-            android:layout_margin="20dp">
+            android:layout_gravity="start"
+            android:layout_margin="10dp">
 
             <TableRow
                 android:layout_width="wrap_content"
@@ -38,32 +37,35 @@
                     android:gravity="start"
                     android:text="URL WebService:"
                     android:textColor="@color/white"
-                    android:textSize="@dimen/pruebaPreferencias" />
+                    android:textSize="@dimen/talla_texto_subtitulo" />
             </TableRow>
 
             <TableRow
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_weight="10">
 
                 <EditText
                     android:id="@+id/PREF_URL_webservice"
-                    android:layout_width="100dp"
+                    android:layout_width="835dp"
+                    android:layout_height="wrap_content"
                     android:layout_margin="5dp"
+                    android:layout_weight="1"
                     android:singleLine="true"
                     android:text="URL"
                     android:textSize="@dimen/talla_texto_grande">
 
-                    <requestFocus />
                 </EditText>
 
                 <Button
                     android:id="@+id/PREF_checkUrl"
-                    android:layout_width="179dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
+                    android:layout_marginEnd="10dp"
                     android:gravity="center"
                     android:text="Check URL"
-                    android:textSize="@dimen/talla_texto_GrandeGrande" />
+                    android:textSize="@dimen/talla_texto_subtitulo" />
             </TableRow>
 
             <TableRow
@@ -72,8 +74,10 @@
 
                 <Button
                     android:id="@+id/PREF_agregarUrl"
-                    android:layout_width="200dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="0dp"
+                    android:layout_marginEnd="550dp"
                     android:gravity="center"
                     android:text="Agregar Url"
                     android:textSize="@dimen/talla_texto_GrandeGrande" />
@@ -86,7 +90,8 @@
                 <Spinner
                     android:id="@+id/spinner1"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/talla_texto_subtitulo" />
             </TableRow>
 
             <TableRow
@@ -126,7 +131,6 @@
                 <TextView
                     android:layout_width="899dp"
                     android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
                     android:gravity="start"
                     android:text="Número de ID de tablet:"
                     android:textColor="@color/white"
@@ -475,18 +479,19 @@
 
             <LinearLayout android:layout_height="20dp"></LinearLayout>
         </TableLayout>
+
     </ScrollView>
 
     <TableLayout
-        android:layout_width="match_parent"
+        android:layout_width="972dp"
         android:layout_height="wrap_content"
-        android:layout_weight="0.19"
-        android:gravity="center_horizontal">
+        android:layout_margin="10dp"
+        android:gravity="start|center_horizontal">
 
         <TableRow
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:gravity="center">
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center|center_horizontal">
 
             <Button
                 android:id="@+id/PREF_boton_cancelar"
@@ -501,7 +506,7 @@
                 android:id="@+id/PREF_boton_guardar"
                 android:layout_width="200dp"
                 android:layout_height="50dp"
-                android:layout_marginEnd="50dp"
+                android:layout_marginEnd="5dp"
                 android:gravity="center"
                 android:text="Guardar cambios"
                 android:textSize="@dimen/talla_texto_medioGrande" />

@@ -3,7 +3,7 @@
 	xmlns:app="http://schemas.android.com/apk/res-auto"
 	xmlns:tools="http://schemas.android.com/tools"
 	android:id="@+id/DIALOG_main1"
-	android:layout_width="410dp"
+	android:layout_width="500dp"
 	android:layout_height="match_parent"
 	android:orientation="vertical"
 	android:padding="5dp">
@@ -14,11 +14,11 @@
 		android:layout_width="100dp"
 		android:layout_height="50dp"
 		android:layout_marginStart="16dp"
-		android:layout_marginTop="92dp"
+		android:layout_marginTop="56dp"
 		android:text="Sí"
 		android:textSize="@dimen/talla_texto_medioGrande"
 		app:layout_constraintEnd_toEndOf="parent"
-		app:layout_constraintHorizontal_bias="0.77"
+		app:layout_constraintHorizontal_bias="0.762"
 		app:layout_constraintStart_toEndOf="@+id/DIALOG_boton_cancelar"
 		app:layout_constraintTop_toBottomOf="@+id/DIALOG_texto" />
 
@@ -36,8 +36,8 @@
 		android:id="@+id/DIALOG_boton_cancelar"
 		android:layout_width="100dp"
 		android:layout_height="50dp"
-		android:layout_marginStart="60dp"
-		android:layout_marginTop="92dp"
+		android:layout_marginStart="104dp"
+		android:layout_marginTop="56dp"
 		android:text="No"
 		android:textSize="@dimen/talla_texto_medioGrande"
 		app:layout_constraintStart_toStartOf="parent"
@@ -45,9 +45,10 @@
 
 	<TextView
 		android:id="@+id/DIALOG_texto"
-		android:layout_width="300dp"
-		android:layout_height="129dp"
+		android:layout_width="381dp"
+		android:layout_height="168dp"
 		android:layout_weight="1"
+		android:textSize="20sp"
 		app:layout_constraintEnd_toEndOf="parent"
 		app:layout_constraintHorizontal_bias="0.17"
 		app:layout_constraintStart_toEndOf="@+id/DIALOG_imagen"
