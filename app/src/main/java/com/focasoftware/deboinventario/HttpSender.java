@@ -167,10 +167,13 @@ public class HttpSender {
 
 			MultipartEntity reqEntity = new MultipartEntity();
 			reqEntity.addPart(Parametros.codigo_soft, new StringBody(cod_soft));
-			reqEntity.addPart(Parametros.codigo_fonc, new StringBody(
-					Parametros.CODIGO_FONC_EXPORT_DATOS));
-			reqEntity.addPart(Parametros.codigo_tab, new StringBody(
-					Parametros.PREF_NUMERO_DE_TERMINAL));
+			reqEntity.addPart(Parametros.codigo_fonc, new StringBody(Parametros.CODIGO_FONC_EXPORT_DATOS));
+			if (Parametros.PREF_NUMERO_DE_TERMINAL != null) {
+				reqEntity.addPart(Parametros.codigo_tab, new StringBody(Parametros.PREF_NUMERO_DE_TERMINAL));
+			}else
+			{
+				reqEntity.addPart(Parametros.codigo_tab, new StringBody("1"));
+			}
 			reqEntity.addPart(Parametros.codigo_post, bin);
 			post.setEntity(reqEntity);
 			HttpResponse response = client.execute(post);
@@ -179,11 +182,7 @@ public class HttpSender {
 
 			System.out.println("::: HttpSender 184 xmlstring " + xmlString);
 
-			if (xmlString.contains("EXITO") == false) {
-				return false;
-			} else {
-				return true;
-			}
+			return xmlString.contains("EXITO");
 
 		} catch (Exception e) {
 			System.out.println("::: HTTPSEnder catch");
@@ -218,10 +217,14 @@ public class HttpSender {
 
 			MultipartEntity reqEntity = new MultipartEntity();
 			reqEntity.addPart(Parametros.codigo_soft, new StringBody(cod_soft));
-			reqEntity.addPart(Parametros.codigo_fonc, new StringBody(
-					Parametros.CODIGO_FONC_EXPORT_COMPRAS));
-			reqEntity.addPart(Parametros.codigo_tab, new StringBody(
-					Parametros.PREF_NUMERO_DE_TERMINAL));
+			reqEntity.addPart(Parametros.codigo_fonc, new StringBody(Parametros.CODIGO_FONC_EXPORT_COMPRAS));
+
+			if (Parametros.PREF_NUMERO_DE_TERMINAL != null) {
+				reqEntity.addPart(Parametros.codigo_tab, new StringBody(Parametros.PREF_NUMERO_DE_TERMINAL));
+			}else
+			{
+				reqEntity.addPart(Parametros.codigo_tab, new StringBody("1"));
+			}
 			reqEntity.addPart(Parametros.codigo_post, bin);
 			post.setEntity(reqEntity);
 			HttpResponse response = client.execute(post);
@@ -230,11 +233,7 @@ public class HttpSender {
 
 			System.out.println("::: HttpSender 232 Compras xmlstring " + xmlString);
 
-			if (xmlString.contains("EXITO") == false) {
-				return false;
-			} else {
-				return true;
-			}
+			return xmlString.contains("EXITO");
 
 		} catch (Exception e) {
 			System.out.println("::: HTTPSEnder catch");
@@ -265,10 +264,13 @@ public class HttpSender {
 			MultipartEntity reqEntity = new MultipartEntity();
 
 			reqEntity.addPart(Parametros.codigo_soft, new StringBody(cod_soft));
-			reqEntity.addPart(Parametros.codigo_fonc, new StringBody(
-					Parametros.CODIGO_FONC_EXPORT_LOGS));
-			reqEntity.addPart(Parametros.codigo_tab, new StringBody(
-					Parametros.PREF_NUMERO_DE_TERMINAL));
+			reqEntity.addPart(Parametros.codigo_fonc, new StringBody(Parametros.CODIGO_FONC_EXPORT_LOGS));
+			if (Parametros.PREF_NUMERO_DE_TERMINAL != null) {
+				reqEntity.addPart(Parametros.codigo_tab, new StringBody(Parametros.PREF_NUMERO_DE_TERMINAL));
+			}else
+			{
+				reqEntity.addPart(Parametros.codigo_tab, new StringBody("1"));
+			}
 			reqEntity.addPart(Parametros.codigo_text, bin);
 			post.setEntity(reqEntity);
 
@@ -286,7 +288,7 @@ public class HttpSender {
 			HttpEntity resEntity = response.getEntity();
 			String xmlString = EntityUtils.toString(resEntity);
 
-			if (xmlString.contains("EXITO") == false) {
+			if (!xmlString.contains("EXITO")) {
 				return false;
 
 			}
@@ -317,10 +319,13 @@ public class HttpSender {
 			MultipartEntity reqEntity = new MultipartEntity();
 
 			reqEntity.addPart(Parametros.codigo_soft, new StringBody(cod_soft));
-			reqEntity.addPart(Parametros.codigo_fonc, new StringBody(
-					Parametros.CODIGO_FONC_EXPORT_FOTOS));
-			reqEntity.addPart(Parametros.codigo_tab, new StringBody(
-					Parametros.PREF_NUMERO_DE_TERMINAL));
+			reqEntity.addPart(Parametros.codigo_fonc, new StringBody(Parametros.CODIGO_FONC_EXPORT_FOTOS));
+			if (Parametros.PREF_NUMERO_DE_TERMINAL != null) {
+				reqEntity.addPart(Parametros.codigo_tab, new StringBody(Parametros.PREF_NUMERO_DE_TERMINAL));
+			}else
+			{
+				reqEntity.addPart(Parametros.codigo_tab, new StringBody("1"));
+			}
 			reqEntity.addPart(Parametros.codigo_foto, bin);
 
 			post.setEntity(reqEntity);
@@ -342,7 +347,7 @@ public class HttpSender {
 			if (resEntity != null) {
 				String xmlString = EntityUtils.toString(resEntity);
 
-				if (xmlString.contains("EXITO") == false) {
+				if (!xmlString.contains("EXITO")) {
 					return false;
 				}
 			}
@@ -400,7 +405,7 @@ public class HttpSender {
 				xmlString = EntityUtils.toString(resEntity);
 			}
 
-			if (xmlString.contains("EXITO") == false) {
+			if (!xmlString.contains("EXITO")) {
 				return false;
 			}
 
@@ -460,7 +465,7 @@ public class HttpSender {
 				xmlString = EntityUtils.toString(resEntity);
 			}
 
-			if (xmlString.contains("EXITO") == false) {
+			if (!xmlString.contains("EXITO")) {
 				return false;
 			}
 
@@ -490,10 +495,13 @@ public class HttpSender {
 			MultipartEntity reqEntity = new MultipartEntity();
 
 			reqEntity.addPart(Parametros.codigo_soft, new StringBody(cod_soft));
-			reqEntity.addPart(Parametros.codigo_fonc, new StringBody(
-					Parametros.CODIGO_FONC_EXPORT_FOTOS));
-			reqEntity.addPart(Parametros.codigo_tab, new StringBody(
-					Parametros.PREF_NUMERO_DE_TERMINAL));
+			reqEntity.addPart(Parametros.codigo_fonc, new StringBody(Parametros.CODIGO_FONC_EXPORT_FOTOS));
+			if (Parametros.PREF_NUMERO_DE_TERMINAL != null) {
+				reqEntity.addPart(Parametros.codigo_tab, new StringBody(Parametros.PREF_NUMERO_DE_TERMINAL));
+			}else
+			{
+				reqEntity.addPart(Parametros.codigo_tab, new StringBody("1"));
+			}
 			reqEntity.addPart(Parametros.codigo_xfile, bin);
 
 			post.setEntity(reqEntity);
@@ -515,7 +523,7 @@ public class HttpSender {
 			if (resEntity != null) {
 				String xmlString = EntityUtils.toString(resEntity);
 
-				if (xmlString.contains("EXITO") == false) {
+				if (!xmlString.contains("EXITO")) {
 					return false;
 				}
 			}

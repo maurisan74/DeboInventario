@@ -35,7 +35,7 @@
                 android:paddingTop="5dp" >
 
                 <TextView
-                    android:layout_width="150dp"
+                    android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:text="Inventario:"
@@ -69,7 +69,7 @@
                 <TextView
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
-                    android:gravity="center"
+                    android:gravity="end"
                     android:text="Estado:"
                     android:textColor="@color/white"
                     android:textSize="@dimen/talla_texto_medioGrande" />

@@ -1,11 +1,14 @@
 package com.focasoftware.deboinventario;
 
-import androidx.annotation.NonNull;
+import android.content.Context;
+import android.os.Environment;
+import android.util.Log;
 
+import androidx.annotation.NonNull;
 import org.w3c.dom.Document;
 
 import java.io.File;
-
+import java.io.FileOutputStream;
 import javax.xml.transform.OutputKeys;
 import javax.xml.transform.Result;
 import javax.xml.transform.Source;
@@ -14,17 +17,26 @@ import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 
-/**
+
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.util.Objects;
+
+import static android.content.Context.MODE_PRIVATE;
+
+/*
  * Clase para convertir un documento en forma de DOM a un archivo XML para su posterior
  * uso o env�o
  * @author GuillermoR
  *
  */
 public class HttpWriter{
-
-	
-	
-	/**
+    /*
 	 * Convierte un documento DOM en un archivo XML a la direccion y nombre 
 	 * indicados en el url
 	 * <p>1� Creacion del fuente del DOM
@@ -40,10 +52,15 @@ public class HttpWriter{
  
             //2� Creacion del fichero de salida
             File archivo = new File(urlArchivo);
-            File parent = new File(archivo.getParent());
-            if (parent.exists() == false) {
+            File parent = new File(Objects.requireNonNull(archivo.getParent()));
+            if (!parent.exists()) {
             	archivo.mkdirs();
             }
+
+//            FileInputStream fIS = new FileInputStream (new File("/Dir/data.txt"));
+
+
+
             Result resultat = new StreamResult(archivo);
  
             //3� Configuracion del transformador de documento
@@ -54,7 +71,7 @@ public class HttpWriter{
  
             //4� Realizamos la transformacion
             transformador.transform(source, resultat);
-            
+//            osw.close();
         }catch(Exception e){
         	e.printStackTrace();	
         }

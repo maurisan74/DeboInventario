@@ -60,15 +60,15 @@ public class ParametrosInventario {
 	public static final String preferencias_stock_alatoma = "preferencias_stock_alatoma";
 
 	
-	public static final String URL_CARPETA_FOTOS = "/data/data/com.foca.deboInventario/fotos/";
-	public static final String URL_CARPETA_USB = "/data/data/com.foca.deboInventario/usb/";
-	public static final String URL_CARPETA_USB_EXPORT = "/data/data/com.foca.deboInventario/usb/export/";
-	public static final String URL_CARPETA_USB_IMPORT = "/data/data/com.foca.deboInventario/usb/import/";
-	public static final String URL_CARPETA_DATABASES = "/data/data/com.foca.deboInventario/databases/";
+	public static final String URL_CARPETA_FOTOS = "/data/data/com.focasoftware.deboInventario/fotos/";
+	public static final String URL_CARPETA_USB = "/data/data/com.focasoftware.deboInventario/usb/";
+	public static final String URL_CARPETA_USB_EXPORT = "/data/data/com.focasoftware.deboInventario/usb/export/";
+	public static final String URL_CARPETA_USB_IMPORT = "/data/data/com.focasoftware.deboInventario/usb/import/";
+	public static final String URL_CARPETA_DATABASES = "/data/data/com.focasoftware.deboInventario/databases/";
 
-	public final static String URL_ARCHIVO_LOG = "/data/data/com.foca.deboInventario/log.txt";
-	public final static String URL_COPIA_XML_EXPORT = "/data/data/com.foca.deboInventario/deboInventarioExport.xml";
-	public final static String URI_USB = "/data/data/com.foca.deboInventario/test/";
+	public final static String URL_ARCHIVO_LOG = "/data/data/com.focasoftware.deboInventario/log.txt";
+	public final static String URL_COPIA_XML_EXPORT = "/data/data/com.focasoftware.deboinventario/deboInventarioExport.xml";
+	public final static String URI_USB = "/data/data/com.focasoftware.deboInventario/test/";
 
 	public static File SdCard = Environment.getExternalStorageDirectory();
 	@NonNull

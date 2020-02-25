@@ -979,7 +979,7 @@ public class BaseDatos extends SQLiteOpenHelper {
 			// Reemplazamos los multiples espacios blancos por 1 solo:
 
 			String consulta_SQL = "";
-			if(busqueda.matches("^\\d{1,5}$")){
+			if (busqueda.matches("^\\d{1,5}$")) {
 				consulta_SQL = ParametrosInventario.bal_bdd_referencia_codigo + " = '" + busqueda + "'";
 			} else {
 				busqueda = busqueda.replaceAll("\\s+", " ");
@@ -1000,7 +1000,7 @@ public class BaseDatos extends SQLiteOpenHelper {
 
 			// 5 Buscar en las referencias el articulo
 			// Mas columnas, o todo
-			String col[] = new String[] {
+			String col[] = new String[]{
 					ParametrosInventario.bal_bdd_referencia_sector,
 					ParametrosInventario.bal_bdd_referencia_codigo,
 					ParametrosInventario.bal_bdd_referencia_descripcion
@@ -1068,13 +1068,6 @@ public class BaseDatos extends SQLiteOpenHelper {
 		}
 
 	}
-
-
-	/*
-
-
-
-	*/
 
 	public boolean buscarArticulosNoTomadosBD(int inventario_curso)throws ExceptionBDD{
 		SQLiteDatabase dtb = this.getWritableDatabase();
@@ -2092,10 +2085,8 @@ public class BaseDatos extends SQLiteOpenHelper {
 			// string_lista_inventarios.length()-1);
 
 			// 1 Creacion del nuevo documento
-			DocumentBuilderFactory fabricaDocumentos = DocumentBuilderFactory
-					.newInstance();
-			DocumentBuilder constructorDocumentos = fabricaDocumentos
-					.newDocumentBuilder();
+			DocumentBuilderFactory fabricaDocumentos = DocumentBuilderFactory.newInstance();
+			DocumentBuilder constructorDocumentos = fabricaDocumentos.newDocumentBuilder();
 			Document documento = constructorDocumentos.newDocument();
 
 			// Propiedades del DOM:
@@ -2103,8 +2094,7 @@ public class BaseDatos extends SQLiteOpenHelper {
 			documento.setXmlStandalone(true);
 
 			// 2 Creacion del elemento de cabecera
-			Element titulo = documento
-					.createElement(ParametrosInventario.bal_xml_export_cabecera);
+			Element titulo = documento.createElement(ParametrosInventario.bal_xml_export_cabecera);
 			
 			// 3 Abrimos la base de datos en modo lectura:
 			SQLiteDatabase dtb = this.getReadableDatabase();
@@ -2155,13 +2145,10 @@ public class BaseDatos extends SQLiteOpenHelper {
 				// columnasDeseadasInventario, null, null, null, null, null);
 				System.out.println("::: BaseDatos 1501 columna " + columnasDeseadasInventario);
 				System.out.println("::: BaseDatos 1514 ");
-				Cursor cInventarios = dtb.query(tabla_inventarios_nombre,
-						columnasDeseadasInventario,
-						ParametrosInventario.bal_bdd_inventario_numero + " = "
-								+ String.valueOf(inv), null, null, null, null);
+				Cursor cInventarios = dtb.query(tabla_inventarios_nombre, columnasDeseadasInventario, ParametrosInventario.bal_bdd_inventario_numero + " = " + String.valueOf(inv), null, null, null, null);
 
 				int cantidadColumnasInv = cInventarios.getColumnCount();
-System.out.println("::: BaseDatos 1575 cantidadColumnasInv " + cantidadColumnasInv);
+				System.out.println("::: BaseDatos 1575 cantidadColumnasInv " + cantidadColumnasInv);
 				Element inventario;// ,articulo;
 
 				// Inicia el bucle
@@ -2177,15 +2164,12 @@ System.out.println("::: BaseDatos 1575 cantidadColumnasInv " + cantidadColumnasI
 					// inventario =
 					// documento.createElement(ParametrosInventario.CONVERSOR_BALIZAS.bdd2xml(tabla_inventarios_nombre));
 					// 4.1 Creamos un elemento para el inventario
-					inventario = documento
-							.createElement(Parametros.bal_xml_inventario_root);
+					inventario = documento.createElement(Parametros.bal_xml_inventario_root);
 
 					// 4.2 Recorro las columnas y creo los elementos de los
 					// datos
 					for (int i = 0; i < cantidadColumnasInv; i++) {
-						Element elemento = documento
-								.createElement(ParametrosInventario.CONVERSOR_BALIZAS
-										.bdd2xml(cInventarios.getColumnName(i)));
+						Element elemento = documento.createElement(ParametrosInventario.CONVERSOR_BALIZAS.bdd2xml(cInventarios.getColumnName(i)));
 						elemento.setTextContent(cInventarios.getString(i));
 						inventario.appendChild(elemento);
 					}
@@ -2280,11 +2264,9 @@ System.out.println("::: BaseDatos 1575 cantidadColumnasInv " + cantidadColumnasI
 						ParametrosInventario.URL_COPIA_XML_EXPORT);
 
 				// 6 Mandamos el archivo en POST hacia el servidor:
-				HttpSender httpSender = new HttpSender(
-						Parametros.CODIGO_SOFT_DEBOINVENTARIO);
+				HttpSender httpSender = new HttpSender(Parametros.CODIGO_SOFT_DEBOINVENTARIO);
 				System.out.println("::: el system :;:;:;");
-				return httpSender
-						.send_xml(ParametrosInventario.URL_COPIA_XML_EXPORT);
+				return httpSender.send_xml(ParametrosInventario.URL_COPIA_XML_EXPORT);
 				
 			} else {
 				return false;
