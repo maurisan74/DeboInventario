@@ -33,7 +33,7 @@ public class XmlCleaner {
 	public static void xml_cleaning_spechar(@NonNull File file) throws IOException {
 		//1� Busca un un temporal 
 		File fileTemp = new File(file.getParent() + "//" + "temp.xml");
-		if (fileTemp.exists() == true) {
+		if (fileTemp.exists()) {
 			fileTemp.delete();
 		}
 		//2� Lo crea de nuevo

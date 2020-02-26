@@ -1,5 +1,6 @@
 package com.focasoftware.deboinventario;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -24,86 +25,86 @@ import androidx.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
+/*
  * Activity que permite buscar la red WIFI y conectar con la misma verificando si 
  * esta visible y disponible para conexion
  * @author GuillermoR
  *
  */
 public class WiFiControlador extends Activity {
-	/**
+	/*
 	 * Variable donde se almacena la info de contexto de la activity
 	 */
 	@NonNull
     private Context ctxt = this;
-	/**
+	/*
 	 * Variable para guardar el intent que llamo a esta aplicacion y obtener
 	 * la informacion pasada como parametro
 	 */
 	private Intent intentPadre;
-	/**
+	/*
 	 * Barras de progreso accesorias
 	 */
 	private ProgressBar pb1, pb2;
-	/**
+	/*
 	 * TextView para mostrar un cartel de conectado
 	 */
 	private TextView conectado_si;
-	/**
+	/*
 	 * TextView para mostrar un cartel de que no esta conectado
 	 */
 	private TextView conectado_no; 
-	/**
+	/*
 	 * TextView para moestrar un cartel si esta visible la red
 	 */
 	private TextView visible_si; 
-	/**
+	/*
 	 * TextView para mostrar un cartel de que no esta visible
 	 */
 	private TextView visible_no;
-	/**
+	/*
 	 * TextView para mostrar el nombre de la red configurada
 	 */
 	private TextView nombre_red_config;
-	/**
+	/*
 	 * Boton para validar la conexion a la red encontrada
 	 */
 	private Button boton_validar;
-	/**
+	/*
 	 * Boton para cancelar la conextion
 	 */
 	private Button boton_cancelar; 
-	/**
+	/*
 	 * Boton para intentar conectar a la red
 	 */
 	private Button boton_conectar; 
-	/**
+	/*
 	 * Boton para buscar la red
 	 */
 	private Button boton_visible;
-	/**
+	/*
 	 * Variable para poder acceder a los datos de WIFI del dispositivo
 	 */
 	@Nullable
     private WifiManager wifiManager;
-	/**
+	/*
 	 * Administrador de conectividad para aceder a esos datos
 	 */
 	@Nullable
     private ConnectivityManager wifiConexion;
-	/**
+	/*
 	 * Variable para almacenar la informacion de la red WIFI
 	 */
 	@Nullable
     private NetworkInfo wifiInfo;
-	/**
+	/*
 	 * Variable para almacenar la lista de todas las redes disponibles
 	 */
 	private List<WifiConfiguration> listaTodasRedes = new ArrayList<WifiConfiguration>();
 	
 	
-	/**
-	 * Funcion que se llama cuando se crea la actividad: carga la UI,handlers e 
+	/*
+	 * Funcion que se llama cuando se crea la actividad: carga la UI,handlers e
 	 * informacion de la conexion
 	 * <p>1� Obtenemos el intent padre
 	 * <p>2� Cargar elementos gr�ficos
@@ -117,11 +118,12 @@ public class WiFiControlador extends Activity {
 	 * 		correspondientes, Si esta la WIFI predefinida en la lista de las encontradas
 	 */
 	
+	@SuppressLint("SetTextI18n")
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		this.requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.xml_wificontrolador);
-		setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+
 		//1� Obtenemos el intent padre
 		intentPadre = getIntent();
 		
@@ -149,12 +151,13 @@ public class WiFiControlador extends Activity {
 			boton_visible.setEnabled(true);
 			boton_conectar.setEnabled(false);
 			
-			wifiManager = (WifiManager) getSystemService(Context.WIFI_SERVICE);
+			wifiManager = (WifiManager) getApplicationContext().getSystemService(Context.WIFI_SERVICE);
 			
 		//4� Control: si ya est� conectado, no pedimos reconexion
 			ConnectivityManager redConexion = (ConnectivityManager) getSystemService(CONNECTIVITY_SERVICE);
-			
-			NetworkInfo[] allNtwk = redConexion.getAllNetworkInfo();
+
+		assert redConexion != null;
+		NetworkInfo[] allNtwk = redConexion.getAllNetworkInfo();
 
 			//Toast.makeText(ctxt, redConexion.getNetworkInfo(5).getState().toString(), Toast.LENGTH_LONG).show();
 			boolean conectado = false;
@@ -170,6 +173,7 @@ public class WiFiControlador extends Activity {
 				setResult(RESULT_OK, intentPadre);
 				finish();
 			} else {
+				assert wifiManager != null;
 				wifiManager.setWifiEnabled(true);
 				refreshUI();
 			}
@@ -212,13 +216,14 @@ public class WiFiControlador extends Activity {
 					pb2.setVisibility(View.VISIBLE);
 					
 					//6.1 Activamos el wifi desactivando el modo avion:
-						WifiManager wifiManager = (WifiManager) getSystemService(Context.WIFI_SERVICE);
+						WifiManager wifiManager = (WifiManager) getApplicationContext().getSystemService(Context.WIFI_SERVICE);
 						Settings.System.putInt(ctxt.getContentResolver(), Settings.System.AIRPLANE_MODE_ON, 0);
 						Intent intent = new Intent(Intent.ACTION_AIRPLANE_MODE_CHANGED);
 						intent.putExtra("state", false);
 						sendBroadcast(intent);
-						
-						wifiManager.setWifiEnabled(true);
+
+					assert wifiManager != null;
+					wifiManager.setWifiEnabled(true);
 					
 					//6.2 Recuperamos la lista de todos los SSID visibles:
 						listaTodasRedes = wifiManager.getConfiguredNetworks();
@@ -227,7 +232,7 @@ public class WiFiControlador extends Activity {
 							listaSSID.add(wc.SSID);
 						}
 					//6.3 Configuramos la visibilidad de los botones y TextView correspondientes, Si esta la WIFI predefinida en la lista de las encontradas
-						if (listaSSID.contains("\"" + Parametros.PREF_WIFI_PRIVILEGIADO + "\"") == true) {
+						if (listaSSID.contains("\"" + Parametros.PREF_WIFI_PRIVILEGIADO + "\"")) {
 							visible_si.setVisibility(View.VISIBLE);
 							visible_no.setVisibility(View.INVISIBLE);
 							boton_visible.setEnabled(false);
@@ -254,7 +259,7 @@ public class WiFiControlador extends Activity {
 					pb2.setVisibility(View.VISIBLE);
 					
 					// Tratamos de conectar la red habilitando al wifi:
-						WifiManager wifiManager = (WifiManager) getSystemService(Context.WIFI_SERVICE);
+						WifiManager wifiManager = (WifiManager) getApplicationContext().getSystemService(Context.WIFI_SERVICE);
 						Settings.System.putInt(ctxt.getContentResolver(), Settings.System.AIRPLANE_MODE_ON, 0);
 						Intent intent = new Intent(Intent.ACTION_AIRPLANE_MODE_CHANGED);
 						intent.putExtra("state", false);
@@ -270,8 +275,9 @@ public class WiFiControlador extends Activity {
 						ConnectivityManager wifiConexion = (ConnectivityManager) getSystemService(CONNECTIVITY_SERVICE);
 						NetworkInfo wifiInfo = wifiConexion.getNetworkInfo(ConnectivityManager.TYPE_WIFI);
 						wifiInfo = wifiConexion.getNetworkInfo(ConnectivityManager.TYPE_WIFI);
-						
-						if (wifiInfo.isConnected() == true) {
+
+					assert wifiInfo != null;
+					if (wifiInfo.isConnected()) {
 							conectado_si.setVisibility(View.VISIBLE);
 							conectado_no.setVisibility(View.INVISIBLE);
 							boton_conectar.setEnabled(false);
@@ -292,7 +298,7 @@ public class WiFiControlador extends Activity {
 			
 	}
 	
-	/**
+	/*
 	 * Permite pedir informacion del estado de la WIFI para saber si esta conectado
 	 * @param ctxt
 	 * @return
@@ -304,7 +310,7 @@ public class WiFiControlador extends Activity {
 	}
 	
 	
-	/**
+	/*
 	 * Refresca la UI al encontrar la Red predeterminada
 	 * <p>1� Busca todas las redes
 	 * <p>2� Si encuentra en la lista la prefefinida, 
@@ -313,12 +319,14 @@ public class WiFiControlador extends Activity {
 	 */
 	private void refreshUI() {
 		//1� Busca todas las redes
+		assert wifiManager != null;
 		listaTodasRedes = wifiManager.getConfiguredNetworks();
 		boolean redVisible = false;
 		
 		//2� Si encuentra en la lista la prefefinida, activa los botones y textView de aviso correspondiente
 		for (WifiConfiguration unaConfig : listaTodasRedes) {
-			if ( (unaConfig.SSID).compareTo(Parametros.PREF_WIFI_PRIVILEGIADO) == 0 
+			assert Parametros.PREF_WIFI_PRIVILEGIADO != null;
+			if ( (unaConfig.SSID).compareTo(Parametros.PREF_WIFI_PRIVILEGIADO) == 0
 							|| (unaConfig.SSID).compareTo("\"" + Parametros.PREF_WIFI_PRIVILEGIADO + "\"") == 0 ) {
 				wifiManager.enableNetwork(unaConfig.networkId, true);
 				visible_si.setVisibility(View.VISIBLE);
@@ -330,7 +338,7 @@ public class WiFiControlador extends Activity {
 			}
 		}
 		
-		if (redVisible == false) {
+		if (!redVisible) {
 			visible_no.setVisibility(View.VISIBLE);
 			visible_si.setVisibility(View.INVISIBLE);
 			conectado_no.setVisibility(View.VISIBLE);
@@ -344,7 +352,7 @@ public class WiFiControlador extends Activity {
 			wifiInfo = wifiConexion.getNetworkInfo(ConnectivityManager.TYPE_WIFI);
 			
 			//3� Verifica si esta conectado para mostrarlo por la UI
-			if (wifiInfo.isConnected() == true) {
+			if (wifiInfo.isConnected()) {
 				conectado_si.setVisibility(View.VISIBLE);
 				conectado_no.setVisibility(View.INVISIBLE);
 				boton_conectar.setEnabled(false);

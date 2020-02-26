@@ -39,13 +39,14 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:text="Inventario:"
+                    android:layout_marginStart="5dp"
                     android:textColor="@color/white"
                     android:textSize="@dimen/talla_texto_medioGrande" />
 
                 <TextView
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
-                    android:gravity="center"
+                    android:gravity="end"
                     android:text="Nombre:"
                     android:textColor="@color/white"
                     android:textSize="@dimen/talla_texto_medioGrande" />
@@ -53,7 +54,7 @@
                 <TextView
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
-                    android:gravity="center"
+                    android:gravity="end"
                     android:text="Inicio:"
                     android:textColor="@color/white"
                     android:textSize="@dimen/talla_texto_medioGrande" />
@@ -67,7 +68,7 @@
                     android:textSize="@dimen/talla_texto_medioGrande" />
 
                 <TextView
-                    android:layout_width="100dp"
+                    android:layout_width="130dp"
                     android:layout_height="wrap_content"
                     android:gravity="end"
                     android:text="Estado:"

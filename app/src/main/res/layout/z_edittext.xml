@@ -8,4 +8,4 @@
     android:inputType="number"
     android:singleLine="true"
     android:textColor="@color/anaranjado_verde"
-    android:textSize="@dimen/grande" />
+    android:textSize="@dimen/talla_texto_medio" />

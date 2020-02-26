@@ -2271,8 +2271,7 @@ public class InventarioMainBoard extends Activity implements DialogPersoSimple,
      *
      * @author GuillermoR
      */
-    protected class ExportarDatos extends
-            AsyncTask<Context, Integer, RespuestasExportar> {
+    protected class ExportarDatos extends AsyncTask<Context, Integer, RespuestasExportar> {
 
         private static final boolean Referencia = false;
 

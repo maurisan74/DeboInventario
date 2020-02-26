@@ -2,6 +2,7 @@ package com.focasoftware.deboinventario;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.Comparator;
 
 /**
@@ -32,10 +33,10 @@ public class Articulo {
 					public int compare(Articulo articulo0, Articulo articulo1) {
 						if (articulo0.getSector() == articulo1.getSector()) {
 							//1� Si tienen el mismo sector compara por codigo
-							return ((Integer)articulo0.getCodigo()).compareTo((Integer)articulo1.getCodigo());
+							return Integer.compare(articulo0.getCodigo(), articulo1.getCodigo());
 						} else {
 							//2� Si no compara por sector
-							return ((Integer)articulo0.getSector()).compareTo((Integer)articulo1.getSector());
+							return Integer.compare(articulo0.getSector(), articulo1.getSector());
 						}
 					}
 				};
@@ -66,14 +67,14 @@ public class Articulo {
 							//1� Si los inventario son iguales
 							if (articulo0.getSector() == articulo1.getSector()) {
 								//1.1 Si los sectores son iguales compara por codigo
-								return ((Integer)articulo0.getCodigo()).compareTo((Integer)articulo1.getCodigo());
+								return Integer.compare(articulo0.getCodigo(), articulo1.getCodigo());
 							} else {
 								//1.2 Sino, compara por sector
-								return ((Integer)articulo0.getSector()).compareTo((Integer)articulo1.getSector());
+								return Integer.compare(articulo0.getSector(), articulo1.getSector());
 							}
 						} else {
 							//2� Sino, compara por nro de inventario
-							return ((Integer)articulo0.getInventario()).compareTo((Integer)articulo1.getInventario());
+							return Integer.compare(articulo0.getInventario(), articulo1.getInventario());
 						}
 					}
 				};
@@ -89,10 +90,10 @@ public class Articulo {
 					public int compare(Articulo articulo0, Articulo articulo1) {
 						if (articulo0.getPrecio_venta() == articulo1.getPrecio_venta()) {
 							//1� Si los precios son iguales compara por costo
-							return ((Double)articulo0.getPrecio_costo()).compareTo((Double)articulo1.getPrecio_costo());
+							return Double.compare(articulo0.getPrecio_costo(), articulo1.getPrecio_costo());
 						} else {
 							//2� Sino, compara por precio de venta
-							return ((Double)articulo0.getPrecio_venta()).compareTo((Double)articulo1.getPrecio_venta());
+							return Double.compare(articulo0.getPrecio_venta(), articulo1.getPrecio_venta());
 						}
 					}
 				};
@@ -107,10 +108,10 @@ public class Articulo {
 					public int compare(Articulo articulo0, Articulo articulo1) {
 						if (articulo0.getPrecio_costo() == articulo1.getPrecio_costo()) {
 							//1� Si los costos son iguales, compara por precio de costo
-							return ((Double)articulo0.getPrecio_venta()).compareTo((Double)articulo1.getPrecio_venta());
+							return Double.compare(articulo0.getPrecio_venta(), articulo1.getPrecio_venta());
 						} else {
 							//2� Si no por precio de costo directamente
-							return ((Double)articulo0.getPrecio_costo()).compareTo((Double)articulo1.getPrecio_costo());
+							return Double.compare(articulo0.getPrecio_costo(), articulo1.getPrecio_costo());
 						}
 					}
 				};			
@@ -136,7 +137,7 @@ public class Articulo {
 					
 					public int compare(Articulo articulo0, Articulo articulo1) {
 						//1� Se compara en base a la cantidad
-						return ((Float)articulo0.getCantidad()).compareTo((Float)articulo1.getCantidad());
+						return Float.compare(articulo0.getCantidad(), articulo1.getCantidad());
 					}
 				};
 				
@@ -147,10 +148,10 @@ public class Articulo {
 					public int compare(Articulo articulo0, Articulo articulo1) {
 						if (articulo0.getExis_venta() == articulo1.getExis_venta()) {
 							//1� Si los costos son iguales, compara por precio de costo
-							return ((Double)articulo0.getExis_venta()).compareTo((Double)articulo1.getExis_venta());
+							return Double.compare(articulo0.getExis_venta(), articulo1.getExis_venta());
 						} else {
 							//2� Si no por precio de costo directamente
-							return ((Double)articulo0.getExis_venta()).compareTo((Double)articulo1.getExis_venta());
+							return Double.compare(articulo0.getExis_venta(), articulo1.getExis_venta());
 						}
 					}
 				};						
@@ -160,10 +161,10 @@ public class Articulo {
 					public int compare(Articulo articulo0, Articulo articulo1) {
 						if (articulo0.getExis_deposito() == articulo1.getExis_deposito()) {
 							//1� Si los costos son iguales, compara por precio de costo
-							return ((Double)articulo0.getExis_deposito()).compareTo((Double)articulo1.getExis_deposito());
+							return Double.compare(articulo0.getExis_deposito(), articulo1.getExis_deposito());
 						} else {
 							//2� Si no por precio de costo directamente
-							return ((Double)articulo0.getExis_deposito()).compareTo((Double)articulo1.getExis_deposito());
+							return Double.compare(articulo0.getExis_deposito(), articulo1.getExis_deposito());
 						}
 					}
 				};						
@@ -287,7 +288,7 @@ public class Articulo {
 	
 	
 	
-	/**
+	/*
 	 * Constructor que NO provee la fecha de fin
 	 * @param unSector
 	 * @param unCodigo
@@ -343,7 +344,7 @@ public class Articulo {
 		
 	}
 	
-	/**
+	/*
 	 * Constructor de ARTICULO completo, por defecto
 	 * @param unSector
 	 * @param unCodigo
@@ -398,7 +399,7 @@ public class Articulo {
 		
 	}
 	
-	/**
+	/*
 	 * Constructor ARTICULO nuevo (sin conocer ni foto, ni cantidad medida, ni 
 	 * fecha de inicio de la medicion)
 	 * @param unSector
@@ -429,7 +430,7 @@ public class Articulo {
 					double precioDeVenta,
 					double precioDeCosto) 
 											{
-		/**
+		/*
 		 * 1� Llamada al padre con los datos pasados y "" en la foto y fechaInicio y -1
 		 * en la cantidad 
 		 */
@@ -456,7 +457,7 @@ public class Articulo {
 	
 	
 	
-	/**
+	/*
 	 * Constructor de ARTICULO como entidad de referencia (con sus datos importantes
 	 * solamente)
 	 * @param unCodigoBarra
@@ -471,8 +472,8 @@ public class Articulo {
 	/*	this(0, 0, new ArrayList<String>(Arrays.asList(unCodigoBarra)), 0, unaDescripcion, 
 				(double)0, (double)0, unaFoto, -1,0,0, "");
 */
-		this(0, 0,0,0, new ArrayList<String>(Arrays.asList(unCodigoBarra)), 
-				new ArrayList<String>(Arrays.asList(unCodigoBarraCompleto)),0, unaDescripcion,
+		this(0, 0,0,0, new ArrayList<String>(Collections.singletonList(unCodigoBarra)),
+				new ArrayList<String>(Collections.singletonList(unCodigoBarraCompleto)),0, unaDescripcion,
 				(double)0, (double)0, unaFoto, 
 				-1,-1, (double)0, (double)0,0, "");
 	}
@@ -564,7 +565,7 @@ public class Articulo {
 	public int getDepsn() {
 		return depsn;
 	}
-	/**
+	/*
 	 * Devuelve los codigos de barrra como una cadena que concatena los cb separados
 	 * por coma
 	 * @return
@@ -592,11 +593,11 @@ public class Articulo {
 		System.out.println("::: Articulo 543 getCodigosBarrasString");
 		// Preparacion String = lista todos los codigos de barra del articulo
 		
-		String codigos_barras = "";
+		StringBuilder codigos_barras = new StringBuilder();
 		
 		if (getCodigos_barras().size() <= 0) {
 			System.out.println("::: Articulo 559");
-			codigos_barras = "0";
+			codigos_barras = new StringBuilder("0");
 		}		
 		else if (getCodigos_barras().size() == 1) {
 			System.out.println("::: Articulo 543 paso3");
@@ -604,29 +605,29 @@ public class Articulo {
 		System.out.print("::: Articulo 549 el codigo de barra completo viene vacio");
 		
 		if(getBalanza()==8 && getCantidad()== -1.0 && getDecimales()!=3){
-			codigos_barras = String.valueOf(getCantidad());
-			}else if(getBalanza()==8 && getCantidad()!= -1.0 && getDecimales()!=3){
-				codigos_barras = String.valueOf(getCantidad());
-			}else if(getBalanza()!=8){
+			codigos_barras = new StringBuilder(String.valueOf(getCantidad()));
+		}else if(getBalanza()==8 && getCantidad()!= -1.0 && getDecimales()!=3){
+				codigos_barras = new StringBuilder(String.valueOf(getCantidad()));
+		}else if(getBalanza()!=8){
 				//codigos_barras = String.valueOf(getCantidad());
-			codigos_barras = String.valueOf(getCodigos_barras().get(0));
-			}else if(getBalanza()==8 && getCantidad()== -1.0 && getDecimales()==3){
+			codigos_barras = new StringBuilder(String.valueOf(getCodigos_barras().get(0)));
+		}else if(getBalanza()==8 && getCantidad()== -1.0 && getDecimales()==3){
 				//codigos_barras = String.valueOf(getCantidad());
-			codigos_barras = String.valueOf(getCodigos_barras().get(0));
-			}else if(getBalanza()==8 && getCantidad()!= -1.0 && getDecimales()!=3){
-				codigos_barras = String.valueOf(getCantidad());
+			codigos_barras = new StringBuilder(String.valueOf(getCodigos_barras().get(0)));
+//		}else if(getBalanza()==8 && getCantidad()!= -1.0 && getDecimales()!=3){
+//				codigos_barras = String.valueOf(getCantidad());
 		}
 	}else{
 		System.out.println("::: Articulo ELSE ");
 		if(getBalanza()==8 && getCantidad()== -1.0){
 			//codigos_barras = getCodigos_barras_completo().get(0).substring(7,12);
-			codigos_barras = getCodigos_barras_completo().get(0).substring(2, 7);
+			codigos_barras = new StringBuilder(getCodigos_barras_completo().get(0).substring(2, 7));
 			//codigos_barras = getCodigos_barras().get(0);
 			}else if(getBalanza()==8 && getCantidad()!= -1.0){
 				//codigos_barras = String.valueOf(getCantidad());
-			codigos_barras = String.valueOf(getCodigos_barras().get(0));
+			codigos_barras = new StringBuilder(String.valueOf(getCodigos_barras().get(0)));
 			}else if(getBalanza()!=8){
-				codigos_barras = String.valueOf(getCodigos_barras().get(0));
+				codigos_barras = new StringBuilder(String.valueOf(getCodigos_barras().get(0)));
 		}
 
 	}
@@ -636,15 +637,15 @@ public class Articulo {
 		} 
 		else {
 			System.out.println("::: Articulo 636 ");
-			codigos_barras = getCodigos_barras().get(0);
+			codigos_barras = new StringBuilder(getCodigos_barras().get(0));
 //		
 			for (int i = 1 ; i < getCodigos_barras().size() ; i++) {
-				codigos_barras += "," + getCodigos_barras().get(i);
+				codigos_barras.append(",").append(getCodigos_barras().get(i));
 		System.out.println("::: Articulo 636 codigos_barras " + codigos_barras);
 
 			}
 		}
-		return codigos_barras;
+		return codigos_barras.toString();
 	}
 
 
@@ -652,11 +653,11 @@ public class Articulo {
 		System.out.println("::: Articulo 651 getCodigosBarrasString_inv");
 		// Preparacion String = lista todos los codigos de barra del articulo
 
-		String codigos_barras = "";
+		StringBuilder codigos_barras = new StringBuilder();
 
 		if (getCodigos_barras().size() <= 0) {
 			System.out.println("::: Articulo 651");
-			codigos_barras = "0";
+			codigos_barras = new StringBuilder("0");
 		}
 		else if (getCodigos_barras().size() == 1) {
 			System.out.println("::: Articulo 651 paso3");
@@ -664,27 +665,27 @@ public class Articulo {
 				System.out.print("::: Articulo 651 el codigo de barra completo viene vacio");
 
 				if(getBalanza()==8 && getCantidad()== -1.0 && getDecimales()!=3){
-					codigos_barras = String.valueOf(getCantidad());
+					codigos_barras = new StringBuilder(String.valueOf(getCantidad()));
 				}else if(getBalanza()==8 && getCantidad()!= -1.0 && getDecimales()!=3){
-					codigos_barras = String.valueOf(getCantidad());
+					codigos_barras = new StringBuilder(String.valueOf(getCantidad()));
 				}else if(getBalanza()!=8){
-					codigos_barras = String.valueOf(getCantidad());
+					codigos_barras = new StringBuilder(String.valueOf(getCantidad()));
 				}else if(getBalanza()==8 && getCantidad()== -1.0 && getDecimales()==3){
-					codigos_barras = String.valueOf(getCantidad());
-				}else if(getBalanza()==8 && getCantidad()!= -1.0 && getDecimales()!=3){
-					codigos_barras = String.valueOf(getCantidad());
+					codigos_barras = new StringBuilder(String.valueOf(getCantidad()));
+//				}else if(getBalanza()==8 && getCantidad()!= -1.0 && getDecimales()!=3){
+//					codigos_barras = String.valueOf(getCantidad());
 				}
 			}else{
 				System.out.println("::: Articulo  677 ELSE ");
 				if(getBalanza()==8 && getCantidad()== -1.0){
 					System.out.println("::: Articulo 677 IFFFF ");
-				codigos_barras = getCodigos_barras().get(0);
+				codigos_barras = new StringBuilder(getCodigos_barras().get(0));
 				}else if(getBalanza()==8 && getCantidad()!= -1.0){
 					System.out.println("::: Articulo OTROOOO IFFFFFF ");
-					codigos_barras = String.valueOf(getCantidad());
+					codigos_barras = new StringBuilder(String.valueOf(getCantidad()));
 				}else if(getBalanza()!=8){
 					System.out.println("::: Articulo OTROOOO OTROOOO IFFFFF ");
-					codigos_barras = String.valueOf(getCodigos_barras().get(0));
+					codigos_barras = new StringBuilder(String.valueOf(getCodigos_barras().get(0)));
 				}
 
 			}
@@ -697,40 +698,40 @@ public class Articulo {
 		}
 		else {
 			System.out.println("::: Articulo 636 ");
-			codigos_barras = getCodigos_barras().get(0);
+			codigos_barras = new StringBuilder(getCodigos_barras().get(0));
 //
 			for (int i = 1 ; i < getCodigos_barras().size() ; i++) {
-				codigos_barras += "," + getCodigos_barras().get(i);
+				codigos_barras.append(",").append(getCodigos_barras().get(i));
 				System.out.println("::: Articulo 636 codigos_barras " + codigos_barras);
 
 			}
 		}
-		return codigos_barras;
+		return codigos_barras.toString();
 	}
 	
 	/*devulve el codigo de barra para balanza*/
 	public String getCodigos_barras_completo_string() {
 		System.out.println("::: Articulo 555 getcodigobarrascompleto ");
 		// Preparacion String = lista todos los codigos de barra del articulo
-		String codigos_barras_completo = "";
+		StringBuilder codigos_barras_completo = new StringBuilder();
 		if (getCodigos_barras_completo().size() <= 0) {
-			codigos_barras_completo = "0";
+			codigos_barras_completo = new StringBuilder("0");
 		}
 		else if (getCodigos_barras_completo().size() == 1) {
 
-			codigos_barras_completo = getCodigos_barras().get(0);
+			codigos_barras_completo = new StringBuilder(getCodigos_barras().get(0));
 				
 			System.out.println("::: Articulo 3 Metodo 2 cod comp 1 " + codigos_barras_completo);
 		} 
 		else {
-			codigos_barras_completo = getCodigos_barras_completo().get(0);
+			codigos_barras_completo = new StringBuilder(getCodigos_barras_completo().get(0));
 			for (int i = 1 ; i < getCodigos_barras_completo().size() ; i++) {
-				codigos_barras_completo += "," + getCodigos_barras_completo().get(i);
+				codigos_barras_completo.append(",").append(getCodigos_barras_completo().get(i));
 
 				System.out.println("::: Articulo 3 codi comp2 "+ codigos_barras);
 			}
 		}
-		return codigos_barras_completo;	
+		return codigos_barras_completo.toString();
 		}
 	
 

@@ -8,7 +8,7 @@ import androidx.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-/**
+/*
  * Clase accesoria que permite las conversiones entre balizas de XML,USB y de BDD
  * @author GuillermoR
  *
@@ -20,7 +20,7 @@ public class BalizasConversor {
 	public final static int XML = 2;
 	public final static int USB = 3;
 	
-	/**
+	/*
 	 * Almacena HashMaps con informaci�n de las Balizas
 	 */
 	private ArrayList<HashMap<Integer, String>> todos_vectores;
@@ -34,7 +34,7 @@ public class BalizasConversor {
 	}
 	
 	
-	/**
+	/*
 	 * Constructor con BDD y XML solos
 	 * @param baliza_BDD
 	 * @param baliza_XML
@@ -52,7 +52,7 @@ public class BalizasConversor {
 		todos_vectores.add(vector);
 	}
 	
-	/**
+	/*
 	 * Constructor con BDD, XML y USB
 	 * @param baliza_BDD
 	 * @param baliza_XML
@@ -71,7 +71,7 @@ public class BalizasConversor {
 		todos_vectores.add(vector);
 	}
 	
-	/**
+	/*
 	 * Convierte una baliza xml en una de tabla de bdd
 	 * @param bal_xml
 	 * @param tabla_bdd
@@ -96,7 +96,7 @@ public class BalizasConversor {
 					indice = todos_vectores.indexOf(vector);
 					String posible_resultado = (String) todos_vectores.get(indice).get(BDD);
 					
-					if (posible_resultado.contains(codigo_xml_tabla) == true) {
+					if (posible_resultado.contains(codigo_xml_tabla)) {
 						
 						Log.e("posible_resultado", posible_resultado);
 						return posible_resultado;

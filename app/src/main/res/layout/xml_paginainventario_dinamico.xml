@@ -3,12 +3,12 @@
     android:id="@+id/PID_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:gravity="start"
     android:background="@drawable/fondo_pagina_inventario" >
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:layout_centerInParent="true"
         android:gravity="start|center_horizontal"
         android:orientation="vertical">
 
@@ -28,8 +28,8 @@
 
             <ImageView
                 android:id="@+id/PID_boton_busqueda"
-                android:layout_width="35dp"
-                android:layout_height="35dp"
+                android:layout_width="43dp"
+                android:layout_height="45dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="1dp"
                 android:layout_marginRight="10dp"
@@ -46,22 +46,23 @@
             <ImageView
                 android:id="@+id/PID_boton_lectora"
                 android:layout_width="45dp"
-                android:layout_height="37dp"
-                android:layout_marginLeft="40dp"
+                android:layout_height="45dp"
+                android:layout_marginStart="40dp"
                 android:src="@drawable/lectora_mas_1" />
 
             <ImageView
                 android:id="@+id/Ic_Lectora_Din"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="50dp"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:layout_marginStart="50dp"
                 android:src="@drawable/ic_lectora" />
 
             <EditText
                 android:id="@+id/TextcodigoBarras"
                 android:layout_width="200dp"
                 android:layout_height="40dp"
-                android:layout_marginLeft="25dp"
+                android:layout_marginStart="50dp"
+                android:background="@drawable/edittext_bg"
                 android:layout_marginTop="15dp"
                 android:ems="10"
                 android:inputType="numberSigned" />
@@ -73,8 +74,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginLeft="100dp"
-                android:layout_marginRight="80dp"
+                android:layout_marginStart="100dp"
+                android:layout_marginEnd="80dp"
                 android:text="Inventarios Dinámicos"
                 android:textColor="@color/anaranjado_verde"
                 android:textSize="@dimen/titulo" />
@@ -286,7 +287,7 @@
                         android:id="@+id/PID_layout_lateral"
                         android:layout_width="30dp"
                         android:layout_height="300dp"
-                        android:layout_marginLeft="100dp"
+                        android:layout_marginStart="25dp"
                         android:gravity="center_vertical">
 
                         <ImageView
@@ -301,6 +302,7 @@
                             android:id="@+id/PID_layout_asensor"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
+                            android:layout_marginStart="850dp"
                             android:orientation="vertical">
 
                             <TextView
@@ -309,7 +311,7 @@
                                 android:layout_height="wrap_content"
                                 android:lines="0"
                                 android:text="aaaaaa"
-                                android:textSize="1dp" />
+                                android:textSize="12sp" />
 
                             <ImageView
                                 android:id="@+id/PID_asensor"
@@ -330,31 +332,14 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
-
-            <!-- <LinearLayout -->
-            <!-- android:layout_width="wrap_content" -->
-            <!-- android:layout_height="match_parent" -->
-            <!-- android:gravity="center" -->
-            <!-- android:orientation="horizontal" > -->
-            <!-- </LinearLayout> -->
-
-
-            <!-- <LinearLayout -->
-            <!-- android:layout_width="match_parent" -->
-            <!-- android:layout_height="match_parent" -->
-            <!-- android:layout_gravity="center" -->
-            <!-- android:orientation="horizontal" > -->
-            <!-- </LinearLayout> -->
-
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_horizontal">
             <Button
                 android:id="@+id/PID_boton_salir"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="300dp"
-                android:layout_marginTop="1dp"
-                android:layout_marginEnd="10dp"
+                android:gravity="center"
                 android:focusable="false"
                 android:text="Salir" />
         </LinearLayout>
@@ -399,18 +384,16 @@
         android:id="@+id/PID_boton_up"
         android:layout_width="40dp"
         android:layout_height="40dp"
-        android:layout_alignParentEnd="true"
-        android:layout_marginEnd="5dp"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginStart="860dp"
         android:src="@drawable/boton_up" />
 
     <ImageView
         android:id="@+id/PID_boton_down"
         android:layout_width="40dp"
         android:layout_height="40dp"
-        android:layout_alignParentEnd="true"
-        android:layout_marginEnd="5dp"
-        android:layout_marginTop="370dp"
+        android:layout_marginStart="860dp"
+        android:layout_marginTop="400dp"
         android:src="@drawable/boton_down" />
 
 </RelativeLayout>

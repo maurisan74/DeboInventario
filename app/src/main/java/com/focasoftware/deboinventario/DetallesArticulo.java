@@ -16,7 +16,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-/**
+/*
  * Activity que permite ver los detalles de un artculo seleccionado. Es llamada
  * desde la clase PaginaInventario.java.
  * 
@@ -25,51 +25,51 @@ import androidx.annotation.Nullable;
  */
 public class DetallesArticulo extends Activity implements DialogPersoSimple {
 
-	/**
+	/*
 	 * Variable para almacentar informacin de contexto de la activity,almacena
 	 * la instancia de esta activity
 	 */
 	@NonNull
     private Context ctxt = this;
-	/**
+	/*
 	 * Instancia de un objeto BaseDatos para manejar las sentencias contra la BD
 	 */
 	private BaseDatos bdd;
-	/**
+	/*
 	 * Boton que cierra lal activity y regresa a la pagina inventario
 	 * correspondiente
 	 */
 	private Button boton_volver;
-	/**
+	/*
 	 * Variable para almacenar el artculo cuyos detalles se estan viendo
 	 */
 	@Nullable
     private Articulo articulo_on_focus;
-	/**
+	/*
 	 * Variable para moestrar el nombre
 	 */
 	private TextView textview_nombre;
-	/**
+	/*
 	 * Variable para mostrar el sector del articulo
 	 */
 	private TextView textview_sector;
-	/**
+	/*
 	 * Variable para mostrar el codigo del articulo
 	 */
 	private TextView textview_codigo;
-	/**
+	/*
 	 * Variable para mostrar los codigos de barra concatenados?
 	 */
 	private TextView textview_codbar;
-	/**
+	/*
 	 * Variable para mostrar el precio del articulo
 	 */
 	private TextView textview_precio;
-	/**
+	/*
 	 * Variable para mostrar el costo del articulo
 	 */
 	private TextView textview_costo;
-	/**
+	/*
 	 * Variable para mostrar la cantidad actial
 	 */
 	private TextView textview_cantidad;
@@ -80,44 +80,44 @@ public class DetallesArticulo extends Activity implements DialogPersoSimple {
 	
 	
 	
-	/**
+	/*
 	 * Variable que muestra una posible imagen o foto del articlo
 	 */
 
-	/**
+	/*
 	 * Variable donde se almacena el nombre de la imagen
 	 */
 	@NonNull
     private String nombreImagen = "";
-	/**
+	/*
 	 * Variable auxiliar donde se almacena la foto tomada al articulo en caso de
 	 * haberlo hecho
 	 */
 	@Nullable
     private byte[] ba = null;
-	/**
+	/*
 	 * Dialogo para confirmar la satisfaccin de la foto
 	 */
 	private DialogPersoComplexFotoSiNo dialogo;
 
-	/**
+	/*
 	 * Variable para almacenar el intent llamo a esta activity
 	 */
 	private Intent intentPadre;
-	/**
+	/*
 	 * Variable auxiliar para almacenat el sector del articulo en cuestin
 	 */
 	private int sector;
-	/**
+	/*
 	 * Variable auxiliar para almacenar el codigo del articulo en cuestin
 	 */
 	private int codigo;
-	/**
+	/*
 	 * Variable auxiliar que almacena el numero de inventario del articulo
 	 */
 	private int inventario;
 
-	/**
+	/*
 	 * Inicializacion de UI y recuperacion de datos pasados por extras
 	 * <p>
 	 * 1 Recuperamos los extras
@@ -155,6 +155,7 @@ public class DetallesArticulo extends Activity implements DialogPersoSimple {
 		Bundle bundle = intentPadre.getExtras();
 
 		// 1 Recuperamos los extras:
+		assert bundle != null;
 		sector = bundle.getInt(ParametrosInventario.extra_sector);
 		codigo = bundle.getInt(ParametrosInventario.extra_codigo);
 		inventario = bundle.getInt(ParametrosInventario.extra_inventario);
@@ -203,6 +204,7 @@ public class DetallesArticulo extends Activity implements DialogPersoSimple {
 		});
 
 		// 5 Configuracin del valor:
+		assert articulo_on_focus != null;
 		textview_nombre.setText(articulo_on_focus.getDescripcion());
 		textview_sector.setText(String.valueOf(articulo_on_focus.getSector()));
 		textview_codigo.setText(String.valueOf(articulo_on_focus.getCodigo()));
@@ -263,8 +265,7 @@ public class DetallesArticulo extends Activity implements DialogPersoSimple {
 						log.log("Acepto", 0);
 					}
 				});
-		AlertDialog alert = dialogoSimple.create();
-		return alert;
+		return dialogoSimple.create();
 	}
 
 	/**

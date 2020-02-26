@@ -143,7 +143,7 @@ public class HttpSender {
 		}
 	}
 
-	/**
+	/*
 	 * Funcion que manda un archivo xml pasado por parametro a una url
 	 * almacenada en la variable de clase
 	 *
@@ -155,7 +155,6 @@ public class HttpSender {
 	public boolean send_xml(String url_archivo_que_mandar) {
 
 		try {
-
 			File file = new File(url_archivo_que_mandar);
 
 			HttpClient client = new DefaultHttpClient();

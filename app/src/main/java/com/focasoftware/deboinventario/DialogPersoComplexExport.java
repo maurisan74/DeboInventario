@@ -29,7 +29,7 @@ public class DialogPersoComplexExport extends Dialog{
 	 */
 	private boolean borrar_luego = false;
 	
-	/**
+	/*
 	 * Constructor completo que incializa la UI y carga los handlers correspondientes
 	 * <p>1� Construcci�n del t�tulo
 	 * <p>2� Cargamos el layout y main layout

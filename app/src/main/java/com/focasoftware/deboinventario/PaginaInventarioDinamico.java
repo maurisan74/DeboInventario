@@ -1,5 +1,6 @@
 package com.focasoftware.deboinventario;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -3761,9 +3762,7 @@ void mostrarMensaje(int valorRecibido){
 				ArrayList<String> lista_todos_nombres = new ArrayList<String>();
 
 				for (ArticuloVisible articulo : listaArticulosCompleta) {
-					if (articulo.esVisible() == true) {
-						lista_todos_nombres.add(articulo.getDescripcion());
-					}
+					if (articulo.esVisible()) lista_todos_nombres.add(articulo.getDescripcion());
 				}
 
 				// ////////////////////////
@@ -3802,8 +3801,7 @@ void mostrarMensaje(int valorRecibido){
 							// lista_resultados =
 							// bdd.buscar(inventario_numero_en_curso, busqueda);
 							// Deberia devolverme una lista de articulos
-							lista_resultados = bdd
-									.buscarEnReferenciasPorCodigoODescripcion(busqueda);
+							lista_resultados = bdd.buscarEnReferenciasPorCodigoODescripcion(busqueda);
 							//
 						} catch (ExceptionBDD e) {
 
@@ -3832,11 +3830,9 @@ void mostrarMensaje(int valorRecibido){
 						}
 
 						// 3) Escondemos el teclado virtual:
-						edittextBusqueda = (EditText) dialogoBusqueda
-								.findViewById(R.id.Z_DIALOG_editext);
+						edittextBusqueda = (EditText) dialogoBusqueda.findViewById(R.id.Z_DIALOG_editext);
 						InputMethodManager mgr = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-						mgr.hideSoftInputFromWindow(
-								edittextBusqueda.getWindowToken(), 0);
+						mgr.hideSoftInputFromWindow(edittextBusqueda.getWindowToken(), 0);
 
 						// 4) Cerrar el menu anterior:
 						dialogoBusqueda.cancel();
@@ -3917,25 +3913,19 @@ void mostrarMensaje(int valorRecibido){
 
 							public void onClick(View v) {
 
-								log.log("[-- 2639 --]"
-										+ "Se hizo clic en Elegicon Respeusta",
-										0);
+								log.log("[-- 2639 --]" + "Se hizo clic en Elegicon Respeusta", 0);
 								// toDo;
 								LinearLayout tableR = (LinearLayout) v;
-								articulo_resultado_busqueda = dialogoResultados
-										.get_codigos_articulo_seleccionado();
+								articulo_resultado_busqueda = dialogoResultados.get_codigos_articulo_seleccionado();
 								// int indice =
 								// get_indice_con_articulos(articulo_resultado_busqueda);
 								// buscar el articulo en las referencias
-								int codigo = articulo_resultado_busqueda
-										.get(ParametrosInventario.clave_art_codigo);
-								int sector = articulo_resultado_busqueda
-										.get(ParametrosInventario.clave_art_sector);
+								int codigo = articulo_resultado_busqueda.get(ParametrosInventario.clave_art_codigo);
+								int sector = articulo_resultado_busqueda.get(ParametrosInventario.clave_art_sector);
 
 								ArticuloVisible art = null;
 								try {
-									art = bdd.buscarArticuloEnReferencias(
-											codigo, sector);
+									art = bdd.buscarArticuloEnReferencias(codigo, sector);
 								} catch (ExceptionBDD e1) {
 
 									log.log("[-- 2658 --]" + e1.toString(), 4);
@@ -3949,12 +3939,9 @@ void mostrarMensaje(int valorRecibido){
 											Toast.LENGTH_LONG).show();
 								}
 								if (art != null) {
-
 									boolean esta = false;
 									for (ArticuloVisible aux : listaArticulosCompleta) {
-										if (aux.getCodigo() == art.getCodigo()
-												&& aux.getSector() == art
-														.getSector()) {
+										if (aux.getCodigo() == art.getCodigo() && aux.getSector() == art.getSector()) {
 											esta = true;
 											break;
 										}
@@ -3977,12 +3964,7 @@ void mostrarMensaje(int valorRecibido){
 													+ e.toString(), 4);
 											// TODO Auto-generated catch block
 											e.printStackTrace();
-											Toast.makeText(
-													ctxt,
-													"El proceso de actualizacion del articulo "
-															+ "ha fracasado con el siguiente error: "
-															+ e.toString(),
-													Toast.LENGTH_LONG).show();
+											Toast.makeText(ctxt, "El proceso de actualizacion del articulo " + "ha fracasado con el siguiente error: " + e.toString(), Toast.LENGTH_LONG).show();
 										}
 										// Refrescar la tabla
 										actualizarPaginaInventario(inventario_numero_en_curso);
@@ -4021,9 +4003,7 @@ void mostrarMensaje(int valorRecibido){
 										// }
 
 										InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-										imm.toggleSoftInput(
-												InputMethodManager.SHOW_FORCED,
-												0);
+										imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, 0);
 										// asd;
 
 									} else {
@@ -4041,12 +4021,7 @@ void mostrarMensaje(int valorRecibido){
 
 									}
 								} else {
-									Toast.makeText(
-											ctxt,
-											"No se encontro el articulo con codigo = "
-													+ codigo + ", y sector = "
-													+ sector, Toast.LENGTH_LONG)
-											.show();
+									Toast.makeText(ctxt, "No se encontro el articulo con codigo = " + codigo + ", y sector = " + sector, Toast.LENGTH_LONG).show();
 								}
 
 							}
@@ -4056,10 +4031,8 @@ void mostrarMensaje(int valorRecibido){
 
 							public void onClick(View v) {
 
-								log.log("[-- 2773 --]" + "Se presiono cancelar",
-										0);
+								log.log("[-- 2773 --]" + "Se presiono cancelar", 0);
 								dialogoResultados.cancel();
-
 								dialogoBusqueda.show();
 
 								/*
@@ -4075,18 +4048,9 @@ void mostrarMensaje(int valorRecibido){
 							}
 						};
 
-						dialogoResultados = new DialogPersoComplexResultados(
-								ctxt, lista_resultados,
-								listenerEleccionRespuesta, listenerCancel);
-						dialogoResultados
-								.setOnShowListener(new DialogInterface.OnShowListener() {
-
-									public void onShow(DialogInterface dialog) {
-										fueCanceladoDialogoResultados = false;
-									}
-								});
-						dialogoResultados
-								.setOnDismissListener(new OnDismissListener() {
+						dialogoResultados = new DialogPersoComplexResultados(ctxt, lista_resultados, listenerEleccionRespuesta, listenerCancel);
+						dialogoResultados.setOnShowListener(new DialogInterface.OnShowListener() {public void onShow(DialogInterface dialog) { fueCanceladoDialogoResultados = false; }});
+						dialogoResultados.setOnDismissListener(new OnDismissListener() {
 
 									public void onDismiss(DialogInterface dialog) {
 										respuestaSeleccionada = -99;
@@ -4095,25 +4059,14 @@ void mostrarMensaje(int valorRecibido){
 											// hacemos:
 											int indice_nuevo = indice_on_focus;
 
-											if (indice_on_focus >= 0) {
-												seleccionarMostrarIndiceArticulo(indice_nuevo);
-											} else {
-												showSimpleDialogTimer(
-														"Articulo oculto",
-														"El resultado de su busqueda es un articulo bloqueado por un filtro!",
-														5000).show();
-											}
+											if (indice_on_focus >= 0) { seleccionarMostrarIndiceArticulo(indice_nuevo);
+											} else { showSimpleDialogTimer("Articulo oculto", "El resultado de su busqueda es un articulo bloqueado por un filtro!", 5000).show(); }
 										}
 									}
 								});
-						dialogoResultados
-								.setOnCancelListener(new OnCancelListener() {
-
+						dialogoResultados.setOnCancelListener(new OnCancelListener() {
 									public void onCancel(DialogInterface dialog) {
-
-										log.log("[-- 2827 --]"
-												+ "Se presiono cancelar en Dialogo Resultados",
-												0);
+										log.log("[-- 2827 --]" + "Se presiono cancelar en Dialogo Resultados", 0);
 										fueCanceladoDialogoResultados = true;
 									}
 								});
@@ -4121,26 +4074,19 @@ void mostrarMensaje(int valorRecibido){
 					}
 				};
 
-				dialogoBusqueda = new DialogPersoComplexBusqueda(
-						ctxt,
+				dialogoBusqueda = new DialogPersoComplexBusqueda(ctxt,
 						"Buscar un articulo",
 						"Esta herramienta de busqueda le permitira encontrar un articulo en particular. \n\n"
 								+ "Por favor, ingrese el nombre o el codigo de articulo Debo en el campo situado mas abajo. \n\n",
-						inventario_numero_en_curso, listenerBusqueda,
-						listenerCancelar);
-				dialogoBusqueda
-						.setOnShowListener(new DialogInterface.OnShowListener() {
+						inventario_numero_en_curso, listenerBusqueda, listenerCancelar);
+				dialogoBusqueda.setOnShowListener(new DialogInterface.OnShowListener() {
 
 							public void onShow(DialogInterface dialog) {
-
 								log.log("[-- 2847 --]"
 										+ "Se muestra el cuador de dialogo de Busqueda",
 										0);
-								edittextBusqueda = (EditText) dialogoBusqueda
-										.findViewById(R.id.Z_DIALOG_editext);
-								InputMethodManager mgr = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-								mgr.showSoftInput(edittextBusqueda,
-										InputMethodManager.SHOW_FORCED);
+								edittextBusqueda = (EditText) dialogoBusqueda.findViewById(R.id.Z_DIALOG_editext);
+								InputMethodManager mgr = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);mgr.showSoftInput(edittextBusqueda, InputMethodManager.SHOW_FORCED);
 							}
 						});
 				dialogoBusqueda.show();
@@ -4196,11 +4142,9 @@ void mostrarMensaje(int valorRecibido){
 				ImageView imgV = (ImageView) v;
 
 				if (event.getAction() == MotionEvent.ACTION_DOWN) {
-					imgV.setImageDrawable(getResources().getDrawable(
-							R.drawable.boton_up_select));
+					imgV.setImageDrawable(getResources().getDrawable(R.drawable.boton_up_select));
 				} else if (event.getAction() == MotionEvent.ACTION_UP) {
-					imgV.setImageDrawable(getResources().getDrawable(
-							R.drawable.boton_up));
+					imgV.setImageDrawable(getResources().getDrawable(R.drawable.boton_up));
 				}
 				return false;
 			}
@@ -4209,9 +4153,7 @@ void mostrarMensaje(int valorRecibido){
 		flecha_arriba.setOnClickListener(new View.OnClickListener() {
 
 			public void onClick(View v) {
-				log.log("[-- 2923 --]"
-						+ "Se presiono la fecha riiba, se mueve la tabla Articulos",
-						0);
+				log.log("[-- 2923 --]" + "Se presiono la fecha riiba, se mueve la tabla Articulos", 0);
 				moverTablaArticulos(-1);
 			}
 		});
@@ -4224,11 +4166,9 @@ void mostrarMensaje(int valorRecibido){
 				ImageView imgV = (ImageView) v;
 
 				if (event.getAction() == MotionEvent.ACTION_DOWN) {
-					imgV.setImageDrawable(getResources().getDrawable(
-							R.drawable.boton_down_select));
+					imgV.setImageDrawable(getResources().getDrawable(R.drawable.boton_down_select));
 				} else if (event.getAction() == MotionEvent.ACTION_UP) {
-					imgV.setImageDrawable(getResources().getDrawable(
-							R.drawable.boton_down));
+				    imgV.setImageDrawable(getResources().getDrawable(R.drawable.boton_down));
 				}
 				return false;
 			}
@@ -4237,10 +4177,7 @@ void mostrarMensaje(int valorRecibido){
 		flecha_abajo.setOnClickListener(new View.OnClickListener() {
 
 			public void onClick(View v) {
-				log.log("[-- 2942 --]"
-						+ "Se presiono la flecha abajo, se mueve la tabla de Articulos",
-						0);
-				moverTablaArticulos(1);
+				log.log("[-- 2942 --]" + "Se presiono la flecha abajo, se mueve la tabla de Articulos", 0);moverTablaArticulos(1);
 			}
 		});
 
@@ -4298,12 +4235,8 @@ void mostrarMensaje(int valorRecibido){
 						+ "Se presiono para ordenar por codigo, onclic", 0);
 				view.setBackgroundColor(ContextCompat.getColor(ctxt,R.color.verde_claro));
 
-				if (columna_ordonante != 0) {
-					Collections.sort(listaArticulosCompleta,
-							Articulo.ORDEN_CODIGO);
-				} else {
-					Collections.reverse(listaArticulosCompleta);
-				}
+				if (columna_ordonante != 0) { Collections.sort(listaArticulosCompleta, Articulo.ORDEN_CODIGO);
+				} else { Collections.reverse(listaArticulosCompleta); }
 				columna_ordonante = 0;
 				indice_primera_linea = 0;
 				refreshTablaCentral();
@@ -4315,8 +4248,7 @@ void mostrarMensaje(int valorRecibido){
 
 					public boolean onLongClick(View v) {
 						System.out.println("::: PaginaInventarioDinamico 3270");
-						log.log("[-- 3024 --]"
-								+ "Se presiono para filtrar, longClic", 0);
+						log.log("[-- 3024 --]" + "Se presiono para filtrar, longClic", 0);
 						showMenuFiltro(ParametrosInventario.filtro_sector);
 						encabezado_codigo.setBackgroundColor(ContextCompat.getColor(ctxt,R.color.verde_claro));
 						return true;
@@ -4342,17 +4274,11 @@ void mostrarMensaje(int valorRecibido){
 		encabezado_descripcion.setOnClickListener(new View.OnClickListener() {
 
 			public void onClick(@NonNull View view) {
-				log.log("[-- 3051 --]"
-						+ "Se presiono para ordenar por descripcion, efectivamente",
-						0);
+				log.log("[-- 3051 --]" + "Se presiono para ordenar por descripcion, efectivamente", 0);
 				view.setBackgroundColor(ContextCompat.getColor(ctxt,R.color.verde_claro));
 
-				if (columna_ordonante != 1) {
-					Collections
-							.sort(listaArticulosCompleta, Articulo.ORDEN_NOM);
-				} else {
-					Collections.reverse(listaArticulosCompleta);
-				}
+				if (columna_ordonante != 1) { Collections.sort(listaArticulosCompleta, Articulo.ORDEN_NOM);
+				} else { Collections.reverse(listaArticulosCompleta); }
 				columna_ordonante = 1;
 				indice_primera_linea = 0;
 				refreshTablaCentral();
@@ -4364,8 +4290,7 @@ void mostrarMensaje(int valorRecibido){
 
 			public boolean onTouch(@NonNull View view, @NonNull MotionEvent motionEvent) {
 
-				log.log("[-- 3072 --]"
-						+ "Se presiono para ordenar por precio de venta", 0);
+				log.log("[-- 3072 --]" + "Se presiono para ordenar por precio de venta", 0);
 				bufferLectoraCB = "";
 				if (motionEvent.getAction() == MotionEvent.ACTION_DOWN) {
 					view.setBackgroundColor(ContextCompat.getColor(ctxt,R.color.anaranjado_verde));
@@ -4378,17 +4303,11 @@ void mostrarMensaje(int valorRecibido){
 		encabezado_precio_venta.setOnClickListener(new View.OnClickListener() {
 
 			public void onClick(@NonNull View view) {
-				log.log("[-- 3086 --]"
-						+ "Se presiono para ordenar por precio de venta, onclic",
-						0);
+				log.log("[-- 3086 --]" + "Se presiono para ordenar por precio de venta, onclic", 0);
 				view.setBackgroundColor(ContextCompat.getColor(ctxt,R.color.verde_claro));
 
-				if (columna_ordonante != 2) {
-					Collections.sort(listaArticulosCompleta,
-							Articulo.ORDEN_PRECIO_VENTA);
-				} else {
-					Collections.reverse(listaArticulosCompleta);
-				}
+				if (columna_ordonante != 2) { Collections.sort(listaArticulosCompleta, Articulo.ORDEN_PRECIO_VENTA);
+				} else { Collections.reverse(listaArticulosCompleta); }
 				columna_ordonante = 2;
 				indice_primera_linea = 0;
 				refreshTablaCentral();
@@ -4399,8 +4318,7 @@ void mostrarMensaje(int valorRecibido){
 				.setOnLongClickListener(new View.OnLongClickListener() {
 
 					public boolean onLongClick(View v) {
-						log.log("[-- 3106 --]"
-								+ "Se abre el menu de filtro, longClic", 0);
+						log.log("[-- 3106 --]" + "Se abre el menu de filtro, longClic", 0);
 						showMenuFiltro(ParametrosInventario.filtro_precio);
 						encabezado_precio_venta.setBackgroundColor(ContextCompat.getColor(ctxt,R.color.verde_claro));
 						return true;
@@ -4412,12 +4330,10 @@ void mostrarMensaje(int valorRecibido){
 
 			public boolean onTouch(@NonNull View view, @NonNull MotionEvent motionEvent) {
 
-				log.log("[-- 3120 --]"
-						+ "Se presiono para ordenar por cantidades", 0);
+				log.log("[-- 3120 --]" + "Se presiono para ordenar por cantidades", 0);
 				bufferLectoraCB = "";
 				if (motionEvent.getAction() == MotionEvent.ACTION_DOWN) {
-					view.setBackgroundColor(ContextCompat.getColor(ctxt,R.color.anaranjado_verde));
-					deseleccionarLineaParticular(indice_on_focus);
+					view.setBackgroundColor(ContextCompat.getColor(ctxt,R.color.anaranjado_verde));deseleccionarLineaParticular(indice_on_focus);
 				}
 				return false;
 			}
@@ -4427,14 +4343,9 @@ void mostrarMensaje(int valorRecibido){
 
 			public void onClick(@NonNull View view) {
 				view.setBackgroundColor(ContextCompat.getColor(ctxt,R.color.verde_claro));
-				if (columna_ordonante != 3) {
-					Collections.sort(listaArticulosCompleta,
-							Articulo.ORDEN_CANTIDAD);
-				} else {
-					Collections.reverse(listaArticulosCompleta);
-				}
-				log.log("[-- 3142 --]"
-						+ "Se presiono par ordenar por cantidades, onclc", 0);
+				if (columna_ordonante != 3) { Collections.sort(listaArticulosCompleta, Articulo.ORDEN_CANTIDAD);
+				} else { Collections.reverse(listaArticulosCompleta); }
+				log.log("[-- 3142 --]" + "Se presiono par ordenar por cantidades, onclc", 0);
 				columna_ordonante = 3;
 				indice_primera_linea = 0;
 				refreshTablaCentral();
@@ -4446,9 +4357,7 @@ void mostrarMensaje(int valorRecibido){
 
 					public boolean onLongClick(View v) {
 
-						log.log("[-- 3154 --]"
-								+ "Se presiono para ordenar cantidades, longclic",
-								0);
+						log.log("[-- 3154 --]" + "Se presiono para ordenar cantidades, longclic", 0);
 						deseleccionarLineaParticular(indice_on_focus);
 						showMenuFiltro(ParametrosInventario.filtro_inventario);
 						encabezado_cantidad.setBackgroundColor(ContextCompat.getColor(ctxt,R.color.verde_claro));
@@ -4461,8 +4370,7 @@ void mostrarMensaje(int valorRecibido){
 		radioBVenta
 				.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
 
-					public void onCheckedChanged(CompoundButton buttonView,
-							boolean isChecked) {
+					public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
 						System.out.println("::: PaginaInventarioDinamico venta");
 
 						log.log("[-- 3171 --]" + "Cambia de estado radioVenta",
@@ -4479,23 +4387,18 @@ void mostrarMensaje(int valorRecibido){
 		radioBDepo
 				.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
 
-					public void onCheckedChanged(CompoundButton buttonView,
-							boolean isChecked) {
+					public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
 						System.out.println("::: PaginaInventarioDinamico Deposito");
 						log.log("[-- 3186 --]" + "Cambia de estado radioDep", 0);
 						// TODO Auto-generated method stub
-						if (isChecked) {
-							actualizarPaginaInventario(ParametrosInventario.ID_INV_DIN_DEP);
-							
-						}
-
+						if (isChecked) actualizarPaginaInventario(ParametrosInventario.ID_INV_DIN_DEP);
 					}
 				});
 		
 		System.out.println("::: XXXXXXXXXXXXXXXXXXXXXXXXXXXXX V ::: "+radioBVenta+" Dep " +radioBDepo);
 	}
 
-	/**
+	/*
 	 * Creamos el thread que va mostrar y destruir el menu
 	 * 
 	 * @author GuillermoR
@@ -4513,16 +4416,14 @@ void mostrarMensaje(int valorRecibido){
 			super.onPostExecute(result);
 			try {
 				alert.dismiss();
-
 			} catch (Exception ex) {
-
 				log.log("[-- 3216--]" + ex.toString(), 4);
 				ex.printStackTrace();
 			}
 		}
 	}
 
-	/**
+	/*
 	 * Funcin para buscar el indice de un articulo en la lista por codigo y
 	 * sector
 	 * <p>
@@ -4580,7 +4481,7 @@ void mostrarMensaje(int valorRecibido){
 	 * super.onKeyUp(keyCode, event); } } return true; }
 	 */
 
-	/**
+	/*
 	 * Funcion que se llama luego de que se levanta la tecla.Esto procesa todos
 	 * los eventos de teclado y codigo de barra.
 	 * 
@@ -4611,8 +4512,7 @@ void mostrarMensaje(int valorRecibido){
 
 			} else if (event.getKeyCode() == KeyEvent.KEYCODE_ENTER) {
 				/* Se ley un codigo completo de CB, se lo procesa y vacia el buffer*/
-				log.log("[-- 3539 --]" + "Codigo de Barras: " + bufferLectoraCB
-						+ ", from lectora: " + 0, 3);
+                log.log("[-- 3539 --]" + "Codigo de Barras: " + bufferLectoraCB + ", from lectora: " + 0, 3);
 				try {
 					processArticuloConCB(bufferLectoraCB, true);
 				} catch (ExceptionBDD e) {
@@ -4627,9 +4527,7 @@ void mostrarMensaje(int valorRecibido){
 					View.OnClickListener listenerNegativo = new View.OnClickListener() {
 
 						public void onClick(View v) {
-
-							log.log("[-- 3525 --]"
-									+ "Se abre el cuadro para un articulo nuevo", 0);
+							log.log("[-- 3525 --]" + "Se abre el cuadro para un articulo nuevo", 0);
 							dialogoNombreArticuloNuevo.cancel();
 							loadingBar.setVisibility(View.GONE);
 						}
@@ -4638,9 +4536,7 @@ void mostrarMensaje(int valorRecibido){
 					View.OnClickListener listenerPositivo = new View.OnClickListener() {
 
 						public void onClick(View v) {
-							log.log("[-- 3534 --]"
-									+ "Se abre el cuadro para un articulo nuevo, onclic",
-									0);
+							log.log("[-- 3534 --]" + "Se abre el cuadro para un articulo nuevo, onclic", 0);
 							// 2.2.2 Crear articulo visible nuevo no existnte en las
 							// referencias de la BDD:
 							ArticuloVisible a_v = new ArticuloVisible(true);
@@ -4655,11 +4551,8 @@ void mostrarMensaje(int valorRecibido){
 
 							a_v.setFechaFin(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
 							a_v.setInventario(inventario_numero_en_curso);
-							if (modo_mas_1 == 1) {
-								a_v.setCantidad(1);
-							} else {
-								a_v.setCantidad(-1);
-							}
+							if (modo_mas_1 == 1) { a_v.setCantidad(1);
+							} else { a_v.setCantidad(-1); }
 
 							// 2.2.3 Modificar el nombre/descripcin del artculo:
 							String n_texto = dialogoNombreArticuloNuevo.get_text();
@@ -4710,20 +4603,14 @@ void mostrarMensaje(int valorRecibido){
 						}
 					};
 
-					dialogoNombreArticuloNuevo = new DialogPersoComplexEditTextOkCancel(
-							ctxt,
-							"Nuevo Articulo Escaneado",
-							"El articulo escaneado no ha podido ser identificado.\n"
-									+ "Si lo desea, usted puede ingresar una breve descripcion del producto:",
-							DialogPerso.IMAGEN_ARTICULO, DialogPerso.INPUT_LETRAS,
-							listenerPositivo, listenerNegativo);
+					dialogoNombreArticuloNuevo = new DialogPersoComplexEditTextOkCancel(ctxt, "Nuevo Articulo Escaneado", "El articulo escaneado no ha podido ser identificado.\n" + "Si lo desea, usted puede ingresar una breve descripcion del producto:", DialogPerso.IMAGEN_ARTICULO, DialogPerso.INPUT_LETRAS, listenerPositivo, listenerNegativo);
 					dialogoNombreArticuloNuevo.show();
 				}
 				refrescarEncabezado(inventario_numero_en_curso);
 				System.out.println("::: PaginaInventarioDinamico 531 salio refrescarencabezado 2 ");
 				bufferLectoraCB = "";
 			} else if (event.getKeyCode() == KeyEvent.KEYCODE_BACK) {
-				/**
+				/*
 				 * Volvemos a la pagina anterior
 				 */
 				bufferLectoraCB = "";
@@ -4739,12 +4626,11 @@ void mostrarMensaje(int valorRecibido){
 				// Toast.makeText(ctxt, String.valueOf(car),
 				// Toast.LENGTH_SHORT).show();
 				if (bufferLectoraCB.length() <= 0) {
-					/**
+					/*
 					 * Para guardar el valor por si se lee como cantidad un
 					 * valor no valido
 					 */
-					valor_antes_modificar = listaArticulosCompleta.get(
-							indice_on_focus).getCantidad();
+					valor_antes_modificar = listaArticulosCompleta.get(indice_on_focus).getCantidad();
 				}
 				bufferLectoraCB += String.valueOf(car);
 			} else if (event.getKeyCode() == KeyEvent.KEYCODE_BACK) {
@@ -4753,21 +4639,20 @@ void mostrarMensaje(int valorRecibido){
 			} else if (event.getKeyCode() == KeyEvent.KEYCODE_ENTER) {
 
 				if (bufferLectoraCB.length() <= 0) {
-					/**
+					/*
 					 * Se presion enter pero no se ha leido por CB
 					 */
 					deseleccionarLineaParticular(indice_on_focus);
 					refrescarEncabezado(inventario_numero_en_curso);
 					System.out.println("::: PaginaInventarioDinamico 531 salio refrescarencabezado 3");
 				} else if (bufferLectoraCB.length() > ParametrosInventario.TAMANO_MAX_CANTIDAD) {
-					/**
+					/*
 					 * Cuando se leyo algo en la cantidad que no es valido
 					 */
 					showSimpleDialogOK(
 							"Error al leer cantidad",
 							"La cantidad leida tiene mas digitos de "
-									+ "los permitidos,por favor reingrese la cantidad")
-							.show();
+									+ "los permitidos,por favor reingrese la cantidad").show();
 					deseleccionarLineaParticular(indice_on_focus, false);
 					// deseleccionarLineaParticular(indice_on_focus, true);
 				} else {
@@ -4785,7 +4670,7 @@ void mostrarMensaje(int valorRecibido){
 		return true;
 	}
 
-	/**
+	/*
 	 * Procesa el CB leido para buscarlo en la lista o aadirlo si no esta o
 	 * crear uno nuevo si no existe en las referencias
 	 * <p>
@@ -4849,7 +4734,8 @@ void mostrarMensaje(int valorRecibido){
 	 * @param from_lectoraCB
 	 * @throws ExceptionBDD
 	 */
-	private void processArticuloConCB(@NonNull final String cb, boolean from_lectoraCB) throws ExceptionBDD {
+	@SuppressLint("SimpleDateFormat")
+    private void processArticuloConCB(@NonNull final String cb, boolean from_lectoraCB) throws ExceptionBDD {
 		System.out.println("::: PaginaInventarioDinamico ArticuloConCB");
 		boolean condicionBalanza = ParametrosInventario.balanza;
 		Articulo artic = null;
@@ -4869,8 +4755,7 @@ void mostrarMensaje(int valorRecibido){
 			}
 		}
 		TextcodigoBarras.setText("");
-		log.log("[-- 3539 --]" + "Codgio de Barras: " + cb + ", from lectora: "
-				+ from_lectoraCB, 3);
+		log.log("[-- 3539 --]" + "Codgio de Barras: " + cb + ", from lectora: " + from_lectoraCB, 3);
 //		loadingBar.setVisibility(View.VISIBLE);
 //		loadingBar.bringToFront();
 		// Se considera que aqui el orden de clasificacion puede ser violado,
@@ -4901,8 +4786,7 @@ void mostrarMensaje(int valorRecibido){
 			for (ArrayList<String> tablaCodigosUnArticulo : listaCodigosDeBarrasOrdenados) {
 				if (tablaCodigosUnArticulo.contains((String) cb)) {
 					// Obtenemos el indice de la linea seleccionada:
-					indice_articulo_encontrado = listaCodigosDeBarrasOrdenados
-							.indexOf(tablaCodigosUnArticulo);
+					indice_articulo_encontrado = listaCodigosDeBarrasOrdenados.indexOf(tablaCodigosUnArticulo);
 					break;
 				} // end if
 			} // end for
@@ -4934,11 +4818,9 @@ void mostrarMensaje(int valorRecibido){
 				boolean seguir = true;
 				if (artComprobacion != null) {
 					for (ArrayList<String> tablaCodigosUnArticulo : listaCodigosDeBarrasOrdenados) {
-						if (tablaCodigosUnArticulo.contains(artComprobacion
-								.getCodigos_barras_string())) {
+						if (tablaCodigosUnArticulo.contains(artComprobacion.getCodigos_barras_string())) {
 							// Obtenemos el indice de la linea seleccionada:
-							indice_articulo_encontrado = listaCodigosDeBarrasOrdenados
-									.indexOf(tablaCodigosUnArticulo);
+							indice_articulo_encontrado = listaCodigosDeBarrasOrdenados.indexOf(tablaCodigosUnArticulo);
 							seleccionarMostrarIndiceArticulo(indice_articulo_encontrado);
 							seguir = false;
 							break;
@@ -4953,7 +4835,7 @@ void mostrarMensaje(int valorRecibido){
 
 					if(ParametrosInventario.InventariosDeposito && a.getDepsn()==1){
 						if (modo_mas_1 == 1) {
-							if(condicionBalanza==true){
+							if(condicionBalanza){
 								if(a.getBalanza()==8 && a.getDecimales()==3){
 									String sumar1 = cb.substring(7,9);
 									String sumar2 = cb.substring(9,12);
@@ -4979,8 +4861,7 @@ void mostrarMensaje(int valorRecibido){
 						a.setCantidad(-1);
 					}
 					if (a.getFechaInicio().length() == 0) { a.setFechaInicio(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date())); }
-					a.setFechaFin(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss")
-							.format(new Date()));
+					a.setFechaFin(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
 					a.setInventario(inventario_numero_en_curso);
 
 					// 2.1.1 Agregamos este articulo en el listado de los
@@ -5005,11 +4886,11 @@ void mostrarMensaje(int valorRecibido){
 					if (modo_mas_1 == 1) {
 						deseleccionarLineaParticular(indice_on_focus);
 					}
-					}else if(ParametrosInventario.InventariosDeposito == true && a.getDepsn()==0){
+					}else if(ParametrosInventario.InventariosDeposito && a.getDepsn()==0){
 						mostrarMensaje(a.getDepsn());
-					}else if(ParametrosInventario.InventariosVentas == true){
+					}else if(ParametrosInventario.InventariosVentas){
 						if (modo_mas_1 == 1) {
-							if(condicionBalanza==true){
+							if(condicionBalanza){
 								if(a.getBalanza()==8 && a.getDecimales()==3){
 										String sumar1 = cb.substring(7,9);
 										String sumar2 = cb.substring(9,12);
@@ -5032,7 +4913,7 @@ void mostrarMensaje(int valorRecibido){
 								a.setCantidad(1);
 							}
 					} else {
-							if(condicionBalanza==true){
+							if(condicionBalanza){
 								if(a.getBalanza()==8 && a.getDecimales()==3){
 									String sumar1 = cb.substring(7,9);
 									String sumar2 = cb.substring(9,12);
@@ -5061,11 +4942,7 @@ void mostrarMensaje(int valorRecibido){
 					}
 				
 					if (a.getFechaInicio().length() == 0) a.setFechaInicio(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
-
-				
-					a.setFechaFin(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss")
-							.format(new Date()));
-					
+					a.setFechaFin(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
 					a.setInventario(inventario_numero_en_curso);
 
 					// 2.1.1 Agregamos este articulo en el listado de los
@@ -5075,7 +4952,6 @@ void mostrarMensaje(int valorRecibido){
 
 					// 2.1.2 Agregar este articulo a la base, tabla ARTICULOS:
 					System.out.println("::::: LLAMADO 2");
-					
 					bdd.insertArticuloEnBdd(a);
 
 					// 2.1.3 Para que se refresce el encabezado
@@ -5086,8 +4962,7 @@ void mostrarMensaje(int valorRecibido){
 					// encontrado ya en la lista):
 					//	seleccionarMostrarIndiceArticulo(listaArticulosCompleta
 				//				.size() - 1);
-						seleccionarMostrarIndiceArticuloBalanza(listaArticulosCompleta
-							.size() - 1,cb);
+						seleccionarMostrarIndiceArticuloBalanza(listaArticulosCompleta.size() - 1,cb);
 
 					if (modo_mas_1 == 1) {
 						deseleccionarLineaParticular(indice_on_focus);
@@ -5126,12 +5001,10 @@ void mostrarMensaje(int valorRecibido){
 						a_v.setCodigos_barras(lista_cb);
 
 						if (a_v.getFechaInicio().length() == 0) {
-							a_v.setFechaInicio(new SimpleDateFormat(
-									"yyyy-MM-dd HH:mm:ss").format(new Date()));
+						    a_v.setFechaInicio(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
 						}
 
-						a_v.setFechaFin(new SimpleDateFormat(
-								"yyyy-MM-dd HH:mm:ss").format(new Date()));
+						a_v.setFechaFin(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
 						a_v.setInventario(inventario_numero_en_curso);
 						if (modo_mas_1 == 1) {
 							a_v.setCantidad(1);

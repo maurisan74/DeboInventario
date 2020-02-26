@@ -45,7 +45,10 @@
                 android:id="@+id/Z_DIALOG_editext"
                 android:layout_width="500dp"
                 android:layout_height="wrap_content"
+                android:focusable="true"
+                android:clickable="true"
                 android:hint="Articulo..."
+                android:inputType="text"
                 android:lines="1" />
 
             <ImageView

@@ -1,5 +1,6 @@
 package com.focasoftware.deboinventario;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
@@ -26,6 +27,7 @@ import androidx.annotation.Nullable;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Objects;
 
 /**
  * Activity principal que se llama cuando se inicia la aplicaci�n, es la
@@ -149,6 +151,7 @@ public class DeboInventario extends Activity implements DialogPersoSimple, Wifi 
 
 	final GestorLogEventos log = new GestorLogEventos();
 
+	@SuppressLint("SetTextI18n")
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		System.out.println("DEBOOOOOOOOOOOOOOOOOOOOOO ACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
@@ -227,9 +230,13 @@ public class DeboInventario extends Activity implements DialogPersoSimple, Wifi 
 			File Flash_deboInventario = new File(ParametrosInventario.CARPETA_DEBOINVENTARIO);
 			assert ParametrosInventario.CARPETA_ATABLET != null;
 			File Flash_deboInventario_aTablet = new File(ParametrosInventario.CARPETA_ATABLET);
+			assert ParametrosInventario.CARPETA_DESDETABLET != null;
 			File Flash_deboInventario_desdeTablet = new File(ParametrosInventario.CARPETA_DESDETABLET);
+			assert ParametrosInventario.CARPETA_MAETABLET != null;
 			File Flash_deboInventario_maeTablet = new File(ParametrosInventario.CARPETA_MAETABLET);
+			assert ParametrosInventario.CARPETA_LOGTABLET != null;
 			File Flash_deboInventario_logTablet = new File(ParametrosInventario.CARPETA_LOGTABLET);
+			assert ParametrosInventario.CARPETA_LOGDATOS != null;
 			File Flash_deboInventario_logDatos = new File(ParametrosInventario.CARPETA_LOGDATOS);
 			File carpetaInternaImportacion = new File(ParametrosInventario.URL_CARPETA_USB_EXPORT); 
 			File url_carpeta_usb = new File(ParametrosInventario.URL_CARPETA_USB);
@@ -292,6 +299,7 @@ public class DeboInventario extends Activity implements DialogPersoSimple, Wifi 
 		PreferenciasInventario.cargarPreferencias(ctxt);
 		try {
 			log.log("[-- 319 --]" + "Se llama a cargar PReferencias, para setear los datos del Preferes en las constantes",3);
+			assert Parametros.PREF_URL_CONEXION_SERVIDOR != null;
 			URLValidator.esValidaEstaURL(Parametros.PREF_URL_CONEXION_SERVIDOR);
 		} catch (ExceptionHttpExchange e) {
 			log.log("[-- 309 --]" + e.toString(),4);
@@ -596,6 +604,7 @@ public class DeboInventario extends Activity implements DialogPersoSimple, Wifi 
 	 * 3 Si volvimos de WIFI con errores se desactiva el popUp y el wifi
 	 */
 
+	@SuppressLint("SetTextI18n")
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		super.onActivityResult(requestCode, resultCode, data);
 
@@ -606,8 +615,7 @@ public class DeboInventario extends Activity implements DialogPersoSimple, Wifi 
 		// 1 Si volvimos de las preferencias actualiza la version y n tablet
 		else if (requestCode == Parametros.REQUEST_PREFERENCIAS) {
 			version.setText("Version n " + ParametrosInventario.VERSION);
-			idtablet.setText("Terminal n "
-					+ Parametros.PREF_NUMERO_DE_TERMINAL);
+			idtablet.setText("Terminal n " + Parametros.PREF_NUMERO_DE_TERMINAL);
 		}
 		/*
 		 * else if (requestCode == Parametros.REQUEST_WIFI && resultCode ==
@@ -655,8 +663,7 @@ public class DeboInventario extends Activity implements DialogPersoSimple, Wifi 
 
 					}
 				});
-		AlertDialog alert = dialogoSimple.create();
-		return alert;
+		return dialogoSimple.create();
 
 	}
 
@@ -695,8 +702,7 @@ public class DeboInventario extends Activity implements DialogPersoSimple, Wifi 
 						log.log("[-- 620 --]" + "cancelo sino", 3);
 					}
 				});
-		AlertDialog alert = dialogoSimple.create();
-		return alert;
+		return dialogoSimple.create();
 	}
 
 	/**
@@ -794,6 +800,7 @@ public class DeboInventario extends Activity implements DialogPersoSimple, Wifi 
 	 * @author GuillermoR
 	 * 
 	 */
+	@SuppressLint("StaticFieldLeak")
 	protected class CargarDatosWifi extends AsyncTask<Context, Integer, String> {
 		/**
 		 * Tarea que se ejecuta en background cuando se llama al metodo
@@ -883,6 +890,7 @@ public class DeboInventario extends Activity implements DialogPersoSimple, Wifi 
 
 					// 3 Download de los subpaquetes:
 					if ((indice + talla_sub_paquetes - 1) < cantidad_referencias) {
+						assert subHashmapReferencias != null;
 						do {
 							try {
 								subHashmapReferencias = HttpReader
@@ -904,6 +912,7 @@ public class DeboInventario extends Activity implements DialogPersoSimple, Wifi 
 								&& contador > 0);
 						indice = indice + talla_sub_paquetes;
 					} else {
+						assert subHashmapReferencias != null;
 						do {
 							try {
 								subHashmapReferencias = HttpReader
@@ -940,8 +949,9 @@ public class DeboInventario extends Activity implements DialogPersoSimple, Wifi 
 							// 5 Recuperamos los detalles de este residente:
 							HashMap<String, String> hashmapDetallesReferencia = sub_hashmap
 									.get(codes);
-System.out.println("::: DeboInventario 895 aca hace el insert en referencias");
+							System.out.println("::: DeboInventario 895 aca hace el insert en referencias");
 							// Creamos la consulta SQL de insersin:
+							assert hashmapDetallesReferencia != null;
 							String sql = "INSERT OR REPLACE INTO "
 									+ ParametrosInventario.tabla_referencias
 									+ " VALUES("
@@ -1021,6 +1031,7 @@ System.out.println("::: DeboInventario 895 aca hace el insert en referencias");
 							System.out.println("::: DeboInventario 895 aca hace el insert en proveedores");
 
 							// Creamos la consulta SQL de insersin:
+							assert hashmapDetallesProveedores != null;
 							String sql = "INSERT OR REPLACE INTO "
 									+ ParametrosInventario.tabla_proveedores
 									+ " VALUES("
@@ -1044,6 +1055,7 @@ System.out.println("::: DeboInventario 895 aca hace el insert en referencias");
 					// 6 Insertamos los proveedores en la BD
 					BDD.insertProveedoresConSQLEnBdd(listaSQL);
 					BDD.deleteProveedoresVacios();
+					assert subHashmapProveedores != null;
 					subHashmapProveedores.clear();
 				} catch (ExceptionBDD e) {
 					return e.toString();
@@ -1108,27 +1120,25 @@ System.out.println("::: DeboInventario 895 aca hace el insert en referencias");
 		public CargarDatosUsb(int parametro) {
 			// se comprueba que boton ha sido pulsado y se procede a configura
 			// rlas variables de control
-			switch (parametro) {
-//			case 1:
-//				urlMaestro = ParametrosInventario.PREF_USB_IMPORT_MAESTRO;
-//				unidad_almacenamiento = ParametrosInventario.UNIDAD_ALMACENAMIENTO_UDISK;
-//				unidad_numerica = 1;
-//				break;
-//			case 2:
-//				urlMaestro = ParametrosInventario.PREF_FLASH_IMPORT_MAESTRO;
-//				unidad_almacenamiento = ParametrosInventario.UNIDAD_ALMACENAMIENTO_FLASH;
-//				unidad_numerica = 2;
-//				break;
-			case 3:
+			//			case 1:
+			//				urlMaestro = ParametrosInventario.PREF_USB_IMPORT_MAESTRO;
+			//				unidad_almacenamiento = ParametrosInventario.UNIDAD_ALMACENAMIENTO_UDISK;
+			//				unidad_numerica = 1;
+			//				break;
+			//			case 2:
+			//				urlMaestro = ParametrosInventario.PREF_FLASH_IMPORT_MAESTRO;
+			//				unidad_almacenamiento = ParametrosInventario.UNIDAD_ALMACENAMIENTO_FLASH;
+			//				unidad_numerica = 2;
+			//				break;
+			if (parametro == 3) {
 				urlMaestro = ParametrosInventario.CARPETA_MAETABLET;
 				unidad_almacenamiento = ParametrosInventario.UNIDAD_ALMACENAMIENTO_SDCARD;
 				unidad_numerica = 3;
-				break;
-
 			}
 
 		}
 
+		@SuppressLint("SdCardPath")
 		@Nullable
         protected String doInBackground(Context... arg0) {
 
@@ -1154,8 +1164,7 @@ System.out.println("::: DeboInventario 895 aca hace el insert en referencias");
 					// --------------------------------------------------
 					// Recuperamos todos los articulos, y los cargamos:
 					// --------------------------------------------------
-					if (lista_actualizaciones_programadas
-							.contains(ParametrosInventario.tabla_referencias) == true) {
+					if (lista_actualizaciones_programadas.contains(ParametrosInventario.tabla_referencias)) {
 						// 1 Borramos los datos de las referencias
 						try {
 							BDD.borrarDatosBDD(
@@ -1184,8 +1193,8 @@ System.out.println("::: DeboInventario 895 aca hace el insert en referencias");
 
 						try {
 							if (carpeta_fuente.exists()) {
-								int cantidadArchivos = carpeta_fuente
-										.listFiles().length;
+								int cantidadArchivos = Objects.requireNonNull(carpeta_fuente
+										.listFiles()).length;
 								int deltaSubir = 100 / cantidadArchivos;
 								if (deltaSubir == 0) {
 									deltaSubir = 1;
@@ -1193,9 +1202,8 @@ System.out.println("::: DeboInventario 895 aca hace el insert en referencias");
 
 								int lastValueSubir = 0;
 
-								if (carpeta_fuente.listFiles().length > 0) {
-									for (File archivo : carpeta_fuente
-											.listFiles()) {
+								if (Objects.requireNonNull(carpeta_fuente.listFiles()).length > 0) {
+									for (File archivo : Objects.requireNonNull(carpeta_fuente.listFiles())) {
 
 										listaSQL = new ArrayList<String>();
 										// 2.1 Leer las referencias del archivo
@@ -1209,6 +1217,7 @@ System.out.println("::: DeboInventario 895 aca hace el insert en referencias");
 										// }
 										log.log("cantidad de elementos del hasmap", 3);
 
+										assert HashmapReferencias != null;
 										for (String codes : HashmapReferencias.keySet()) {
 											// 2.2 Recuperamos los detalles de
 											// este residente:
@@ -1217,6 +1226,7 @@ System.out.println("::: DeboInventario 895 aca hace el insert en referencias");
 
 											// 2.3 Creamos la consulta SQL de
 											// insersin:
+											assert hashmapDetallesReferencia != null;
 											String sql = "INSERT OR REPLACE INTO "
 													+ ParametrosInventario.tabla_referencias
 													+ " VALUES("

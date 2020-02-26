@@ -18,7 +18,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 
-/**
+/*
  * Permite ver el detalle de un artculo de un inventario dinmico seleccionado.
  * Llamada desde PaginaInventarioDinamico.java. 
  * Pensada para en un futuro eliminar  el articulo del Inventario Dinmico actual.
@@ -27,101 +27,101 @@ import androidx.annotation.Nullable;
  */
 public class DetallesArticuloDinamico extends Activity implements DialogPersoSimple {
 
-	/**
+	/*
 	 * Variable para almacenar los datos de contexto de la actividad
 	 */
 	@NonNull
     private Context ctxt = this;
-	/**
+	/*
 	 * Variable de instancia para manejar las conexiones y operaciones con la BD
 	 */
 	private BaseDatos bdd;
-	/**
+	/*
 	 * Botn que permite volver a la activity anterior cerrando la actual
 	 */
 	private Button boton_volver;
-	/**
+	/*
 	 * Almacena los datos del articulo cuyos detalles se estan mostrando
 	 */
 	@Nullable
     private Articulo articulo_on_focus;
-	/**
+	/*
 	 * Variable para mostrar el nombre del articulo
 	 */
 	private TextView textview_nombre; 
-	/**
+	/*
 	 * Variable para mostrar el sector
 	 */
 	private TextView textview_sector; 
-	/**
+	/*
 	 * Variable para mostrar el codigo del articulo
 	 */
 	private TextView textview_codigo;
-	/**
+	/*
 	 * Variable que muestra los codigos de barra concatenados por comas
 	 */
 	private TextView textview_codbar; 
-	/**
+	/*
 	 * Variable que muestra el precio del articulo
 	 */
 	private TextView textview_precio;
-	/**
+	/*
 	 * Variable para moestrar el costo del articulo
 	 */
 	private TextView textview_costo;
-	/**
+	/*
 	 * Variable para mostrar la cantidad actual inventariada
 	 */
 	private TextView textview_cantidad;
 
 	/*123456*/
 	private TextView textview_exis;
-	/**
+	/*
 	 * Variable accesoria donde se almacena el nombre de la imagen
 	 */	
 	@NonNull
     private String nombreImagen = "";
-	/**
+	/*
 	 * Arreglo de bytes  accesorio para leer la foto o imagen tomada
 	 */
 	@Nullable
     private byte[] ba = null;
-	/**
+	/*
 	 * Dialogo para confirmar la correctitud de la foto
 	 */
 	private DialogPersoComplexFotoSiNo dialogo;
-	/**
+	/*
 	 * Boton para permitir eliminar el articulo del inventario actual, temporalmente
 	 * inhabilitado hasta que se apruebe esa mejora
 	 */
 	private Button botonEliminar;
-	/**
+	/*
 	 * Dialogo que pregunta por la confirmacin del borrado del articulo del inventario
 	 */
 	private DialogPersoComplexSiNo dialogoContinuarBorrar;
-	/**
+	/*
 	 * Variable para almacenar los datos del intent que llama a esta activity
 	 */
 	private Intent intentPadre;
-	/**
+	/*
 	 * Variable acceesoria Para almacenar el sector del articulo actual
 	 */
 	private int sector;
-	/**
+	/*
 	 * Variable accesoria para guardar el codigo del articulo
 	 */
 	private int codigo;
-	/**
+	/*
 	 * Variable para almacenar el numero de inventario del articulo actual
 	 */
 	private int inventario;
-	/**
+	/*
 	 * Variable para mostrar en caso que no se pueda abrir la cmara
 	 */
 	private ProgressDialog PopUps;
 	private boolean estadoCamara;
 	
-	/**
+	/*
 	 * Se inicializa la UI y se cargan los handlers
 	 * <p>1 Recuperamos los extras
 	 * <p>2 Recuperamos la lista de todos los datos que mostrar en pantalla
@@ -152,7 +152,8 @@ public class DetallesArticuloDinamico extends Activity implements DialogPersoSim
 			Bundle bundle = intentPadre.getExtras();
 			
 			//1 Recuperamos los extras:
-				sector = bundle.getInt(ParametrosInventario.extra_sector);
+		assert bundle != null;
+		sector = bundle.getInt(ParametrosInventario.extra_sector);
 				codigo = bundle.getInt(ParametrosInventario.extra_codigo);
 				inventario = bundle.getInt(ParametrosInventario.extra_inventario);
 				//Parametros.PREF_URL_CONEXION_SERVIDOR = "http://192.167.1.156/Dalvian/webservice.php";
@@ -204,7 +205,8 @@ public class DetallesArticuloDinamico extends Activity implements DialogPersoSim
 				
 				
 			//5 Configuracin del valor:
-				textview_nombre.setText(articulo_on_focus.getDescripcion());
+		assert articulo_on_focus != null;
+		textview_nombre.setText(articulo_on_focus.getDescripcion());
 				textview_sector.setText(String.valueOf(articulo_on_focus.getSector()));
 				textview_codigo.setText(String.valueOf(articulo_on_focus.getCodigo()));
 				textview_codbar.setText(articulo_on_focus.getCodigos_barras_string());
@@ -236,7 +238,7 @@ public class DetallesArticuloDinamico extends Activity implements DialogPersoSim
 				
 		
 				
-				/**
+				/*
 				 * Boton para eliminar articulos: en el caso de necesitar esta
 				 * funcionalidad, descomentar esta parte del codigo, esto
 				 * perimitira dar la posibilidad de eliminar el articulo actual
@@ -301,7 +303,7 @@ public class DetallesArticuloDinamico extends Activity implements DialogPersoSim
 //						
 //					}
 //				});
-				/**
+				/*
 				 * Hasta aqui hay que descomentar
 				 */
 				
@@ -309,7 +311,7 @@ public class DetallesArticuloDinamico extends Activity implements DialogPersoSim
 
 	
 	
-	/**
+	/*
 	 * Al presionar back, volvemos cerrando la activity actual
 	 */
 	
@@ -318,7 +320,7 @@ public class DetallesArticuloDinamico extends Activity implements DialogPersoSim
 	}
 
 
-	/**
+	/*
 	 * Muestra un dialogo con la opcion de presionar "Ok" para cerrarlo
 	 */
 	
@@ -341,11 +343,10 @@ public class DetallesArticuloDinamico extends Activity implements DialogPersoSim
 	        		   	     dialog.dismiss();
 	        		   	 }
     	   		 	 });
-		AlertDialog alert = dialogoSimple.create();
-		return alert;
+		return dialogoSimple.create();
 	}
 
-	/**
+	/*
 	 * No implementado
 	 */
 	
@@ -353,13 +354,4 @@ public class DetallesArticuloDinamico extends Activity implements DialogPersoSim
     public AlertDialog showSimpleDialogSiNo(String titulo, String mensaje, Class<?> clase) {
 		return null;
 	}
-
-
-
-
-
-
-	
-	
-	
 }

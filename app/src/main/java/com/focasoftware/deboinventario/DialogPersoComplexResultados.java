@@ -1,5 +1,6 @@
 package com.focasoftware.deboinventario;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
@@ -15,7 +16,7 @@ import androidx.annotation.NonNull;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-/**
+/*
  * Dialogo personalizado donde se muestran los resultados de una bsqueda
  * @author GuillermoR
  *
@@ -27,7 +28,7 @@ public class DialogPersoComplexResultados extends Dialog {
     private HashMap<Integer,Integer> codigos_articulo_seleccionado = new HashMap<Integer, Integer>();
 	
 	
-	/**
+	/*
 	 * Constructor
 	 * <p>1 Carga contexto y titulo
 	 * <p>2 Cargamos el layout y main layout
@@ -40,6 +41,7 @@ public class DialogPersoComplexResultados extends Dialog {
 	 * @param listenerSeleccionar Que hace al seleccionar uno
 	 * @param listenerCancel Que hace al cancelar
 	 */
+	@SuppressLint({"SetTextI18n", "ClickableViewAccessibility"})
 	public DialogPersoComplexResultados(
             @NonNull Context context,
             @NonNull ArrayList<HashMap<Integer, Object>> lista_propuestas,
@@ -52,7 +54,7 @@ public class DialogPersoComplexResultados extends Dialog {
 		//1� Carga contexto y titulo:
 			super(context);
 			final Activity owner = (Activity) context;
-			/**
+			/*
 			 * Ver como se hace para que seleccione de donde viene la llamada y no agregue
 			 * lo de presione 2 veces su eleccin
 			 */
@@ -90,15 +92,16 @@ public class DialogPersoComplexResultados extends Dialog {
 				LayoutInflater inflater = (LayoutInflater)owner.getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
 //				TableRow linea = (TableRow) inflater.inflate(R.layout.z_linea_busqueda_resultados, null);
 //				tabla_resultados.addView(linea);
-				LinearLayout linea = (LinearLayout) inflater.inflate(R.layout.z_linea_busqueda_resultados, null);
+				assert inflater != null;
+				@SuppressLint("InflateParams") LinearLayout linea = (LinearLayout) inflater.inflate(R.layout.z_linea_busqueda_resultados, null);
 				
 //				TextView tv0=(TextView)linea.getChildAt(COLUMNA_NOMBRE);
 //				TextView tv1=(TextView)linea.getChildAt(COLUMNA_SECTOR);
 //				TextView tv2=(TextView)linea.getChildAt(COLUMNA_CODIGO);
 				
-				TextView tv0=(TextView)linea.findViewById(R.id.textViewResultado);
-				TextView tv1=(TextView)linea.findViewById(R.id.textViewSector);
-				TextView tv2=(TextView)linea.findViewById(R.id.textViewCodigo);
+				TextView tv0=linea.findViewById(R.id.textViewResultado);
+				TextView tv1=linea.findViewById(R.id.textViewSector);
+				TextView tv2=linea.findViewById(R.id.textViewCodigo);
 				//Modificado 09/05/12 para que se muestre en la linea el codigo y sector
 				String codSec,codArt,nombre;
 				codSec=String.valueOf(hmap.get(ParametrosInventario.clave_art_sector));
@@ -138,7 +141,7 @@ public class DialogPersoComplexResultados extends Dialog {
 							codigos_articulo_seleccionado.put(ParametrosInventario.clave_art_codigo, Integer.parseInt(String.valueOf(tv2.getText())));
 							
 							int sector = Integer.parseInt(String.valueOf(tv1.getText()));
-							int codigo = Integer.parseInt(String.valueOf(tv2.getText()));
+							@SuppressLint("ClickableViewAccessibility") int codigo = Integer.parseInt(String.valueOf(tv2.getText()));
 							log.log("[-- 136 --]" + "codigo articulo: " + codigo + "sector: " + sector , 2);
 							//((TextView)trow.getChildAt(COLUMNA_NOMBRE)).setBackgroundColor(owner.getResources().getColor(R.color.orange));
 						}

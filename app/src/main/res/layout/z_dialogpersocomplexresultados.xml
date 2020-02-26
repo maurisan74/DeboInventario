@@ -1,15 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    android:orientation="vertical"
-    android:gravity="center"
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    android:layout_height="600dp"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+
+    <EditText
+        android:id="@+id/Z_DIALOG_editext"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:autofillHints=""
+        android:textSize="@dimen/talla_texto_medio"
+        android:visibility="gone" />
 
     <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="701dp"
-        android:background="@color/white">
+        android:id="@+id/scrollView2"
+        android:layout_width="0dp"
+        android:layout_height="550dp"
+        android:background="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
             android:id="@+id/Z_DIALOG_tabla_resultados"
@@ -26,15 +39,12 @@
         android:id="@+id/Z_DIALOG_boton_cancelar"
         android:layout_width="100dp"
         android:layout_height="50dp"
-        android:layout_marginBottom="5dp"
         android:text="Cancelar"
         android:textColor="@color/black"
-        android:textSize="@dimen/talla_texto_chico" />
+        android:textSize="@dimen/talla_texto_chico"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/scrollView2" />
 
-    <EditText
-        android:id="@+id/Z_DIALOG_editext"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:visibility="gone" />
 
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

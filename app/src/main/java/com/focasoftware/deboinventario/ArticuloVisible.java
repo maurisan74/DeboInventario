@@ -29,7 +29,7 @@ public class ArticuloVisible extends Articulo {
 	//    				*****************************
 	//    				*****************************
 	//
-	/**
+	/*
 	 * Constructor de ARTICULO VISIBLE completo, especificando la visibilidad del
 	 * articulo
 	 * @param unSector
@@ -63,7 +63,7 @@ public class ArticuloVisible extends Articulo {
 
 
 
-	/**
+	/*
 	 * Constructor de ARTICULO VISIBLE nuevo (sin especificar la visibilidad,
 	 * TRUE por defecto)
 	 * @param unSector
@@ -91,7 +91,7 @@ public class ArticuloVisible extends Articulo {
 		visible = true;
 	}
 
-	/**
+	/*
 	 * Constructor de ARTICULO VISIBLE nuevo (sin especificar la visibilidad
 	 * pero que especifica fecha de inicio y fecha de fin al crearlo
 	 * @param unSector
@@ -121,7 +121,7 @@ public class ArticuloVisible extends Articulo {
 		visible = true;
 	}
 
-	/**
+	/*
 	 * Constructor a partir de otro articulo
 	 * @param articulo
 	 */
@@ -132,7 +132,7 @@ public class ArticuloVisible extends Articulo {
 
 
 
-	/**
+	/*
 	 * Constructor de ARTICULO VISIBLE, solo por su visibilidad y gestin de articulos
 	 * @param visibilidad
 	 */

@@ -7,12 +7,12 @@
 
     <Button
         android:id="@+id/LPB2_boton"
-        android:layout_width="100dp"
+        android:layout_width="118dp"
         android:layout_height="50dp"
         android:layout_gravity="center"
+        android:width="150dp"
         android:textColor="@color/black"
-        android:textSize="@dimen/talla_texto_medio"
-        android:width="150dp" />
+        android:textSize="12sp" />
 
     <TextView
         android:id="@+id/LPB2_nombre"
@@ -21,7 +21,7 @@
         android:gravity="center"
         android:text="Nombre:"
         android:textColor="@color/white"
-        android:textSize="@dimen/talla_texto_GrandeGrande" />
+        android:textSize="18sp" />
 
     <TextView
         android:id="@+id/LPB2_inicio"
@@ -30,7 +30,7 @@
         android:gravity="center"
         android:text="Inicio:"
         android:textColor="@color/white"
-        android:textSize="@dimen/talla_texto_GrandeGrande" />
+        android:textSize="14sp" />
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -52,10 +52,10 @@
             android:id="@+id/LPB2_texto_progressbar"
             android:layout_width="50dp"
             android:layout_height="25dp"
-            android:layout_marginStart="115dp"
             android:layout_gravity="center_horizontal"
+            android:layout_marginStart="115dp"
             android:textColor="@color/black"
-            android:textSize="20sp" />
+            android:textSize="14sp" />
     </RelativeLayout>
 
     <ImageView
