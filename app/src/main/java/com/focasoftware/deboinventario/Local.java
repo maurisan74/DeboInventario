@@ -1,4 +1,6 @@
 package com.focasoftware.deboinventario;
+
+
 class Local {
 
 	public  int id_local;

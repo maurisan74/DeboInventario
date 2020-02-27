@@ -566,8 +566,7 @@ public class PreferenciasInventario extends Activity {
 						} else {
 							try {
 								BaseDatos data = new BaseDatos(ctxt);
-								Local localTemp = data
-										.ObtenerLocal_x_Id((position + 1));
+								Local localTemp = data.ObtenerLocal_x_Id((position + 1));
 								edit_webservice.setText(localTemp
 										.getDescripcion());
 								idLocalActual = localTemp.getIdLocal();

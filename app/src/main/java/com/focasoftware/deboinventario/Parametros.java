@@ -36,8 +36,7 @@ public class Parametros {
     public static String PREF_OPERADOR_ID = "-1";
 	public static boolean PREF_CAMARA = false;
 	@NonNull
-    public static String PREF_ULTIMA_FECHA_OPERACION = new SimpleDateFormat(
-			"yyyyMMdd").format(new Date());
+    public static String PREF_ULTIMA_FECHA_OPERACION = new SimpleDateFormat("yyyyMMdd").format(new Date());
 	@Nullable
     public static String PREF_CANT_FOTOS = "2";
 	public static boolean PREF_LOG_EVENTOS = false;
@@ -51,15 +50,12 @@ public class Parametros {
 	public static boolean PREF_STOCK = true;
 
 
-	public final static String sdcard = Environment
-			.getExternalStorageDirectory().toString();
+	public final static String sdcard = Environment.getExternalStorageDirectory().toString();
 	public final static String softDeboSancion = "/DeboSancion";
 	@Nullable
-    public static String carpeta_sancion_log_tablet = sdcard + softDeboSancion
-			+ "/logTablet/";
+    public static String carpeta_sancion_log_tablet = sdcard + softDeboSancion + "/logTablet/";
 	@Nullable
-    public static String carpeta_sancion_log_Datos = sdcard + softDeboSancion
-			+ "/logDatos/";
+    public static String carpeta_sancion_log_Datos = sdcard + softDeboSancion + "/logDatos/";
 
 	public final static String preferencia_wifi = "WIFI_PREFERIDO";
 	public final static String preferencia_idtablet = "ID_TABLET";
