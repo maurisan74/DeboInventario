@@ -610,18 +610,15 @@ public class InventarioMainBoard extends Activity implements DialogPersoSimple,
                 startActivity(intentInventario);
                 finish();
 
-            } else if (requestCode == Parametros.REQUEST_WIFI_IMPORT
-                    && resultCode != RESULT_OK) {
+            } else if (requestCode == Parametros.REQUEST_WIFI_IMPORT && resultCode != RESULT_OK) {
                 // cerrarMenuEspera();
                 // 3 Si hubo un error con WIFI import da la opcin de cargar
                 // por USB
                 desactivarWifi();
-                showSimpleDialogSiNo(
-                        "Error de conexion a la red",
+                showSimpleDialogSiNo("Error de conexion a la red",
                         "La red hasta el servidor no ha podido ser establecida (1).\n\nUsted desea importar sus datos por medio de un Dispositivo (conectelo en aquel caso)?",
                         UsbProvider.class).show();
-            } else if (requestCode == Parametros.REQUEST_WIFI_EXPORT
-                    && resultCode == RESULT_OK) {
+            } else if (requestCode == Parametros.REQUEST_WIFI_EXPORT && resultCode == RESULT_OK) {
                 // 4 Si volvemos de WIFI Export todo OK vamos a hacer
                 // exportacion por WIFI
                 ExportarDatos unaExportacion = new ExportarDatos();
@@ -2191,8 +2188,7 @@ public class InventarioMainBoard extends Activity implements DialogPersoSimple,
      * @author GuillermoR
      *
      */
-    protected class ExportarDatos extends
-            AsyncTask<Context, Integer, RespuestasExportar> {
+    protected class ExportarDatos extends AsyncTask<Context, Integer, RespuestasExportar> {
 
         private static final boolean Referencia = false;
 
@@ -2212,11 +2208,11 @@ public class InventarioMainBoard extends Activity implements DialogPersoSimple,
          * <p>
          * 6 Exportamos las fotos
          * <p>
-         * &nbsp; &nbsp;6.1 Verificamos que todo se hiso bien
+         * 6.1 Verificamos que todo se hiso bien
          * <p>
          * 7 Exportamos los logs
          * <p>
-         * &nbsp; &nbsp; 7.1 Verificamos que todo salio bien
+         * 7.1 Verificamos que todo salio bien
          */
 
         protected RespuestasExportar doInBackground(Context... arg0) {
@@ -2328,10 +2324,9 @@ public class InventarioMainBoard extends Activity implements DialogPersoSimple,
                 }
 
                 try {
-                    // 2 se realiza la exportacin de los datos en las BD
+                    // 2 se realiza la exportacion de los datos en las BD
 
-                    result = bdd
-                            .exportarTodasBaseDatosSQLite(listaInventariosCerrados);
+                    result = bdd.exportarTodasBaseDatosSQLite(listaInventariosCerrados);
                 } catch (ExceptionHttpExchange e2) {
 
                     log.log("[-- 1961 --]" + e2.toString(), 4);
@@ -2395,10 +2390,8 @@ public class InventarioMainBoard extends Activity implements DialogPersoSimple,
                 int i = 1;
 
                 // 5 Comprobamos que todo paso bien
-                if (result == false) {
-                    return new RespuestasExportar(
-                            RespuestasExportar.CODIGO_ERROR,
-                            "Error Export - Export a la BDD - Verifique la conexion a la red");
+                if (!result) {
+                    return new RespuestasExportar(RespuestasExportar.CODIGO_ERROR, "Error Export - Export a la BDD - Verifique la conexion a la red");
                 }
 
                 try {
@@ -2452,7 +2445,7 @@ public class InventarioMainBoard extends Activity implements DialogPersoSimple,
                 // 7 Exportamos los logs:
                 File archivoLOG = new File(ParametrosInventario.URL_ARCHIVO_LOG);
                 i = 7;
-                if (archivoLOG.exists() == true) {
+                if (archivoLOG.exists()) {
                     HttpSender senderLOG;
                     try {
                         senderLOG = new HttpSender(Parametros.CODIGO_SOFT_DEBOINVENTARIO);
@@ -2466,7 +2459,7 @@ public class InventarioMainBoard extends Activity implements DialogPersoSimple,
                     i = 8;
 
                     // 7.1 Comprobar que todo esta bien:
-                    if (result == false) {
+                    if (!result) {
                         return new RespuestasExportar(RespuestasExportar.CODIGO_WARNING, "Error Export - Export logs");
                     }
                     i = 9;
@@ -2493,8 +2486,7 @@ public class InventarioMainBoard extends Activity implements DialogPersoSimple,
                 return new RespuestasExportar(RespuestasExportar.CODIGO_ERROR, "Error Export - " + " - Error fatal - " + e.toString());
             }
 
-            return new RespuestasExportar(RespuestasExportar.CODIGO_OK,
-                    "Operacion Realizada con Exito");
+            return new RespuestasExportar(RespuestasExportar.CODIGO_OK, "Operacion Realizada con Exito");
         } // end doInBackground
 
         /**

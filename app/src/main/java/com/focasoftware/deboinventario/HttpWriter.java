@@ -14,7 +14,7 @@ import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 
-/**
+/*
  * Clase para convertir un documento en forma de DOM a un archivo XML para su posterior
  * uso o envo
  * @author GuillermoR
@@ -24,7 +24,7 @@ public class HttpWriter{
 
 
 
-    /**
+    /*
      * Convierte un documento DOM en un archivo XML a la direccion y nombre
      * indicados en el url
      * <p>1 Creacion del fuente del DOM

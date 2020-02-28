@@ -1884,8 +1884,7 @@ public class HttpReader {
 	 * @return
 	 * @throws Exception
 	 */
-	private static HashMap<String, HashMap<String, String>> parserReferencias(
-			String xmlString) throws Exception {
+	private static HashMap<String, HashMap<String, String>> parserReferencias(String xmlString) throws Exception {
 		System.out.println("::: HttpReader 1516");
 		Log.e("paso parsereferencias ", "paso por aca");
 		// 1 Construccin de la estructura de respuesta:
@@ -1941,8 +1940,7 @@ public class HttpReader {
 	}
 
 
-	private static HashMap<String, String> parserConfiguraciones(
-			String xmlString) throws Exception {
+	private static HashMap<String, String> parserConfiguraciones(String xmlString) throws Exception {
 		System.out.println("::: HttpReader 1516");
 		Log.e("paso parserConfig", "paso por aca");
 		// 1 Construccin de la estructura de respuesta:
@@ -1974,8 +1972,7 @@ public class HttpReader {
 			return null;
 		}
 		// 3 Recorrido del arbol de los datos XML:
-		NodeList listaConfiguraciones = doc
-				.getElementsByTagName(Parametros.bal_xml_configuracion_root );
+		NodeList listaConfiguraciones = doc.getElementsByTagName(Parametros.bal_xml_configuracion_root );
 		System.out.println("::: HttpReader 1516 nodelist " + listaConfiguraciones);
 		for (int i = 0; i < listaConfiguraciones.getLength(); i++) {
 			NodeList listaHijos = listaConfiguraciones.item(i).getChildNodes();
@@ -2017,8 +2014,7 @@ public class HttpReader {
 	 * @return
 	 * @throws Exception
 	 */
-	private static HashMap<String, HashMap<String, String>> parserProveedores(
-			String xmlString) throws Exception {
+	private static HashMap<String, HashMap<String, String>> parserProveedores(String xmlString) throws Exception {
 		System.out.println("::: HttpReader Proveedores 1900");
 		Log.e("paso proveedores ", "paso por aca");
 		// 1 Construccin de la estructura de respuesta:

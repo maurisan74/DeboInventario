@@ -111,7 +111,7 @@ public class BaseDatos extends SQLiteOpenHelper {
 			+ ParametrosInventario.bal_bdd_articulo_codigo + ", "
 			+ ParametrosInventario.bal_bdd_articulo_inventario + ")" + " )";
 
-	/**
+	/*
 	 * Creacion de la tabla proveedores:
 	 */
 	private String sqlCreateTablaProveedores = "CREATE TABLE IF NOT EXISTS "
@@ -121,7 +121,7 @@ public class BaseDatos extends SQLiteOpenHelper {
 			+ " VARCHAR(150)  DEFAULT NULL " +   ", " + "PRIMARY KEY ("
 			+ ParametrosInventario.bal_bdd_proveedores_codigo + ")" + " )";
 
-	/**
+	/*
 	 * Creacion de la tabla COMPRA_PROVEEDOR para relacionar la compra con un proveedor:
 	 */
 	private String sqlCreateTablaCompraProveedor = "CREATE TABLE IF NOT EXISTS "
@@ -199,10 +199,8 @@ public class BaseDatos extends SQLiteOpenHelper {
 	 * @param factory
 	 * @param version
 	 */
-	public BaseDatos(Context contexto, String nombre, CursorFactory factory,
-					 int version) {
-		super(contexto, ParametrosInventario.BDD_NOMBRE, null,
-				ParametrosInventario.BDD_VERSION);
+	public BaseDatos(Context contexto, String nombre, CursorFactory factory, int version) {
+		super(contexto, ParametrosInventario.BDD_NOMBRE, null, ParametrosInventario.BDD_VERSION);
 	}
 
 	/*
@@ -211,8 +209,7 @@ public class BaseDatos extends SQLiteOpenHelper {
 	 * @param contexto
 	 */
 	public BaseDatos(Context contexto) {
-		this(contexto, ParametrosInventario.BDD_NOMBRE, null,
-				ParametrosInventario.BDD_VERSION);
+		this(contexto, ParametrosInventario.BDD_NOMBRE, null, ParametrosInventario.BDD_VERSION);
 		System.out.println("::: BaseDatos 177 Version en BD " + ParametrosInventario.VERSION);
 	}
 
@@ -221,7 +218,7 @@ public class BaseDatos extends SQLiteOpenHelper {
 	// **** METODOS ****
 	// ***********************
 	// ***********************
-	/**
+	/*
 	 * Al llamarse este metodo se crean las tablas de nuevo?
 	 */
 	@Override
@@ -235,7 +232,7 @@ public class BaseDatos extends SQLiteOpenHelper {
 		db.execSQL(sqlCreateTablaCompraProveedor);
 	}
 
-	/**
+	/*
 	 * Funcion para crear desde cero y vaciar las tablas de articulos e
 	 * inventarios
 	 * <p>
@@ -285,11 +282,7 @@ public class BaseDatos extends SQLiteOpenHelper {
 
 				// Test resultado INSERT:
 				if (resultado < 0) {
-
 				}
-
-			} else {
-
 			}
 
 			// 5� Cierre:
@@ -342,15 +335,9 @@ public class BaseDatos extends SQLiteOpenHelper {
 			if (c.moveToFirst()) {
 				while (!c.isAfterLast()) {
 					// 3� Agregamos cada numero a la lista
-					int idLocal = c
-							.getInt(c
-									.getColumnIndex(ParametrosInventario.bal_bdd_local_idLocal));
-					String nombreLocal = c
-							.getString(c
-									.getColumnIndex(ParametrosInventario.bal_bdd_local_nombre));
-					String descripcionLocal = c
-							.getString(c
-									.getColumnIndex(ParametrosInventario.bal_bdd_local_descripcion));
+					int idLocal = c.getInt(c.getColumnIndex(ParametrosInventario.bal_bdd_local_idLocal));
+					String nombreLocal = c.getString(c.getColumnIndex(ParametrosInventario.bal_bdd_local_nombre));
+					String descripcionLocal = c.getString(c.getColumnIndex(ParametrosInventario.bal_bdd_local_descripcion));
 
 					local.setIdLocal(idLocal);
 					local.setDescripcion(descripcionLocal);
@@ -372,8 +359,7 @@ public class BaseDatos extends SQLiteOpenHelper {
 			log.setUbicacion(ParametrosInventario.CARPETA_LOGTABLET);
 			log.log("[-- 2976 --]" + e.toString(), 4);
 
-			throw new ExceptionBDD(ExceptionBDD.ERROR_TIPO_SELECT,
-					"Imposible obtener los locales");
+			throw new ExceptionBDD(ExceptionBDD.ERROR_TIPO_SELECT, "Imposible obtener los locales");
 		}
 	}
 
@@ -392,20 +378,17 @@ public class BaseDatos extends SQLiteOpenHelper {
 					ParametrosInventario.bal_bdd_local_nombre,
 					ParametrosInventario.bal_bdd_local_descripcion };
 			// 2� Ejecutamos la consulta
-			Cursor c = dtb.query(ParametrosInventario.tabla_local, col, null,
-					null, null, null, null);
+			Cursor c = dtb.query(ParametrosInventario.tabla_local, col, null, null, null, null, null);
 
 			// Result:
 			if (c.moveToFirst()) {
 				do {
-
 					// 3� Agregamos cada numero a la lista
 					int idLocal = c.getInt(c.getColumnIndex(ParametrosInventario.bal_bdd_local_idLocal));
 					String nombreLocal = c.getString(c.getColumnIndex(ParametrosInventario.bal_bdd_local_nombre));
 					String descripcionLocal = c.getString(c.getColumnIndex(ParametrosInventario.bal_bdd_local_descripcion));
 					Local loc = new Local(nombreLocal, descripcionLocal, idLocal);
 					LocalesRetornables.add(loc);
-
 				} while (c.moveToNext());
 			}
 			dtb.close();
@@ -416,8 +399,7 @@ public class BaseDatos extends SQLiteOpenHelper {
 			log.setUbicacion(ParametrosInventario.CARPETA_LOGTABLET);
 			log.log("[-- 2976 --]" + e.toString(), 4);
 
-			throw new ExceptionBDD(ExceptionBDD.ERROR_TIPO_SELECT,
-					"Imposible obtener los locales");
+			throw new ExceptionBDD(ExceptionBDD.ERROR_TIPO_SELECT, "Imposible obtener los locales");
 		}
 	}
 
@@ -437,8 +419,7 @@ public class BaseDatos extends SQLiteOpenHelper {
 	 */
 
 	@Override
-	public void onUpgrade(SQLiteDatabase db, int versionAnterior,
-						  int versionNueva) {
+	public void onUpgrade(SQLiteDatabase db, int versionAnterior, int versionNueva) {
 		System.out.println("::: BaseDatos 408 onUpgrade");
 		// 1� Iniciamos la transaccion:
 		db.beginTransaction();
@@ -490,8 +471,7 @@ public class BaseDatos extends SQLiteOpenHelper {
 	 * @param borrarTodo
 	 * @throws ExceptionBDD
 	 */
-	public void borrarDatosBDD(String nombre_tabla, boolean borrarTodo)
-			throws ExceptionBDD {
+	public void borrarDatosBDD(String nombre_tabla, boolean borrarTodo) throws ExceptionBDD {
 		try {
 			System.out.println("::: BaseDatos 461 borrarDatosBDD");
 			// 1� Abrimos la base:
@@ -564,8 +544,7 @@ public class BaseDatos extends SQLiteOpenHelper {
 	 * @param inventario
 	 * @throws ExceptionBDD
 	 */
-	public void borrarArcticuloInventario(int sector, int codigo, int inventario)
-			throws ExceptionBDD {
+	public void borrarArcticuloInventario(int sector, int codigo, int inventario) throws ExceptionBDD {
 		try {
 			System.out.println("::: BaseDatos 535 borrarArcticuloInventario");
 			// 1� Abrimos la base:
@@ -610,8 +589,7 @@ public class BaseDatos extends SQLiteOpenHelper {
 	 * @param id_inventario
 	 * @throws ExceptionBDD
 	 */
-	public void borrarInventarioConArticulos(int id_inventario)
-			throws ExceptionBDD {
+	public void borrarInventarioConArticulos(int id_inventario) throws ExceptionBDD {
 		try {
 			System.out.println("::: BaseDatos 581 borrarInventarioConArticulos");
 			boolean condicionRadio = ParametrosInventario.InventariosVentas;
@@ -730,8 +708,7 @@ public class BaseDatos extends SQLiteOpenHelper {
 	 * @param lista_inventarios
 	 * @throws ExceptionBDD
 	 */
-	public void borrarInventarioConArticulos(
-			ArrayList<Integer> lista_inventarios) throws ExceptionBDD {
+	public void borrarInventarioConArticulos(ArrayList<Integer> lista_inventarios) throws ExceptionBDD {
 		try {
 			System.out.println("::: BaseDatos 626 borrarInventarioConArticulos");
 			// 1 Abrimos la base:
@@ -786,8 +763,7 @@ public class BaseDatos extends SQLiteOpenHelper {
 	 *
 	 * @throws ExceptionBDD
 	 */
-	public void borrarInventariosYArticulosEnBDD_y_tambien_locales()
-			throws ExceptionBDD {
+	public void borrarInventariosYArticulosEnBDD_y_tambien_locales() throws ExceptionBDD {
 		try {
 			System.out.println("::: BaseDatos 682 borrarInventariosYArticulosEnBDD_y_tambien_locales");
 			// 1 Abrimos la base:
@@ -841,8 +817,7 @@ public class BaseDatos extends SQLiteOpenHelper {
 	 * @return
 	 * @throws ExceptionBDD
 	 */
-	public ArrayList<HashMap<Integer, Object>> buscarEnReferencias(
-			String busqueda) throws ExceptionBDD {
+	public ArrayList<HashMap<Integer, Object>> buscarEnReferencias(String busqueda) throws ExceptionBDD {
 		// toModify;
 		try {
 			System.out.println("::: BaseDatos 738 buscarEnReferencias");
@@ -968,8 +943,7 @@ public class BaseDatos extends SQLiteOpenHelper {
 	 * @return
 	 * @throws ExceptionBDD
 	 */
-	public ArrayList<HashMap<Integer, Object>> buscarEnReferenciasPorCodigoODescripcion(
-			String busqueda) throws ExceptionBDD {
+	public ArrayList<HashMap<Integer, Object>> buscarEnReferenciasPorCodigoODescripcion(String busqueda) throws ExceptionBDD {
 		// toModify;
 		try {
 			System.out.println("::: BaseDatos 738 buscarEnReferencias");
@@ -1005,7 +979,7 @@ public class BaseDatos extends SQLiteOpenHelper {
 
 			// 5 Buscar en las referencias el articulo
 			// Mas columnas, o todo
-			String col[] = new String[] {
+			String[] col = new String[] {
 					ParametrosInventario.bal_bdd_referencia_sector,
 					ParametrosInventario.bal_bdd_referencia_codigo,
 					ParametrosInventario.bal_bdd_referencia_descripcion
@@ -1050,12 +1024,9 @@ public class BaseDatos extends SQLiteOpenHelper {
 					// losCodigosBarras, 0, desc, precioVenta, precioCosto, "",
 					// -1, "", true);
 					// Meterlo en el hash map
-					hashmap.put(ParametrosInventario.clave_art_sector,
-							c.getInt(0));
-					hashmap.put(ParametrosInventario.clave_art_codigo,
-							c.getInt(1));
-					hashmap.put(ParametrosInventario.clave_art_nombre,
-							c.getString(2));
+					hashmap.put(ParametrosInventario.clave_art_sector, c.getInt(0));
+					hashmap.put(ParametrosInventario.clave_art_codigo, c.getInt(1));
+					hashmap.put(ParametrosInventario.clave_art_nombre, c.getString(2));
 					lista_resultado.add(hashmap);
 					//	System.out.println(":::"+lista_resultado);
 					c.moveToNext();
@@ -1080,7 +1051,7 @@ public class BaseDatos extends SQLiteOpenHelper {
 		Cursor c;
 		ArrayList<HashMap<Integer, Object>> art_no_tomados = new ArrayList<HashMap<Integer, Object>>();
 		c= dtb.rawQuery("SELECT * FROM ARTICULOS WHERE ART_I="+inventario_curso + " AND ART_Q IN (-1,0)", null);
-		if (c.moveToFirst() == true) {
+		if (c.moveToFirst()) {
 			System.out.println("::: BD HAY ARTICULOS NO TOMADOS");
 			return true;
 		} else {
@@ -1094,16 +1065,15 @@ public class BaseDatos extends SQLiteOpenHelper {
 	 * Busca los proveedores existentes
 	 * */
 
-	public ArrayList<String> buscarEnProveedores(
-			String valor) throws ExceptionBDD {
+	public ArrayList<String> buscarEnProveedores(String valor) throws ExceptionBDD {
 		try {
 			System.out.println("::: BaseDatos 738 buscarEnProveedores");
 			//ArrayList<HashMap<Integer, Object>> lista_resultado = new ArrayList<HashMap<Integer, Object>>();
 			ArrayList<String> lista_resultado = new ArrayList<String>();
 			SQLiteDatabase dtb = this.getWritableDatabase();
-			if(valor==""){
+			if(valor.equals("")){
 				valor = valor.replaceAll("\\s+", " ");
-				String tabla_busqueda[] = valor.split("\\s");
+				String[] tabla_busqueda = valor.split("\\s");
 				String consulta_SQL = "";
 				for (String s : tabla_busqueda) {
 					consulta_SQL += ParametrosInventario.bal_bdd_proveedores_descripcion
@@ -1111,7 +1081,7 @@ public class BaseDatos extends SQLiteOpenHelper {
 				}
 				//consulta_SQL = consulta_SQL.substring(0, consulta_SQL.length() - 4);
 				consulta_SQL = "";
-				String col[] = new String[] {
+				String[] col = new String[] {
 						ParametrosInventario.bal_bdd_proveedores_descripcion
 				};
 				Cursor c = dtb.query(tabla_proveedores_nombre, col, consulta_SQL,
@@ -1129,7 +1099,7 @@ public class BaseDatos extends SQLiteOpenHelper {
 				}
 				// 7 Lectura de los resultados:
 				if (c.moveToFirst()) {
-					while (c.isAfterLast() == false) {
+					while (!c.isAfterLast()) {
 
 //					lista_resultado.add(ParametrosInventario.clave_prov_cod,
 //							c.getString(0));
@@ -1199,8 +1169,7 @@ public class BaseDatos extends SQLiteOpenHelper {
 	 * Busca el codigo del proveedor mediante el nombre, y guarda el codigo en una tabla que relaciona el inventario de compra
 	 * */
 
-	public ArrayList<String> cargarProveedor(
-			String valor,String proveedor_id) throws ExceptionBDD {
+	public ArrayList<String> cargarProveedor(String valor,String proveedor_id) throws ExceptionBDD {
 		try {
 			System.out.println("::: BaseDatos 738 buscarEnProveedores");
 			ArrayList<String> lista_resultado = new ArrayList<String>();
@@ -1274,8 +1243,7 @@ public class BaseDatos extends SQLiteOpenHelper {
 	 * @throws ExceptionBDD
 	 *             si no encuentra
 	 */
-	public ArticuloVisible buscarArticuloEnReferencias(int unCodigo,
-													   int unSector) throws ExceptionBDD {
+	public ArticuloVisible buscarArticuloEnReferencias(int unCodigo,int unSector) throws ExceptionBDD {
 		ArticuloVisible result = null;
 		System.out.println("::: BaseDatos 866 buscarArticuloEnReferencias");
 		try {
@@ -1420,7 +1388,7 @@ public class BaseDatos extends SQLiteOpenHelper {
 
 	}
 
-	/**
+	/*
 	 * Busca por parecido de descripcion en el num_inventario
 	 * <p>
 	 * 1 Abrimos la base
@@ -1445,8 +1413,7 @@ public class BaseDatos extends SQLiteOpenHelper {
 	 * @return
 	 * @throws ExceptionBDD
 	 */
-	public ArrayList<HashMap<Integer, Object>> buscar(int num_inventario,
-													  String busqueda) throws ExceptionBDD {
+	public ArrayList<HashMap<Integer, Object>> buscar(int num_inventario, String busqueda) throws ExceptionBDD {
 		System.out.println("::: BaseDatos 972 buscar");
 		try {
 			// Variable de retorno:
@@ -1496,7 +1463,7 @@ public class BaseDatos extends SQLiteOpenHelper {
 
 			// 7 Lectura de los resultados:
 			if (c.moveToFirst()) {
-				while (c.isAfterLast() == false) {
+				while (!c.isAfterLast()) {
 					HashMap<Integer, Object> hashmap = new HashMap<Integer, Object>();
 
 					hashmap.put(ParametrosInventario.clave_art_sector,
@@ -1529,7 +1496,7 @@ public class BaseDatos extends SQLiteOpenHelper {
 		}
 	}
 
-	/**
+	/*
 	 * Regenera las tablas de articulos e inventarios. Si se ha cambiado la
 	 * sentencia de creacion, se creana segun la nueva estriuctura 1 Abrimos la
 	 * base 2 Suprimimos todas las entradas de las tablas, sin suprimir las 3
@@ -1595,7 +1562,7 @@ public class BaseDatos extends SQLiteOpenHelper {
 		}
 	}
 
-	/**
+	/*
 	 * Regenera la tabla que se le pasa como parametro 1 Abrimos la base 2
 	 * Suprimimos todas las entradas de la tabla 3 Suprimimos la tabla que se
 	 * paso 4 Se crea la nueva versin de la tabla 5 Cierre
@@ -1638,7 +1605,7 @@ public class BaseDatos extends SQLiteOpenHelper {
 
 	}
 
-	/**
+	/*
 	 * Verifica el estado del inventario por su id para ver si esta abierto 1
 	 * Abrimos la base de datos en modo lectura 2 Buscamos el inventario con
 	 * ese id en la tabla de inventarios 3 Evaluamos el resultado y si es 1
@@ -1664,7 +1631,7 @@ public class BaseDatos extends SQLiteOpenHelper {
 		Cursor c;
 		System.out.println("::: BaseDatos condicionRadio " + condicionRadio + " " + String.valueOf(id));
 		int valorapasar = Integer.parseInt(String.valueOf(id));
-		if(condicionRadio==false && valorapasar==-1){
+		if(!condicionRadio && valorapasar==-1){
 			//deposito
 			System.out.println("DEPOSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS");
 			c = dtb
@@ -1692,7 +1659,7 @@ public class BaseDatos extends SQLiteOpenHelper {
 //						new String[] { String.valueOf(id) }, null, null, null);
 
 		// 3 Evaluamos el resultado y si es 1 devolvemos true
-		if (c.moveToFirst() == true) {
+		if (c.moveToFirst()) {
 			if (c.getInt(0) == 1) {
 				return true;
 			} else {
@@ -1736,7 +1703,7 @@ public class BaseDatos extends SQLiteOpenHelper {
 
 
 		// 3 Evaluamos el resultado y si es 1 devolvemos true
-		if (c.moveToFirst() == true) {
+		if (c.moveToFirst()) {
 			if (c.getInt(0) == 1) {
 				return true;
 			} else {
@@ -1754,12 +1721,12 @@ public class BaseDatos extends SQLiteOpenHelper {
 	public void SelectTotal() throws IOException {
 		System.out.println("::: BaseDatos 1179 SelectTotal");
 
-		/**
+		/*
 		 * EN ESTA FUNCIN SE CREAR UNA EXPORTACIN DE SEGURIDAD DE LA BASE DE
 		 * DATOS
 		 */
 
-		/**
+		/*
 		 * COMIENZO LA CONFIGURACIN DE DONDE IR LOS DATOS
 		 */
 
@@ -1792,7 +1759,7 @@ public class BaseDatos extends SQLiteOpenHelper {
 		SQLiteDatabase dtb = this.getReadableDatabase();
 		Cursor c = dtb.rawQuery(query, null);
 
-		/**
+		/*
 		 * COMIENZA LA EXPORTACIN DE LA LA TABLA ARTCULOS
 		 */
 
@@ -1823,39 +1790,21 @@ public class BaseDatos extends SQLiteOpenHelper {
 					String contadorString = String.valueOf(contador);
 
 					logDatos.Logdatos(contadorString, null, 2);
-					logDatos.Logdatos(sector,
-							ParametrosInventario.bal_bdd_articulo_sector, 3);
-					logDatos.Logdatos(codigo,
-							ParametrosInventario.bal_bdd_articulo_codigo, 3);
-					logDatos.Logdatos(codigoBarra,
-							ParametrosInventario.bal_bdd_articulo_codigo_barra,
-							3);
-					logDatos.Logdatos(inventario,
-							ParametrosInventario.bal_bdd_articulo_inventario, 3);
-					logDatos.Logdatos(descripcion,
-							ParametrosInventario.bal_bdd_articulo_descripcion,
-							3);
-					logDatos.Logdatos(precioVenta,
-							ParametrosInventario.bal_bdd_articulo_precio_venta,
-							3);
-					logDatos.Logdatos(precioCosto,
-							ParametrosInventario.bal_bdd_articulo_precio_costo,
-							3);
-					logDatos.Logdatos(foto,
-							ParametrosInventario.bal_bdd_articulo_foto, 3);
-					logDatos.Logdatos(cantidad,
-							ParametrosInventario.bal_bdd_articulo_cantidad, 3);
-					logDatos.Logdatos(fechaInicio,
-							ParametrosInventario.bal_bdd_articulo_fechaInicio,
-							3);
-					logDatos.Logdatos(fechaFin,
-							ParametrosInventario.bal_bdd_articulo_fechaFin, 3);
+					logDatos.Logdatos(sector, ParametrosInventario.bal_bdd_articulo_sector, 3);
+					logDatos.Logdatos(codigo, ParametrosInventario.bal_bdd_articulo_codigo, 3);
+					logDatos.Logdatos(codigoBarra, ParametrosInventario.bal_bdd_articulo_codigo_barra, 3);
+					logDatos.Logdatos(inventario, ParametrosInventario.bal_bdd_articulo_inventario, 3);
+					logDatos.Logdatos(descripcion, ParametrosInventario.bal_bdd_articulo_descripcion, 3);
+					logDatos.Logdatos(precioVenta, ParametrosInventario.bal_bdd_articulo_precio_venta, 3);
+					logDatos.Logdatos(precioCosto, ParametrosInventario.bal_bdd_articulo_precio_costo, 3);
+					logDatos.Logdatos(foto, ParametrosInventario.bal_bdd_articulo_foto, 3);
+					logDatos.Logdatos(cantidad, ParametrosInventario.bal_bdd_articulo_cantidad, 3);
+					logDatos.Logdatos(fechaInicio, ParametrosInventario.bal_bdd_articulo_fechaInicio, 3);
+					logDatos.Logdatos(fechaFin, ParametrosInventario.bal_bdd_articulo_fechaFin, 3);
 
 
-					logDatos.Logdatos(exisVenta,
-							ParametrosInventario.bal_bdd_articulo_existencia_venta, 3);
-					logDatos.Logdatos(exisDeposito,
-							ParametrosInventario.bal_bdd_articulo_existencia_deposito, 3);
+					logDatos.Logdatos(exisVenta, ParametrosInventario.bal_bdd_articulo_existencia_venta, 3);
+					logDatos.Logdatos(exisDeposito, ParametrosInventario.bal_bdd_articulo_existencia_deposito, 3);
 
 
 					logDatos.Logdatos(null, null, 21);
@@ -1877,11 +1826,11 @@ public class BaseDatos extends SQLiteOpenHelper {
 
 		dtb.close();
 
-		/**
+		/*
 		 * EXPORTACIN DE ARTCULO TERMINAD
 		 */
 
-		/**
+		/*
 		 * EXPORTACIN DE REFERENCIAS FINALIZA
 		 */
 
@@ -1914,38 +1863,16 @@ public class BaseDatos extends SQLiteOpenHelper {
 					String contadorString = String.valueOf(contador);
 
 					logDatos.Logdatos(contadorString, null, 2);
-					logDatos.Logdatos(sector,
-							ParametrosInventario.bal_bdd_referencia_sector, 3);
-					logDatos.Logdatos(codigo,
-							ParametrosInventario.bal_bdd_referencia_codigo, 3);
-					logDatos.Logdatos(
-							codigoBarra,
-							ParametrosInventario.bal_bdd_referencia_codigo_barra,
-							3);
-					logDatos.Logdatos(
-							descripcion,
-							ParametrosInventario.bal_bdd_referencia_descripcion,
-							3);
-					logDatos.Logdatos(
-							precioVenta,
-							ParametrosInventario.bal_bdd_referencia_precio_venta,
-							3);
-					logDatos.Logdatos(
-							precioCosto,
-							ParametrosInventario.bal_bdd_referencia_precio_costo,
-							3);
-					logDatos.Logdatos(foto,
-							ParametrosInventario.bal_bdd_referencia_foto, 3);
+					logDatos.Logdatos(sector, ParametrosInventario.bal_bdd_referencia_sector, 3);
+					logDatos.Logdatos(codigo, ParametrosInventario.bal_bdd_referencia_codigo, 3);
+					logDatos.Logdatos(codigoBarra, ParametrosInventario.bal_bdd_referencia_codigo_barra, 3);
+					logDatos.Logdatos(descripcion, ParametrosInventario.bal_bdd_referencia_descripcion, 3);
+					logDatos.Logdatos(precioVenta, ParametrosInventario.bal_bdd_referencia_precio_venta, 3);
+					logDatos.Logdatos(precioCosto, ParametrosInventario.bal_bdd_referencia_precio_costo, 3);
+					logDatos.Logdatos(foto, ParametrosInventario.bal_bdd_referencia_foto, 3);
 
-
-					logDatos.Logdatos(
-							exisVenta,
-							ParametrosInventario.bal_bdd_referencia_existencia_venta,
-							3);
-					logDatos.Logdatos(
-							exisDeposito,
-							ParametrosInventario.bal_bdd_referencia_existencia_deposito,
-							3);
+					logDatos.Logdatos(exisVenta, ParametrosInventario.bal_bdd_referencia_existencia_venta, 3);
+					logDatos.Logdatos(exisDeposito, ParametrosInventario.bal_bdd_referencia_existencia_deposito, 3);
 
 					logDatos.Logdatos(null, null, 21);
 					contador++;
@@ -1965,18 +1892,17 @@ public class BaseDatos extends SQLiteOpenHelper {
 		}
 		dtb_1.close();
 
-		/**
+		/*
 		 * EXPORTACIN DE REFERENCIAS FINALIZADA
 		 */
 
-		/**
+		/*
 		 * COMIENZA LA EXPORTACIN DE INVENTARIOS
 		 */
 
 		logErrores.log("Comienza la exportacin de Inventarios", 2);
 
-		String query_2 = "Select * from "
-				+ ParametrosInventario.tabla_inventarios;
+		String query_2 = "Select * from " + ParametrosInventario.tabla_inventarios;
 		SQLiteDatabase dtb_2 = this.getReadableDatabase();
 		Cursor c_2 = dtb_2.rawQuery(query_2, null);
 
@@ -1999,22 +1925,12 @@ public class BaseDatos extends SQLiteOpenHelper {
 					String contadorString = String.valueOf(contador);
 
 					logDatos.Logdatos(contadorString, null, 2);
-					logDatos.Logdatos(numero,
-							ParametrosInventario.bal_bdd_inventario_numero, 3);
-					logDatos.Logdatos(
-							descripcion,
-							ParametrosInventario.bal_bdd_inventario_descripcion,
-							3);
-					logDatos.Logdatos(
-							fechaInicio,
-							ParametrosInventario.bal_bdd_inventario_fechaInicio,
-							3);
-					logDatos.Logdatos(fechaFin,
-							ParametrosInventario.bal_bdd_inventario_fechaFin, 3);
-					logDatos.Logdatos(estado,
-							ParametrosInventario.bal_bdd_inventario_estado, 3);
-					logDatos.Logdatos(cantidad,
-							ParametrosInventario.bal_bdd_inventario_cantidad, 3);
+					logDatos.Logdatos(numero, ParametrosInventario.bal_bdd_inventario_numero, 3);
+					logDatos.Logdatos(descripcion, ParametrosInventario.bal_bdd_inventario_descripcion, 3);
+					logDatos.Logdatos(fechaInicio, ParametrosInventario.bal_bdd_inventario_fechaInicio, 3);
+					logDatos.Logdatos(fechaFin, ParametrosInventario.bal_bdd_inventario_fechaFin, 3);
+					logDatos.Logdatos(estado, ParametrosInventario.bal_bdd_inventario_estado, 3);
+					logDatos.Logdatos(cantidad, ParametrosInventario.bal_bdd_inventario_cantidad, 3);
 
 					logDatos.Logdatos(null, null, 21);
 					contador++;
@@ -2070,25 +1986,20 @@ public class BaseDatos extends SQLiteOpenHelper {
 	 * @throws ExceptionHttpExchange
 	 */
 	// Tiene en cuenta el nuevo formato para datos de inventario tambien
-	public boolean exportarTodasBaseDatosSQLite(
-			ArrayList<Integer> listaInventariosSeleccionados)
-			throws ExceptionBDD, ExceptionHttpExchange {
+	public boolean exportarTodasBaseDatosSQLite(ArrayList<Integer> listaInventariosSeleccionados) throws ExceptionBDD, ExceptionHttpExchange {
 		System.out.println("::: BaseDatos 1473 exportarBDSQLite");
 		try {
 			// Chequear
 			boolean hayAlMenosUno = false;
-			 String string_lista_inventarios = "";
-			 for (int inv : listaInventariosSeleccionados) {
-			 string_lista_inventarios += String.valueOf(inv) + ",";
-			 }
-			 string_lista_inventarios = string_lista_inventarios.substring(0,
-			 string_lista_inventarios.length()-1);
+//			 StringBuilder string_lista_inventarios = new StringBuilder();
+//			 for (int inv : listaInventariosSeleccionados) {
+//			 string_lista_inventarios.append(String.valueOf(inv)).append(",");
+//			 }
+//			 string_lista_inventarios = new StringBuilder(string_lista_inventarios.substring(0, string_lista_inventarios.length() - 1));
 
 			// 1 Creacion del nuevo documento
-			DocumentBuilderFactory fabricaDocumentos = DocumentBuilderFactory
-					.newInstance();
-			DocumentBuilder constructorDocumentos = fabricaDocumentos
-					.newDocumentBuilder();
+			DocumentBuilderFactory fabricaDocumentos = DocumentBuilderFactory.newInstance();
+			DocumentBuilder constructorDocumentos = fabricaDocumentos.newDocumentBuilder();
 			Document documento = constructorDocumentos.newDocument();
 
 			// Propiedades del DOM:
@@ -2096,8 +2007,7 @@ public class BaseDatos extends SQLiteOpenHelper {
 			documento.setXmlStandalone(true);
 
 			// 2 Creacion del elemento de cabecera
-			Element titulo = documento
-					.createElement(ParametrosInventario.bal_xml_export_cabecera);
+			Element titulo = documento.createElement(ParametrosInventario.bal_xml_export_cabecera);
 
 			// 3 Abrimos la base de datos en modo lectura:
 			SQLiteDatabase dtb = this.getReadableDatabase();
@@ -2133,21 +2043,24 @@ public class BaseDatos extends SQLiteOpenHelper {
 //					.indexOfChild(radioButton);
 //			System.out.println("LALALALALALSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS");
 //			System.out.println(idx);
+
+
+
 			// 4 Para cada inventario de la lista
 			for (Integer inv : listaInventariosSeleccionados) {
-
 				String[] columnasDeseadasInventario = new String[] {
 						ParametrosInventario.bal_bdd_inventario_numero,
 						ParametrosInventario.bal_bdd_inventario_prodcont,
 						ParametrosInventario.bal_bdd_inventario_fechaInicio,
 						ParametrosInventario.bal_bdd_inventario_fechaFin,
-						ParametrosInventario.bal_bdd_inventario_lugar,
-				};
+						ParametrosInventario.bal_bdd_inventario_lugar,};
+
 				// Recuperamos los resultados:
 				// Cursor cInventarios = dtb.query(tabla_inventarios_nombre,
 				// columnasDeseadasInventario, null, null, null, null, null);
 				System.out.println("::: BaseDatos 1501 columna " + columnasDeseadasInventario);
 				System.out.println("::: BaseDatos 1514 ");
+
 				Cursor cInventarios = dtb.query(tabla_inventarios_nombre,
 						columnasDeseadasInventario,
 						ParametrosInventario.bal_bdd_inventario_numero + " = "
@@ -2167,17 +2080,13 @@ public class BaseDatos extends SQLiteOpenHelper {
 					// while (cInventarios.isAfterLast() == false) {
 
 					// Para cada inventario
-					// inventario =
-					// documento.createElement(ParametrosInventario.CONVERSOR_BALIZAS.bdd2xml(tabla_inventarios_nombre));
+					 inventario = documento.createElement(ParametrosInventario.CONVERSOR_BALIZAS.bdd2xml(tabla_inventarios_nombre));
 					// 4.1 Creamos un elemento para el inventario
-					inventario = documento
-							.createElement(Parametros.bal_xml_inventario_root);
+					inventario = documento.createElement(Parametros.bal_xml_inventario_root);
 
-					// 4.2 Recorro las columnas y creo los elementos de los
-					// datos
+					// 4.2 Recorro las columnas y creo los elementos de los datos
 					for (int i = 0; i < cantidadColumnasInv; i++) {
-						Element elemento = documento
-								.createElement(ParametrosInventario.CONVERSOR_BALIZAS.bdd2xml(cInventarios.getColumnName(i)));
+						Element elemento = documento.createElement(ParametrosInventario.CONVERSOR_BALIZAS.bdd2xml(cInventarios.getColumnName(i)));
 						elemento.setTextContent(cInventarios.getString(i));
 						inventario.appendChild(elemento);
 					}
@@ -2188,7 +2097,7 @@ public class BaseDatos extends SQLiteOpenHelper {
 					// Agregar los articulos
 
 					// Abrimos la base de datos en modo lectura:
-					// SQLiteDatabase dtb = this.getReadableDatabase();
+					// SQLiteDatabase db = this.getReadableDatabase(); se comentoa*****************************************************
 
 					// 4.3 Buscamos los datos de los articulos
 					String[] columnasDeseadas = new String[] {
@@ -2224,31 +2133,25 @@ public class BaseDatos extends SQLiteOpenHelper {
 						hayAlMenosUno = true;
 						while (!c.isAfterLast()) {
 							// Creamos el hijo ART
-							// Element medicion =
-							// documento.createElement(ParametrosInventario.CONVERSOR_BALIZAS.bdd2xml(tabla_articulos_nombre));
-							// 4.4 Creamos los elementos para el articulo
-							Element medicion = documento
-									.createElement(Parametros.bal_xml_articulo_root);
+							// Element medicion = documento.createElement(ParametrosInventario.CONVERSOR_BALIZAS.bdd2xml(tabla_articulos_nombre));
 
-							for (int i = 0; i < cantidadColumnas; i++) {
-								Element elemento = documento
-										.createElement(ParametrosInventario.CONVERSOR_BALIZAS.bdd2xml(c.getColumnName(i)));
+							// 4.4 Creamos los elementos para el articulo
+							Element medicion = documento.createElement(Parametros.bal_xml_articulo_root);
+
+								for (int i = 0; i < cantidadColumnas; i++) {
+								Element elemento = documento.createElement(ParametrosInventario.CONVERSOR_BALIZAS.bdd2xml(c.getColumnName(i)));
 								elemento.setTextContent(c.getString(i));
 								medicion.appendChild(elemento);
 							}
 							inventario.appendChild(medicion);
-
 							c.moveToNext();
 						}
 					}
 					// Verificar
-					if (tieneArticulos) {
-						titulo.appendChild(inventario);
-					}
+					if (tieneArticulos) titulo.appendChild(inventario);
 					// cInventarios.moveToNext();
 					// Cierra el while, no seria necesario
 					// }
-
 				}
 			}
 
@@ -2257,8 +2160,7 @@ public class BaseDatos extends SQLiteOpenHelper {
 			if (hayAlMenosUno) {
 				Calendar cal = Calendar.getInstance();
 				SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-				Element fec_ope = documento
-						.createElement(ParametrosInventario.bal_xml_export_fec_ope);
+				Element fec_ope = documento.createElement(ParametrosInventario.bal_xml_export_fec_ope);
 				System.out.println(" Pasar fecha ");
 				System.out.println(simpleDateFormat.format(cal.getTime()).toString());
 				fec_ope.appendChild(documento.createTextNode(simpleDateFormat.format(cal.getTime())));
@@ -2267,16 +2169,12 @@ public class BaseDatos extends SQLiteOpenHelper {
 				documento.appendChild(titulo);
 
 				// 5 Guardamos el DOM como archivo XML
-				HttpWriter.transformerXml(documento,
-						ParametrosInventario.URL_COPIA_XML_EXPORT);
+				HttpWriter.transformerXml(documento, ParametrosInventario.URL_COPIA_XML_EXPORT);
 
 				// 6 Mandamos el archivo en POST hacia el servidor:
-				HttpSender httpSender = new HttpSender(
-						Parametros.CODIGO_SOFT_DEBOINVENTARIO);
+				HttpSender httpSender = new HttpSender(Parametros.CODIGO_SOFT_DEBOINVENTARIO);
 				System.out.println("::: el system :;:;:;");
-				return httpSender
-						.send_xml(ParametrosInventario.URL_COPIA_XML_EXPORT);
-
+				return httpSender.send_xml(ParametrosInventario.URL_COPIA_XML_EXPORT);
 			} else {
 				return false;
 			}
@@ -2293,9 +2191,7 @@ public class BaseDatos extends SQLiteOpenHelper {
 		}
 	}
 
-	public boolean exportarTodasBaseDatosSQLiteCompras(
-			ArrayList<Integer> listaInventariosSeleccionados)
-			throws ExceptionBDD, ExceptionHttpExchange {
+	public boolean exportarTodasBaseDatosSQLiteCompras(ArrayList<Integer> listaInventariosSeleccionados) throws ExceptionBDD, ExceptionHttpExchange {
 		System.out.println("::: BaseDatos 2263 exportarBDSQLiteCompras");
 		System.out.println("ACA********************");
 		try {
@@ -2457,9 +2353,7 @@ public class BaseDatos extends SQLiteOpenHelper {
 	 * @throws ExceptionBDD
 	 */
 	// Nuevo formato desde 28/4/12
-	public void exportarTodasBaseDatosSQLite_HaciaUsb(
-			ArrayList<Integer> listaInventariosSeleccionados)
-			throws ExceptionBDD {
+	public void exportarTodasBaseDatosSQLite_HaciaUsb(ArrayList<Integer> listaInventariosSeleccionados) throws ExceptionBDD {
 		System.out.println("::: BaseDatos 1741 exportarTodasBaseDatosSQLite_HaciaUsb");
 		try {
 			boolean hayAlMenosUno = false;
@@ -2643,8 +2537,7 @@ public class BaseDatos extends SQLiteOpenHelper {
 				if (tieneArticulos) {
 					// 1.8 Si estan creados todos los archivos, transformamos el
 					// DOM a un documento
-					HttpWriter.transformerXml(documento,
-							archivo_destino.getAbsolutePath());
+					HttpWriter.transformerXml(documento, archivo_destino.getAbsolutePath());
 				} else {
 					// throw new ExceptionBDD(ExceptionBDD.EXPORT_FRACASADO,
 					// "No todos los inventarios tienen artculos");
@@ -5904,8 +5797,7 @@ public class BaseDatos extends SQLiteOpenHelper {
 	 * @throws ExceptionBDD
 	 *             lanzada si no se encuentra la tabla en la base de datos
 	 */
-	public ArrayList<Integer> selectInventariosCerradosEnBddCompras()
-			throws ExceptionBDD {
+	public ArrayList<Integer> selectInventariosCerradosEnBddCompras() throws ExceptionBDD {
 		System.out.println("::: BaseDatos 3921 selectInventariosCerradosEnBdd");
 		ArrayList<Integer> tablaResultado = new ArrayList<Integer>();
 		// 1 Abrimos la base de datos en modo lectura
@@ -5965,8 +5857,7 @@ public class BaseDatos extends SQLiteOpenHelper {
 		return tablaResultado;
 	}
 
-	public ArrayList<Integer> selectInventariosCerradosEnBdd()
-			throws ExceptionBDD {
+	public ArrayList<Integer> selectInventariosCerradosEnBdd() throws ExceptionBDD {
 		System.out.println("::: BaseDatos 3921 selectInventariosCerradosEnBdd");
 		ArrayList<Integer> tablaResultado = new ArrayList<Integer>();
 
@@ -6054,8 +5945,7 @@ public class BaseDatos extends SQLiteOpenHelper {
 	 * @return ArrayList<Integer>
 	 * @throws ExceptionBDD
 	 */
-	public ArrayList<Integer> selectInventariosNumerosEnBddCompras()
-			throws ExceptionBDD {
+	public ArrayList<Integer> selectInventariosNumerosEnBddCompras() throws ExceptionBDD {
 		System.out.println("::: BaseDatos 3977 selectInventariosNumerosEnBddCompras");
 		boolean condicionRadioSelect = ParametrosInventario.InventariosVentas;
 		int condVtaDep = -3;
@@ -6093,8 +5983,7 @@ public class BaseDatos extends SQLiteOpenHelper {
 		}
 	}
 
-	public ArrayList<Integer> selectInventariosNumerosEnBdd()
-			throws ExceptionBDD {
+	public ArrayList<Integer> selectInventariosNumerosEnBdd() throws ExceptionBDD {
 		System.out.println("::: BaseDatos 3977 selectInventariosNumerosEnBdd");
 		boolean condicionRadioSelect = ParametrosInventario.InventariosVentas;
 		int condVtaDep = 0;
@@ -6206,7 +6095,6 @@ public class BaseDatos extends SQLiteOpenHelper {
 		}
 	}
 
-
 	/*
 	 * Actualiza los datos de un ARTICULO pasado como parametro
 	 * <p>
@@ -6276,8 +6164,7 @@ public class BaseDatos extends SQLiteOpenHelper {
 				// una:
 				String fechaI = articulo.getFechaInicio();
 				if (fechaI.length() == 0) {
-					articulo.setFechaInicio(new SimpleDateFormat(
-							"yyyy-MM-dd HH:mm:ss").format(new Date()));
+					articulo.setFechaInicio(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
 				}
 
 				// Fecha fin: se modifica cada vez:
@@ -6755,9 +6642,7 @@ public class BaseDatos extends SQLiteOpenHelper {
 		}
 	}
 
-
-	public void updateInventario(int num_inventario, int estado_nuevo)
-			throws ExceptionBDD {
+	public void updateInventario(int num_inventario, int estado_nuevo) throws ExceptionBDD {
 		System.out.println("::: BaseDatos 4378 updateInventario");
 		try {
 			// 1 Abrimos la base de datos en modo escritura
@@ -6768,29 +6653,17 @@ public class BaseDatos extends SQLiteOpenHelper {
 			if (dtb != null) {
 				// 2 Creamos el registro a actualizar como objeto ContentValues
 				ContentValues nuevoRegistro = new ContentValues();
-				nuevoRegistro.put(
-						ParametrosInventario.bal_bdd_inventario_estado,
-						estado_nuevo);
-				nuevoRegistro.put(
-						ParametrosInventario.bal_bdd_inventario_fechaFin,
-						new SimpleDateFormat("yyyy-MM-dd HH:mm:ss")
-								.format(new Date()));
+				nuevoRegistro.put(ParametrosInventario.bal_bdd_inventario_estado, estado_nuevo);
+				nuevoRegistro.put(ParametrosInventario.bal_bdd_inventario_fechaFin, new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
 				// 3 Actualizamos el registro en la base de datos
-				int resultado = dtb.update(tabla_inventarios_nombre,
-						nuevoRegistro,
-						ParametrosInventario.bal_bdd_inventario_numero + "=?",
-						new String[] { String.valueOf(num_inventario) });
+				int resultado = dtb.update(tabla_inventarios_nombre, nuevoRegistro, ParametrosInventario.bal_bdd_inventario_numero + "=?", new String[] { String.valueOf(num_inventario) });
 
 				// Test del resultado:
 				if (resultado <= 0) {
-					throw new ExceptionBDD(ExceptionBDD.ERROR_TIPO_UPDATE,
-							"(1) Imposible actualizar los datos del INVENTARIO cuyo numero es: "
-									+ String.valueOf(num_inventario));
+					throw new ExceptionBDD(ExceptionBDD.ERROR_TIPO_UPDATE, "(1) Imposible actualizar los datos del INVENTARIO cuyo numero es: " + String.valueOf(num_inventario));
 				}
 			} else {
-				throw new ExceptionBDD(ExceptionBDD.ERROR_TIPO_UPDATE,
-						"(2) Imposible actualizar los datos del INVENTARIO cuyo numero es: "
-								+ String.valueOf(num_inventario));
+				throw new ExceptionBDD(ExceptionBDD.ERROR_TIPO_UPDATE, "(2) Imposible actualizar los datos del INVENTARIO cuyo numero es: "+ String.valueOf(num_inventario));
 			}
 			// 4 Cerramos la BD
 			dtb.close();
@@ -6802,9 +6675,7 @@ public class BaseDatos extends SQLiteOpenHelper {
 			log.tipo_4 = Parametros.PREF_LOG_EXCEPCIONES;
 			log.log("[-- 3370 --]" + e.toString(), 4);
 
-			throw new ExceptionBDD(ExceptionBDD.ERROR_TIPO_UPDATE,
-					"(3) Imposible actualizar los datos del INVENTARIO cuyo numero es: "
-							+ String.valueOf(num_inventario));
+			throw new ExceptionBDD(ExceptionBDD.ERROR_TIPO_UPDATE, "(3) Imposible actualizar los datos del INVENTARIO cuyo numero es: " + String.valueOf(num_inventario));
 
 		}
 	}
@@ -6905,8 +6776,7 @@ public class BaseDatos extends SQLiteOpenHelper {
 	 * @throws ExceptionBDD
 	 *             si no encuentra inventarios
 	 */
-	public HashMap<Integer, HashMap<String, String>> selectInventariosCompraEnBdd()
-			throws ExceptionBDD {
+	public HashMap<Integer, HashMap<String, String>> selectInventariosCompraEnBdd() throws ExceptionBDD {
 		System.out.println("::: BaseDAtos 5956 selectInventariosCompraEnBdd");
 		HashMap<Integer, HashMap<String, String>> tablaResultados = new HashMap<Integer, HashMap<String, String>>();
 		// 1 Abrimos la base de datos en modo lectura
@@ -6916,10 +6786,10 @@ public class BaseDatos extends SQLiteOpenHelper {
 		c = dtb.query(tabla_inventarios_nombre, null , whereClause, null, null,
 				null, "INV_NUM"+ " ASC" );
 		// 2 Buscamos todos los inventarios
-		if (c.moveToFirst() == true) {
-			while (c.isAfterLast() == false) {
+		if (c.moveToFirst()) {
+			while (!c.isAfterLast()) {
 				HashMap<String, String> tablaUnInventario = new HashMap<String, String>();
-				/**
+				/*
 				 * 3 Genera el hashmap, uno por inventario
 				 */
 				tablaUnInventario

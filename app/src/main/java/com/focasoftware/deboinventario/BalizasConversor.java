@@ -90,7 +90,7 @@ public class BalizasConversor {
 				if ( (vector.get(XML)).compareTo(bal_xml) == 0 ) {
 					indice = todos_vectores.indexOf(vector);
 					String posible_resultado = (String) todos_vectores.get(indice).get(BDD);
-					if (posible_resultado.contains(codigo_xml_tabla) == true) {
+					if (posible_resultado.contains(codigo_xml_tabla)) {
 
 						Log.e("posible_resultado", posible_resultado);
 						return posible_resultado;
@@ -237,7 +237,7 @@ public class BalizasConversor {
 		}
 	}
 
-	/**
+	/*
 	 * Devuelve la baliza usb correspondiente ala baliza bdd pasada como parametro
 	 * <p>1� Buscar en todos los vectores la baliza usb de la bdd pasada
 	 * <p>2� Si no encontramos, disparamos un error

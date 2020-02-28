@@ -740,10 +740,8 @@ public class PreferenciasInventario extends Activity {
 			if (verificar_datos.size() > 0) {
 				//No debe hacer nada
 			}else{
-				data.guardarLocal(new Local("POS Retail",
-						"http://192.168.0.0/webservice_balanza/deboinventario/webservice.php"));
-				data.guardarLocal(new Local("BO Estaciones",
-						"http://192.168.0.0/wsestaciones/webservice.php"));
+				data.guardarLocal(new Local("POS Retail", "http://192.168.0.0/webservice_balanza/deboinventario/webservice.php"));
+				data.guardarLocal(new Local("BO Estaciones", "http://192.168.0.0/wsestaciones/webservice.php"));
 			}
 
 			ArrayList<Local> Locales = data.ObtenerTodosLocales();

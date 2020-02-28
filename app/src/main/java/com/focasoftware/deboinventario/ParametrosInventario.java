@@ -7,9 +7,9 @@ import androidx.annotation.Nullable;
 
 import java.io.File;
 
-/**
+ /*
  * Clase donde se almacenan los parmetros generales de la aplicacin. Contiene
- * en su mayora campos estticos para poder acceder a ellos desde toda la
+ * en su mayora campos estaticos para poder acceder a ellos desde toda la
  * aplicacin.
  * 
  * @author GuillermoR
@@ -394,6 +394,8 @@ public class ParametrosInventario {
 		CONVERSOR_BALIZAS.put(bal_bdd_referencia_depsn,
 				Parametros.bal_xml_articulo_depsn,
 				Parametros.bal_usb_articulo_depsn);
+
+
 		/*Balizas para el pesaje y la cantidad de decimales*/
 		CONVERSOR_BALIZAS.put(bal_bdd_referencia_decimales,
 				Parametros.bal_xml_articulo_decimales,

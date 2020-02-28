@@ -23,7 +23,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-/**
+/*
  * Activity principal que se llama cuando se inicia la aplicaci�n, es la
  * pantalla de inicio al sistema. A partir de aqu� se dispara la ejecuci�n de
  * las otras clases.
@@ -121,7 +121,7 @@ public class DeboInventario extends Activity implements DialogPersoSimple, Wifi 
 	// hora de comprobar la unidad de
 	// almacenamiento
 
-	/**
+	/*
 	 * Metodo que se ejecuta al crearse la activity, inicializaciones,
 	 * comprobaciones, etc
 	 * <p>
@@ -151,7 +151,7 @@ public class DeboInventario extends Activity implements DialogPersoSimple, Wifi 
 
 		PreferenciasInventario.cargarPreferencias(ctxt);
 
-		/**
+		/*
 		 * Se crea y se instancia la clase de log
 		 */
 
@@ -214,7 +214,7 @@ public class DeboInventario extends Activity implements DialogPersoSimple, Wifi 
 		// 2 Control de preexistencia de los archivos necesarios:
 		// CARPETA DE LAS FOTOS: //
 		File carpeta_de_fotos = new File(ParametrosInventario.URL_CARPETA_FOTOS);
-		if (carpeta_de_fotos.exists() == false) {
+		if (!carpeta_de_fotos.exists()) {
 			carpeta_de_fotos.mkdir();
 		}
 
@@ -234,35 +234,35 @@ public class DeboInventario extends Activity implements DialogPersoSimple, Wifi 
 			File url_carpeta_usb_export = new File(ParametrosInventario.URL_CARPETA_USB_EXPORT);
 
 
-			if(carpetaInternaImportacion.exists() == false){
+			if(!carpetaInternaImportacion.exists()){
 				carpetaInternaImportacion.mkdir();
 			}
 
-			if(Flash_deboInventario.exists() == false)
+			if(!Flash_deboInventario.exists())
 				Flash_deboInventario.mkdir();
 
-			if(Flash_deboInventario_aTablet.exists() == false)
+			if(!Flash_deboInventario_aTablet.exists())
 				Flash_deboInventario_aTablet.mkdir();
 
-			if(Flash_deboInventario_desdeTablet.exists() == false)
+			if(!Flash_deboInventario_desdeTablet.exists())
 				Flash_deboInventario_desdeTablet.mkdir();
 
-			if(Flash_deboInventario_maeTablet.exists() == false)
+			if(!Flash_deboInventario_maeTablet.exists())
 				Flash_deboInventario_maeTablet.mkdir();
 
-			if(Flash_deboInventario_logTablet.exists() == false)
+			if(!Flash_deboInventario_logTablet.exists())
 				Flash_deboInventario_logTablet.mkdir();
 
-			if(Flash_deboInventario_logDatos.exists() == false)
+			if(!Flash_deboInventario_logDatos.exists())
 				Flash_deboInventario_logDatos.mkdir();
 
-			if(url_carpeta_usb.exists() == false)
+			if(!url_carpeta_usb.exists())
 				url_carpeta_usb.mkdir();
 
-			if(url_carpeta_usb_import.exists() == false)
+			if(!url_carpeta_usb_import.exists())
 				url_carpeta_usb_import.mkdir();
 
-			if(url_carpeta_usb_export.exists() == false)
+			if(!url_carpeta_usb_export.exists())
 				url_carpeta_usb_export.mkdir();
 
 
@@ -1147,13 +1147,10 @@ public class DeboInventario extends Activity implements DialogPersoSimple, Wifi 
 					// --------------------------------------------------
 					// Recuperamos todos los articulos, y los cargamos:
 					// --------------------------------------------------
-					if (lista_actualizaciones_programadas
-							.contains(ParametrosInventario.tabla_referencias) == true) {
+					if (lista_actualizaciones_programadas.contains(ParametrosInventario.tabla_referencias) == true) {
 						// 1 Borramos los datos de las referencias
 						try {
-							BDD.borrarDatosBDD(
-									ParametrosInventario.tabla_referencias,
-									false);
+							BDD.borrarDatosBDD(ParametrosInventario.tabla_referencias, false);
 						} catch (ExceptionBDD e1) {
 							e1.printStackTrace();
 							log.log("[-- 1002 --]" + e1.toString(), 4);
@@ -1187,8 +1184,7 @@ public class DeboInventario extends Activity implements DialogPersoSimple, Wifi 
 								int lastValueSubir = 0;
 
 								if (carpeta_fuente.listFiles().length > 0) {
-									for (File archivo : carpeta_fuente
-											.listFiles()) {
+									for (File archivo : carpeta_fuente.listFiles()) {
 
 										listaSQL = new ArrayList<String>();
 										// 2.1 Leer las referencias del archivo

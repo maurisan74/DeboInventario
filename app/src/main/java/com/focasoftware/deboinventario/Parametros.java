@@ -8,7 +8,7 @@ import androidx.annotation.Nullable;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-/**
+/*
  * Clase que contiene una gran variedad de parametros comunes para todas las
  * aplicaciones que se utilizan para controlar el funcionamiento del sistema
  * correspondiente
