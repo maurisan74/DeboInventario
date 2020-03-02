@@ -16,7 +16,7 @@ import androidx.annotation.NonNull;
 
 import java.util.ArrayList;
 
-/**
+/*
  * Dialogo que hereda de la clase Dialog y se usa para permitir
  * al usuario elegir el medio de actualizaci�n de los datos, sea este
  * por WIFI o USB.
@@ -30,7 +30,7 @@ public class DialogPersoComplexActualizacionWifiUsb extends Dialog {
 	private Activity owner;
 	
 	
-	/**
+	/*
 	 * Constructor con toda la informacion a mostrar en el dialogo, arma la UI para 
 	 * dejarla lista para ser mostrada
 	 * <p>1� Construcci�n del t�tulo
@@ -144,7 +144,4 @@ public class DialogPersoComplexActualizacionWifiUsb extends Dialog {
 			boton_validar_wifi.setOnClickListener(listenerPositivoWifi);
 			boton_cancelar.setOnClickListener(listenerNegativo);
 	}
-	
-	
-	
 }

@@ -1,19 +1,17 @@
 package com.focasoftware.deboinventario;
 
 import android.os.Environment;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-
 import java.io.File;
 
- /*
+/**
  * Clase donde se almacenan los parmetros generales de la aplicacin. Contiene
- * en su mayora campos estaticos para poder acceder a ellos desde toda la
+ * en su mayora campos estticos para poder acceder a ellos desde toda la
  * aplicacin.
- * 
+ *
  * @author GuillermoR
- * 
+ *
  */
 public class ParametrosInventario {
 	/**
@@ -22,8 +20,7 @@ public class ParametrosInventario {
 	public static boolean MODO_DEBUG = false;
 	public static boolean PREF_CAMARA = false;
 
-	@NonNull
-    public static String ID_TABLET = "99";
+	public static String ID_TABLET = "99";
 
 	public final static String no_disponible = "N/D";
 	public final static String tablet_mostrar_existencia = "tablet_mostrar_existencia";
@@ -59,37 +56,29 @@ public class ParametrosInventario {
 
 	public static final String preferencias_stock_alatoma = "preferencias_stock_alatoma";
 
-	
-	public static final String URL_CARPETA_FOTOS = "/data/data/com.focasoftware.deboInventario/fotos/";
-	public static final String URL_CARPETA_USB = "/data/data/com.focasoftware.deboInventario/usb/";
-	public static final String URL_CARPETA_USB_EXPORT = "/data/data/com.focasoftware.deboInventario/usb/export/";
-	public static final String URL_CARPETA_USB_IMPORT = "/data/data/com.focasoftware.deboInventario/usb/import/";
-	public static final String URL_CARPETA_DATABASES = "/data/data/com.focasoftware.deboInventario/databases/";
+	public static final String URL_CARPETA_FOTOS = "/data/data/com.focasoftware.deboinventario/fotos/";
+	public static final String URL_CARPETA_USB = "/data/data/com.focasoftware.deboinventario/usb/";
+	public static final String URL_CARPETA_USB_EXPORT = "/data/data//com.focasoftware.deboinventario/usb/export/";
+	public static final String URL_CARPETA_USB_IMPORT = "/data/data/com.focasoftware.deboinventario/usb/import/";
+	public static final String URL_CARPETA_DATABASES = "/data/data/com.focasoftware.deboinventario/databases/";
 
-	public final static String URL_ARCHIVO_LOG = "/data/data/com.focasoftware.deboInventario/log.txt";
+	public final static String URL_ARCHIVO_LOG = "/data/data/com.focasoftware.deboinventario/log.txt";
 	public final static String URL_COPIA_XML_EXPORT = "/data/data/com.focasoftware.deboinventario/deboInventarioExport.xml";
-	public final static String URI_USB = "/data/data/com.focasoftware.deboInventario/test/";
+	public final static String URI_USB = "/data/data/com.focasoftware.deboinventario/test/";
 
 	public static File SdCard = Environment.getExternalStorageDirectory();
-	@NonNull
-    public static String Stringsdcard = SdCard.toString();
-	@NonNull
-    public static String CARPETA_DEBOINVENTARIO = Stringsdcard
+	public static String Stringsdcard = SdCard.toString();
+	public static String CARPETA_DEBOINVENTARIO = Stringsdcard
 			+ "/deboInventario/";
-	@Nullable
-    public static String CARPETA_ATABLET = Stringsdcard
+	public static String CARPETA_ATABLET = Stringsdcard
 			+ "/deboInventario/aTablet/";
-	@Nullable
-    public static String CARPETA_DESDETABLET = Stringsdcard
+	public static String CARPETA_DESDETABLET = Stringsdcard
 			+ "/deboInventario/desdeTablet/";
-	@Nullable
-    public static String CARPETA_MAETABLET = Stringsdcard
+	public static String CARPETA_MAETABLET = Stringsdcard
 			+ "/deboInventario/maeTablet/";
-	@Nullable
-    public static String CARPETA_LOGTABLET = Stringsdcard
+	public static String CARPETA_LOGTABLET = Stringsdcard
 			+ "/deboInventario/logTablet/";
-	@Nullable
-    public static String CARPETA_LOGDATOS = Stringsdcard
+	public static String CARPETA_LOGDATOS = Stringsdcard
 			+ "/deboInventario/logDatos/";
 
 	public static boolean InventariosVentas = true;
@@ -98,23 +87,21 @@ public class ParametrosInventario {
 	public static boolean LecturaEntrada = false;
 	public static int ProductosNoContabilizados = 1;
 	public static boolean StockToma = true;
-	
+
 	public static boolean balanza = true;
-	
+
 	public static int InventarioVentas = 1;
-	
+
 	public static int radVen = 1;
-	
+
 	public static int radDep = 2;
-	
+
 	public static int StockalaToma = 1;
-	
+
 	// public static String PREF_IMPORT = CARPETA_ATABLET;
 	// public static String PREF_USB_EXPORT = CARPETA_DESDETABLET;
-	@NonNull
-    public static String Dispositivo_Import = "Dispositivo";
-	@NonNull
-    public static String Dispositivo_Export = "Dispositivo";
+	public static String Dispositivo_Import = "Dispositivo";
+	public static String Dispositivo_Export = "Dispositivo";
 
 	// public final static String PREF_USB_IMPORT_MAESTRO =
 	// "/udisk/deboInventario/maeTablet/";
@@ -211,25 +198,25 @@ public class ParametrosInventario {
 	public final static String bal_bdd_articulo_subtotal = "ART_SUBTOT";
 
 	public final static String bal_xml_export_fec_ope = "FEC_OPE";
-	
+
 	public final static String bal_bdd_articulo_pesaje = "ART_P";
-	
+
 	public final static String bal_bdd_articulo_fechaInicio = "ART_FEI";
 	public final static String bal_bdd_articulo_fechaFin = "ART_FEF";
-	
+
 	public final static String bal_bdd_articulo_existencia_venta = "ART_EV";
 	public final static String bal_bdd_articulo_existencia_deposito = "ART_ED";
 	public final static String bal_bdd_articulo_depsn = "ART_DEPSN";
-	
-	
+
+
 	/* Inventarios: */
 	public final static String tabla_inventarios = "INVENTARIOS";
 
 	public final static String bal_bdd_inventario_numero = "INV_NUM";
 	public final static String bal_bdd_inventario_prodcont = "INV_PRODCONT";
-	
+
 //	public final static String bal_bdd_inventario_dep = "INV_DEP";
-	
+
 	public final static String bal_bdd_inventario_descripcion = "INV_DESC";
 	public final static String bal_bdd_inventario_fechaInicio = "INV_FEI";
 	public final static String bal_bdd_inventario_fechaFin = "INV_FEF";
@@ -249,7 +236,7 @@ public class ParametrosInventario {
 
 	/* Articulos: */
 	public final static String tabla_referencias = "REFERENCIAS";
-	
+
 	/*Referencias para el codigo de barra completo, decimales, y valor de unidad/balanza */
 	public final static String bal_bdd_referencia_decimales = "REF_DE";
 	public final static String bal_bdd_referencia_codigo_barra_completo = "REF_CBC";
@@ -267,13 +254,12 @@ public class ParametrosInventario {
 	public final static String bal_bdd_referencia_depsn = "REF_DEPSN";
 
 	public final static String tabla_local = "LOCAL";
-	
+
 	public final static String bal_bdd_local_idLocal = "id_local";
 	public final static String bal_bdd_local_nombre = "nombre";
 	public final static String bal_bdd_local_descripcion = "descripcion";
 
-	@NonNull
-    public static BalizasConversor CONVERSOR_BALIZAS = new BalizasConversor();
+	public static BalizasConversor CONVERSOR_BALIZAS = new BalizasConversor();
 	static {
 
 		CONVERSOR_BALIZAS.put(tabla_inventarios,
@@ -301,16 +287,16 @@ public class ParametrosInventario {
 		CONVERSOR_BALIZAS.put(bal_bdd_articulo_balanza,
 				Parametros.bal_xml_articulo_balanza,
 				Parametros.bal_usb_articulo_balanza);
-		
+
 		CONVERSOR_BALIZAS.put(bal_bdd_articulo_decimales,
 				Parametros.bal_xml_articulo_decimales,
 				Parametros.bal_usb_articulo_decimales);
-		
+
 		CONVERSOR_BALIZAS.put(bal_bdd_articulo_codigo_barra,
 				Parametros.bal_xml_articulo_codigo_barra,
 				Parametros.bal_usb_articulo_codigo_barra);
-		
-		
+
+
 		CONVERSOR_BALIZAS.put(tabla_articulos,
 				Parametros.bal_xml_articulo_root,
 				Parametros.bal_usb_articulo_root);
@@ -356,7 +342,7 @@ public class ParametrosInventario {
 		CONVERSOR_BALIZAS.put(bal_bdd_articulo_existencia_deposito,
 				Parametros.bal_xml_articulo_existencia_deposito,
 				Parametros.bal_usb_articulo_existencia_deposito);
-		
+
 
 		CONVERSOR_BALIZAS.put(tabla_referencias,
 				Parametros.bal_xml_referencia_root,
@@ -394,17 +380,15 @@ public class ParametrosInventario {
 		CONVERSOR_BALIZAS.put(bal_bdd_referencia_depsn,
 				Parametros.bal_xml_articulo_depsn,
 				Parametros.bal_usb_articulo_depsn);
-
-
 		/*Balizas para el pesaje y la cantidad de decimales*/
 		CONVERSOR_BALIZAS.put(bal_bdd_referencia_decimales,
 				Parametros.bal_xml_articulo_decimales,
 				Parametros.bal_usb_articulo_decimales);
-		
+
 		CONVERSOR_BALIZAS.put(bal_bdd_referencia_balanza,
 				Parametros.bal_xml_articulo_balanza,
 				Parametros.bal_usb_articulo_balanza);
-		
+
 		/*Se crea campo nuevo codigo barra completo*/
 		CONVERSOR_BALIZAS.put(bal_bdd_referencia_codigo_barra_completo,
 				Parametros.bal_xml_articulo_codigo_barra_completo,

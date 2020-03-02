@@ -43,11 +43,11 @@ public class RegistroLog {
 			File file = new File(url_log);
 			File carpeta = new File(file.getParentFile().getPath());
 			
-			if (carpeta.exists() == false) {
+			if (!carpeta.exists()) {
 				carpeta.mkdir();
 			}
 			
-			if (file.exists() == false){
+			if (!file.exists()){
 				file.createNewFile();
 			}
 			FileWriter fw;
@@ -94,7 +94,7 @@ public class RegistroLog {
 	
 	
 	
-	/**
+	/*
 	 * Genera un log simple, guardando el reporte en la URI pasada como parametro
 	 * <p>1� Creamos el archivo
 	 * <p>2� Calculamos el tama�o del archivo

@@ -18,44 +18,37 @@ import java.util.Date;
  */
 public class Parametros {
 
+
 	/**
 	 * PARAMETROS A CARGAR AL ARRANQUE:
 	 */
-	@Nullable
-    public static String PREF_URL_CONEXION_SERVIDOR = "http://10.231.45.184/webservice_balanza/deboinventario/webservice.php";
+	public static String PREF_URL_CONEXION_SERVIDOR = "http://webservice.php";
 	public static int Pref_id_Local = 0;
-	@Nullable
-    public static String PREF_WIFI_PRIVILEGIADO = "FocaSF";
-	@Nullable
-    public static String PREF_NUMERO_DE_TERMINAL = "0";
-	@NonNull
-    public static String PREF_USB_IMPORT = "/udisk/";
-	@NonNull
-    public static String PREF_USB_EXPORT = "/udisk/";
-	@NonNull
-    public static String PREF_OPERADOR_ID = "-1";
+	public static String PREF_WIFI_PRIVILEGIADO = "FocaSF";
+	public static String PREF_NUMERO_DE_TERMINAL = "0";
+	public static String PREF_USB_IMPORT = "/udisk/";
+	public static String PREF_USB_EXPORT = "/udisk/";
+	public static String PREF_OPERADOR_ID = "-1";
 	public static boolean PREF_CAMARA = false;
-	@NonNull
-    public static String PREF_ULTIMA_FECHA_OPERACION = new SimpleDateFormat("yyyyMMdd").format(new Date());
-	@Nullable
-    public static String PREF_CANT_FOTOS = "2";
+	public static String PREF_ULTIMA_FECHA_OPERACION = new SimpleDateFormat("yyyyMMdd").format(new Date());
+	public static String PREF_CANT_FOTOS = "2";
 	public static boolean PREF_LOG_EVENTOS = false;
 	public static boolean PREF_LOG_PROCESOS = false;
 	public static boolean PREF_LOG_MENSAJES = false;
 	public static boolean PREF_LOG_EXCEPCIONES = false;
 	public static boolean PREF_HAB_IMPRESION = true;
-	@Nullable
-    public static String MAC_BLUETOOH = "";
+	public static String MAC_BLUETOOH = "";
 
 	public static boolean PREF_STOCK = true;
 
 
-	public final static String sdcard = Environment.getExternalStorageDirectory().toString();
+	public final static String sdcard = Environment
+			.getExternalStorageDirectory().toString();
 	public final static String softDeboSancion = "/DeboSancion";
-	@Nullable
-    public static String carpeta_sancion_log_tablet = sdcard + softDeboSancion + "/logTablet/";
-	@Nullable
-    public static String carpeta_sancion_log_Datos = sdcard + softDeboSancion + "/logDatos/";
+	public static String carpeta_sancion_log_tablet = sdcard + softDeboSancion
+			+ "/logTablet/";
+	public static String carpeta_sancion_log_Datos = sdcard + softDeboSancion
+			+ "/logDatos/";
 
 	public final static String preferencia_wifi = "WIFI_PREFERIDO";
 	public final static String preferencia_idtablet = "ID_TABLET";
@@ -96,10 +89,8 @@ public class Parametros {
 	public final static String ADMIN_LOGIN_FOCA = "foca";
 	public final static String ADMIN_PASSWORD_FOCA = "foca";
 
-	@Nullable
-    public static String ADMIN_LOGIN = "foca";
-	@Nullable
-    public static String ADMIN_PASSWORD = "foca";
+	public static String ADMIN_LOGIN = "foca";
+	public static String ADMIN_PASSWORD = "foca";
 
 	public final static int ID_RADIOBUTTON = 20000;
 	public final static int ID_CHECKBOX = 30000;
@@ -113,19 +104,19 @@ public class Parametros {
 	public final static String extra_foto_uri = "FOTO_URI";
 
 	public final static String codigo_soft = "a"; // define el software
-													// (deboAgua, deboSancion,
-													// deboInventario)
+	// (deboAgua, deboSancion,
+	// deboInventario)
 	public final static String codigo_fonc = "b"; // define el dato querido
-													// (rutas, operadores,
-													// sanciones, articulos,
-													// etc.)
-	public final static String codigo_tab = "c"; // define el n�mero de ID de la
-													// tablet quien trae los
-													// datos
+	// (rutas, operadores,
+	// sanciones, articulos,
+	// etc.)
+	public final static String codigo_tab = "c"; // define el número de ID de la
+	// tablet quien trae los
+	// datos
 	public final static String codigo_opc = "r"; // define los opciones
-													// eventuales (numero de los
-													// inventarios o rutas
-													// deseadas)
+	// eventuales (numero de los
+	// inventarios o rutas
+	// deseadas)
 	public final static String codigo_post = "p";
 	public final static String codigo_foto = "i";
 	public final static String codigo_text = "l";
@@ -139,14 +130,12 @@ public class Parametros {
 	public final static String CODIGO_FONC_RECOVERY = "99";
 
 	public final static int FONCION_CONTROLAR_ADMIN = 21;
-	public final static String bal_xml_configuracion_root = "SETTING";
 
 	public final static String CODIGO_SOFT_DEBOAGUA = "1";
 	public final static String CODIGO_SOFT_DEBOSANCION = "2";
 	public final static String CODIGO_SOFT_DEBOINVENTARIO = "3";
 	public final static String CODIGO_SOFT_DEBORECOVERY = "0";
 	public final static String CODIGO_SOFT_DEBOCOMPRA = "5";
-	public final static String CODIGO_FONC_CONFIGURACIONES = "18";
 
 	public final static String CODIGO_SOFT_DEBOPISCINA = "11";
 	// public final static String CODIGO_SOFT_DEBO??? = "X";
@@ -158,6 +147,7 @@ public class Parametros {
 	public final static int REQUEST_PREFERENCIAS = 57;
 	public final static int REQUEST_USB = 56;
 	public final static int REQUEST_FOTO = 55;
+
 
 	// /////////////////////////////
 	// BALIZAS USB //
@@ -482,4 +472,6 @@ public class Parametros {
 	public final static String bal_usb_articulo_depsn = "DEPSN";
 	public final static String preferencias_balanza = "balanza";
 	public static boolean PREF_BAL = true;
+	public final static String CODIGO_FONC_CONFIGURACIONES = "18";
+	public final static String bal_xml_configuracion_root = "SETTING";
 }

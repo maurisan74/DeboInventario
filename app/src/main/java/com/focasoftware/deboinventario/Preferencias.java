@@ -185,35 +185,20 @@ public class Preferencias extends Activity {
 
 		// 1� Restaurar las preferencias:
 		settings = PreferenceManager.getDefaultSharedPreferences(ctxt);
-		url_webservice = settings.getString(Parametros.preferencia_servidor,
-				Parametros.PREF_URL_CONEXION_SERVIDOR);
-		nombre_wifi_priveligiado = settings.getString(
-				Parametros.preferencia_wifi, Parametros.PREF_WIFI_PRIVILEGIADO);
-		id_tablet = settings.getString(Parametros.preferencia_idtablet,
-				Parametros.PREF_NUMERO_DE_TERMINAL);
-		admin_login = settings.getString(Parametros.preferencia_admin_log,
-				Parametros.ADMIN_LOGIN);
-		admin_password = settings.getString(Parametros.preferencia_admin_pwd,
-				Parametros.ADMIN_PASSWORD);
-		maximoFotos = settings.getString(Parametros.preferencia_max_cant_fotos,
-				Parametros.PREF_CANT_FOTOS);
-		logTablet = settings.getString(Parametros.preferencias_logTablet,
-				Parametros.carpeta_sancion_log_tablet);
-		logDatos = settings.getString(Parametros.preferencias_logDatos,
-				Parametros.carpeta_sancion_log_Datos);
-		logEventos = settings.getBoolean(Parametros.preferencias_logEvento,
-				Parametros.PREF_LOG_EVENTOS);
-		logProcesos = settings.getBoolean(Parametros.preferencias_logProcesos,
-				Parametros.PREF_LOG_PROCESOS);
-		logMensajes = settings.getBoolean(Parametros.preferencias_logMensajes,
-				Parametros.PREF_LOG_MENSAJES);
-		logExcepciones = settings.getBoolean(
-				Parametros.preferencias_logExcepciones,
-				Parametros.PREF_LOG_EXCEPCIONES);
+		url_webservice = settings.getString(Parametros.preferencia_servidor, Parametros.PREF_URL_CONEXION_SERVIDOR);
+		nombre_wifi_priveligiado = settings.getString(Parametros.preferencia_wifi, Parametros.PREF_WIFI_PRIVILEGIADO);
+		id_tablet = settings.getString(Parametros.preferencia_idtablet, Parametros.PREF_NUMERO_DE_TERMINAL);
+		admin_login = settings.getString(Parametros.preferencia_admin_log, Parametros.ADMIN_LOGIN);
+		admin_password = settings.getString(Parametros.preferencia_admin_pwd, Parametros.ADMIN_PASSWORD);
+		maximoFotos = settings.getString(Parametros.preferencia_max_cant_fotos, Parametros.PREF_CANT_FOTOS);
+		logTablet = settings.getString(Parametros.preferencias_logTablet, Parametros.carpeta_sancion_log_tablet);
+		logDatos = settings.getString(Parametros.preferencias_logDatos, Parametros.carpeta_sancion_log_Datos);
+		logEventos = settings.getBoolean(Parametros.preferencias_logEvento, Parametros.PREF_LOG_EVENTOS);
+		logProcesos = settings.getBoolean(Parametros.preferencias_logProcesos, Parametros.PREF_LOG_PROCESOS);
+		logMensajes = settings.getBoolean(Parametros.preferencias_logMensajes, Parametros.PREF_LOG_MENSAJES);
+		logExcepciones = settings.getBoolean(Parametros.preferencias_logExcepciones, Parametros.PREF_LOG_EXCEPCIONES);
 
-		habImpresion = settings.getBoolean(
-				Parametros.preferencias_habilitar_impresion,
-				Parametros.PREF_HAB_IMPRESION);
+		habImpresion = settings.getBoolean(Parametros.preferencias_habilitar_impresion, Parametros.PREF_HAB_IMPRESION);
 
 		// 2� Creamos los textBox y Checkbox correspondientes:
 		textbox_webservice = (EditText) findViewById(R.id.PREF_URL_webservice);
@@ -373,10 +358,10 @@ public class Preferencias extends Activity {
 
 	}
 
-	/**
+	/*
 	 * Carga las preferencias almacenadas en el sistema en los valores de las
 	 * variables de parametros
-	 * 
+	 *
 	 * @param ctxtx
 	 */
 	public static void cargarPreferencias(Context ctxtx) {

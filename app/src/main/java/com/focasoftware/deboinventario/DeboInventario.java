@@ -62,8 +62,6 @@ public class DeboInventario extends Activity implements DialogPersoSimple, Wifi 
 
 	private Button boton_busqueda_nombre;
 
-
-
 	/**
 	 * Boton para cerrar la aplicaci�n (icono : X)
 	 */
@@ -107,7 +105,7 @@ public class DeboInventario extends Activity implements DialogPersoSimple, Wifi 
 	 */
 	private DialogPersoComplexSiNo dialogConfigurarHora;
 
-	// private ProgressDialog dialogAguarde;
+	 private ProgressDialog dialogAguarde;
 
 	/**
 	 * Contador para verificar el reseto de la BD, hay que presionar 3 veces el
@@ -455,9 +453,7 @@ public class DeboInventario extends Activity implements DialogPersoSimple, Wifi 
 					}
 				};
 
-				dialogoActualizacion = new DialogPersoComplexActualizacionWifiUsb(
-						ctxt,
-						lista_actualizaciones_programadas,
+				dialogoActualizacion = new DialogPersoComplexActualizacionWifiUsb(ctxt, lista_actualizaciones_programadas,
 						"Actualizacion de Maestros",
 						"Usted esta a punto de actualizar el maestro general de articulos.\n"
 								+ "(!Cuidado! Los datos guardados se actualizaran)\n",// +
@@ -466,17 +462,15 @@ public class DeboInventario extends Activity implements DialogPersoSimple, Wifi 
 						listenerPositivoWifi, listenerPositivoUsb,
 						listenerPositivoFlash, listenerPositivoSdcard,
 						listenerNegativo);
-				CheckBox check = (CheckBox) dialogoActualizacion
-						.findViewById(0);
+				CheckBox check = (CheckBox) dialogoActualizacion.findViewById(0);
 				check.setChecked(true);
 				check.setVisibility(View.INVISIBLE);
 				dialogoActualizacion.show();
-				log.log("[-- 421 --]"
-						+ "Inicio de pop up de Actualizacion de maestros", 1);
+				log.log("[-- 421 --]" + "Inicio de pop up de Actualizacion de maestros", 1);
 
-				// dialogAguarde=new ProgressDialog(ctxt);
-				// dialogAguarde.setMessage("Esta operacion puede tardar varios minutos. Aguarde por favor");
-				//
+				 dialogAguarde=new ProgressDialog(ctxt);
+				 dialogAguarde.setMessage("Esta operacion puede tardar varios minutos. Aguarde por favor");
+
 
 			}
 		});
@@ -524,9 +518,7 @@ public class DeboInventario extends Activity implements DialogPersoSimple, Wifi 
 			public void onClick(View v) {
 				contador_reset_BDD = 3;
 
-				Intent intentInventario = new Intent(ctxt,
-						InventarioMainBoard.class);
-				startActivity(intentInventario);
+				Intent intentInventario = new Intent(ctxt, InventarioMainBoard.class);startActivity(intentInventario);
 				log.log("[-- 475 --]"
 						+ "Pasa a la pantalla de InventarioMainBOard", 0);
 				// finish();
@@ -601,8 +593,7 @@ public class DeboInventario extends Activity implements DialogPersoSimple, Wifi 
 		// 1 Si volvimos de las preferencias actualiza la version y n tablet
 		else if (requestCode == Parametros.REQUEST_PREFERENCIAS) {
 			version.setText("Version n " + ParametrosInventario.VERSION);
-			idtablet.setText("Terminal n "
-					+ Parametros.PREF_NUMERO_DE_TERMINAL);
+			idtablet.setText("Terminal n " + Parametros.PREF_NUMERO_DE_TERMINAL);
 		}
 		/*
 		 * else if (requestCode == Parametros.REQUEST_WIFI && resultCode ==
@@ -790,7 +781,7 @@ public class DeboInventario extends Activity implements DialogPersoSimple, Wifi 
 	 *
 	 */
 	protected class CargarDatosWifi extends AsyncTask<Context, Integer, String> {
-		/**
+		/*
 		 * Tarea que se ejecuta en background cuando se llama al metodo
 		 * execute():
 		 * <p>
@@ -823,12 +814,10 @@ public class DeboInventario extends Activity implements DialogPersoSimple, Wifi 
 			// --------------------------------------------------
 			// Recuperamos todos los articulos, y los cargamos:
 			// --------------------------------------------------
-			if (lista_actualizaciones_programadas
-					.contains(ParametrosInventario.tabla_referencias) == true) {
+			if (lista_actualizaciones_programadas.contains(ParametrosInventario.tabla_referencias)) {
 				// 1 Borramos los datos de las referencias
 				try {
-					BDD.borrarDatosBDD(ParametrosInventario.tabla_referencias,
-							false);
+					BDD.borrarDatosBDD(ParametrosInventario.tabla_referencias, false);
 				} catch (ExceptionBDD e1) {
 					e1.printStackTrace();
 					log.log("[-- 764 --]" + e1.toString(), 4);
@@ -856,17 +845,15 @@ public class DeboInventario extends Activity implements DialogPersoSimple, Wifi 
 					SharedPreferences setting = PreferenceManager.getDefaultSharedPreferences(ctxt);
 					SharedPreferences.Editor edit = setting.edit();
 					edit.putBoolean(ParametrosInventario.tablet_mostrar_existencia, mostrarExistencia);
-					edit.commit();
+					edit.apply();
 					cantidad_referencias = HttpReader.readCantidadReferencias();
 //					cantidad_proveedores = HttpReader.readCantidadProveedores();
-					Log.v("yo", "Cantidad referencias = "
-							+ cantidad_referencias);
+					Log.v("yo", "Cantidad referencias = " + cantidad_referencias);
 				} catch (ExceptionHttpExchange e1) {
 					e1.printStackTrace();
 
 					log.log("[-- 784 --]" + e1.toString(), 4);
-					return "Error: imposible obtener la cantidad de referencias disponibles: "
-							+ e1.getMessage();
+					return "Error: imposible obtener la cantidad de referencias disponibles: " + e1.getMessage();
 				}
 				int indice = 1;
 				int talla_sub_paquetes = ParametrosInventario.TAMANO_PAQUETES_XML;
@@ -923,7 +910,7 @@ public class DeboInventario extends Activity implements DialogPersoSimple, Wifi 
 					lista_sub_prov_hashmap.add(subHashmapProveedores);
 					popupSubir((10 + ((50 - 10) * indice / cantidad_referencias)));
 
-				} while (stop == false);
+				} while (!stop);
 
 				try {
 					// En un primer tiempo se parsea el hashmap en un arraylist:
@@ -1000,9 +987,7 @@ public class DeboInventario extends Activity implements DialogPersoSimple, Wifi 
 					subHashmapReferencias.clear();
 				} catch (ExceptionBDD e) {
 					return e.toString();
-
 				}
-
 				try {
 					// En un primer tiempo se parsea el hashmap en un arraylist:
 					ArrayList<String> listaSQL = new ArrayList<String>();

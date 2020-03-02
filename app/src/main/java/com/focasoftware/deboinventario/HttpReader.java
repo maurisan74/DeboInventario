@@ -1274,8 +1274,7 @@ public class HttpReader {
 			HttpEntity entity = response.getEntity();
 
 			if (entity == null) {
-				throw new ExceptionHttpExchange("Recuperacion de REFERENCIAS",
-						"La consulta HTTP al servidor no ha devuelto resultados (0)");
+				throw new ExceptionHttpExchange("Recuperacion de REFERENCIAS", "La consulta HTTP al servidor no ha devuelto resultados (0)");
 			}
 			// 7 Lectura de los datos a la cadena XML
 			String xmlString = EntityUtils.toString(entity);
@@ -1294,8 +1293,7 @@ public class HttpReader {
 			log.tipo_4 = Parametros.PREF_LOG_EXCEPCIONES;
 			log.log("[-- 592 --]" + e.toString() + "__" + e.getMessage(), 4);
 			e.printStackTrace();
-			throw new ExceptionHttpExchange("Leer REFERENCIAS",
-					"Imposible recuperar operadores via HTTP (2)");
+			throw new ExceptionHttpExchange("Leer REFERENCIAS", "Imposible recuperar operadores via HTTP (2)");
 		} catch (IOException e) {
 
 			log.setUbicacion(ParametrosInventario.CARPETA_LOGTABLET);
@@ -1305,8 +1303,7 @@ public class HttpReader {
 			log.tipo_4 = Parametros.PREF_LOG_EXCEPCIONES;
 			log.log("[-- 598 --]" + e.toString() + "__" + e.getMessage(), 4);
 			e.printStackTrace();
-			throw new ExceptionHttpExchange("Leer REFERENCIAS",
-					"Imposible recuperar operadores via HTTP (3)");
+			throw new ExceptionHttpExchange("Leer REFERENCIAS", "Imposible recuperar operadores via HTTP (3)");
 		} catch (Exception e) {
 
 			log.setUbicacion(ParametrosInventario.CARPETA_LOGTABLET);
@@ -1316,8 +1313,7 @@ public class HttpReader {
 			log.tipo_4 = Parametros.PREF_LOG_EXCEPCIONES;
 			log.log("[-- 604 --]" + e.toString() + "__" + e.getMessage(), 4);
 			e.printStackTrace();
-			throw new ExceptionHttpExchange("Leer REFERENCIAS",
-					"Imposible recuperar operadores via HTTP (4)");
+			throw new ExceptionHttpExchange("Leer REFERENCIAS", "Imposible recuperar operadores via HTTP (4)");
 		}
 		return tablaRespuesta;
 	}
