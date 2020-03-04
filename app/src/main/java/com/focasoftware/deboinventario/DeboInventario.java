@@ -19,6 +19,7 @@ import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -827,13 +828,10 @@ public class DeboInventario extends Activity implements DialogPersoSimple, Wifi 
 
 							Toast.LENGTH_LONG).show();
 				}
-
 				// 2 Recuperamos las referencias del webservice:
 				HashMap<String, String> subHashmapConfiguraciones = new HashMap<String, String>();
-
 				ArrayList<HashMap<String, HashMap<String, String>>> lista_sub_hashmap = new ArrayList<HashMap<String, HashMap<String, String>>>();
 				HashMap<String, HashMap<String, String>> subHashmapReferencias = new HashMap<String, HashMap<String, String>>();
-
 				ArrayList<HashMap<String, HashMap<String, String>>> lista_sub_prov_hashmap = new ArrayList<HashMap<String, HashMap<String, String>>>();
 				HashMap<String, HashMap<String, String>> subHashmapProveedores = new HashMap<String, HashMap<String, String>>();
 

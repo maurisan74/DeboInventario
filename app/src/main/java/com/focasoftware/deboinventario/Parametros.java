@@ -2,9 +2,6 @@ package com.focasoftware.deboinventario;
 
 import android.os.Environment;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -45,10 +42,8 @@ public class Parametros {
 	public final static String sdcard = Environment
 			.getExternalStorageDirectory().toString();
 	public final static String softDeboSancion = "/DeboSancion";
-	public static String carpeta_sancion_log_tablet = sdcard + softDeboSancion
-			+ "/logTablet/";
-	public static String carpeta_sancion_log_Datos = sdcard + softDeboSancion
-			+ "/logDatos/";
+	public static String carpeta_sancion_log_tablet = sdcard + softDeboSancion + "/logTablet/";
+	public static String carpeta_sancion_log_Datos = sdcard + softDeboSancion + "/logDatos/";
 
 	public final static String preferencia_wifi = "WIFI_PREFERIDO";
 	public final static String preferencia_idtablet = "ID_TABLET";
@@ -111,8 +106,7 @@ public class Parametros {
 	// sanciones, articulos,
 	// etc.)
 	public final static String codigo_tab = "c"; // define el número de ID de la
-	// tablet quien trae los
-	// datos
+	// tablet quien trae los datos
 	public final static String codigo_opc = "r"; // define los opciones
 	// eventuales (numero de los
 	// inventarios o rutas
@@ -263,7 +257,7 @@ public class Parametros {
 	public final static String bal_xml_entrada_revisacion = "R";
 
 	/* Inventarios: */
-	public final static String bal_xml_inventario_root = "INVENTARIO";
+	public final static String bal_xml_inventario_root = "VI_INVENTARIOS";
 
 	public final static String bal_xml_inventario_numero = "I";
 	public final static String bal_xml_inventario_descripcion = "D";

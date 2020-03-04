@@ -113,18 +113,16 @@ public class SeleccionInventarios extends Activity implements DialogPersoSimple 
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.xml_seleccioninventarios);
 
-System.out.println("::: SeleccionInventario 99 ");
+		System.out.println("::: SeleccionInventario 99 ");
 		log.setUbicacion(ParametrosInventario.CARPETA_LOGTABLET);
 		log.tipo_0 = Parametros.PREF_LOG_EVENTOS;
 		log.tipo_2 = Parametros.PREF_LOG_PROCESOS;
 		log.tipo_3 = Parametros.PREF_LOG_MENSAJES;
 		log.tipo_4 = Parametros.PREF_LOG_EXCEPCIONES;
 		log.log("[-- 101 --]" + "Inicia Seleccion deInventarios", 2);
-		// Parametros.PREF_URL_CONEXION_SERVIDOR =
-		// "http://192.168.1.156/Dalvian/webservice.php";
+		 //Parametros.PREF_URL_CONEXION_SERVIDOR = "http://192.168.1.156/Dalvian/webservice.php";
 		System.out.println("::: SeleccionInventario 108 ");
-		// Lanzamos un thread que nos va a recuperar los datos de todas las
-		// rutas via HTTP:
+		// Lanzamos un thread que nos va a recuperar los datos de todas las rutas via HTTP:
 		threadBackground = new Thread(new Runnable() {
 			public void run() {
 				try {
@@ -234,8 +232,7 @@ System.out.println("::: SeleccionInventario 99 ");
 				
 				log.log("[-- 196 --]" + "Se presiono el boton anterior",0);
 				// Llamamos a la pgina anterior y cerramos:
-				Intent volverPaginaAnterior = new Intent(
-						SeleccionInventarios.this, InventarioMainBoard.class);
+				Intent volverPaginaAnterior = new Intent(SeleccionInventarios.this, InventarioMainBoard.class);
 				startActivity(volverPaginaAnterior);
 				finish();
 			}
@@ -246,8 +243,7 @@ System.out.println("::: SeleccionInventario 99 ");
 			public void onClick(View v) {
 				
 				log.log("[-- 209 --]" + "Se presiono el obton refrescar",0);
-				Intent intentWifi = new Intent(SeleccionInventarios.this,
-						WiFiControlador.class);
+				Intent intentWifi = new Intent(SeleccionInventarios.this, WiFiControlador.class);
 				startActivityForResult(intentWifi, Parametros.REQUEST_WIFI);
 			}
 		});
@@ -257,12 +253,10 @@ System.out.println("::: SeleccionInventario 99 ");
 			threadBackground.join(20000);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
-			Toast.makeText(ctxt, "El thread ha sido interrumpido!",
-					Toast.LENGTH_LONG).show();
+			Toast.makeText(ctxt, "El thread ha sido interrumpido!", Toast.LENGTH_LONG).show();
 			SystemClock.sleep(2000);
 
-			Intent volverPaginaAnterior = new Intent(SeleccionInventarios.this,
-					DeboInventario.class);
+			Intent volverPaginaAnterior = new Intent(SeleccionInventarios.this, DeboInventario.class);
 			startActivity(volverPaginaAnterior);
 			finish();
 		} catch (Exception e) {

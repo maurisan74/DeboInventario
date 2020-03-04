@@ -326,8 +326,7 @@ public class WiFiControlador extends Activity {
 		//2� Si encuentra en la lista la prefefinida, activa los botones y textView de aviso correspondiente
 		for (WifiConfiguration unaConfig : listaTodasRedes) {
 			assert Parametros.PREF_WIFI_PRIVILEGIADO != null;
-			if ( (unaConfig.SSID).compareTo(Parametros.PREF_WIFI_PRIVILEGIADO) == 0
-							|| (unaConfig.SSID).compareTo("\"" + Parametros.PREF_WIFI_PRIVILEGIADO + "\"") == 0 ) {
+			if ( (unaConfig.SSID).compareTo(Parametros.PREF_WIFI_PRIVILEGIADO) == 0 || (unaConfig.SSID).compareTo("\"" + Parametros.PREF_WIFI_PRIVILEGIADO + "\"") == 0 ) {
 				wifiManager.enableNetwork(unaConfig.networkId, true);
 				visible_si.setVisibility(View.VISIBLE);
 				visible_no.setVisibility(View.INVISIBLE);

@@ -27,7 +27,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
 
-/**
+/*
  * Activity que muestra una pantalla con las preferencias de funcionamiento del
  * sistema. URL del web service, SSID de la conexin WIFI, id de Tablet, URI de
  * importacin y exportacin de los inventarios.
@@ -40,35 +40,35 @@ public class PreferenciasInventario extends Activity {
 	private ArrayAdapter<CharSequence> adapterLocales;
 	@NonNull
     private Context ctxt = this;
-	/**
+	/*
 	 * Variable para almacenar la URL del webService
 	 */
 	@Nullable
     private String url_webservice;
-	/**
+	/*
 	 * Variable para almacenar el SSID de la red predeterminada
 	 */
 	@Nullable
     private String nombre_wifi_priveligiado;
-	/**
+	/*
 	 * Variable para almacenar el id de la tablet
 	 */
 	@Nullable
     private String id_tablet;
-	/**
+	/*
 	 * Variables para almacenar las URI de exportacion e importacion de los
 	 * inventarios
 	 */
 	@Nullable
     private String usb_uri_export, usb_uri_import, carpetaMaestros,
 			carpetaLogEventos, carpetaLogDatos;
-	/**
+	/*
 	 * Edit texts de los valores a almacenar
 	 */
 	private EditText edit_webservice, edit_wifi, edit_idtablet;
 	private EditText edit_usb_export, edit_usb_import, edit_carpeta_maestros,
 			edit_carpeta_LogEventos, edit_carpeta_LogDatos;
-	/**
+	/*
 	 * Boton para guardar los datos
 	 */
 	private Button botonGuardar;
@@ -127,7 +127,7 @@ public class PreferenciasInventario extends Activity {
 	public CheckBox checkboxToma;
 	public CheckBox checkboxBalanza;
 
-	/**
+	/*
 	 * Metodo llamado al crear la activity
 	 * <p>
 	 * 1 Restaurar las preferencias
@@ -163,51 +163,22 @@ public class PreferenciasInventario extends Activity {
 		try {
 			// 1 Restaurar las preferencias:
 			settings = PreferenceManager.getDefaultSharedPreferences(ctxt);
-			url_webservice = settings.getString(
-					Parametros.preferencia_servidor,
-					Parametros.PREF_URL_CONEXION_SERVIDOR);
-			idLocalActual = settings.getInt(
-					Parametros.preferencia_LOCAL,
-					Parametros.Pref_id_Local);
-			nombre_wifi_priveligiado = settings.getString(
-					Parametros.preferencia_wifi,
-					Parametros.PREF_WIFI_PRIVILEGIADO);
-			id_tablet = settings.getString(Parametros.preferencia_idtablet,
-					Parametros.PREF_NUMERO_DE_TERMINAL);
-			usb_uri_export = settings.getString(
-					Parametros.preferencia_usb_uri_export,
-					ParametrosInventario.CARPETA_DESDETABLET);
-			usb_uri_import = settings.getString(
-					Parametros.preferencia_usb_uri_import,
-					ParametrosInventario.CARPETA_ATABLET);
-			carpetaMaestros = settings.getString(
-					Parametros.preferencia_usb_uri_maestros,
-					ParametrosInventario.CARPETA_MAETABLET);
-			carpetaLogEventos = settings.getString(
-					Parametros.preferencia_usb_uri_log_eventos,
-					ParametrosInventario.CARPETA_LOGTABLET);
-			carpetaLogDatos = settings.getString(
-					Parametros.preferencia_usb_uri_log_datos,
-					ParametrosInventario.CARPETA_LOGDATOS);
+			url_webservice = settings.getString(Parametros.preferencia_servidor, Parametros.PREF_URL_CONEXION_SERVIDOR);
+			idLocalActual = settings.getInt(Parametros.preferencia_LOCAL, Parametros.Pref_id_Local);
+			nombre_wifi_priveligiado = settings.getString(Parametros.preferencia_wifi, Parametros.PREF_WIFI_PRIVILEGIADO);
+			id_tablet = settings.getString(Parametros.preferencia_idtablet, Parametros.PREF_NUMERO_DE_TERMINAL);
+			usb_uri_export = settings.getString(Parametros.preferencia_usb_uri_export, ParametrosInventario.CARPETA_DESDETABLET);
+			usb_uri_import = settings.getString(Parametros.preferencia_usb_uri_import, ParametrosInventario.CARPETA_ATABLET);
+			carpetaMaestros = settings.getString(Parametros.preferencia_usb_uri_maestros, ParametrosInventario.CARPETA_MAETABLET);
+			carpetaLogEventos = settings.getString(Parametros.preferencia_usb_uri_log_eventos, ParametrosInventario.CARPETA_LOGTABLET);
+			carpetaLogDatos = settings.getString(Parametros.preferencia_usb_uri_log_datos, ParametrosInventario.CARPETA_LOGDATOS);
 
-			BooleanlogEventos = settings.getBoolean(
-					Parametros.preferencias_logEvento,
-					Parametros.PREF_LOG_EVENTOS);
-			BooleanlogProcesos = settings.getBoolean(
-					Parametros.preferencias_logProcesos,
-					Parametros.PREF_LOG_PROCESOS);
-			BooleanlogMensajes = settings.getBoolean(
-					Parametros.preferencias_logMensajes,
-					Parametros.PREF_LOG_MENSAJES);
-			BooleanlogExcepciones = settings.getBoolean(
-					Parametros.preferencias_logExcepciones,
-					Parametros.PREF_LOG_EXCEPCIONES);
-			InventariosVentas = settings.getBoolean(
-					Parametros.preferencias_inventario_venta,
-					ParametrosInventario.InventariosVentas);
-			InventariosDeposito = settings.getBoolean(
-					Parametros.preferencias_inventario_deposito,
-					ParametrosInventario.InventariosDeposito);
+			BooleanlogEventos = settings.getBoolean(Parametros.preferencias_logEvento, Parametros.PREF_LOG_EVENTOS);
+			BooleanlogProcesos = settings.getBoolean(Parametros.preferencias_logProcesos, Parametros.PREF_LOG_PROCESOS);
+			BooleanlogMensajes = settings.getBoolean(Parametros.preferencias_logMensajes, Parametros.PREF_LOG_MENSAJES);
+			BooleanlogExcepciones = settings.getBoolean(Parametros.preferencias_logExcepciones, Parametros.PREF_LOG_EXCEPCIONES);
+			InventariosVentas = settings.getBoolean(Parametros.preferencias_inventario_venta, ParametrosInventario.InventariosVentas);
+			InventariosDeposito = settings.getBoolean(Parametros.preferencias_inventario_deposito, ParametrosInventario.InventariosDeposito);
 			
 			/*checkbox stock damian*/
 			BooleanToma = settings.getBoolean(
@@ -548,7 +519,7 @@ public class PreferenciasInventario extends Activity {
 
 				}
 
-				if (salir == true) {
+				if (salir) {
 
 					setResult(RESULT_OK);
 					finish();
@@ -559,23 +530,16 @@ public class PreferenciasInventario extends Activity {
 		mostrarLocalesSpinner();
 		this.SpinnerUrls
 				.setOnItemSelectedListener(new OnItemSelectedListener() {
-					public void onItemSelected(@NonNull AdapterView<?> parentView,
-                                               View selectedItemView, int position, long id) {
-						if (bloquearSpinner == true) {
+					public void onItemSelected(@NonNull AdapterView<?> parentView, View selectedItemView, int position, long id) {
+						if (bloquearSpinner) {
 							bloquearSpinner = false;
 						} else {
 							try {
 								BaseDatos data = new BaseDatos(ctxt);
 								Local localTemp = data.ObtenerLocal_x_Id((position + 1));
-								edit_webservice.setText(localTemp
-										.getDescripcion());
+								edit_webservice.setText(localTemp.getDescripcion());
 								idLocalActual = localTemp.getIdLocal();
-								Toast.makeText(
-										parentView.getContext(),
-										"Has seleccionado "
-												+ parentView.getItemAtPosition(
-														position).toString(),
-										Toast.LENGTH_LONG).show();
+								Toast.makeText(parentView.getContext(), "Has seleccionado " + parentView.getItemAtPosition(position).toString(), Toast.LENGTH_LONG).show();
 							} catch (ExceptionBDD e) {
 								e.getStackTrace();
 							}
@@ -701,10 +665,8 @@ public class PreferenciasInventario extends Activity {
 			
 			log.log("Stock: " + ParametrosInventario.StockalaToma, 3);
 			
-			log.log("Lectura por Entrada: "
-					+ ParametrosInventario.LecturaEntrada, 3);
-			log.log("Productos no contabilizados: "
-					+ ParametrosInventario.ProductosNoContabilizados, 3);
+			log.log("Lectura por Entrada: " + ParametrosInventario.LecturaEntrada, 3);
+			log.log("Productos no contabilizados: " + ParametrosInventario.ProductosNoContabilizados, 3);
 
 		} catch (Exception e) {
 			log.log("[-- 266 --]" + e.toString() + " || " + e.getMessage(), 4);

@@ -1,8 +1,7 @@
 package com.focasoftware.deboinventario;
 
 import android.os.Environment;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+
 import java.io.File;
 
 /**
@@ -68,18 +67,12 @@ public class ParametrosInventario {
 
 	public static File SdCard = Environment.getExternalStorageDirectory();
 	public static String Stringsdcard = SdCard.toString();
-	public static String CARPETA_DEBOINVENTARIO = Stringsdcard
-			+ "/deboInventario/";
-	public static String CARPETA_ATABLET = Stringsdcard
-			+ "/deboInventario/aTablet/";
-	public static String CARPETA_DESDETABLET = Stringsdcard
-			+ "/deboInventario/desdeTablet/";
-	public static String CARPETA_MAETABLET = Stringsdcard
-			+ "/deboInventario/maeTablet/";
-	public static String CARPETA_LOGTABLET = Stringsdcard
-			+ "/deboInventario/logTablet/";
-	public static String CARPETA_LOGDATOS = Stringsdcard
-			+ "/deboInventario/logDatos/";
+	public static String CARPETA_DEBOINVENTARIO = Stringsdcard + "/deboInventario/";
+	public static String CARPETA_ATABLET = Stringsdcard + "/deboInventario/aTablet/";
+	public static String CARPETA_DESDETABLET = Stringsdcard + "/deboInventario/desdeTablet/";
+	public static String CARPETA_MAETABLET = Stringsdcard + "/deboInventario/maeTablet/";
+	public static String CARPETA_LOGTABLET = Stringsdcard + "/deboInventario/logTablet/";
+	public static String CARPETA_LOGDATOS = Stringsdcard + "/deboInventario/logDatos/";
 
 	public static boolean InventariosVentas = true;
 	public static boolean InventariosDeposito = false;
@@ -98,8 +91,8 @@ public class ParametrosInventario {
 
 	public static int StockalaToma = 1;
 
-	// public static String PREF_IMPORT = CARPETA_ATABLET;
-	// public static String PREF_USB_EXPORT = CARPETA_DESDETABLET;
+	public static String PREF_IMPORT = CARPETA_ATABLET;
+	public static String PREF_USB_EXPORT = CARPETA_DESDETABLET;
 	public static String Dispositivo_Import = "Dispositivo";
 	public static String Dispositivo_Export = "Dispositivo";
 

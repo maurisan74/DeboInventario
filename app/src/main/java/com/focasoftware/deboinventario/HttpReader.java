@@ -165,27 +165,21 @@ public class HttpReader {
 	 * @param parametros
 	 * @throws ExceptionHttpExchange
 	 */
-	public HttpReader(String url, int codigoFoncionLlamada,
-					  ArrayList<Integer> parametros) throws ExceptionHttpExchange {
+	public HttpReader(String url, int codigoFoncionLlamada, ArrayList<Integer> parametros) throws ExceptionHttpExchange {
+
 		System.out.println("::: HTTPREADER conecta al webservice");
 		// 1 Objetos de conexin al web service:
 		httpclient = new DefaultHttpClient();
 
 		// 2 Nuestra URL:
 		URLValidator.esValidaEstaURL(url);
-
 		httppost = new HttpPost(url);
-		List<NameValuePair> listaParametrosPost = new ArrayList<NameValuePair>(
-				3);
+		List<NameValuePair> listaParametrosPost = new ArrayList<NameValuePair>(3);
 
 		// 3 Instanciacin del objeto httppost:
 		if (codigoFoncionLlamada == ParametrosInventario.FONCION_CARGAR_ARTICULOS) {
-			listaParametrosPost.add(new BasicNameValuePair(
-					Parametros.codigo_soft,
-					Parametros.CODIGO_SOFT_DEBOINVENTARIO));
-			listaParametrosPost.add(new BasicNameValuePair(
-					Parametros.codigo_fonc,
-					ParametrosInventario.CODIGO_FONC_ARTICULOS));
+			listaParametrosPost.add(new BasicNameValuePair(Parametros.codigo_soft, Parametros.CODIGO_SOFT_DEBOINVENTARIO));
+			listaParametrosPost.add(new BasicNameValuePair(Parametros.codigo_fonc, ParametrosInventario.CODIGO_FONC_ARTICULOS));
 
 			String strFinal = "";
 			for (int num : parametros) {
@@ -193,8 +187,7 @@ public class HttpReader {
 			}
 			// Sacqmos el ltimo "," de la cadena de caracteres:
 			strFinal = strFinal.substring(0, strFinal.length() - 1);
-			listaParametrosPost.add(new BasicNameValuePair(
-					Parametros.codigo_opc, strFinal));
+			listaParametrosPost.add(new BasicNameValuePair(Parametros.codigo_opc, strFinal));
 		} else {
 			throw new ExceptionHttpExchange("HTTP READER",
 					"La foncion solicitada tiene que instanciarse con otro constructor");
@@ -216,7 +209,7 @@ public class HttpReader {
 
 	}
 
-	/**
+	/*
 	 * Constructor del lector de webservice para la carga de la foto
 	 * <p>
 	 * 1 Objetos de conexin al web service
@@ -333,8 +326,7 @@ public class HttpReader {
 	 * @return un HashMap con los articulos indexados
 	 * @throws ExceptionHttpExchange
 	 */
-	public HashMap<String, HashMap<String, String>> readArticulos()
-			throws ExceptionHttpExchange {
+	public HashMap<String, HashMap<String, String>> readArticulos() throws ExceptionHttpExchange {
 		System.out.println("::: Httpreader 344 Lectura webservice");
 		// 1 Variable de retorno:
 		HashMap<String, HashMap<String, String>> tablaRespuesta;
@@ -373,9 +365,7 @@ public class HttpReader {
 			log.tipo_4 = Parametros.PREF_LOG_EXCEPCIONES;
 			log.log("[-- 308 --]" + e.toString() + "__" + e.getMessage(), 4);
 			e.printStackTrace();
-			throw new ExceptionHttpExchange("Leer ARTICULOS",
-					"Imposible recuperar operadores via HTTP (2): "
-							+ e.toString());
+			throw new ExceptionHttpExchange("Leer ARTICULOS", "Imposible recuperar operadores via HTTP (2): " + e.toString());
 		} catch (IOException e) {
 
 			log.setUbicacion(ParametrosInventario.CARPETA_LOGTABLET);
@@ -385,9 +375,7 @@ public class HttpReader {
 			log.tipo_4 = Parametros.PREF_LOG_EXCEPCIONES;
 			log.log("[-- 314 --]" + e.toString() + "__" + e.getMessage(), 4);
 			e.printStackTrace();
-			throw new ExceptionHttpExchange("Leer ARTICULOS",
-					"Imposible recuperar operadores via HTTP (3): "
-							+ e.toString());
+			throw new ExceptionHttpExchange("Leer ARTICULOS", "Imposible recuperar operadores via HTTP (3): " + e.toString());
 		} catch (Exception e) {
 
 			log.setUbicacion(ParametrosInventario.CARPETA_LOGTABLET);
@@ -397,15 +385,13 @@ public class HttpReader {
 			log.tipo_4 = Parametros.PREF_LOG_EXCEPCIONES;
 			log.log("[-- 320 --]" + e.toString() + "__" + e.getMessage(), 4);
 			e.printStackTrace();
-			throw new ExceptionHttpExchange("Leer ARTICULOS",
-					"Imposible recuperar operadores via HTTP (4): "
-							+ e.toString());
+			throw new ExceptionHttpExchange("Leer ARTICULOS", "Imposible recuperar operadores via HTTP (4): " + e.toString());
 		}
 
 		return tablaRespuesta;
 	}
 
-	/**
+	/*
 	 * Lee los INVENTARIOS disponibles en la base de datos desde el WebService y
 	 * les muestra si existen.
 	 * <p>
@@ -422,10 +408,10 @@ public class HttpReader {
 	 * @return un HashMap con los inventarios, Sino return null
 	 * @throws ExceptionHttpExchange
 	 */
-	public LinkedHashMap<String, String> readInventarios(int condR)
-			throws ExceptionHttpExchange {
+	public LinkedHashMap<String, String> readInventarios(int condR) throws ExceptionHttpExchange {
 		System.out.println("::: Httpreader 433 readInventarios");
 		System.out.println("::: Httpreader 433 readInventarios condR " + condR);
+
 		// 1 Variable de retorno:
 //		LinkedHashMap<String, HashMap<String, String>> tablaRespuesta = new LinkedHashMap<String, HashMap<String, String>>();
 		LinkedHashMap<String,String> tablaRespuesta = new LinkedHashMap<String, String>();
@@ -433,19 +419,20 @@ public class HttpReader {
 		try {
 
 
-//			System.out.println("::: Httpreader 439 readInventarios");
+			System.out.println("::: Httpreader 439 readInventarios");
 			response = httpclient.execute(httppost);
 			entity = response.getEntity();
 			if (entity == null) {
-				throw new ExceptionHttpExchange("Recuperacion de INVENTARIOS",
-						"La consulta HTTP al servidor no ha devuelto resultados.");
+				throw new ExceptionHttpExchange("Recuperacion de INVENTARIOS", "La consulta HTTP al servidor no ha devuelto resultados.");
 			}
 			// 3 Obtensin de la respuesta
 			xmlString = EntityUtils.toString(entity);
 			System.out.println( "::: HTTPREADER 448 XML " +xmlString);
+
 			// 4 Parseo de la respuesta XML en la tabla de retorno
 			tablaRespuesta = parserInventarios(xmlString);
 			System.out.println( "::: HTTPREADER 451 tabla " +tablaRespuesta);
+
 			// 5 Liberacin de los recursos:
 			if (entity != null) {
 				entity.consumeContent();
@@ -743,17 +730,12 @@ public class HttpReader {
 
 		// 3 Nuestra URL:
 		HttpPost httppost = new HttpPost(Parametros.PREF_URL_CONEXION_SERVIDOR);
-		List<NameValuePair> listaParametrosPost = new ArrayList<NameValuePair>(
-				3);
+		List<NameValuePair> listaParametrosPost = new ArrayList<NameValuePair>(3);
 
 		// 4 Instanciacin del objeto httppost:
-		listaParametrosPost.add(new BasicNameValuePair(Parametros.codigo_soft,
-				Parametros.CODIGO_SOFT_DEBOINVENTARIO));
-		listaParametrosPost.add(new BasicNameValuePair(Parametros.codigo_fonc,
-				ParametrosInventario.CODIGO_FONC_REFERENCIAS_POR_PARTES));
-		listaParametrosPost.add(new BasicNameValuePair(Parametros.codigo_opc,
-				String.valueOf(indice_inicial) + ","
-						+ String.valueOf(indice_final)));
+		listaParametrosPost.add(new BasicNameValuePair(Parametros.codigo_soft, Parametros.CODIGO_SOFT_DEBOINVENTARIO));
+		listaParametrosPost.add(new BasicNameValuePair(Parametros.codigo_fonc, ParametrosInventario.CODIGO_FONC_REFERENCIAS_POR_PARTES));
+		listaParametrosPost.add(new BasicNameValuePair(Parametros.codigo_opc, String.valueOf(indice_inicial) + "," + String.valueOf(indice_final)));
 
 		// 5 Implementacin en el URL:
 		try {
@@ -1019,7 +1001,7 @@ public class HttpReader {
 		return tablaRespuesta;
 	}
 
-	/**
+	/*
 	 * Funcion que lee las referencias de un archivo XML con cierto formato y
 	 * las parsea en un HashMap. El archivo es solo una parte del maestro, el
 	 * nombre se pasa como parametro Esta funcion se usa para importar las

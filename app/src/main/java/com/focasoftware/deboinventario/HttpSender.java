@@ -4,10 +4,8 @@ package com.focasoftware.deboinventario;
 import android.os.Environment;
 import android.os.SystemClock;
 import android.util.Log;
-
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
-import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.mime.MultipartEntity;
@@ -15,7 +13,6 @@ import org.apache.http.entity.mime.content.FileBody;
 import org.apache.http.entity.mime.content.StringBody;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.util.EntityUtils;
-
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -23,7 +20,7 @@ import java.io.IOException;
 import java.nio.channels.FileChannel;
 import java.util.ArrayList;
 
-/**
+/*
  * Clase para manejar conexiones Http con un webservice o servidor web,
  * utilizada para enviar informaci�n a los webServices
  *
@@ -32,11 +29,11 @@ import java.util.ArrayList;
  */
 public class HttpSender {
 
-	/**
+	/*
 	 * Variable de codigo de soft o funcion del webservice
 	 */
 	private String cod_soft;
-	/**
+	/*
 	 * URL de destino desde donde consumir el webservice
 	 */
 	private String url_destinacion;
@@ -67,8 +64,7 @@ public class HttpSender {
 	}
 
 	/*
-	 * Funci�n para enviar un archivo a procesarse con el numeroo de funcion
-	 * correspondiente
+	 * Funci�n para enviar un archivo a procesarse con el numeroo de funcion correspondiente
 	 * <p>
 	 * 1� Creamos el archivo
 	 * <p>
@@ -95,11 +91,14 @@ public class HttpSender {
 		try {
 			// 1� Creamos el archivo
 			File file = new File(url_archivo_que_mandar);
+
 			// 2� Creamos un cliente Http
 			HttpClient client = new DefaultHttpClient();
+
 			// 3� Configuramos el URL de destino para usar el metodo post
 			String postURL = url_destinacion;
 			HttpPost post = new HttpPost(postURL);
+
 			// 4� Generamos el FileBody y la entidad multiparte de request
 			FileBody bin = new FileBody(file, "text/xml");
 			System.out.println("::: HTTPSEnder sector :"+bin);
@@ -112,15 +111,15 @@ public class HttpSender {
 			reqEntity.addPart(Parametros.codigo_post, bin);
 			post.setEntity(reqEntity);
 
-			/*
-			 * NB: List<NameValuePair> nameValuePairs = new
-			 * ArrayList<NameValuePair>(2); nameValuePairs.add(new
-			 * BasicNameValuePair("a", "1")); nameValuePairs.add(new
-			 * BasicNameValuePair("b", "4")); try { post.setEntity(new
-			 * UrlEncodedFormEntity(nameValuePairs)); } catch
-			 * (UnsupportedEncodingException unEnEx) { unEnEx.printStackTrace();
-			 * }
-			 */
+
+//			  NB: List<NameValuePair> nameValuePairs = new
+//			  ArrayList<NameValuePair>(2); nameValuePairs.add(new
+//			 BasicNameValuePair("a", "1")); nameValuePairs.add(new
+//			  BasicNameValuePair("b", "4")); try { post.setEntity(new
+//			  UrlEncodedFormEntity(nameValuePairs)); } catch
+//			  (UnsupportedEncodingException unEnEx) { unEnEx.printStackTrace();
+//			  }
+
 
 			// 6� Ejecutamos la llamada a ese request
 			HttpResponse response = client.execute(post);
@@ -395,7 +394,7 @@ public class HttpSender {
 		}
 	}
 
-	/**
+	/*
 	 * Envia informacion de estado de liberacion de varios inventario pasados en
 	 * forma de lista de enteros
 	 *

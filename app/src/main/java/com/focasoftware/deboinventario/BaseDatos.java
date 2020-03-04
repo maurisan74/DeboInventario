@@ -560,8 +560,7 @@ public class BaseDatos extends SQLiteOpenHelper {
 			log.tipo_4 = Parametros.PREF_LOG_EXCEPCIONES;
 			log.log("[-- 349 --]" + e.toString(), 4);
 
-			throw new ExceptionBDD(ExceptionBDD.ERROR_TIPO_DELETE,
-					"Imposible suprimir el articulo del inventario");
+			throw new ExceptionBDD(ExceptionBDD.ERROR_TIPO_DELETE, "Imposible suprimir el articulo del inventario");
 
 		}
 
@@ -1241,14 +1240,11 @@ public class BaseDatos extends SQLiteOpenHelper {
 			// 2 Construimos la consulta SQL:
 			String consulta_SQL = "";
 
-			consulta_SQL = ParametrosInventario.bal_bdd_referencia_codigo
-					+ " = " + String.valueOf(unCodigo) + " AND "
-					+ ParametrosInventario.bal_bdd_referencia_sector + " = "
-					+ String.valueOf(unSector);
+			consulta_SQL = ParametrosInventario.bal_bdd_referencia_codigo + " = " + String.valueOf(unCodigo) + " AND " + ParametrosInventario.bal_bdd_referencia_sector + " = " + String.valueOf(unSector);
 
 			// 3 Buscar en las referencias el articulo
 			// Mas columnas, o todo
-			String col[] = new String[] {
+			String[] col = new String[] {
 					ParametrosInventario.bal_bdd_referencia_sector,
 					ParametrosInventario.bal_bdd_referencia_codigo,
 					ParametrosInventario.bal_bdd_referencia_balanza,
@@ -1336,7 +1332,7 @@ public class BaseDatos extends SQLiteOpenHelper {
 
 			// 3 Buscar en las referencias el articulo
 			// Mas columnas, o todo
-			String col[] = new String[] {
+			String[] col = new String[] {
 					ParametrosInventario.bal_bdd_proveedores_codigo,
 					ParametrosInventario.bal_bdd_proveedores_descripcion
 			};
@@ -1418,28 +1414,23 @@ public class BaseDatos extends SQLiteOpenHelper {
 			busqueda = busqueda.replaceAll("\\s+", " ");
 
 			// 3 Partimos el string en una tabla segn el caracter ' ':
-			String tabla_busqueda[] = busqueda.split("\\s");
+			String[] tabla_busqueda = busqueda.split("\\s");
 
 			// 4 Construimos la consulta SQL:
 			String consulta_SQL = "";
 			for (String s : tabla_busqueda) {
-				consulta_SQL += ParametrosInventario.bal_bdd_articulo_descripcion
-						+ " LIKE '%" + s + "%' AND ";
+				consulta_SQL += ParametrosInventario.bal_bdd_articulo_descripcion + " LIKE '%" + s + "%' AND ";
 			}
 			consulta_SQL = consulta_SQL.substring(0, consulta_SQL.length() - 4);
-			consulta_SQL += "AND "
-					+ ParametrosInventario.bal_bdd_articulo_inventario + "="
-					+ num_inventario;
+			consulta_SQL += "AND " + ParametrosInventario.bal_bdd_articulo_inventario + "=" + num_inventario;
 
 			// 5 Buscar en el inventario especificado el articulo:
-			String col[] = new String[] {
+			String[] col = new String[] {
 					ParametrosInventario.bal_bdd_articulo_sector,
 					ParametrosInventario.bal_bdd_articulo_codigo,
 					ParametrosInventario.bal_bdd_articulo_descripcion };
 
-			Cursor c = dtb.query(tabla_articulos_nombre, col, consulta_SQL,
-					null, null, null,
-					ParametrosInventario.bal_bdd_articulo_descripcion);
+			Cursor c = dtb.query(tabla_articulos_nombre, col, consulta_SQL, null, null, null, ParametrosInventario.bal_bdd_articulo_descripcion);
 
 			// 6 Control respuestas:
 			if (c.getCount() <= 0) {
@@ -1455,12 +1446,9 @@ public class BaseDatos extends SQLiteOpenHelper {
 				while (!c.isAfterLast()) {
 					HashMap<Integer, Object> hashmap = new HashMap<Integer, Object>();
 
-					hashmap.put(ParametrosInventario.clave_art_sector,
-							c.getInt(0));
-					hashmap.put(ParametrosInventario.clave_art_codigo,
-							c.getInt(1));
-					hashmap.put(ParametrosInventario.clave_art_nombre,
-							c.getString(2));
+					hashmap.put(ParametrosInventario.clave_art_sector, c.getInt(0));
+					hashmap.put(ParametrosInventario.clave_art_codigo, c.getInt(1));
+					hashmap.put(ParametrosInventario.clave_art_nombre, c.getString(2));
 
 					lista_resultado.add(hashmap);
 
@@ -1523,8 +1511,7 @@ public class BaseDatos extends SQLiteOpenHelper {
 			log.tipo_4 = Parametros.PREF_LOG_EXCEPCIONES;
 			log.log("[-- 859 --]" + e.toString(), 4);
 
-			throw new ExceptionBDD(ExceptionBDD.ERROR_TIPO_DELETE,
-					"Imposible de hacer RESET");
+			throw new ExceptionBDD(ExceptionBDD.ERROR_TIPO_DELETE, "Imposible de hacer RESET");
 		}
 	}
 
@@ -1588,8 +1575,7 @@ public class BaseDatos extends SQLiteOpenHelper {
 			log.tipo_4 = Parametros.PREF_LOG_EXCEPCIONES;
 			log.log("[-- 900 --]" + e.toString(), 4);
 
-			throw new ExceptionBDD(ExceptionBDD.ERROR_TIPO_DELETE,
-					"Imposible de hacer RESET");
+			throw new ExceptionBDD(ExceptionBDD.ERROR_TIPO_DELETE, "Imposible de hacer RESET");
 		}
 
 	}
@@ -1701,8 +1687,7 @@ public class BaseDatos extends SQLiteOpenHelper {
 //return true;
 		} else {
 			throw new ExceptionBDD(ExceptionBDD.ERROR_TIPO_SELECT,
-					"El INVENTARIO con NUMERO=" + String.valueOf(id)
-							+ " no existe");
+					"El INVENTARIO con NUMERO=" + String.valueOf(id) + " no existe");
 		}
 	}
 
@@ -1825,16 +1810,14 @@ public class BaseDatos extends SQLiteOpenHelper {
 
 		logErrores.log("Comienza la exportacin de Referencias", 2);
 
-		String query_1 = "Select * from "
-				+ ParametrosInventario.tabla_referencias;
+		String query_1 = "Select * from " + ParametrosInventario.tabla_referencias;
 		SQLiteDatabase dtb_1 = this.getReadableDatabase();
 		Cursor c_1 = dtb_1.rawQuery(query_1, null);
 
 		try {
 			if (c_1.moveToFirst()) {
 
-				logDatos.Logdatos(ParametrosInventario.tabla_referencias, null,
-						1);
+				logDatos.Logdatos(ParametrosInventario.tabla_referencias, null, 1);
 				int contador = 1;
 				do {
 
@@ -2148,6 +2131,7 @@ public class BaseDatos extends SQLiteOpenHelper {
 				documento.appendChild(titulo);
 
 				// 5 Guardamos el DOM como archivo XML
+
 				HttpWriter.transformerXml(documento, ParametrosInventario.URL_COPIA_XML_EXPORT);
 
 				// 6 Mandamos el archivo en POST hacia el servidor:
@@ -5176,43 +5160,25 @@ public class BaseDatos extends SQLiteOpenHelper {
 				while (c.isAfterLast() == false) {
 					// 3 Para cada articlo lo Creamos
 					String codigo_barra = c
-							.getString(c
-									.getColumnIndex(ParametrosInventario.bal_bdd_articulo_codigo_barra));
+							.getString(c.getColumnIndex(ParametrosInventario.bal_bdd_articulo_codigo_barra));
 					ArticuloVisible articulo = new ArticuloVisible(
-							c.getInt(c
-									.getColumnIndex(ParametrosInventario.bal_bdd_articulo_sector)),
-							c.getInt(c
-									.getColumnIndex(ParametrosInventario.bal_bdd_articulo_codigo)),
-							c.getInt(c
-									.getColumnIndex(ParametrosInventario.bal_bdd_articulo_balanza)),
-							c.getInt(c
-									.getColumnIndex(ParametrosInventario.bal_bdd_articulo_decimales)),
-							new ArrayList<String>(Arrays.asList(codigo_barra
-									.split(","))),
-							new ArrayList<String>(Arrays.asList(codigo_barra
-									.split(","))),
-							c.getInt(c
-									.getColumnIndex(ParametrosInventario.bal_bdd_articulo_inventario)),
-							c.getString(c
-									.getColumnIndex(ParametrosInventario.bal_bdd_articulo_descripcion)),
-							c.getDouble(c
-									.getColumnIndex(ParametrosInventario.bal_bdd_articulo_precio_venta)),
-							c.getDouble(c
-									.getColumnIndex(ParametrosInventario.bal_bdd_articulo_precio_costo)),
-							c.getString(c
-									.getColumnIndex(ParametrosInventario.bal_bdd_articulo_foto)),
-							c.getFloat(c
-									.getColumnIndex(ParametrosInventario.bal_bdd_articulo_cantidad)),
-							c.getFloat(c
-									.getColumnIndex(ParametrosInventario.bal_bdd_articulo_subtotal)),
-							c.getInt(c
-									.getColumnIndex(ParametrosInventario.bal_bdd_articulo_existencia_venta)),
-							c.getInt(c
-									.getColumnIndex(ParametrosInventario.bal_bdd_articulo_existencia_deposito)),
-							c.getInt(c
-									.getColumnIndex(ParametrosInventario.bal_bdd_articulo_depsn)),
-							c.getString(c
-									.getColumnIndex(ParametrosInventario.bal_bdd_articulo_fechaInicio)));
+							c.getInt(c.getColumnIndex(ParametrosInventario.bal_bdd_articulo_sector)),
+							c.getInt(c.getColumnIndex(ParametrosInventario.bal_bdd_articulo_codigo)),
+							c.getInt(c.getColumnIndex(ParametrosInventario.bal_bdd_articulo_balanza)),
+							c.getInt(c.getColumnIndex(ParametrosInventario.bal_bdd_articulo_decimales)),
+							new ArrayList<String>(Arrays.asList(codigo_barra.split(","))),
+							new ArrayList<String>(Arrays.asList(codigo_barra.split(","))),
+							c.getInt(c.getColumnIndex(ParametrosInventario.bal_bdd_articulo_inventario)),
+							c.getString(c.getColumnIndex(ParametrosInventario.bal_bdd_articulo_descripcion)),
+							c.getDouble(c.getColumnIndex(ParametrosInventario.bal_bdd_articulo_precio_venta)),
+							c.getDouble(c.getColumnIndex(ParametrosInventario.bal_bdd_articulo_precio_costo)),
+							c.getString(c.getColumnIndex(ParametrosInventario.bal_bdd_articulo_foto)),
+							c.getFloat(c.getColumnIndex(ParametrosInventario.bal_bdd_articulo_cantidad)),
+							c.getFloat(c.getColumnIndex(ParametrosInventario.bal_bdd_articulo_subtotal)),
+							c.getInt(c.getColumnIndex(ParametrosInventario.bal_bdd_articulo_existencia_venta)),
+							c.getInt(c.getColumnIndex(ParametrosInventario.bal_bdd_articulo_existencia_deposito)),
+							c.getInt(c.getColumnIndex(ParametrosInventario.bal_bdd_articulo_depsn)),
+							c.getString(c.getColumnIndex(ParametrosInventario.bal_bdd_articulo_fechaInicio)));
 					// 4 Lo agregamos a la lista de resultados
 					contador = contador + 1;
 //					if(c.getInt(c.getColumnIndex(ParametrosInventario.bal_bdd_articulo_existencia_deposito))==0){
@@ -5237,9 +5203,7 @@ public class BaseDatos extends SQLiteOpenHelper {
 			log.tipo_4 = Parametros.PREF_LOG_EXCEPCIONES;
 			log.log("[-- 2490 --]" + e.toString(), 4);
 
-			throw new ExceptionBDD(ExceptionBDD.ERROR_TIPO_SELECT,
-					"Imposible obtener los ARTICULOS del INVENTARIO n"
-							+ numero_inventario);
+			throw new ExceptionBDD(ExceptionBDD.ERROR_TIPO_SELECT, "Imposible obtener los ARTICULOS del INVENTARIO n" + numero_inventario);
 		}
 
 	}
@@ -5280,7 +5244,7 @@ public class BaseDatos extends SQLiteOpenHelper {
 
 			// Result:
 			if (c.moveToFirst()) {
-				while (c.isAfterLast() == false) {
+				while (!c.isAfterLast()) {
 					// 3 Para cada articulo encontrado generamos la combinacion
 					// de sector y codigo
 					HashMap<String, Integer> hashmapArticulo = new HashMap<String, Integer>();
@@ -5671,8 +5635,7 @@ public class BaseDatos extends SQLiteOpenHelper {
 	 * @throws ExceptionBDD
 	 *             si no encuentra inventarios
 	 */
-	public HashMap<Integer, HashMap<String, String>> selectInventariosEnBdd()
-			throws ExceptionBDD {
+	public HashMap<Integer, HashMap<String, String>> selectInventariosEnBdd() throws ExceptionBDD {
 		System.out.println("::: BaseDAtos Busca inventario con numero en la bdd");
 		System.out.println("::: BaseDAtos 3772 selectInventariosEnBdd");
 		HashMap<Integer, HashMap<String, String>> tablaResultados = new HashMap<Integer, HashMap<String, String>>();
@@ -5690,60 +5653,37 @@ public class BaseDatos extends SQLiteOpenHelper {
 //			condR=-1;
 			String whereClause = "inv_num=-1 or inv_lug=-1";// or inv_lug=-2
 
-			c = dtb.query(tabla_inventarios_nombre, null , whereClause, null, null,
-					null, null + " ASC" );
+			c = dtb.query(tabla_inventarios_nombre, null , whereClause, null, null, null, null + " ASC" );
 			System.out.println("::: BaseDatos 3861 consulta " + c);
 		}else{
 			// Esta seleccionado deposito, esto debe continuar sin los campos de ventas
 //			condR=-2;
 			String whereClause = "inv_num=-2 or inv_lug=-2";// or inv_lug=-2
-			c = dtb.query(tabla_inventarios_nombre, null , whereClause, null, null,
-					null, null + " ASC" );
+			c = dtb.query(tabla_inventarios_nombre, null , whereClause, null, null, null, null + " ASC" );
 			System.out.println("::: BaseDatos 3861 consulta " + c);
 		}
 
 
 		// 2 Buscamos todos los inventarios
-//		Cursor c = dtb.query(tabla_inventarios_nombre, null, null, null, null,
-//				null, ParametrosInventario.bal_bdd_inventario_numero + " ASC");
-		if (c.moveToFirst() == true) {
-			while (c.isAfterLast() == false) {
+		//Cursor c = dtb.query(tabla_inventarios_nombre, null, null, null, null,
+				//null, ParametrosInventario.bal_bdd_inventario_numero + " ASC");
+		if (c.moveToFirst()) {
+			while (!c.isAfterLast()) {
 				HashMap<String, String> tablaUnInventario = new HashMap<String, String>();
-				/**
+				/*
 				 * 3 Genera el hashmap, uno por inventario
 				 */
-				tablaUnInventario
-						.put(ParametrosInventario.bal_bdd_inventario_numero,
-								c.getString(c
-										.getColumnIndex(ParametrosInventario.bal_bdd_inventario_numero)));
-				tablaUnInventario
-						.put(ParametrosInventario.bal_bdd_inventario_descripcion,
-								c.getString(c
-										.getColumnIndex(ParametrosInventario.bal_bdd_inventario_descripcion)));
-				tablaUnInventario
-						.put(ParametrosInventario.bal_bdd_inventario_fechaInicio,
-								c.getString(c
-										.getColumnIndex(ParametrosInventario.bal_bdd_inventario_fechaInicio)));
-				tablaUnInventario
-						.put(ParametrosInventario.bal_bdd_inventario_fechaFin,
-								c.getString(c
-										.getColumnIndex(ParametrosInventario.bal_bdd_inventario_fechaFin)));
-				tablaUnInventario
-						.put(ParametrosInventario.bal_bdd_inventario_estado,
-								String.valueOf(c.getInt(c
-										.getColumnIndex(ParametrosInventario.bal_bdd_inventario_estado))));
+				tablaUnInventario.put(ParametrosInventario.bal_bdd_inventario_numero, c.getString(c.getColumnIndex(ParametrosInventario.bal_bdd_inventario_numero)));
+				tablaUnInventario.put(ParametrosInventario.bal_bdd_inventario_descripcion, c.getString(c.getColumnIndex(ParametrosInventario.bal_bdd_inventario_descripcion)));
+				tablaUnInventario.put(ParametrosInventario.bal_bdd_inventario_fechaInicio, c.getString(c.getColumnIndex(ParametrosInventario.bal_bdd_inventario_fechaInicio)));
+				tablaUnInventario.put(ParametrosInventario.bal_bdd_inventario_fechaFin, c.getString(c.getColumnIndex(ParametrosInventario.bal_bdd_inventario_fechaFin)));
+				tablaUnInventario.put(ParametrosInventario.bal_bdd_inventario_estado, String.valueOf(c.getInt(c.getColumnIndex(ParametrosInventario.bal_bdd_inventario_estado))));
 				/*
 				 * 4 Agrega el hashmap en la entrada correspondiente a ese
 				 * inventario
 				 */
-				System.out.println("::: BaseDatos 3838 "+tablaUnInventario
-						.put(ParametrosInventario.bal_bdd_inventario_lugar,
-								String.valueOf(c.getInt(c
-										.getColumnIndex(ParametrosInventario.bal_bdd_inventario_estado)))));
-				tablaResultados
-						.put(c.getInt(c
-										.getColumnIndex(ParametrosInventario.bal_bdd_inventario_numero)),
-								tablaUnInventario);
+				System.out.println("::: BaseDatos 3838 "+tablaUnInventario.put(ParametrosInventario.bal_bdd_inventario_lugar, String.valueOf(c.getInt(c.getColumnIndex(ParametrosInventario.bal_bdd_inventario_estado)))));
+				tablaResultados.put(c.getInt(c.getColumnIndex(ParametrosInventario.bal_bdd_inventario_numero)), tablaUnInventario);
 
 				System.out.println("::: BaseDatos 3847 ver q traeeeeee" + tablaResultados);
 				System.out.println("::: BaseDatos 3848 ver q traeeeeee 2" + c.getColumnIndex(ParametrosInventario.bal_bdd_inventario_numero));
@@ -5846,7 +5786,7 @@ public class BaseDatos extends SQLiteOpenHelper {
 
 		String consul_where="";
 		int condR = 0;
-		if(condicionRadio == true){
+		if(condicionRadio){
 			condR=-1;
 		}else{
 			condR=-2;
@@ -5869,12 +5809,10 @@ public class BaseDatos extends SQLiteOpenHelper {
 					consul_where,
 					null, null, null,
 					ParametrosInventario.bal_bdd_inventario_numero + " ASC");
-			if (c.moveToFirst() == true) {
-				while (c.isAfterLast() == false) {
+			if (c.moveToFirst()) {
+				while (!c.isAfterLast()) {
 					// 3 Lo agregamos a la tabla de resultados
-					tablaResultado
-							.add(c.getInt(c
-									.getColumnIndex(ParametrosInventario.bal_bdd_inventario_numero)));
+					tablaResultado.add(c.getInt(c.getColumnIndex(ParametrosInventario.bal_bdd_inventario_numero)));
 					c.moveToNext();
 				}
 			} else {
@@ -5897,8 +5835,7 @@ public class BaseDatos extends SQLiteOpenHelper {
 		System.out.println("::: BaseDatos 3942 tablaResultado " + tablaResultado);
 //esto corrobora el ajuste que esta marcado en preferencias, si es contabilizado o no, y actualiza la tabla con ese valor
 // haciendo un update
-		System.out.println("::: BD ACTUALIZA INV DEPENDIENDO AJUSTE SELECCIONADO CONTABLILIZADO"
-				+ ParametrosInventario.ProductosNoContabilizados);
+		System.out.println("::: BD ACTUALIZA INV DEPENDIENDO AJUSTE SELECCIONADO CONTABLILIZADO" + ParametrosInventario.ProductosNoContabilizados);
 		if(ParametrosInventario.ProductosNoContabilizados == 1){
 			dtb.execSQL("UPDATE INVENTARIOS SET INV_PRODCONT=1");
 		}else{

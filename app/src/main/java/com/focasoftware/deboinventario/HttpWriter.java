@@ -22,16 +22,12 @@ import javax.xml.transform.stream.StreamResult;
  */
 public class HttpWriter{
 
-
-
     /*
-     * Convierte un documento DOM en un archivo XML a la direccion y nombre
-     * indicados en el url
+     * Convierte un documento DOM en un archivo XML a la direccion y nombre indicados en el url
      * <p>1 Creacion del fuente del DOM
      * <p>2 Creacion del fichero de salida
      * <p>3 Configuracion del transformador de documento
      * <p>4 Realizamos la transformacion
-     *
      */
     public static void transformerXml(Document document, String urlArchivo) {
         try {
