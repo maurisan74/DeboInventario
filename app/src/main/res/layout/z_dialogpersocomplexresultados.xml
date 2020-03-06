@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:autofillHints=""
-        android:textSize="@dimen/talla_texto_medio"
+        android:textSize="@dimen/talla_texto_medioChico"
         android:visibility="gone" />
 
     <ScrollView

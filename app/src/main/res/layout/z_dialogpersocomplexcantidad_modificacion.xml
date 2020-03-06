@@ -21,7 +21,7 @@
 				android:text="Cantidad actual: "
 				android:textSize="@dimen/talla_texto_medioGrande" />
 
-			<EditText
+			<TextView
 				android:id="@+id/Z_DIALOG_cantidad_actual"
 				android:layout_width="50dp"
 				android:layout_height="wrap_content"
@@ -43,7 +43,7 @@
 				android:text="Cantidad previsional: "
 				android:textSize="@dimen/talla_texto_medioGrande" />
 
-			<EditText
+			<TextView
 				android:id="@+id/Z_DIALOG_cantidad_final"
 				android:layout_width="wrap_content"
 				android:layout_height="wrap_content"

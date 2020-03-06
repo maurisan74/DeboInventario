@@ -31,7 +31,7 @@
         <ListView
             android:id="@+id/ListProveedores"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
+            android:layout_height="279dp"
             android:layout_gravity="center_horizontal"
             android:layout_weight="0.41"
             android:background="#000000"

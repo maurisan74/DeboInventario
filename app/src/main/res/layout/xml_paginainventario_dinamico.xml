@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/PID_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -9,23 +10,23 @@
 
     <LinearLayout
         android:layout_width="wrap_content"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:gravity="start|center_horizontal"
         android:orientation="vertical">
 
-<!--        <LinearLayout-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:orientation="vertical"-->
-<!--            >-->
-<!--            <Button-->
-<!--                android:id="@+id/PID_boton_salir"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:gravity="center"-->
-<!--                android:focusable="false"-->
-<!--                android:text="Salir" />-->
-<!--        </LinearLayout>-->
+        <!--        <LinearLayout-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:orientation="vertical"-->
+        <!--            >-->
+        <!--            <Button-->
+        <!--                android:id="@+id/PID_boton_salir"-->
+        <!--                android:layout_width="wrap_content"-->
+        <!--                android:layout_height="wrap_content"-->
+        <!--                android:gravity="center"-->
+        <!--                android:focusable="false"-->
+        <!--                android:text="Salir" />-->
+        <!--        </LinearLayout>-->
         <!-- Pimera linea de encabezado -->
 
         <!-- ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; -->
@@ -36,8 +37,8 @@
         <!-- ##################################### -->
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="1200dp"
+            android:layout_height="80dp"
             android:gravity="top"
             android:orientation="horizontal">
 
@@ -45,39 +46,31 @@
                 android:id="@+id/PID_boton_salir"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:gravity="center"
                 android:focusable="false"
+                android:gravity="center"
                 android:text="Salir" />
 
             <ImageView
                 android:id="@+id/PID_boton_busqueda"
-                android:layout_width="43dp"
+                android:layout_width="45dp"
                 android:layout_height="45dp"
-                android:layout_marginLeft="10dp"
+                android:layout_marginStart="25dp"
                 android:layout_marginTop="1dp"
-                android:layout_marginRight="10dp"
+                android:layout_marginEnd="10dp"
                 android:src="@drawable/zoom" />
-
-
-
-            <!-- <LinearLayout -->
-            <!-- android:layout_width="wrap_content" -->
-            <!-- android:layout_height="match_parent" -->
-            <!-- android:gravity="center" -->
-            <!-- android:orientation="vertical" > -->
 
             <ImageView
                 android:id="@+id/PID_boton_lectora"
                 android:layout_width="45dp"
                 android:layout_height="45dp"
-                android:layout_marginStart="40dp"
+                android:layout_marginStart="30dp"
                 android:src="@drawable/lectora_mas_1" />
 
             <ImageView
                 android:id="@+id/Ic_Lectora_Din"
                 android:layout_width="45dp"
                 android:layout_height="45dp"
-                android:layout_marginStart="50dp"
+                android:layout_marginStart="40dp"
                 android:src="@drawable/ic_lectora" />
 
             <EditText
@@ -85,25 +78,27 @@
                 android:layout_width="200dp"
                 android:layout_height="40dp"
                 android:layout_marginStart="50dp"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="10dp"
+                android:autofillHints=""
                 android:background="@drawable/edittext_bg"
+                android:clickable="true"
                 android:ems="10"
+                android:focusable="true"
                 android:inputType="numberSigned" />
 
             <!-- </LinearLayout> -->
 
             <TextView
                 android:id="@+id/PID_tit_pagina"
-                android:layout_width="190dp"
+                android:layout_width="274dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginStart="60dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginEnd="80dp"
                 android:text="Inventarios Dinámicos"
                 android:textColor="@color/anaranjado_verde"
                 android:textSize="@dimen/titulo" />
-
-            <requestFocus />
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -113,7 +108,7 @@
 
                 <TextView
                     android:id="@+id/PID_textViewFechaInicio"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center_vertical"
                     android:text="Fecha Inicio: dd/MM/yyyy"
@@ -131,14 +126,14 @@
                     android:id="@+id/PID_textViewMensajeInforme"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="center"
+                    android:gravity="start"
                     android:text="Esperando Codigo de Barra. NO Activo escaneo por articulo"
                     android:textAppearance="?android:attr/textAppearanceMedium" />
             </LinearLayout>
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="852dp"
+            android:layout_width="860dp"
             android:layout_height="wrap_content"
             android:gravity="start"
             android:orientation="horizontal">
@@ -171,6 +166,15 @@
                         android:text="Venta"
                         android:textAppearance="?android:attr/textAppearanceMedium" />
 
+                    <RadioButton
+                        android:id="@+id/PID_radioDepo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:checked="false"
+                        android:focusable="false"
+                        android:text="Deposito"
+                        android:visibility="invisible" />
+
                     <TextView
                         android:id="@+id/seleccion_dep"
                         android:layout_width="match_parent"
@@ -179,18 +183,12 @@
                         android:text="Deposito"
                         android:textAppearance="?android:attr/textAppearanceMedium" />
 
-                    <RadioButton
-                        android:id="@+id/PID_radioDepo"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:focusable="false"
-                        android:text="Deposito"
-                        android:visibility="invisible" />
+
                 </RadioGroup>
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
@@ -200,7 +198,7 @@
                     android:id="@+id/PID_tabla_central"
                     android:layout_width="740dp"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
+                    android:layout_gravity="start"
                     android:background="@color/black">
 
                     <TableRow
@@ -303,17 +301,21 @@
                     <RelativeLayout
                         android:id="@+id/PID_layout_lateral"
                         android:layout_width="30dp"
-                        android:layout_height="300dp"
-                        android:layout_marginStart="25dp"
+                        android:layout_height="350dp"
+                        android:layout_marginStart="65dp"
+                        android:layout_marginTop="30dp"
                         android:gravity="center_vertical">
 
                         <ImageView
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:paddingTop="15dp"
-                            android:paddingBottom="18dp"
+                            android:background="#FF9800"
+                            android:paddingTop="50dp"
                             android:scaleType="fitXY"
-                            android:src="@drawable/linea_asensor" />
+                            android:scrollbarSize="8dp"
+                            android:src="@drawable/linea_asensor"
+                            android:visibility="visible"
+                            tools:src="@drawable/linea_asensor" />
 
                         <LinearLayout
                             android:id="@+id/PID_layout_asensor"
@@ -347,19 +349,19 @@
         <!-- PIE DE PAGINA -->
 
 
-<!--        <LinearLayout-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:orientation="vertical"-->
-<!--            >-->
-<!--            <Button-->
-<!--                android:id="@+id/PID_boton_salir"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:gravity="center"-->
-<!--                android:focusable="false"-->
-<!--                android:text="Salir" />-->
-<!--        </LinearLayout>-->
+        <!--        <LinearLayout-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:orientation="vertical"-->
+        <!--            >-->
+        <!--            <Button-->
+        <!--                android:id="@+id/PID_boton_salir"-->
+        <!--                android:layout_width="wrap_content"-->
+        <!--                android:layout_height="wrap_content"-->
+        <!--                android:gravity="center"-->
+        <!--                android:focusable="false"-->
+        <!--                android:text="Salir" />-->
+        <!--        </LinearLayout>-->
     </LinearLayout>
 
     <ProgressBar
@@ -401,16 +403,16 @@
         android:id="@+id/PID_boton_up"
         android:layout_width="40dp"
         android:layout_height="40dp"
-        android:layout_marginTop="60dp"
-        android:layout_marginStart="860dp"
+        android:layout_marginStart="900dp"
+        android:layout_marginTop="100dp"
         android:src="@drawable/boton_up" />
 
     <ImageView
         android:id="@+id/PID_boton_down"
         android:layout_width="40dp"
         android:layout_height="40dp"
-        android:layout_marginStart="860dp"
-        android:layout_marginTop="400dp"
+        android:layout_marginStart="900dp"
+        android:layout_marginTop="500dp"
         android:src="@drawable/boton_down" />
 
 </RelativeLayout>

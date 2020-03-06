@@ -329,13 +329,13 @@
                             android:src="@drawable/linea_asensor" />
 
                         <LinearLayout
-                            android:id="@+id/PID_layout_asensor"
+                            android:id="@+id/PI_layout_asensor"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:orientation="vertical" >
+                            android:orientation="vertical">
 
                             <TextView
-                                android:id="@+id/PID_asensor_text"
+                                android:id="@+id/PI_asensor_text"
                                 android:layout_width="10dp"
                                 android:layout_height="wrap_content"
                                 android:lines="0"
@@ -343,7 +343,7 @@
                                 android:textSize="12sp" />
 
                             <ImageView
-                                android:id="@+id/PID_asensor"
+                                android:id="@+id/PI_asensor"
                                 android:layout_width="30dp"
                                 android:layout_height="30dp"
                                 android:scaleType="fitXY"

@@ -20,11 +20,15 @@
             android:gravity="top"
             android:orientation="horizontal" >
 
-            <!-- <LinearLayout -->
-            <!-- android:layout_width="wrap_content" -->
-            <!-- android:layout_height="match_parent" -->
-            <!-- android:gravity="left" -->
-            <!-- android:orientation="horizontal" > -->
+
+            <Button
+                android:id="@+id/PID_boton_salir"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:focusable="false"
+                android:gravity="center"
+                android:text="Salir" />
+
 
             <ImageView
                 android:id="@+id/PID_boton_busqueda"
@@ -34,14 +38,7 @@
                 android:layout_marginRight="10dp"
                 android:layout_marginTop="1dp"
                 android:src="@drawable/zoom" />
-            <!-- </LinearLayout> -->
 
-
-            <!-- <LinearLayout -->
-            <!-- android:layout_width="wrap_content" -->
-            <!-- android:layout_height="match_parent" -->
-            <!-- android:gravity="center" -->
-            <!-- android:orientation="vertical" > -->
 
             <ImageView
                 android:id="@+id/PID_boton_lectora"
@@ -310,38 +307,6 @@
         <!-- ####@@@@ ____FIN ARTICULOS____ @@@@#### -->
 
 
-        <!-- PIE DE PAGINA -->
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal" >
-
-            <!-- <LinearLayout -->
-            <!-- android:layout_width="wrap_content" -->
-            <!-- android:layout_height="match_parent" -->
-            <!-- android:gravity="center" -->
-            <!-- android:orientation="horizontal" > -->
-            <!-- </LinearLayout> -->
-
-
-            <!-- <LinearLayout -->
-            <!-- android:layout_width="match_parent" -->
-            <!-- android:layout_height="match_parent" -->
-            <!-- android:layout_gravity="center" -->
-            <!-- android:orientation="horizontal" > -->
-            <!-- </LinearLayout> -->
-
-            <Button
-                android:id="@+id/PID_boton_salir"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="265dp"
-                android:layout_marginTop="1dp"
-                android:layout_marginEnd="10dp"
-                android:focusable="false"
-                android:text="Salir" />
-        </LinearLayout>
     </LinearLayout>
 
     <ProgressBar
@@ -383,18 +348,16 @@
         android:id="@+id/PID_boton_up"
         android:layout_width="40dp"
         android:layout_height="40dp"
-        android:layout_alignParentEnd="true"
-        android:layout_marginEnd="5dp"
-        android:layout_marginTop="25dp"
+        android:layout_marginStart="900dp"
+        android:layout_marginTop="100dp"
         android:src="@drawable/boton_up" />
 
     <ImageView
         android:id="@+id/PID_boton_down"
         android:layout_width="40dp"
         android:layout_height="40dp"
-        android:layout_alignParentEnd="true"
-        android:layout_marginEnd="5dp"
-        android:layout_marginTop="370dp"
+        android:layout_marginStart="900dp"
+        android:layout_marginTop="500dp"
         android:src="@drawable/boton_down" />
 
 </RelativeLayout>

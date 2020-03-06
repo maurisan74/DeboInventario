@@ -4010,22 +4010,15 @@ public class InventarioMainBoard extends Activity implements DialogPersoSimple,
                 System.out.println("::: InventarioMainboard 1044 Ver id_inventario " + id_inventario);
 
                 // Elemento 2 = texto del NOMBRE:
-                TextView textoNombre = (TextView) nuevaLinea
-                        .findViewById(R.id.LPB2_nombre);
-                textoNombre.setText(hashmapUnInventario.get(
-                        ParametrosInventario.bal_bdd_inventario_descripcion)
-                        .trim());
+                TextView textoNombre = (TextView) nuevaLinea.findViewById(R.id.LPB2_nombre);
+                textoNombre.setText(hashmapUnInventario.get(ParametrosInventario.bal_bdd_inventario_descripcion).trim());
 
                 // Elemento 3 = texto de la FECHA de CREACION:
-                TextView textoFecha = (TextView) nuevaLinea
-                        .findViewById(R.id.LPB2_inicio);
-                textoFecha.setText(hashmapUnInventario.get(
-                        ParametrosInventario.bal_bdd_inventario_fechaInicio)
-                        .trim());
+                TextView textoFecha = (TextView) nuevaLinea.findViewById(R.id.LPB2_inicio);
+                textoFecha.setText(hashmapUnInventario.get(ParametrosInventario.bal_bdd_inventario_fechaInicio).trim());
 
                 // Elemento 4 = PROGRESS-BAR:
-                TextView tv_progressbar = (TextView) nuevaLinea
-                        .findViewById(R.id.LPB2_texto_progressbar);
+                TextView tv_progressbar = (TextView) nuevaLinea.findViewById(R.id.LPB2_texto_progressbar);
                 String texto_estadisticas_progresion = String
                         .valueOf(articulosYaContadosEnInventario)
                         + " de "
@@ -4244,7 +4237,7 @@ public class InventarioMainBoard extends Activity implements DialogPersoSimple,
 
         } // end while
 
-        /**
+        /*
          * Trabajo que se hace para los inventarios dinmicos similar a los
          * otros pero con un tratamiento especial por que es un boton que esta
          * siempre y fijo y tiene una funcionalidad definida
@@ -4349,17 +4342,16 @@ public class InventarioMainBoard extends Activity implements DialogPersoSimple,
         System.out.println("::: INVDIN 1347 Creacion de la linea id_inv_ficticio " + id_inv_ficticio);
         // Elemento 1 = boton:
         Button b = (Button) nuevaLinea.findViewById(R.id.LPB2_boton);
-        b.setText("Inventarios Dinam'icos ");
+        b.setText("Inventarios Dinamicos ");
         b.setId(ParametrosInventario.ID_BOTONES + id_inv_ficticio);
 
         // Elemento 2 = texto del NOMBRE:
         TextView textoNombre = (TextView) nuevaLinea
                 .findViewById(R.id.LPB2_nombre);
-        textoNombre.setText("Inventario Dinmico");
+        textoNombre.setText("Inventario Dinamico");
 
         // Elemento 3 = texto de la FECHA de CREACION:
-        TextView textoFecha = (TextView) nuevaLinea
-                .findViewById(R.id.LPB2_inicio);
+        TextView textoFecha = (TextView) nuevaLinea.findViewById(R.id.LPB2_inicio);
         if (hayDinamicos) {
             // Buscar la fecha menor de los dos inventarios
             String fecha="";

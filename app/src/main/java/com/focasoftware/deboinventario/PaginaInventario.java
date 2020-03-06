@@ -1576,17 +1576,10 @@ public class PaginaInventario extends Activity implements DialogPersoSimple {
 						float cantidad = Float.parseFloat(valorDelEdittext);
 						listaArticulosCompleta.get(indice_focused).setCantidad(
 								cantidad);
-						if (listaArticulosCompleta.get(indice_focused)
-								.getFechaInicio().length() == 0) {
-							listaArticulosCompleta.get(indice_focused)
-									.setFechaInicio(
-											new SimpleDateFormat(
-													"yyyy-MM-dd HH:mm:ss")
-													.format(new Date()));
+						if (listaArticulosCompleta.get(indice_focused).getFechaInicio().length() == 0) {
+							listaArticulosCompleta.get(indice_focused).setFechaInicio(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
 						}
-						listaArticulosCompleta.get(indice_focused).setFechaFin(
-								new SimpleDateFormat("yyyy-MM-dd HH:mm:ss")
-										.format(new Date()));
+						listaArticulosCompleta.get(indice_focused).setFechaFin(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
 					} catch (Exception e) {
 
 						log.log("[-- 1619 --]" + e.toString(), 4);
@@ -1594,8 +1587,7 @@ public class PaginaInventario extends Activity implements DialogPersoSimple {
 						// Edittext no es un Integer, en este caso: -1
 						listaArticulosCompleta.get(indice_focused).setCantidad(
 								-1);
-						showSimpleDialogOK("Error",
-								"Valor incorrecto, ingrese un entero").show();
+						showSimpleDialogOK("Error", "Valor incorrecto, ingrese un entero").show();
 						edittext.setText("No Tomado");
 						return;
 					}
@@ -1605,8 +1597,7 @@ public class PaginaInventario extends Activity implements DialogPersoSimple {
 				try {
 					// Cuidado, si el nuevo valor es "No Tomado" (cantidad Q =
 					// -1), hay que suprimir la fecha en la BDD:
-					bdd.updateArticulo(listaArticulosCompleta
-							.get(indice_focused));
+					bdd.updateArticulo(listaArticulosCompleta.get(indice_focused));
 				} catch (ExceptionBDD e) {
 
 					log.log("[-- 1639 --]" + e.toString(), 4);
@@ -1641,7 +1632,7 @@ public class PaginaInventario extends Activity implements DialogPersoSimple {
 		return alert;
 	}
 
-	/**
+	/*
 	 * Muestra un dialogo por un tiempo determinado
 	 *
 	 * @param titulo
@@ -1655,8 +1646,7 @@ public class PaginaInventario extends Activity implements DialogPersoSimple {
 		log.log("[-- 1686 --]" + "titulo: " + titulo + ", \n mensaje: "
 				+ mensaje, 0);
 		AlertDialog.Builder dialogoSimple = new AlertDialog.Builder(this);
-		dialogoSimple.setCancelable(false).setTitle(titulo).setMessage(mensaje)
-				.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+		dialogoSimple.setCancelable(false).setTitle(titulo).setMessage(mensaje).setPositiveButton("Ok", new DialogInterface.OnClickListener() {
 					public void onClick(DialogInterface dialog, int id) {
 						dialog.dismiss();
 					}
@@ -1669,7 +1659,7 @@ public class PaginaInventario extends Activity implements DialogPersoSimple {
 		return alert;
 	}
 
-	/**
+	/*
 	 * Muestra un dialog con opcion Si o No, en el caso afirmativo procedemos a
 	 * la Activity definida por "clase"
 	 */
@@ -1698,7 +1688,7 @@ public class PaginaInventario extends Activity implements DialogPersoSimple {
 		return alert;
 	}
 
-	/**
+	/*
 	 * Funcion para filtrar los articulos a mostrar, evalua los valores de
 	 * banderas segun el filtro que se aplique
 	 * <p>
@@ -1722,8 +1712,7 @@ public class PaginaInventario extends Activity implements DialogPersoSimple {
 
 			// SI hay filtro por sector Y SI el sector del articulo no est en
 			// la lista, visibilidad = false:
-			if (listaSectoresFiltrados.size() > 0
-					&& listaSectoresFiltrados.contains((Object) a.getSector()) == false) {
+			if (listaSectoresFiltrados.size() > 0 && listaSectoresFiltrados.contains((Object) a.getSector()) == false) {
 				a.setVisibilidad(false);
 				continue;
 			}
@@ -1770,7 +1759,7 @@ public class PaginaInventario extends Activity implements DialogPersoSimple {
 		loadingBar.setVisibility(View.GONE);
 	}
 
-	/**
+	/*
 	 * Muestra el menu del filtro a aplicar, actualiza las banderas
 	 * correspondientes?
 	 * <p>
@@ -1860,8 +1849,7 @@ public class PaginaInventario extends Activity implements DialogPersoSimple {
 			if (precioFiltro < 0) {
 				rdioInf.setChecked(true);
 				valorUmbral.setEnabled(true);
-				valorUmbral
-						.setText(String.valueOf(Math.abs((int) precioFiltro)));
+				valorUmbral.setText(String.valueOf(Math.abs((int) precioFiltro)));
 				copia_precioFiltro = -1;
 			} else if (precioFiltro > 0) {
 				rdioSup.setChecked(true);
@@ -1878,24 +1866,20 @@ public class PaginaInventario extends Activity implements DialogPersoSimple {
 
 			rdioInf.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
 
-				public void onCheckedChanged(CompoundButton view,
-											 boolean isChecked) {
+				public void onCheckedChanged(CompoundButton view, boolean isChecked) {
 
 					log.log("[-- 1914 --]"
 							+ "Cambi ode estado de Radio Button Inferior", 2);
 					if (isChecked == true) {
 						copia_precioFiltro = -1;
 
-						RadioButton rbSup = (RadioButton) dialogo
-								.findViewById(1 + Parametros.ID_RADIOBUTTON);
+						RadioButton rbSup = (RadioButton) dialogo.findViewById(1 + Parametros.ID_RADIOBUTTON);
 						rbSup.setChecked(false);
 
-						RadioButton rbSin = (RadioButton) dialogo
-								.findViewById(0 + Parametros.ID_RADIOBUTTON);
+						RadioButton rbSin = (RadioButton) dialogo.findViewById(0 + Parametros.ID_RADIOBUTTON);
 						rbSin.setChecked(false);
 
-						EditText valorUmbral = (EditText) dialogo
-								.findViewById(Parametros.ID_EDITTEXT);
+						EditText valorUmbral = (EditText) dialogo.findViewById(Parametros.ID_EDITTEXT);
 						valorUmbral.setEnabled(true);
 					}
 				}
@@ -1903,24 +1887,20 @@ public class PaginaInventario extends Activity implements DialogPersoSimple {
 
 			rdioSup.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
 
-				public void onCheckedChanged(CompoundButton view,
-											 boolean isChecked) {
+				public void onCheckedChanged(CompoundButton view, boolean isChecked) {
 					if (isChecked == true) {
 
 						log.log("[-- 1939 --]"
 								+ "Cambio de estado de Radio Superior", 2);
 						copia_precioFiltro = 1;
 
-						RadioButton rbInf = (RadioButton) dialogo
-								.findViewById(-1 + Parametros.ID_RADIOBUTTON);
+						RadioButton rbInf = (RadioButton) dialogo.findViewById(-1 + Parametros.ID_RADIOBUTTON);
 						rbInf.setChecked(false);
 
-						RadioButton rbSin = (RadioButton) dialogo
-								.findViewById(0 + Parametros.ID_RADIOBUTTON);
+						RadioButton rbSin = (RadioButton) dialogo.findViewById(0 + Parametros.ID_RADIOBUTTON);
 						rbSin.setChecked(false);
 
-						EditText valorUmbral = (EditText) dialogo
-								.findViewById(Parametros.ID_EDITTEXT);
+						EditText valorUmbral = (EditText) dialogo.findViewById(Parametros.ID_EDITTEXT);
 						valorUmbral.setEnabled(true);
 					}
 				}
@@ -1936,16 +1916,13 @@ public class PaginaInventario extends Activity implements DialogPersoSimple {
 					if (isChecked == true) {
 						copia_precioFiltro = 0;
 
-						RadioButton rbSup = (RadioButton) dialogo
-								.findViewById(1 + Parametros.ID_RADIOBUTTON);
+						RadioButton rbSup = (RadioButton) dialogo.findViewById(1 + Parametros.ID_RADIOBUTTON);
 						rbSup.setChecked(false);
 
-						RadioButton rbInf = (RadioButton) dialogo
-								.findViewById(-1 + Parametros.ID_RADIOBUTTON);
+						RadioButton rbInf = (RadioButton) dialogo.findViewById(-1 + Parametros.ID_RADIOBUTTON);
 						rbInf.setChecked(false);
 
-						EditText valorUmbral = (EditText) dialogo
-								.findViewById(Parametros.ID_EDITTEXT);
+						EditText valorUmbral = (EditText) dialogo.findViewById(Parametros.ID_EDITTEXT);
 						valorUmbral.setEnabled(false);
 						copia_precioFiltro = 0;
 					}
@@ -1990,11 +1967,9 @@ public class PaginaInventario extends Activity implements DialogPersoSimple {
 							log.log("[-- 2017 --]"
 									+ "Cambio de estado de Radio Virgen", 2);
 							if (isChecked == true) {
-								RadioButton rbSin = (RadioButton) dialogo
-										.findViewById(0 + Parametros.ID_RADIOBUTTON);
+								RadioButton rbSin = (RadioButton) dialogo.findViewById(0 + Parametros.ID_RADIOBUTTON);
 								rbSin.setChecked(false);
-								RadioButton rbHecho = (RadioButton) dialogo
-										.findViewById(2 + Parametros.ID_RADIOBUTTON);
+								RadioButton rbHecho = (RadioButton) dialogo.findViewById(2 + Parametros.ID_RADIOBUTTON);
 								rbHecho.setChecked(false);
 
 								copia_inventarioFiltro = -1;
@@ -2009,12 +1984,9 @@ public class PaginaInventario extends Activity implements DialogPersoSimple {
 							log.log("[-- 2035 --]"
 									+ "Cambio de estado de Radio Hecho", 2);
 							if (isChecked == true) {
-								RadioButton rbSin = (RadioButton) dialogo
-										.findViewById(0 + Parametros.ID_RADIOBUTTON);
+								RadioButton rbSin = (RadioButton) dialogo.findViewById(0 + Parametros.ID_RADIOBUTTON);
 								rbSin.setChecked(false);
-								RadioButton rbVirgen = (RadioButton) dialogo
-										.findViewById(-2
-												+ Parametros.ID_RADIOBUTTON);
+								RadioButton rbVirgen = (RadioButton) dialogo.findViewById(-2 + Parametros.ID_RADIOBUTTON);
 								rbVirgen.setChecked(false);
 
 								copia_inventarioFiltro = 1;
@@ -2027,13 +1999,10 @@ public class PaginaInventario extends Activity implements DialogPersoSimple {
 											 boolean isChecked) {
 					if (isChecked == true) {
 
-						log.log("[-- 2055 --]"
-								+ "Cambio de estado de Radio sin", 2);
-						RadioButton rbHecho = (RadioButton) dialogo
-								.findViewById(2 + Parametros.ID_RADIOBUTTON);
+						log.log("[-- 2055 --]" + "Cambio de estado de Radio sin", 2);
+						RadioButton rbHecho = (RadioButton) dialogo.findViewById(2 + Parametros.ID_RADIOBUTTON);
 						rbHecho.setChecked(false);
-						RadioButton rbVirgen = (RadioButton) dialogo
-								.findViewById(-2 + Parametros.ID_RADIOBUTTON);
+						RadioButton rbVirgen = (RadioButton) dialogo.findViewById(-2 + Parametros.ID_RADIOBUTTON);
 						rbVirgen.setChecked(false);
 
 						copia_inventarioFiltro = 0;
@@ -2075,12 +2044,9 @@ public class PaginaInventario extends Activity implements DialogPersoSimple {
 				for (int j : copia_listaSectoresFiltrados) {
 					listaSectoresFiltrados.add(j);
 				}
-				EditText valorUmbral = (EditText) dialogo
-						.findViewById(Parametros.ID_EDITTEXT);
+				EditText valorUmbral = (EditText) dialogo.findViewById(Parametros.ID_EDITTEXT);
 				if (valorUmbral != null) {
-					precioFiltro = copia_precioFiltro
-							* Double.parseDouble(String.valueOf(valorUmbral
-							.getText()));
+					precioFiltro = copia_precioFiltro * Double.parseDouble(String.valueOf(valorUmbral.getText()));
 				}
 				inventarioFiltro = copia_inventarioFiltro;
 
@@ -2133,7 +2099,7 @@ public class PaginaInventario extends Activity implements DialogPersoSimple {
 		return listaRespuesta;
 	}
 
-	/**
+	/*
 	 * Esta foncion se usa despues de un cambio de orden o la aplicacin de un
 	 * filtro para encontrar el articulo VISIBLE mas cercano al indice anterior,
 	 * dado que el articulo que se presenta en el indice enfocado anteriormente
@@ -2158,8 +2124,7 @@ public class PaginaInventario extends Activity implements DialogPersoSimple {
 	 * @return indice del articulo visible ms cercano por arriba o abajo
 	 * @throws Exception
 	 */
-	private int getIndiceArticuloVisibleMasCercano(int indice_anterior)
-			throws Exception {
+	private int getIndiceArticuloVisibleMasCercano(int indice_anterior) throws Exception {
 		ArticuloVisible a = new ArticuloVisible(false);
 		int indice = indice_anterior;
 		int paso = -1;

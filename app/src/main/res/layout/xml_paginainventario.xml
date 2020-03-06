@@ -1,19 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/PI_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/fondo_pagina_inventario" >
-
-    <ImageView
-        android:id="@+id/PI_boton_lectora"
-        android:layout_width="45dp"
-        android:layout_height="37dp"
-        android:layout_alignParentTop="true"
-        android:layout_marginEnd="140dp"
-        android:scaleType="centerInside"
-        android:src="@drawable/lectora_mas_1" />
 
     <!-- ####@@@@ ____FIN ARTICULOS____ @@@@#### -->
 
@@ -32,7 +24,6 @@
             android:textColor="@color/anaranjado_verde"
             android:textSize="17sp" />
 
-        <requestFocus />
 
         <!-- ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; -->
         <!-- ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; -->
@@ -155,6 +146,7 @@
                         android:layout_height="wrap_content"
                         android:lines="0"
                         android:text="aaaaaa"
+                        android:visibility="gone"
                         android:textSize="12sp" />
 
                     <ImageView
@@ -167,30 +159,24 @@
             </RelativeLayout>
         </LinearLayout>
 
-        <Button
-            android:id="@+id/PI_boton_salir"
-            android:layout_width="wrap_content"
-            android:layout_height="40dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="1dp"
-            android:focusable="false"
-            android:text="Salir" />
-
-        <ImageView
-            android:id="@+id/PI_boton_up"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_marginTop="0dp"
-            android:layout_marginEnd="5dp"
-            android:src="@drawable/boton_up" />
 
         <ImageView
             android:id="@+id/PI_boton_down"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:layout_marginEnd="5dp"
-            android:layout_marginBottom="760dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginStart="375dp"
             android:src="@drawable/boton_down" />
+
+        <ImageView
+            android:id="@+id/PI_boton_up"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="375dp"
+            android:layout_marginTop="-380dp"
+            android:src="@drawable/boton_up" />
+
+
     </LinearLayout>
 
     <ProgressBar
@@ -228,21 +214,45 @@
         android:src="@drawable/filtro"
         android:visibility="invisible" />
 
+    <Button
+        android:id="@+id/PI_boton_salir"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="1dp"
+        android:focusable="false"
+        android:text="Salir" />
+
     <ImageView
         android:id="@+id/PI_boton_busqueda"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         android:layout_alignParentTop="true"
-        android:layout_marginEnd="150dp"
-        android:layout_marginTop="1dp"
+        android:layout_marginStart="150dp"
+        android:layout_marginTop="10dp"
         android:src="@drawable/zoom" />
 
     <ImageView
         android:id="@+id/Ic_Lectora"
-        android:layout_width="19dp"
-        android:layout_height="20dp"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         android:layout_alignStart="@+id/PI_boton_busqueda"
         android:layout_marginStart="56dp"
+        android:layout_marginTop="10dp"
         android:src="@drawable/ic_lectora" />
-
+    <ImageView
+        android:id="@+id/PI_boton_lectora"
+        android:layout_width="45dp"
+        android:layout_height="37dp"
+        android:layout_marginStart="260dp"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/lectora_mas_1" />
+    <EditText
+        android:id="@+id/TextcodigoBarras"
+        android:layout_width="150dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="350dp"
+        android:layout_marginTop="10dp"
+        android:ems="10"
+        android:inputType="numberSigned" />
 </RelativeLayout>
