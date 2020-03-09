@@ -1168,41 +1168,31 @@ public class ComprasMainBoard extends Activity implements DialogPersoSimple,
 		b.setText("Inventario Compras");
 		b.setId(ParametrosInventario.ID_BOTONES + id_inv_ficticio);
 		// Elemento 2 = texto del NOMBRE:
-		TextView textoNombre = (TextView) nuevaLinea
-				.findViewById(R.id.LPB2_nombre);
+		TextView textoNombre = (TextView) nuevaLinea.findViewById(R.id.LPB2_nombre);
 		textoNombre.setText("Inv. Comp");
 		// Elemento 3 = texto de la FECHA de CREACION:
-		TextView textoFecha = (TextView) nuevaLinea
-				.findViewById(R.id.LPB2_inicio);
+		TextView textoFecha = (TextView) nuevaLinea.findViewById(R.id.LPB2_inicio);
 		if (hayDinamicos) {
 			String fecha="";
 				condR=-3;
-				String fechaIVta = hashmapInventarioCompra.get(
-						ParametrosInventario.bal_bdd_inventario_fechaInicio).trim();
-				fecha = hashmapInventarioCompra.get(
-						ParametrosInventario.bal_bdd_inventario_fechaInicio)
-						.trim();
+				String fechaIVta = hashmapInventarioCompra.get(ParametrosInventario.bal_bdd_inventario_fechaInicio).trim();
+				fecha = hashmapInventarioCompra.get(ParametrosInventario.bal_bdd_inventario_fechaInicio).trim();
 			textoFecha.setText(fecha);
 		} else {
 			textoFecha.setText("");
 		}
 		// Elemento 4 = PROGRESS-BAR:
-		TextView tv_progressbar = (TextView) nuevaLinea
-				.findViewById(R.id.LPB2_texto_progressbar);
+		TextView tv_progressbar = (TextView) nuevaLinea.findViewById(R.id.LPB2_texto_progressbar);
 		String texto_estadisticas_progresion = String
 				.valueOf(articulosYaContadosEnInventario)
 				+ " de "
 				+ String.valueOf(cantidadArticulosEnInventario);
 		tv_progressbar.setText(texto_estadisticas_progresion);
 		try {
-			ProgressBar pb = (ProgressBar) nuevaLinea
-					.findViewById(R.id.LPB2_progressbar);
+			ProgressBar pb = (ProgressBar) nuevaLinea.findViewById(R.id.LPB2_progressbar);
 			int newValue = 0;
 			if (cantidadArticulosEnInventario != 0) {
-				newValue = (int) Math
-						.floor((double) articulosYaContadosEnInventario
-								/ (double) cantidadArticulosEnInventario
-								* (double) 100);
+				newValue = (int) Math.floor((double) articulosYaContadosEnInventario / (double) cantidadArticulosEnInventario * (double) 100);
 			}
 			pb.setProgress(newValue);
 		} catch (Exception e) {
@@ -1210,11 +1200,8 @@ public class ComprasMainBoard extends Activity implements DialogPersoSimple,
 			e.printStackTrace();
 		}
 		// Elemento 5 = CANDADO:
-		ImageView candado = (ImageView) nuevaLinea
-				.findViewById(R.id.LPB2_estado);
+		ImageView candado = (ImageView) nuevaLinea.findViewById(R.id.LPB2_estado);
 		System.out.println("::: 700 2 COMPRAS MAIN BOAR VER SI LLEGA ACCCCCCCCCCCCCCCAAAAAAAA");
-
-
 		String cod_prov_string = bdd.proveedorAsignado(-3);
 		// Elemento 6 = nombre del Proveedor:
 		//Asi estaba con el        android:onClick="elegir"
@@ -1225,9 +1212,7 @@ public class ComprasMainBoard extends Activity implements DialogPersoSimple,
 		Button textoNombreProve = (Button) nuevaLinea.findViewById(R.id.id_proveedor_buscar);
 		textoNombreProve .setText(cod_prov_string);
 		textoNombreProve .setId(ParametrosInventario.ID_BOTONES + -3);
-/****************
- * ****************************************
- * ********************************/
+
 		textoNombreProve.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
 				log.log("[-- 994 --]" + "Presion un inventario ", 0);
@@ -1235,26 +1220,18 @@ public class ComprasMainBoard extends Activity implements DialogPersoSimple,
 				System.out.println("::: SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII V");
 			}
 		});
-/********************************************************
- * ********************************/
-
-
 		if (hayDinamicos) {
 			// Se verifica que esten los dos cerrados
 			int estadoCandadoCom = 0;
-			estadoCandadoCom = Integer.parseInt(hashmapInventarioCompra
-						.get(ParametrosInventario.bal_bdd_inventario_estado));
+			estadoCandadoCom = Integer.parseInt(hashmapInventarioCompra.get(ParametrosInventario.bal_bdd_inventario_estado));
 				if (estadoCandadoCom == 1){
-					candado.setImageDrawable(getResources().getDrawable(
-							R.drawable.candado_ab));
+					candado.setImageDrawable(getResources().getDrawable(R.drawable.candado_ab));
 				} else {
-					candado.setImageDrawable(getResources().getDrawable(
-							R.drawable.candado_cer));
+					candado.setImageDrawable(getResources().getDrawable(R.drawable.candado_cer));
 				}
 		} else {
 			// Se dibuja abierto
-			candado.setImageDrawable(getResources().getDrawable(
-					R.drawable.candado_ab));
+			candado.setImageDrawable(getResources().getDrawable(R.drawable.candado_ab));
 		}
 		// Creacin del handler del boton:
 		b.setOnClickListener(new View.OnClickListener() {
@@ -1263,22 +1240,17 @@ public class ComprasMainBoard extends Activity implements DialogPersoSimple,
 				System.out.println("::: 3 ComprasMainBoard CUAL ABREEEE " + v.getId());
 				if (hayDinamicos) {
 					try {
-							if (bdd.estaAbiertoInventarioConId(v.getId()
-									- ParametrosInventario.ID_BOTONES) == true) {
+							if (bdd.estaAbiertoInventarioConId(v.getId() - ParametrosInventario.ID_BOTONES)) {
 								ClicBotonDinamico((Button) v);
 								//ClicBoton((Button) v);
 							} else {
-								log.log("[-- --]"
-										+ "Inventario cerrado con candado", 3);
-								Toast.makeText(ctxt,
-										"Inventario cerrado con candado",
-										Toast.LENGTH_LONG).show();
+								log.log("[-- --]" + "Inventario cerrado con candado", 3);
+								Toast.makeText(ctxt, "Inventario cerrado con candado", Toast.LENGTH_LONG).show();
 							}
 					} catch (ExceptionBDD e) {
 						log.log("[-- 1372 --]" + e.toString(), 3);
 						e.printStackTrace();
-						Toast.makeText(ctxt, "Inventario cerrado con candado",
-								Toast.LENGTH_LONG).show();
+						Toast.makeText(ctxt, "Inventario cerrado con candado", Toast.LENGTH_LONG).show();
 					}
 				} else {
 					ClicBotonDinamico((Button) v);
@@ -1298,31 +1270,19 @@ public class ComprasMainBoard extends Activity implements DialogPersoSimple,
 					if (hayDinamicos) {
 						// Se verifica que esten los dos cerrados
 						//if(condR == -1){
-						estadoCandadoCom = Integer.parseInt(hashmapInventarioCompra
-								.get(ParametrosInventario.bal_bdd_inventario_estado));
-					} else {
+						estadoCandadoCom = Integer.parseInt(hashmapInventarioCompra.get(ParametrosInventario.bal_bdd_inventario_estado));
 					}
 					if (estadoCandadoCom == ParametrosInventario.INVENTARIO_ABIERTO) {
 						// Actualizamos, cerrando el inventario dinamico de
 						// venta
-						bdd.updateInventario(
-								ParametrosInventario.ID_INV_COMPRAS,
-								ParametrosInventario.INVENTARIO_CERRADO);
-						hashmapInventarioCompra
-								.put(ParametrosInventario.bal_bdd_inventario_estado,
-										String.valueOf(ParametrosInventario.INVENTARIO_CERRADO));
-						iv.setImageDrawable(getResources().getDrawable(
-								R.drawable.candado_cer));
+						bdd.updateInventario(ParametrosInventario.ID_INV_COMPRAS, ParametrosInventario.INVENTARIO_CERRADO);
+						hashmapInventarioCompra.put(ParametrosInventario.bal_bdd_inventario_estado, String.valueOf(ParametrosInventario.INVENTARIO_CERRADO));
+						iv.setImageDrawable(getResources().getDrawable(R.drawable.candado_cer));
 					} else {
 						// Los guardo como abiertos
-						bdd.updateInventario(
-								ParametrosInventario.ID_INV_COMPRAS,
-								ParametrosInventario.INVENTARIO_ABIERTO);
-						hashmapInventarioCompra
-								.put(ParametrosInventario.bal_bdd_inventario_estado,
-										String.valueOf(ParametrosInventario.INVENTARIO_ABIERTO));
-						iv.setImageDrawable(getResources().getDrawable(
-								R.drawable.candado_ab));
+						bdd.updateInventario(ParametrosInventario.ID_INV_COMPRAS, ParametrosInventario.INVENTARIO_ABIERTO);
+						hashmapInventarioCompra.put(ParametrosInventario.bal_bdd_inventario_estado, String.valueOf(ParametrosInventario.INVENTARIO_ABIERTO));
+						iv.setImageDrawable(getResources().getDrawable(R.drawable.candado_ab));
 					}
 
 				} catch (Exception e) {
@@ -1338,20 +1298,15 @@ public class ComprasMainBoard extends Activity implements DialogPersoSimple,
 		tablaPrincipal.addView(nuevaLinea);
 	// desactivarWifi();
 	}// Fin de la funcin
-	/*** Verifica que los inventarios tengan articulos*/
+	/* Verifica que los inventarios tengan articulos*/
 	private void control_integridad_tablas() {
 		try {
 			BaseDatos bdd = new BaseDatos(ctxt);
 				condR=-3;
-		ArrayList<Integer> lista_numeros_inventarios = bdd
-					.selectInventariosNumerosEnBddCompras();
+		ArrayList<Integer> lista_numeros_inventarios = bdd.selectInventariosNumerosEnBddCompras();
 			if (lista_numeros_inventarios != null) {
 				for (int id_inv : lista_numeros_inventarios) {
-					if (id_inv >= 0
-							&& bdd.selectArticulosCodigosConNumeroInventario(
-							id_inv).size() <= 0) {
-						bdd.borrarInventarioConArticulos(id_inv);
-					}
+					if (id_inv >= 0 && bdd.selectArticulosCodigosConNumeroInventario(id_inv).size() <= 0) bdd.borrarInventarioConArticulos(id_inv);
 				}
 			}
 		} catch (ExceptionBDD e) {
@@ -1360,7 +1315,7 @@ public class ComprasMainBoard extends Activity implements DialogPersoSimple,
 		}
 	}
 
-	/**
+	/*
 	 * Metodo que manejea el funcionamiento de los botones de la tabla al
 	 * hacerles click en el caso comun, entra a la activity
 	 * PaginaInventario.java, pasando como parmetro el valor del numero de
@@ -1387,18 +1342,12 @@ public class ComprasMainBoard extends Activity implements DialogPersoSimple,
 
 				public void onClick(View v) {
 					// Lo que hace con el boton del si
-					log.log("[-- --]"
-							+ "Presiono para ir a los inventarios dinamicos", 0);
+					log.log("[-- --]" + "Presiono para ir a los inventarios dinamicos", 0);
 					dialogoContinuarInventario.dismiss();
-					Intent intentInventario = new Intent(ctxt,
-							PaginaCompras.class);
-					intentInventario.putExtra(
-							ParametrosInventario.extra_numeroInventarioCompra,
-							ParametrosInventario.ID_INV_COMPRAS);
-					 intentInventario.putExtra(ParametrosInventario.extra_bandera_invs_dinamicos,
-					 ParametrosInventario.extra_valor_bandera_invs_dinamicos_si);
-					startActivityForResult(intentInventario,
-							ParametrosInventario.REQUEST_INVENTARIO_COMPRAS);
+					Intent intentInventario = new Intent(ctxt, PaginaCompras.class);
+					intentInventario.putExtra(ParametrosInventario.extra_numeroInventarioCompra, ParametrosInventario.ID_INV_COMPRAS);
+					 intentInventario.putExtra(ParametrosInventario.extra_bandera_invs_dinamicos, ParametrosInventario.extra_valor_bandera_invs_dinamicos_si);
+					 startActivityForResult(intentInventario, ParametrosInventario.REQUEST_INVENTARIO_COMPRAS);
 				}
 			};
 			// 1.1.2 En caso negativo muestra otro cartel para verificar si
@@ -1489,12 +1438,7 @@ public class ComprasMainBoard extends Activity implements DialogPersoSimple,
 			// 1.1 Genera un dialog que pregunta si se continua con el
 			// inventario o se
 			// borra y genera algo nuevo
-			dialogoContinuarInventario = new DialogPersoComplexSiNo(
-					ctxt,
-					"Continuar Compras",
-					"Desea continuar trabajando con la recepcion de compra actual?",
-					DialogPerso.VALIDAR, listenerPositivo, listenerNegativo);
-
+			dialogoContinuarInventario = new DialogPersoComplexSiNo(ctxt, "Continuar Compras", "Desea continuar trabajando con la recepcion de compra actual?", DialogPerso.VALIDAR, listenerPositivo, listenerNegativo);
 			dialogoContinuarInventario.show();
 
 		} else {
@@ -1613,8 +1557,7 @@ public class ComprasMainBoard extends Activity implements DialogPersoSimple,
 				ExportarDatos unaExportacion = new ExportarDatos();
 				unaExportacion.execute(ctxt);
 
-			} else if (requestCode == Parametros.REQUEST_WIFI_EXPORT
-					&& resultCode != RESULT_OK) {
+			} else if (requestCode == Parametros.REQUEST_WIFI_EXPORT && resultCode != RESULT_OK) {
 				// 5 Si volvemos de WIFI export
 
 				cerrarMenuEspera();

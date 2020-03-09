@@ -41,12 +41,11 @@ import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
 
-/**
+/*
  * Created by Usuario on 14/05/2016.
  */
-public class PaginaCompras  extends Activity implements
-        DialogPersoSimple {
-    /**
+public class PaginaCompras  extends Activity implements DialogPersoSimple {
+    /*
      * Cantidad de lineas que tiene la tabla que muestra
      */
     private final static int NUMERO_LINEAS_EN_TABLA = 8;
@@ -63,21 +62,21 @@ public class PaginaCompras  extends Activity implements
     private int parametroPrimeraSeleccion = 0;
     float corregir;
     String corregirDecimales;
-    /**
+    /*
      * Numero de inventario que estamos viendo
      */
     private int inventario_numero_en_curso;
-    /**
+    /*
      * Articulos que tiene el inventario
      */
     @Nullable
     private ArrayList<ArticuloVisible> listaArticulosCompleta;
-    /**
+    /*
      * Objeto que almacena el inventario en curso
      */
     @Nullable
     private Inventario inventarioEnCurso;
-    /**
+    /*
      * ArrayList que contiene las tablas de los codigos de barras. El orden se
      * preserva como a la insersin. Esta tabla se tiene que ordenar al igual
      * que la listaArticulosCompleta.
@@ -97,7 +96,7 @@ public class PaginaCompras  extends Activity implements
     private int inventarioFiltro = 0;
     private int copia_inventarioFiltro = 0;
     private int modo_mas_1 = 0;
-    /**
+    /*
      * Elementos de la UI
      */
     private Button boton_salir;
@@ -107,6 +106,7 @@ public class PaginaCompras  extends Activity implements
             encabezado_precio_venta, encabezado_cantidad,encabezado_accion;
     private ImageView filtro_codigo, filtro_precio, filtro_cantidad;
     private ImageView flecha_arriba, flecha_abajo;
+
     private LinearLayout asensor_layout;
     private TableLayout tabla_articulos;
     private ProgressBar loadingBar;
@@ -139,12 +139,12 @@ public class PaginaCompras  extends Activity implements
     private String bufferLectoraCB = "";
     @Nullable
     private HashMap<Integer, Integer> articulo_resultado_busqueda = null;
-    /**
+    /*
      * Indice al cual apunta la primera linea de la tabla visual de los 8
      * articulos. Puede ser diferente de la linea del articulo enfocado.
      */
     private int indice_primera_linea = 0;
-    /**
+    /*
      * Indice de la tablaArticulosCompleta donde se encuentra el articulo
      * enfocado.
      */
@@ -179,7 +179,7 @@ public class PaginaCompras  extends Activity implements
     public RadioButton radioDep;
     public RadioButton valorRadio;
     private AlertDialog.Builder dialogoFin;
-    /**
+    /*
      * Considera la creacion de inventarios dinamicos de venta y deposito
      * 1 Seteamos el inventario en curso a -1 por que siempre empieza mostrando
      * el inventario de venta
@@ -204,7 +204,7 @@ public class PaginaCompras  extends Activity implements
   //    boolean condicionb = ParametrosInventario.StockToma;
   //    boolean condicionBalanza = ParametrosInventario.balanza;
   //    int condi = -3;
-                setContentView(R.layout.xml_pagina_compras);
+        setContentView(R.layout.xml_pagina_compras);
         PreferenciasInventario.cargarPreferencias(ctxt);
         log.setUbicacion(ParametrosInventario.CARPETA_LOGTABLET);
         log.tipo_0 = Parametros.PREF_LOG_EVENTOS;
@@ -231,10 +231,8 @@ public class PaginaCompras  extends Activity implements
 
         // 2 Recuperamos la lista de todos los datos que mostrar en pantalla:
         try {
-            inventarioEnCurso = bdd
-                    .selectInventarioConNumero(inventario_numero_en_curso);
-            listaArticulosCompleta = bdd
-                    .selectArticulosConNumeroInventario(inventario_numero_en_curso);
+            inventarioEnCurso = bdd.selectInventarioConNumero(inventario_numero_en_curso);
+            listaArticulosCompleta = bdd.selectArticulosConNumeroInventario(inventario_numero_en_curso);
         } catch (ExceptionBDD e) {
 
             log.log("[-- 246 --]" + e.toString(), 4);
@@ -243,12 +241,8 @@ public class PaginaCompras  extends Activity implements
         }
 
         // 3 Si no hay nada que mostrar avisamos
-        if (listaArticulosCompleta.size() <= 0
-                && inventario_numero_en_curso > 0) {
-            showSimpleDialogSiNo(
-                    "ERROR",
-                    "El inventario no contiene ningun articulo\n\n Desea continuar?",
-                    ComprasMainBoard.class).show();
+        if (listaArticulosCompleta.size() <= 0 && inventario_numero_en_curso > 0) {
+            showSimpleDialogSiNo("ERROR", "El inventario no contiene ningun articulo\n\n Desea continuar?", ComprasMainBoard.class).show();
         }
 
         // 4 Iniciamos la UI
@@ -296,13 +290,13 @@ public class PaginaCompras  extends Activity implements
             TextcodigoBarras.setVisibility(View.GONE);
         }
 
-        if (ParametrosInventario.InventariosVentas == false) {
+        if (!ParametrosInventario.InventariosVentas) {
             radioBVenta.setVisibility(View.INVISIBLE);
             textVentas.setVisibility(View.INVISIBLE);
             radioBDepo.setVisibility(View.INVISIBLE);
             textDeposito.setVisibility(View.INVISIBLE);
         }
-        if (ParametrosInventario.InventariosDeposito == false) {
+        if (!ParametrosInventario.InventariosDeposito) {
             radioBVenta.setVisibility(View.INVISIBLE);
             textVentas.setVisibility(View.INVISIBLE);
             radioBDepo.setVisibility(View.INVISIBLE);
@@ -315,6 +309,7 @@ public class PaginaCompras  extends Activity implements
         loadingBar.setVisibility(View.GONE);
 
         // 5 Cargar los HANDLERS:
+
         cargar_handlers();
         // 6 Refrescar encabezado
         refrescarEncabezado(inventario_numero_en_curso);
@@ -4127,7 +4122,7 @@ public class PaginaCompras  extends Activity implements
 
 
     void mostrarMensaje(int valorRecibido){
-        if (ParametrosInventario.InventariosDeposito == true) {
+        if (ParametrosInventario.InventariosDeposito) {
 
             if(valorRecibido == 0){
                 Toast.makeText(ctxt,
@@ -4167,9 +4162,8 @@ public class PaginaCompras  extends Activity implements
                     BaseDatos bdd = new BaseDatos(ctxt);
                     System.out.println("::: 2 ComprasMainBoard CUAL ABREEEE " + v.getId());
                     boolean hay_no_tomados = false;
-                    if (buscarArticulosNoTomados(inventario_numero_en_curso) == true) {
+                    if (buscarArticulosNoTomados(inventario_numero_en_curso)) {
                         System.out.println("::: BD PaginaCompras HAY ARTIIII NMO TOMADOOSOSOS");
-
                         dialogoFin = new AlertDialog.Builder(PaginaCompras.this);
                         dialogoFin
                                 .setTitle("Articulos no contados")
@@ -4220,17 +4214,11 @@ public class PaginaCompras  extends Activity implements
         });
 
         Ic_Lectora_Din.setOnClickListener(new View.OnClickListener() {
-
             @Override
             public void onClick(View v) {
                 scanBarcode(Ic_Lectora_Din);
-
             }
         });
-
-
-
-
 
         // Boton de BUSQUEDA: Hay que modificarlo para que busque en las
         // referencias si el articulo no esta en la lista
@@ -4245,7 +4233,7 @@ public class PaginaCompras  extends Activity implements
                 ArrayList<String> lista_todos_nombres = new ArrayList<String>();
 
                 for (ArticuloVisible articulo : listaArticulosCompleta) {
-                    if (articulo.esVisible() == true) {
+                    if (articulo.esVisible()) {
                         lista_todos_nombres.add(articulo.getDescripcion());
                     }
                 }
@@ -4314,11 +4302,9 @@ public class PaginaCompras  extends Activity implements
                         }
 
                         // 3) Escondemos el teclado virtual:
-                        edittextBusqueda = (EditText) dialogoBusqueda
-                                .findViewById(R.id.Z_DIALOG_editext);
+                        edittextBusqueda = (EditText) dialogoBusqueda.findViewById(R.id.Z_DIALOG_editext);
                         InputMethodManager mgr = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-                        mgr.hideSoftInputFromWindow(
-                                edittextBusqueda.getWindowToken(), 0);
+                        mgr.hideSoftInputFromWindow(edittextBusqueda.getWindowToken(), 0);
 
                         // 4) Cerrar el menu anterior:
                         dialogoBusqueda.cancel();
@@ -4334,20 +4320,16 @@ public class PaginaCompras  extends Activity implements
                                         0);
                                 // toDo;
                                 LinearLayout tableR = (LinearLayout) v;
-                                articulo_resultado_busqueda = dialogoResultados
-                                        .get_codigos_articulo_seleccionado();
+                                articulo_resultado_busqueda = dialogoResultados.get_codigos_articulo_seleccionado();
                                 // int indice =
                                 // get_indice_con_articulos(articulo_resultado_busqueda);
                                 // buscar el articulo en las referencias
-                                int codigo = articulo_resultado_busqueda
-                                        .get(ParametrosInventario.clave_art_codigo);
-                                int sector = articulo_resultado_busqueda
-                                        .get(ParametrosInventario.clave_art_sector);
+                                int codigo = articulo_resultado_busqueda.get(ParametrosInventario.clave_art_codigo);
+                                int sector = articulo_resultado_busqueda.get(ParametrosInventario.clave_art_sector);
 
                                 ArticuloVisible art = null;
                                 try {
-                                    art = bdd.buscarArticuloEnReferencias(
-                                            codigo, sector);
+                                    art = bdd.buscarArticuloEnReferencias(codigo, sector);
                                 } catch (ExceptionBDD e1) {
 
                                     log.log("[-- 2658 --]" + e1.toString(), 4);
@@ -4624,9 +4606,7 @@ public class PaginaCompras  extends Activity implements
         flecha_abajo.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View v) {
-                log.log("[-- 2942 --]"
-                                + "Se presiono la flecha abajo, se mueve la tabla de Articulos",
-                        0);
+                log.log("[-- 2942 --]" + "Se presiono la flecha abajo, se mueve la tabla de Articulos", 0);
                 moverTablaArticulos(1);
             }
         });
@@ -4634,26 +4614,21 @@ public class PaginaCompras  extends Activity implements
         // Touch on asensor:
         asensor_layout.setOnTouchListener(new View.OnTouchListener() {
 
-            public boolean onTouch(View v, @NonNull MotionEvent event) {
+            public boolean onTouch(@NonNull View v, @NonNull MotionEvent event) {
                 // Caso cuando el dedo toca la pantalla:
-                if (event.getAction() == MotionEvent.ACTION_DOWN
-                        && dedoEnContacto == false) {
+                if (event.getAction() == MotionEvent.ACTION_DOWN && dedoEnContacto == false) {
                     dedoEnContacto = true;
                     dedoInicialY = event.getY();
                 }
-
                 // Caso de soltar el touch:
                 else if (event.getAction() == MotionEvent.ACTION_UP) {
                     dedoEnContacto = false;
                 }
 
-                else if (event.getAction() == MotionEvent.ACTION_MOVE
-                        && dedoEnContacto == true) {
+                else if (event.getAction() == MotionEvent.ACTION_MOVE && dedoEnContacto == true) {
                     dedoFinalY = event.getY();
                     float deltaY = dedoFinalY;
-
                     refreshAsensor(deltaY);
-
                     SystemClock.sleep(20);
                 }
                 return true;
@@ -4665,13 +4640,11 @@ public class PaginaCompras  extends Activity implements
 
             public boolean onTouch(@NonNull View view, @NonNull MotionEvent motionEvent) {
 
-                log.log("[-- 2988 --]" + "Se presiono para ordenar por codigo",
-                        0);
+                log.log("[-- 2988 --]" + "Se presiono para ordenar por codigo", 0);
                 bufferLectoraCB = "";
                 System.out.println("::: PaginaInventarioDinamico 3235");
                 if (motionEvent.getAction() == MotionEvent.ACTION_DOWN) {
-                    view.setBackgroundColor(getResources().getColor(
-                            R.color.anaranjado_verde));
+                    view.setBackgroundColor(getResources().getColor(R.color.anaranjado_verde));
                     deseleccionarLineaParticular(indice_on_focus);
                 }
                 return false;

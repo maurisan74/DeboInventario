@@ -41,9 +41,7 @@ public class DialogPersoComplexSiNo extends Dialog {
 	 * @param listenerPositivo
 	 * @param listenerNegativo
 	 */
-	public DialogPersoComplexSiNo (@NonNull Context context,
-                                   @NonNull String titulo, String mensaje, int categoria_alerta,
-                                   View.OnClickListener listenerPositivo, @Nullable View.OnClickListener listenerNegativo) {
+	public DialogPersoComplexSiNo (@NonNull Context context, @NonNull String titulo, String mensaje, int categoria_alerta, View.OnClickListener listenerPositivo, @Nullable View.OnClickListener listenerNegativo) {
 		
 		super(context);
 		final Activity owner = (Activity) context;

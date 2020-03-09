@@ -329,7 +329,7 @@
                             android:src="@drawable/linea_asensor" />
 
                         <LinearLayout
-                            android:id="@+id/PI_layout_asensor"
+                            android:id="@+id/PID_layout_asensor"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:orientation="vertical">

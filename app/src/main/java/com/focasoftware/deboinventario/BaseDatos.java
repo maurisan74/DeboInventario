@@ -6345,31 +6345,15 @@ public class BaseDatos extends SQLiteOpenHelper {
 				/*
 				 * 3 Genera el hashmap, uno por inventario
 				 */
-				tablaUnInventario
-						.put(ParametrosInventario.bal_bdd_inventario_numero,
-								c.getString(c
-										.getColumnIndex(ParametrosInventario.bal_bdd_inventario_numero)));
-				tablaUnInventario
-						.put(ParametrosInventario.bal_bdd_inventario_descripcion,
-								c.getString(c
-										.getColumnIndex(ParametrosInventario.bal_bdd_inventario_descripcion)));
+				tablaUnInventario.put(ParametrosInventario.bal_bdd_inventario_numero, c.getString(c.getColumnIndex(ParametrosInventario.bal_bdd_inventario_numero)));
+				tablaUnInventario.put(ParametrosInventario.bal_bdd_inventario_descripcion, c.getString(c.getColumnIndex(ParametrosInventario.bal_bdd_inventario_descripcion)));
 				tablaUnInventario.put(ParametrosInventario.bal_bdd_inventario_fechaInicio, c.getString(c.getColumnIndex(ParametrosInventario.bal_bdd_inventario_fechaInicio)));
-				tablaUnInventario
-						.put(ParametrosInventario.bal_bdd_inventario_fechaFin,
-								c.getString(c
-										.getColumnIndex(ParametrosInventario.bal_bdd_inventario_fechaFin)));
-				tablaUnInventario
-						.put(ParametrosInventario.bal_bdd_inventario_estado,
-								String.valueOf(c.getInt(c
-										.getColumnIndex(ParametrosInventario.bal_bdd_inventario_estado))));
-				/*
-				 * 4 Agrega el hashmap en la entrada correspondiente a ese
+				tablaUnInventario.put(ParametrosInventario.bal_bdd_inventario_fechaFin, c.getString(c.getColumnIndex(ParametrosInventario.bal_bdd_inventario_fechaFin)));
+				tablaUnInventario.put(ParametrosInventario.bal_bdd_inventario_estado, String.valueOf(c.getInt(c.getColumnIndex(ParametrosInventario.bal_bdd_inventario_estado))));
+				/*4 Agrega el hashmap en la entrada correspondiente a ese
 				 * inventario
 				 */
-				tablaResultados
-						.put(c.getInt(c
-										.getColumnIndex(ParametrosInventario.bal_bdd_inventario_numero)),
-								tablaUnInventario);
+				tablaResultados.put(c.getInt(c.getColumnIndex(ParametrosInventario.bal_bdd_inventario_numero)), tablaUnInventario);
 				c.moveToNext();
 			}
 		} else {
@@ -6391,7 +6375,7 @@ public class BaseDatos extends SQLiteOpenHelper {
 		String nombre_devolver = "";
 		c= dtb.rawQuery("SELECT COMPRA_PROVE_COD FROM COMPRA_PROVEEDOR WHERE COMPRA_INV_COD="+id_inventario, null);
 		// 3 Evaluamos el resultado y si es 1 devolvemos true
-		if (c.moveToFirst() == true) {
+		if (c.moveToFirst()) {
 			do {
 				codigo_devolver= c.getString(0);
 			} while(c.moveToNext());

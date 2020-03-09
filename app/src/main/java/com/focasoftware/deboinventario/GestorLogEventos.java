@@ -125,7 +125,7 @@ public class GestorLogEventos {
 
 	private void log_original(String evento, int tipo) {
 
-		/**
+		/*
 		 * 
 		 * Esta clase recibe porparaetro el String del log y el tipo,
 		 * simplemente los registra con la fecha y hora en el momento que se los

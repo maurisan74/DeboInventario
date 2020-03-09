@@ -11,7 +11,7 @@
         android:layout_height="50dp"
         android:layout_gravity="center"
         android:textColor="@color/black"
-        android:textSize="@dimen/talla_texto_medio"
+        android:textSize="@dimen/talla_texto_chico"
         android:width="150dp" />
 
     <TextView

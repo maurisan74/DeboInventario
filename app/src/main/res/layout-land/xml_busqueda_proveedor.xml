@@ -20,7 +20,7 @@
             android:textSize="@dimen/titulo" />
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="650dp"
             android:layout_height="445dp"
             android:background="@color/black"
             android:gravity="center_horizontal"
@@ -31,13 +31,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:text="Ingrese Razon Social Proveedor"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
+                android:textColor="@color/white"
+                android:text="Ingrese Razon Social Proveedor"/>
+<!--                android:textAppearance="?android:attr/textAppearanceLarge" />-->
 
             <EditText
                 android:id="@+id/editTextProv"
                 android:layout_width="match_parent"
                 android:layout_height="349dp"
+                android:textColor="@color/white_oscuro"
                 android:gravity="start" />
 
             <Button

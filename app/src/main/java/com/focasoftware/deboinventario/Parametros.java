@@ -19,7 +19,7 @@ public class Parametros {
 	/**
 	 * PARAMETROS A CARGAR AL ARRANQUE:
 	 */
-	public static String PREF_URL_CONEXION_SERVIDOR = "http://webservice.php";
+	public static String PREF_URL_CONEXION_SERVIDOR = "http://192.168.1.1/webservice_balanza/deboinventario/webservice.php";
 	public static int Pref_id_Local = 0;
 	public static String PREF_WIFI_PRIVILEGIADO = "FocaSF";
 	public static String PREF_NUMERO_DE_TERMINAL = "0";
@@ -79,7 +79,7 @@ public class Parametros {
 	public final static String preferencias_stockToma = "stockToma";
 
 	public final static int ARCHIVO_TAMANO_MIN = 50; // en bytes
-	public final static long TREINTA_DIAS_MILLISEC = new Long("2592000000");
+	public final static long TREINTA_DIAS_MILLISEC = Long.valueOf("2592000000");
 
 	public final static String ADMIN_LOGIN_FOCA = "foca";
 	public final static String ADMIN_PASSWORD_FOCA = "foca";
@@ -108,9 +108,7 @@ public class Parametros {
 	public final static String codigo_tab = "c"; // define el número de ID de la
 	// tablet quien trae los datos
 	public final static String codigo_opc = "r"; // define los opciones
-	// eventuales (numero de los
-	// inventarios o rutas
-	// deseadas)
+	// eventuales (numero de los inventarios o rutas deseadas)
 	public final static String codigo_post = "p";
 	public final static String codigo_foto = "i";
 	public final static String codigo_text = "l";
@@ -146,12 +144,7 @@ public class Parametros {
 	// /////////////////////////////
 	// BALIZAS USB //
 	// /////////////////////////////
-	//
-	// <I/><D/><F/>
-	// <A>
-	// <S/><C/><CB/><N/><Q/>
-	// </A>
-	//
+
 	/*
 	 * public final static String bal_usb_madre = "USB"; public final static
 	 * String bal_usb_articulo = "A"; public final static String
