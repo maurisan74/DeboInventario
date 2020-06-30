@@ -75,7 +75,7 @@
 			android:layout_height="50dp"
 			android:gravity="center"
 			android:hint="Cantidad"
-			android:inputType="number"
+			android:inputType="numberDecimal"
 			android:maxLength="6"
 			android:textColor="@color/black"
 			android:textSize="@dimen/talla_texto_grande" />

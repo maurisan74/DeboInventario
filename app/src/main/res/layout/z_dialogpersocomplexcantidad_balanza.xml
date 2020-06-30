@@ -45,7 +45,7 @@
 			        android:layout_height="wrap_content"
 			        android:layout_width="match_parent"
 			        android:text="13"
-					android:inputType="number"
+					android:inputType="numberDecimal"
 			        android:textSize="@dimen/talla_texto_grande"
 			        android:gravity="center"
 			        />

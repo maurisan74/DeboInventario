@@ -4906,22 +4906,17 @@ public class InventarioMainBoard extends Activity implements DialogPersoSimple,
                 public void onClick(View v) {
                     // Lo que hace con el boton del si
 
-                    log.log("[-- --]"
-                            + "Presiono para ir a los inventarios dinamicos", 0);
+                    log.log("[-- --]" + "Presiono para ir a los inventarios dinamicos", 0);
                     dialogoContinuarInventario.dismiss();
 
-                    Intent intentInventario = new Intent(ctxt,
-                            PaginaInventarioDinamico.class);
-                    intentInventario.putExtra(
-                            ParametrosInventario.extra_numeroInventario,
-                            ParametrosInventario.ID_INV_DIN_VTA);
+                    Intent intentInventario = new Intent(ctxt, PaginaInventarioDinamico.class);
+                    intentInventario.putExtra(ParametrosInventario.extra_numeroInventario, ParametrosInventario.ID_INV_DIN_VTA);
                     // intentInventario.putExtra(ParametrosInventario.extra_numeroInventarioDinDepo,
                     // ParametrosInventario.ID_INV_DIN_DEP);
                     // intentInventario.putExtra(ParametrosInventario.extra_bandera_invs_dinamicos,
                     // ParametrosInventario.extra_valor_bandera_invs_dinamicos_si);
 
-                    startActivityForResult(intentInventario,
-                            ParametrosInventario.REQUEST_INVENTARIO_DINAMICO);
+                    startActivityForResult(intentInventario, ParametrosInventario.REQUEST_INVENTARIO_DINAMICO);
                 }
             };
             // 1.1.2 En caso negativo muestra otro cartel para verificar si
@@ -4944,27 +4939,20 @@ public class InventarioMainBoard extends Activity implements DialogPersoSimple,
 
                         public void onClick(View v) {
 
-                            log.log("[-- 1617 --]" + "Se presiono el boton si",
-                                    0);
-                            BaseDatos bdd = new BaseDatos(ctxt);
+                            log.log("[-- 1617 --]" + "Se presiono el boton si", 0);BaseDatos bdd = new BaseDatos(ctxt);
 
                             // Lo que hace con el boton del si
 
                             dialogoBorrarInventarioDinamico.dismiss();
 
                             // Creamos los inventarios dinamicos
-                            Inventario inventarioDinamicoVenta = new Inventario(
-                                    ParametrosInventario.ID_INV_DIN_VTA,
-                                    "Inv. dinamico "
+                            Inventario inventarioDinamicoVenta = new Inventario(ParametrosInventario.ID_INV_DIN_VTA, "Inv. dinamico "
                                             + String.valueOf(ParametrosInventario.ID_INV_DIN_VTA) + " de venta",
                                     new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()),
                                     "",
-                                    ParametrosInventario.INVENTARIO_ABIERTO,
-                                    ParametrosInventario.COD_LUGAR_INVENTARIO_VENTA);
+                                    ParametrosInventario.INVENTARIO_ABIERTO, ParametrosInventario.COD_LUGAR_INVENTARIO_VENTA);
 
-                            Inventario inventarioDinamicoDepo = new Inventario(
-                                    ParametrosInventario.ID_INV_DIN_DEP,
-                                    "Inv. dinamico "
+                            Inventario inventarioDinamicoDepo = new Inventario(ParametrosInventario.ID_INV_DIN_DEP, "Inv. dinamico "
                                             + String.valueOf(ParametrosInventario.ID_INV_DIN_DEP)
                                             + " de deposito",
                                     new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()),
@@ -4979,36 +4967,23 @@ public class InventarioMainBoard extends Activity implements DialogPersoSimple,
                                 // Crearlo de nuevo
                                 bdd.insertInventarioEnBdd(inventarioDinamicoVenta);
                                 bdd.insertInventarioEnBdd(inventarioDinamicoDepo);
-                                Toast.makeText(
-                                        ctxt,
-                                        "Se crearon los inventarios dinamicos nuevos",
-                                        Toast.LENGTH_LONG).show();
+                                Toast.makeText(ctxt, "Se crearon los inventarios dinamicos nuevos", Toast.LENGTH_LONG).show();
                             } catch (ExceptionBDD e) {
 
                                 log.log("[-- 1660 --]" + e.toString(), 4);
                                 // TODO Auto-generated catch block
                                 e.printStackTrace();
-                                Toast.makeText(
-                                        ctxt,
-                                        "Problema al borrar los inventarios de la BD"
-                                                + e.getMessage(),
-                                        Toast.LENGTH_LONG).show();
+                                Toast.makeText(ctxt, "Problema al borrar los inventarios de la BD" + e.getMessage(), Toast.LENGTH_LONG).show();
                             }
 
-                            Intent intentInventario = new Intent(ctxt,
-                                    PaginaInventarioDinamico.class);
-                            intentInventario
-                                    .putExtra(
-                                            ParametrosInventario.extra_numeroInventario,
-                                            ParametrosInventario.ID_INV_DIN_VTA);
+                            Intent intentInventario = new Intent(ctxt, PaginaInventarioDinamico.class);
+                            intentInventario.putExtra(ParametrosInventario.extra_numeroInventario, ParametrosInventario.ID_INV_DIN_VTA);
                             // intentInventario.putExtra(ParametrosInventario.extra_numeroInventarioDinDepo,
                             // ParametrosInventario.ID_INV_DIN_DEP);
                             // intentInventario.putExtra(ParametrosInventario.extra_bandera_invs_dinamicos,
                             // ParametrosInventario.extra_valor_bandera_invs_dinamicos_si);
 
-                            startActivityForResult(
-                                    intentInventario,
-                                    ParametrosInventario.REQUEST_INVENTARIO_DINAMICO);
+                            startActivityForResult(intentInventario, ParametrosInventario.REQUEST_INVENTARIO_DINAMICO);
                         }
                     };
 
@@ -5030,23 +5005,21 @@ public class InventarioMainBoard extends Activity implements DialogPersoSimple,
                         }
                     };
 
-                    dialogoBorrarInventarioDinamico = new DialogPersoComplexSiNo(
-                            ctxt,
-                            "Nuevo Inventario Dinamico",
+                    dialogoBorrarInventarioDinamico = new DialogPersoComplexSiNo(ctxt, "Nuevo Inventario Dinamico",
                             "Si genera un nuevo inventario se borrara cualquier " +
                                     "inventario dinamico en curso que se estuviera realizando aun no exportado.\nCUIDADO:"
                                     + "Los datos no han sido exportados al sistema DEBO BackOffice para ser "
                                     + "procesados para el correcto control de stock y se borraran",
-                            DialogPerso.ALERTAR, listenerPositivo,
-                            listenerNegativo);
-//					dialogoBorrarInventarioDinamico = new DialogPersoComplexSiNo(
-//							ctxt,
-//							"Nuevo Inventario Dinmico",
-//							"Esta seguro que desea generar un inventario dinmico nuevo?\nCUIDADO:"
-//									+ "Los datos no han sido exportados al sistema DEBO BackOffice para ser "
-//									+ "procesados para el correcto control de stock y se borraran",
-//							DialogPerso.ALERTAR, listenerPositivo,
-//							listenerNegativo);
+                            DialogPerso.ALERTAR, listenerPositivo, listenerNegativo);
+
+					dialogoBorrarInventarioDinamico = new DialogPersoComplexSiNo(
+							ctxt,
+							"Nuevo Inventario Dinmico",
+							"Esta seguro que desea generar un inventario dinmico nuevo?\nCUIDADO:"
+									+ "Los datos no han sido exportados al sistema DEBO BackOffice para ser "
+									+ "procesados para el correcto control de stock y se borraran",
+							DialogPerso.ALERTAR, listenerPositivo,	listenerNegativo);
+
                     dialogoBorrarInventarioDinamico.show();
                 }
             };
@@ -5071,8 +5044,7 @@ public class InventarioMainBoard extends Activity implements DialogPersoSimple,
             bdd = new BaseDatos(ctxt);
 
             // 2.1 Creo los objetos para los dos inventarios nuevos
-            final Inventario inventarioDinamicoVenta = new Inventario(
-                    ParametrosInventario.ID_INV_DIN_VTA,
+            final Inventario inventarioDinamicoVenta = new Inventario(ParametrosInventario.ID_INV_DIN_VTA,
                     "Inv. dinamico "
                             + String.valueOf(ParametrosInventario.ID_INV_DIN_VTA)
                             + " de venta", new SimpleDateFormat(
@@ -5111,17 +5083,13 @@ public class InventarioMainBoard extends Activity implements DialogPersoSimple,
 
             // 2.3 Pasamos a la pantalla de administracion de inventario
             // dinamico
-            Intent intentInventario = new Intent(ctxt,
-                    PaginaInventarioDinamico.class);
-            intentInventario.putExtra(
-                    ParametrosInventario.extra_numeroInventarioDinVta,
-                    ParametrosInventario.ID_INV_DIN_VTA);
+            Intent intentInventario = new Intent(ctxt, PaginaInventarioDinamico.class);
+            intentInventario.putExtra(ParametrosInventario.extra_numeroInventarioDinVta, ParametrosInventario.ID_INV_DIN_VTA);
             // intentInventario.putExtra(ParametrosInventario.extra_numeroInventarioDinDepo,
             // ParametrosInventario.ID_INV_DIN_DEP);
             // intentInventario.putExtra(ParametrosInventario.extra_bandera_invs_dinamicos,
             // ParametrosInventario.extra_valor_bandera_invs_dinamicos_si);
-            startActivityForResult(intentInventario,
-                    ParametrosInventario.REQUEST_INVENTARIO_DINAMICO);
+            startActivityForResult(intentInventario, ParametrosInventario.REQUEST_INVENTARIO_DINAMICO);
         }
 
     }
@@ -5131,11 +5099,9 @@ public class InventarioMainBoard extends Activity implements DialogPersoSimple,
      */
     public void refreshLinea(TableRow unaLinea) throws ExceptionBDD {
         try {
-            int numeroInventario = unaLinea.getId()
-                    - ParametrosInventario.ID_LINEAS;
+            int numeroInventario = unaLinea.getId() - ParametrosInventario.ID_LINEAS;
             // Consulta de la completud de la inventario:
-            ArrayList<Integer> listaEstadisticas = bdd
-                    .selectEstadisticasConIdInventario(numeroInventario);
+            ArrayList<Integer> listaEstadisticas = bdd.selectEstadisticasConIdInventario(numeroInventario);
             int cantidadArticulosEnInventario = listaEstadisticas.get(0);
             int articulosYaContadosEnInventario = listaEstadisticas.get(1);
             int articulosNoContadosTodavia = listaEstadisticas.get(2);

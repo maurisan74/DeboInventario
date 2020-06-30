@@ -15,7 +15,9 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.preference.PreferenceManager;
+import android.text.Editable;
 import android.text.InputType;
+import android.text.method.KeyListener;
 import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
@@ -35,12 +37,15 @@ import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.Objects;
 
 /*
  * Activity que muestra los artculos a inventariar en Inventarios dinmicos de
@@ -368,6 +373,11 @@ public class PaginaInventarioDinamico extends Activity implements
 		TextcodigoBarras = (EditText) findViewById(R.id.TextcodigoBarras);
 		if (ParametrosInventario.LecturaEntrada) {
 			TextcodigoBarras.setVisibility(View.VISIBLE);
+
+
+
+
+
 		} else {
 			TextcodigoBarras.setVisibility(View.GONE);
 		}
@@ -838,7 +848,7 @@ public class PaginaInventarioDinamico extends Activity implements
 				con = i2;
 				ArticuloVisible a = listaArticulosCompleta.get(i2);
 				// Calculo de la cantidad de elementos visibles:
-				if (a.esVisible() == true) {
+				if (a.esVisible()) {
 					numero_articulos_visibles++;
 				}
 				listaCodigosDeBarrasOrdenados.add(a.getCodigos_barras());
@@ -4435,35 +4445,15 @@ public class PaginaInventarioDinamico extends Activity implements
 		}
 	}
 
-	/*
-	 * public boolean onKeyUp(int keyCode, KeyEvent event) {
-	 *
-	 * if (event.getKeyCode() == KeyEvent.KEYCODE_DPAD_DOWN) {
-	 * moverTablaArticulos(1); } else if (event.getKeyCode() ==
-	 * KeyEvent.KEYCODE_DPAD_UP) { moverTablaArticulos(-1); } else if
-	 * (indice_on_focus < 0) { // Si ninguna linea tiene el focus char car =
-	 * event.getNumber(); if (Character.isDigit(car) == true) { bufferLectoraCB
-	 * += String.valueOf(car); } else if (event.getKeyCode() ==
-	 * KeyEvent.KEYCODE_ENTER ) { getIndiceArticuloConCB(bufferLectoraCB);
-	 * bufferLectoraCB = ""; } else if (event.getKeyCode() ==
-	 * KeyEvent.KEYCODE_BACK) { setResult(RESULT_OK, intentPadre); finish(); } }
-	 * else if (indice_on_focus >= 0) { // Si una linea tiene foco
-	 * bufferLectoraCB = ""; if (event.getKeyCode() == KeyEvent.KEYCODE_ENTER) {
-	 * // cerramos la seleccion del articulo
-	 * deseleccionarLineaParticular(indice_on_focus); } else if
-	 * (event.getKeyCode() == KeyEvent.KEYCODE_BACK) {
-	 * deseleccionarLineaParticular(indice_on_focus); } else {
-	 * super.onKeyUp(keyCode, event); } } return true; }
-	 */
 
 	/**
 	 * Funcion que se llama luego de que se levanta la tecla.Esto procesa todos
 	 * los eventos de teclado y codigo de barra.
-	 *
 	 */
-
-	public boolean onKeyUp(int keyCode, KeyEvent event) {
+	@Override
+	public boolean onKeyUp(int keyCode, @NotNull KeyEvent event) {
 		System.out.println("::: PaginaInventarioDinamico onkeyuo");
+
 		if (event.getKeyCode() == KeyEvent.KEYCODE_DPAD_DOWN) {
 			/*
 			 * Si se presion la tecla ABAJO: mover la tabla una unidad para
@@ -4484,12 +4474,15 @@ public class PaginaInventarioDinamico extends Activity implements
 			 * Si ninguna linea tiene el focus procesamos eso y lo metemos en el
 			 * buffer de lectura de CB si es un caracter
 			 */
-			char car = event.getNumber();
-			if (Character.isDigit(car)) {
-				log.log("key ingresado en el buffer: " + event.getKeyCode() + " = " + car, 3);
-				System.out.println("Ingreso String > " + String.valueOf(car));
-				bufferLectoraCB += String.valueOf(car);
-			} else if (event.getKeyCode() == KeyEvent.KEYCODE_ENTER) {
+			bufferLectoraCB=TextcodigoBarras.getText().toString();
+//			char car = event.getNumber();
+
+//			if (Character.isDigit(car)) {
+//				log.log("key ingresado en el buffer: " + event.getKeyCode() + " = " + car, 3);
+//				System.out.println("Ingreso String > " + String.valueOf(car));
+//				bufferLectoraCB += String.valueOf(car);
+//			} else
+				if (event.getKeyCode() == KeyEvent.KEYCODE_ENTER) {
 				/*
 				 * Se ley un codigo completo de CB, se lo procesa y vacia el
 				 * buffer
@@ -4587,9 +4580,7 @@ public class PaginaInventarioDinamico extends Activity implements
 						}
 					};
 
-					dialogoNombreArticuloNuevo = new DialogPersoComplexEditTextOkCancel(
-							ctxt,
-							"Nuevo Articulo Escaneado",
+					dialogoNombreArticuloNuevo = new DialogPersoComplexEditTextOkCancel(ctxt, "Nuevo Articulo Escaneado",
 							"El articulo escaneado no ha podido ser identificado.\n"
 									+ "Si lo desea, usted puede ingresar una breve descripcion del producto:",
 							DialogPerso.IMAGEN_ARTICULO, DialogPerso.INPUT_LETRAS,
@@ -4620,8 +4611,7 @@ public class PaginaInventarioDinamico extends Activity implements
 					 * Para guardar el valor por si se lee como cantidad un
 					 * valor no valido
 					 */
-					valor_antes_modificar = listaArticulosCompleta.get(
-							indice_on_focus).getCantidad();
+					valor_antes_modificar = listaArticulosCompleta.get(indice_on_focus).getCantidad();
 				}
 				bufferLectoraCB += String.valueOf(car);
 			} else if (event.getKeyCode() == KeyEvent.KEYCODE_BACK) {
@@ -4737,9 +4727,10 @@ public class PaginaInventarioDinamico extends Activity implements
 		if (cb.length() != 13) {
 			condicionBalanza = false;
 		}
-		if(condicionBalanza == true){
-			int sSubCadena = Integer.parseInt(cb.substring(0,2));
-			if(sSubCadena == 20){
+		if(condicionBalanza){
+			String sSubCadena = cb.substring(0,2);
+//			int sSubCadena = Integer.parseInt(cb.substring(0,2));
+			if(sSubCadena.length() == 20){
 				String buscarBD = cb.substring(2,7);
 				System.out.println("::: PaginaInventarioDinamico 4861 balanza busca BD " +buscarBD);
 				artic = bdd.selectReferenciaConCodigoBarra(cb);

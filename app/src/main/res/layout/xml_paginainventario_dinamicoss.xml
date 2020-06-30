@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/PID_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -55,13 +56,12 @@
                 android:src="@drawable/ic_lectora" />
 
             <EditText
-                android:id="@+id/TextcodigoBarras"
-                android:layout_width="150dp"
-                android:layout_height="40dp"
-                android:layout_marginStart="25dp"
-                android:layout_marginTop="15dp"
+                android:id="@+id/editTextTextPersonName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:ems="10"
-                android:inputType="numberSigned" />
+                android:inputType="textPersonName" />
 
             <TextView
                 android:id="@+id/PID_tit_pagina"
@@ -75,7 +75,7 @@
                 android:textSize="@dimen/titulo" />
             <!-- </LinearLayout> -->
 
-            <requestFocus />
+
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -107,6 +107,9 @@
                     android:text="Esperando Codigo de Barra. NO Activo escaneo por articulo"
                     android:textAppearance="?android:attr/textAppearanceMedium" />
             </LinearLayout>
+
+
+
         </LinearLayout>
 
         <!-- ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; -->
@@ -254,28 +257,27 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="344dp"
-                    android:orientation="horizontal" >
+                    android:orientation="horizontal">
 
                     <!-- ####@@@@ ARTICULOS @@@@#### -->
 
                     <TableLayout
                         android:id="@+id/PID_tabla_articulos"
                         android:layout_width="740dp"
-                        android:layout_height="wrap_content" >
-                    </TableLayout>
+                        android:layout_height="wrap_content"></TableLayout>
 
                     <RelativeLayout
                         android:id="@+id/PID_layout_lateral"
                         android:layout_width="30dp"
                         android:layout_height="300dp"
                         android:layout_marginStart="100dp"
-                        android:gravity="center_vertical" >
+                        android:gravity="center_vertical">
 
                         <ImageView
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:paddingBottom="18dp"
                             android:paddingTop="15dp"
+                            android:paddingBottom="18dp"
                             android:scaleType="fitXY"
                             android:src="@drawable/linea_asensor" />
 
@@ -283,7 +285,7 @@
                             android:id="@+id/PID_layout_asensor"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:orientation="vertical" >
+                            android:orientation="vertical">
 
                             <TextView
                                 android:id="@+id/PID_asensor_text"

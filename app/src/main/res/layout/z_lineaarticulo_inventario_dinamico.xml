@@ -43,25 +43,25 @@
         android:singleLine="true"
         android:textColor="@color/white"
         android:textSize="@dimen/medioGrande" />
-    
-   
+
+
+    <!--  Este lo agregue -->
+
     <EditText
         android:id="@+id/ZLIN_cantidad"
         android:layout_width="105dp"
         android:layout_height="fill_parent"
         android:layout_marginEnd="1dp"
+        android:background="@color/black"
         android:cursorVisible="true"
         android:focusable="false"
         android:gravity="center"
-        android:inputType="number"
+        android:inputType="numberDecimal"
         android:maxLength="6"
         android:singleLine="true"
         android:text="No tomado"
         android:textColor="@color/anaranjado_verde"
-        android:textSize="@dimen/talla_texto_medioGrande"
-        android:background="@color/black" />
-
-    <!--  Este lo agregue -->
+        android:textSize="@dimen/talla_texto_medioGrande" />
 
     <TextView
         android:id="@+id/ZLIN_existente"

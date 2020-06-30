@@ -54,7 +54,7 @@
         android:cursorVisible="true"
         android:focusable="false"
         android:gravity="center"
-        android:inputType="number"
+        android:inputType="numberDecimal"
         android:maxLength="6"
         android:singleLine="true"
         android:text="No tomado"

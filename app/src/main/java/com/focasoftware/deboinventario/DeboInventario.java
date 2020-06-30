@@ -277,7 +277,7 @@ public class DeboInventario extends Activity implements DialogPersoSimple, Wifi 
 		// }
 
 		// 3 Otro control horario en caso que la fecha sea muy incoherente
-		if (ControlHora.control_horario() == false) {
+		if (!ControlHora.control_horario()) {
 			showSimpleDialogOK("PROBLEMA DE HORARIO", ControlHora.mensaje())
 					.show();
 

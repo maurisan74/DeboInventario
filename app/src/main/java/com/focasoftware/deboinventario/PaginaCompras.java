@@ -199,6 +199,7 @@ public class PaginaCompras  extends Activity implements DialogPersoSimple {
         super.onCreate(savedInstanceState);
 
         checkBoxT=(CheckBox)findViewById(R.id.checkBoxToma);
+
   //    boolean condicionRadio = ParametrosInventario.InventariosVentas;
         int condR = -3;
   //    boolean condicionb = ParametrosInventario.StockToma;

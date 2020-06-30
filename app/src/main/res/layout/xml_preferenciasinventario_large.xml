@@ -17,17 +17,17 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="320dp"
-        android:layout_weight="0.44" >
+        android:layout_weight="0.44">
 
         <TableLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="start"
-            android:layout_margin="20dp" >
+            android:layout_margin="20dp">
 
             <TableRow
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" >
+                android:layout_height="wrap_content">
 
                 <TextView
                     android:layout_width="100dp"
@@ -41,7 +41,7 @@
 
             <TableRow
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" >
+                android:layout_height="wrap_content">
 
                 <EditText
                     android:id="@+id/PREF_URL_webservice"
@@ -49,7 +49,7 @@
                     android:layout_margin="5dp"
                     android:singleLine="true"
                     android:text="URL"
-                    android:textSize="@dimen/talla_texto_grande" >
+                    android:textSize="@dimen/talla_texto_grande">
 
                     <requestFocus />
                 </EditText>
@@ -58,15 +58,15 @@
                     android:id="@+id/PREF_checkUrl"
                     android:layout_width="120dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
                     android:gravity="center"
                     android:text="Check URL"
-                    android:textSize="@dimen/talla_texto_GrandeGrande"
-                    android:layout_marginTop="8dp" />
+                    android:textSize="@dimen/talla_texto_GrandeGrande" />
             </TableRow>
 
             <TableRow
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" >
+                android:layout_height="wrap_content">
 
                 <Button
                     android:id="@+id/PREF_agregarUrl"
@@ -79,7 +79,7 @@
 
             <TableRow
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" >
+                android:layout_height="wrap_content">
 
                 <Spinner
                     android:id="@+id/spinner1"
@@ -90,7 +90,7 @@
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:visibility="gone" >
+                android:visibility="gone">
 
                 <TextView
                     android:layout_width="300dp"
@@ -105,7 +105,7 @@
             <TableRow
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:visibility="gone" >
+                android:visibility="gone">
 
                 <EditText
                     android:id="@+id/PREF_wifi_preferido"
@@ -119,7 +119,7 @@
 
             <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" >
+                android:layout_height="match_parent">
 
                 <TextView
                     android:layout_width="300dp"
@@ -133,7 +133,7 @@
 
             <TableRow
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" >
+                android:layout_height="wrap_content">
 
                 <EditText
                     android:id="@+id/PREF_id_tablet"
@@ -148,7 +148,7 @@
 
             <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" >
+                android:layout_height="match_parent">
 
                 <TextView
                     android:layout_width="300dp"
@@ -162,7 +162,7 @@
 
             <TableRow
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" >
+                android:layout_height="wrap_content">
 
                 <EditText
                     android:id="@+id/PREF_usb_import"
@@ -176,7 +176,7 @@
 
             <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" >
+                android:layout_height="match_parent">
 
                 <TextView
                     android:layout_width="300dp"
@@ -190,7 +190,7 @@
 
             <TableRow
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" >
+                android:layout_height="wrap_content">
 
                 <EditText
                     android:id="@+id/PREF_usb_export"
@@ -204,7 +204,7 @@
 
             <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" >
+                android:layout_height="match_parent">
 
                 <TextView
                     android:layout_width="300dp"
@@ -218,7 +218,7 @@
 
             <TableRow
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" >
+                android:layout_height="wrap_content">
 
                 <EditText
                     android:id="@+id/Carpeta_Maestros"
@@ -232,7 +232,7 @@
 
             <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" >
+                android:layout_height="match_parent">
 
                 <TextView
                     android:layout_width="300dp"
@@ -246,7 +246,7 @@
 
             <TableRow
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" >
+                android:layout_height="wrap_content">
 
                 <EditText
                     android:id="@+id/Carpeta_LogEventos"
@@ -260,7 +260,7 @@
 
             <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" >
+                android:layout_height="match_parent">
 
                 <TextView
                     android:layout_width="300dp"
@@ -273,7 +273,7 @@
 
             <TableRow
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" >
+                android:layout_height="wrap_content">
 
                 <EditText
                     android:id="@+id/Carpeta_LogDatos"
@@ -287,7 +287,7 @@
 
             <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" >
+                android:layout_height="match_parent">
 
                 <TextView
                     android:layout_width="match_parent"
@@ -301,7 +301,7 @@
 
             <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" >
+                android:layout_height="match_parent">
 
                 <CheckBox
                     android:id="@+id/checkBoxEventos"
@@ -310,7 +310,7 @@
 
             <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" >
+                android:layout_height="match_parent">
 
                 <CheckBox
                     android:id="@+id/checkBoxProcesos"
@@ -321,7 +321,7 @@
 
             <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" >
+                android:layout_height="match_parent">
 
                 <CheckBox
                     android:id="@+id/checkBoxMensajes"
@@ -332,7 +332,7 @@
 
             <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" >
+                android:layout_height="match_parent">
 
                 <CheckBox
                     android:id="@+id/checkBoxExcepciones"
@@ -343,7 +343,7 @@
 
             <TableRow
                 android:layout_width="wrap_content"
-                android:layout_height="50dp" >
+                android:layout_height="50dp">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -354,25 +354,25 @@
                     android:textColor="@color/white"
                     android:textSize="@dimen/talla_texto_medioGrande" />
             </TableRow>
-            
-                <TextView
-                    android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
-                    android:gravity="end"
-                    android:text="INVENTARIO (Recuerde finalizar con un inventario antes de trabajar con el otro)"
-                    android:textColor="@color/white"
-                    android:textSize="@dimen/talla_texto_sub" />
+
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:gravity="end"
+                android:text="INVENTARIO (Recuerde finalizar con un inventario antes de trabajar con el otro)"
+                android:textColor="@color/white"
+                android:textSize="@dimen/talla_texto_sub" />
 
             <TableRow
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" >
+                android:layout_height="wrap_content">
 
                 <RadioGroup
                     android:id="@+id/grupoVD"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="vertical"
-                    android:paddingEnd="30dp" >
+                    android:paddingEnd="30dp">
 
                     <RadioButton
                         android:id="@+id/CheckInventariosVentas"
@@ -387,11 +387,11 @@
                         android:text="Inventarios por deposito" />
                 </RadioGroup>
             </TableRow>
-            
+
             <TableRow
                 android:id="@+id/tableRow2"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" >
+                android:layout_height="wrap_content">
 
                 <CheckBox
                     android:id="@+id/CheckHabcamScanner"
@@ -404,7 +404,7 @@
             <TableRow
                 android:id="@+id/tableRow3"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" >
+                android:layout_height="wrap_content">
 
                 <CheckBox
                     android:id="@+id/CheckLecturaEntrada"
@@ -417,7 +417,7 @@
             <TableRow
                 android:id="@+id/tableRow5"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" >
+                android:layout_height="wrap_content">
 
                 <TextView
                     android:id="@+id/TxtLectura_x_entrada"
@@ -428,14 +428,14 @@
 
             <TableRow
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" >
+                android:layout_height="wrap_content">
 
                 <RadioGroup
                     android:id="@+id/gruporb"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="vertical"
-                    android:paddingEnd="30dp" >
+                    android:paddingEnd="30dp">
 
                     <RadioButton
                         android:id="@+id/radio1"
@@ -451,28 +451,27 @@
                 </RadioGroup>
             </TableRow>
 
-              <TableRow
+            <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" >
+                android:layout_height="match_parent">
 
                 <CheckBox
                     android:id="@+id/checkBoxToma"
+                    android:checked="true"
+                    android:visibility="gone"
                     android:text="Mostrar stock en el sistema al momento de la descarga del maestro" />
             </TableRow>
 
-              <TableRow
+            <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" >
-
+                android:layout_height="match_parent">
                 <CheckBox
                     android:id="@+id/checkBoxBalanza"
                     android:text="Habilitar lectura codigo de barra balanza" />
             </TableRow>
-              
-            
 
-            <LinearLayout android:layout_height="20dp" >
-            </LinearLayout>
+
+            <LinearLayout android:layout_height="20dp"></LinearLayout>
         </TableLayout>
     </ScrollView>
 

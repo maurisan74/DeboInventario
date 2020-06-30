@@ -464,6 +464,7 @@
 
                 <CheckBox
                     android:id="@+id/checkBoxToma"
+                    android:checked="true"
                     android:text="Mostrar stock en el sistema al momento de la descarga del maestro" />
             </TableRow>
 
@@ -475,9 +476,6 @@
                     android:id="@+id/checkBoxBalanza"
                     android:text="Habilitar lectura codigo de barra balanza" />
             </TableRow>
-
-
-            <LinearLayout android:layout_height="20dp"></LinearLayout>
         </TableLayout>
 
     </ScrollView>
