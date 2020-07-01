@@ -416,8 +416,8 @@
                     android:id="@+id/CheckLecturaEntrada"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:checked="false"
-                    android:text="Lectura por entrada" />
+                    android:checked="true"
+                    android:text="Lectura por entrada/Scanner" />
             </TableRow>
 
             <TableRow
@@ -474,6 +474,7 @@
 
                 <CheckBox
                     android:id="@+id/checkBoxBalanza"
+                    android:checked="true"
                     android:text="Habilitar lectura codigo de barra balanza" />
             </TableRow>
         </TableLayout>

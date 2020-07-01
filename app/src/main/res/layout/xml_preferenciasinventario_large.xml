@@ -378,6 +378,7 @@
                         android:id="@+id/CheckInventariosVentas"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:checked="true"
                         android:text="Inventarios por venta" />
 
                     <RadioButton
@@ -410,8 +411,8 @@
                     android:id="@+id/CheckLecturaEntrada"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:checked="false"
-                    android:text="Lectura por entrada" />
+                    android:checked="true"
+                    android:text="Lectura por entrada/Scanner" />
             </TableRow>
 
             <TableRow
