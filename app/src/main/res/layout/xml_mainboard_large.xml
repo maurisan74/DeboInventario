@@ -15,7 +15,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
-            android:text="Estado de los INVENTARIOS"
+            android:text="Estado de los INVENTARIOS."
             android:textColor="@color/black"
             android:textSize="@dimen/titulo" />
 
@@ -77,19 +77,19 @@
 
             <ScrollView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" >
+                android:layout_height="match_parent">
 
                 <TableLayout
                     android:id="@+id/IMB_tabla"
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content" >
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
 
                     <!--
-					<TableRow 
+					<TableRow
 						android:layout_width="wrap_content"
 						android:layout_height="wrap_content"
 						android:layout_margin="5dp">
-						
+
 					</TableRow>
                     -->
 

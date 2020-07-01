@@ -65,7 +65,7 @@
 
     <TextView
         android:id="@+id/ZLIN_existente"
-        android:layout_width="95dp"
+        android:layout_width="108dp"
         android:layout_height="fill_parent"
         android:layout_marginEnd="1dp"
         android:background="@color/black"

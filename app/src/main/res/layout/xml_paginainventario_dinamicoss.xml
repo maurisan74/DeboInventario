@@ -55,9 +55,12 @@
                 android:layout_marginStart="50dp"
                 android:src="@drawable/ic_lectora" />
 
+            <!-- </LinearLayout> -->
+
+
             <EditText
                 android:id="@+id/editTextTextPersonName"
-                android:layout_width="wrap_content"
+                android:layout_width="352dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
@@ -68,14 +71,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginStart="100dp"
-                android:layout_marginEnd="80dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="180dp"
                 android:text="Inventarios Dinámicos"
                 android:textColor="@color/anaranjado_verde"
                 android:textSize="@dimen/titulo" />
-            <!-- </LinearLayout> -->
-
-
 
             <LinearLayout
                 android:layout_width="wrap_content"

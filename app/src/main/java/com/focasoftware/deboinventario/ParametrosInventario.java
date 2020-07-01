@@ -108,7 +108,7 @@ public class ParametrosInventario {
 	public final static String PREF_USB_IMPORT_MAESTRO_NOMBRE = "maestro.xml";
 
 	public final static int BDD_VERSION = 20;
-	public final static String VERSION = BDD_VERSION + ".0.15";
+	public final static String VERSION = BDD_VERSION + ".0.17";
 	public final static String BDD_NOMBRE = "DB_INVENT";
 
 	public static final String elementos_seleccionados = "INVENTARIOS_SELECCIONADOS";

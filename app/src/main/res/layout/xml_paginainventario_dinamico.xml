@@ -87,8 +87,8 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_marginStart="60dp"
                 android:layout_marginTop="10dp"
-                android:layout_marginEnd="80dp"
-                android:text="Inventarios Dinámicos"
+                android:layout_marginEnd="90dp"
+                android:text="Inventarios Dinámicos."
                 android:textColor="@color/anaranjado_verde"
                 android:textSize="@dimen/titulo" />
 
@@ -279,36 +279,26 @@
                 <!-- ####@@@@ _____FIN ENCABEZADOS____ @@@@#### -->
 
                 <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="439dp"
+                    android:layout_width="760dp"
+                    android:layout_height="428dp"
+                    android:layout_marginTop="10dp"
                     android:orientation="horizontal">
 
                     <!-- ####@@@@ ARTICULOS @@@@#### -->
 
                     <TableLayout
                         android:id="@+id/PID_tabla_articulos"
-                        android:layout_width="740dp"
+                        android:layout_width="750dp"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"></TableLayout>
 
                     <RelativeLayout
                         android:id="@+id/PID_layout_lateral"
                         android:layout_width="30dp"
-                        android:layout_height="350dp"
+                        android:layout_height="302dp"
                         android:layout_marginStart="65dp"
                         android:layout_marginTop="30dp"
                         android:gravity="center_vertical">
-
-                        <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:background="#FF9800"
-                            android:paddingTop="50dp"
-                            android:scaleType="fitXY"
-                            android:scrollbarSize="8dp"
-                            android:src="@drawable/linea_asensor"
-                            android:visibility="visible"
-                            tools:src="@drawable/linea_asensor" />
 
                         <LinearLayout
                             android:id="@+id/PID_layout_asensor"
@@ -336,6 +326,7 @@
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>
+
         <!-- ####@@@@ ____FIN ARTICULOS____ @@@@#### -->
 
 
@@ -396,7 +387,8 @@
         android:id="@+id/PID_boton_up"
         android:layout_width="40dp"
         android:layout_height="40dp"
-        android:layout_marginStart="900dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="860dp"
         android:layout_marginTop="100dp"
         android:src="@drawable/boton_up" />
 
@@ -404,8 +396,7 @@
         android:id="@+id/PID_boton_down"
         android:layout_width="40dp"
         android:layout_height="40dp"
-        android:layout_marginStart="900dp"
+        android:layout_marginStart="860dp"
         android:layout_marginTop="500dp"
         android:src="@drawable/boton_down" />
-
 </RelativeLayout>
